@@ -1,0 +1,592 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9392A67DDBF3F4988B16A395 /* Pods_blockchyp_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E7B10F02689E8A57E1109F2 /* Pods_blockchyp_ios.framework */; };
+		B12FC23A23A746E700EAB159 /* HeartbeatTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B12FC23923A746E700EAB159 /* HeartbeatTest.m */; };
+		B12FC23C23A746E700EAB159 /* libblockchyp-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B1081AFF23A7459800F82D94 /* libblockchyp-ios.a */; };
+		B12FC24423A7477000EAB159 /* BlockChyp.m in Sources */ = {isa = PBXBuildFile; fileRef = B12FC24323A7477000EAB159 /* BlockChyp.m */; };
+		B12FC24723A7481800EAB159 /* BlockChypTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B12FC24623A7481800EAB159 /* BlockChypTest.m */; };
+		B12FC24A23A74B9D00EAB159 /* TestConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = B12FC24923A74B9D00EAB159 /* TestConfiguration.m */; };
+		B12FC24C23A74F6800EAB159 /* sdk-itest-config.json in Resources */ = {isa = PBXBuildFile; fileRef = B12FC24B23A74F6800EAB159 /* sdk-itest-config.json */; };
+		B12FC24E23A74F8300EAB159 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = B12FC24D23A74F8300EAB159 /* .gitignore */; };
+		B12FC25123A7525800EAB159 /* EncodingUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B12FC25023A7525800EAB159 /* EncodingUtils.m */; };
+		B12FC25423A75BFF00EAB159 /* BlockChypClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B12FC25323A75BFF00EAB159 /* BlockChypClient.m */; };
+		B19BA8BF23AC4C860003A1FF /* BooleanPromptTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B19BA8BE23AC4C860003A1FF /* BooleanPromptTest.m */; };
+		B19BA8C423AC4C970003A1FF /* PanPreauthTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B19BA8C023AC4C960003A1FF /* PanPreauthTest.m */; };
+		B19BA8C523AC4C970003A1FF /* PanChargeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B19BA8C123AC4C960003A1FF /* PanChargeTest.m */; };
+		B19BA8C623AC4C970003A1FF /* NewTransactionDisplayTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B19BA8C223AC4C970003A1FF /* NewTransactionDisplayTest.m */; };
+		B19BA8C723AC4C970003A1FF /* PanEnrollTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B19BA8C323AC4C970003A1FF /* PanEnrollTest.m */; };
+		B19BA8D623AC4CA10003A1FF /* SimplePingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B19BA8C823AC4CA00003A1FF /* SimplePingTest.m */; };
+		B19BA8D723AC4CA10003A1FF /* TerminalChargeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B19BA8C923AC4CA00003A1FF /* TerminalChargeTest.m */; };
+		B19BA8D823AC4CA10003A1FF /* SimpleCaptureTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B19BA8CA23AC4CA00003A1FF /* SimpleCaptureTest.m */; };
+		B19BA8D923AC4CA10003A1FF /* TerminalEnrollTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B19BA8CB23AC4CA00003A1FF /* TerminalEnrollTest.m */; };
+		B19BA8DA23AC4CA10003A1FF /* SimpleGiftActivateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B19BA8CC23AC4CA00003A1FF /* SimpleGiftActivateTest.m */; };
+		B19BA8DB23AC4CA10003A1FF /* SimpleBatchCloseTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B19BA8CD23AC4CA00003A1FF /* SimpleBatchCloseTest.m */; };
+		B19BA8DC23AC4CA10003A1FF /* TermsAndConditionsTestTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B19BA8CE23AC4CA00003A1FF /* TermsAndConditionsTestTest.m */; };
+		B19BA8DD23AC4CA10003A1FF /* SimpleVoidTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B19BA8CF23AC4CA00003A1FF /* SimpleVoidTest.m */; };
+		B19BA8DE23AC4CA10003A1FF /* SimpleReversalTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B19BA8D023AC4CA00003A1FF /* SimpleReversalTest.m */; };
+		B19BA8DF23AC4CA10003A1FF /* TerminalClearTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B19BA8D123AC4CA00003A1FF /* TerminalClearTest.m */; };
+		B19BA8E023AC4CA10003A1FF /* SimpleRefundTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B19BA8D223AC4CA00003A1FF /* SimpleRefundTest.m */; };
+		B19BA8E123AC4CA10003A1FF /* TerminalBalanceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B19BA8D323AC4CA00003A1FF /* TerminalBalanceTest.m */; };
+		B19BA8E223AC4CA10003A1FF /* TerminalPreauthTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B19BA8D423AC4CA10003A1FF /* TerminalPreauthTest.m */; };
+		B19BA8E323AC4CA10003A1FF /* SimpleMessageTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B19BA8D523AC4CA10003A1FF /* SimpleMessageTest.m */; };
+		B19BA8E623AC4CAC0003A1FF /* TextPromptTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B19BA8E423AC4CAB0003A1FF /* TextPromptTest.m */; };
+		B19BA8E723AC4CAC0003A1FF /* UpdateTransactionDisplayTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B19BA8E523AC4CAB0003A1FF /* UpdateTransactionDisplayTest.m */; };
+		B1A8E85E23A9FE63009003D9 /* NSData+FastHex.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A8E85D23A9FE63009003D9 /* NSData+FastHex.m */; };
+		B1A8E85F23A9FEC9009003D9 /* NSData+FastHex.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A8E85D23A9FE63009003D9 /* NSData+FastHex.m */; };
+		B1FCB51F23A9DDA200545034 /* HTTPRequestDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B1FCB51E23A9DDA200545034 /* HTTPRequestDelegate.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B12FC23D23A746E700EAB159 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B1081AF723A7459800F82D94 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B1081AFE23A7459800F82D94;
+			remoteInfo = "blockchyp-ios";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B1081AFD23A7459800F82D94 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		29EA062F00F1CAFDF673D2CE /* Pods-blockchyp-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-blockchyp-ios.debug.xcconfig"; path = "Target Support Files/Pods-blockchyp-ios/Pods-blockchyp-ios.debug.xcconfig"; sourceTree = "<group>"; };
+		3E7B10F02689E8A57E1109F2 /* Pods_blockchyp_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_blockchyp_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		83CBC3B5BBA6E11850DF048D /* Pods-blockchyp-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-blockchyp-ios.release.xcconfig"; path = "Target Support Files/Pods-blockchyp-ios/Pods-blockchyp-ios.release.xcconfig"; sourceTree = "<group>"; };
+		B1081AFF23A7459800F82D94 /* libblockchyp-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libblockchyp-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B12FC23723A746E700EAB159 /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B12FC23923A746E700EAB159 /* HeartbeatTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeartbeatTest.m; sourceTree = "<group>"; };
+		B12FC23B23A746E700EAB159 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B12FC24223A7477000EAB159 /* BlockChyp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlockChyp.h; sourceTree = "<group>"; };
+		B12FC24323A7477000EAB159 /* BlockChyp.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlockChyp.m; sourceTree = "<group>"; };
+		B12FC24523A7481800EAB159 /* BlockChypTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlockChypTest.h; sourceTree = "<group>"; };
+		B12FC24623A7481800EAB159 /* BlockChypTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlockChypTest.m; sourceTree = "<group>"; };
+		B12FC24823A74B9D00EAB159 /* TestConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestConfiguration.h; sourceTree = "<group>"; };
+		B12FC24923A74B9D00EAB159 /* TestConfiguration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestConfiguration.m; sourceTree = "<group>"; };
+		B12FC24B23A74F6800EAB159 /* sdk-itest-config.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "sdk-itest-config.json"; sourceTree = "<group>"; };
+		B12FC24D23A74F8300EAB159 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		B12FC24F23A7525800EAB159 /* EncodingUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EncodingUtils.h; sourceTree = "<group>"; };
+		B12FC25023A7525800EAB159 /* EncodingUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EncodingUtils.m; sourceTree = "<group>"; };
+		B12FC25223A75BFF00EAB159 /* BlockChypClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlockChypClient.h; sourceTree = "<group>"; };
+		B12FC25323A75BFF00EAB159 /* BlockChypClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlockChypClient.m; sourceTree = "<group>"; };
+		B19BA8BE23AC4C860003A1FF /* BooleanPromptTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BooleanPromptTest.m; sourceTree = "<group>"; };
+		B19BA8C023AC4C960003A1FF /* PanPreauthTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanPreauthTest.m; sourceTree = "<group>"; };
+		B19BA8C123AC4C960003A1FF /* PanChargeTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanChargeTest.m; sourceTree = "<group>"; };
+		B19BA8C223AC4C970003A1FF /* NewTransactionDisplayTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewTransactionDisplayTest.m; sourceTree = "<group>"; };
+		B19BA8C323AC4C970003A1FF /* PanEnrollTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanEnrollTest.m; sourceTree = "<group>"; };
+		B19BA8C823AC4CA00003A1FF /* SimplePingTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimplePingTest.m; sourceTree = "<group>"; };
+		B19BA8C923AC4CA00003A1FF /* TerminalChargeTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TerminalChargeTest.m; sourceTree = "<group>"; };
+		B19BA8CA23AC4CA00003A1FF /* SimpleCaptureTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleCaptureTest.m; sourceTree = "<group>"; };
+		B19BA8CB23AC4CA00003A1FF /* TerminalEnrollTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TerminalEnrollTest.m; sourceTree = "<group>"; };
+		B19BA8CC23AC4CA00003A1FF /* SimpleGiftActivateTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleGiftActivateTest.m; sourceTree = "<group>"; };
+		B19BA8CD23AC4CA00003A1FF /* SimpleBatchCloseTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleBatchCloseTest.m; sourceTree = "<group>"; };
+		B19BA8CE23AC4CA00003A1FF /* TermsAndConditionsTestTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TermsAndConditionsTestTest.m; sourceTree = "<group>"; };
+		B19BA8CF23AC4CA00003A1FF /* SimpleVoidTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleVoidTest.m; sourceTree = "<group>"; };
+		B19BA8D023AC4CA00003A1FF /* SimpleReversalTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleReversalTest.m; sourceTree = "<group>"; };
+		B19BA8D123AC4CA00003A1FF /* TerminalClearTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TerminalClearTest.m; sourceTree = "<group>"; };
+		B19BA8D223AC4CA00003A1FF /* SimpleRefundTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleRefundTest.m; sourceTree = "<group>"; };
+		B19BA8D323AC4CA00003A1FF /* TerminalBalanceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TerminalBalanceTest.m; sourceTree = "<group>"; };
+		B19BA8D423AC4CA10003A1FF /* TerminalPreauthTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TerminalPreauthTest.m; sourceTree = "<group>"; };
+		B19BA8D523AC4CA10003A1FF /* SimpleMessageTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleMessageTest.m; sourceTree = "<group>"; };
+		B19BA8E423AC4CAB0003A1FF /* TextPromptTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextPromptTest.m; sourceTree = "<group>"; };
+		B19BA8E523AC4CAB0003A1FF /* UpdateTransactionDisplayTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateTransactionDisplayTest.m; sourceTree = "<group>"; };
+		B1A8E85823A9FD7E009003D9 /* NSData+FastHex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSData+FastHex.h"; path = "../Pods/NSData+FastHex/NSData+FastHex.h"; sourceTree = "<group>"; };
+		B1A8E85D23A9FE63009003D9 /* NSData+FastHex.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSData+FastHex.m"; sourceTree = "<group>"; };
+		B1FCB51D23A9DDA200545034 /* HTTPRequestDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTTPRequestDelegate.h; sourceTree = "<group>"; };
+		B1FCB51E23A9DDA200545034 /* HTTPRequestDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTTPRequestDelegate.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B1081AFC23A7459800F82D94 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9392A67DDBF3F4988B16A395 /* Pods_blockchyp_ios.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B12FC23423A746E700EAB159 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B12FC23C23A746E700EAB159 /* libblockchyp-ios.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3388232AAFE9ED0CEBA2A485 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3E7B10F02689E8A57E1109F2 /* Pods_blockchyp_ios.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		61E82EDE15ED96049871CA40 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				29EA062F00F1CAFDF673D2CE /* Pods-blockchyp-ios.debug.xcconfig */,
+				83CBC3B5BBA6E11850DF048D /* Pods-blockchyp-ios.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		B1081AF623A7459800F82D94 = {
+			isa = PBXGroup;
+			children = (
+				B1081B0123A7459800F82D94 /* BlockChyp */,
+				B12FC23823A746E700EAB159 /* Tests */,
+				B1081B0023A7459800F82D94 /* Products */,
+				61E82EDE15ED96049871CA40 /* Pods */,
+				3388232AAFE9ED0CEBA2A485 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		B1081B0023A7459800F82D94 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B1081AFF23A7459800F82D94 /* libblockchyp-ios.a */,
+				B12FC23723A746E700EAB159 /* Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B1081B0123A7459800F82D94 /* BlockChyp */ = {
+			isa = PBXGroup;
+			children = (
+				B1A8E85823A9FD7E009003D9 /* NSData+FastHex.h */,
+				B12FC24223A7477000EAB159 /* BlockChyp.h */,
+				B12FC24323A7477000EAB159 /* BlockChyp.m */,
+				B12FC24F23A7525800EAB159 /* EncodingUtils.h */,
+				B12FC25023A7525800EAB159 /* EncodingUtils.m */,
+				B12FC25223A75BFF00EAB159 /* BlockChypClient.h */,
+				B12FC25323A75BFF00EAB159 /* BlockChypClient.m */,
+				B1FCB51D23A9DDA200545034 /* HTTPRequestDelegate.h */,
+				B1FCB51E23A9DDA200545034 /* HTTPRequestDelegate.m */,
+				B1A8E85D23A9FE63009003D9 /* NSData+FastHex.m */,
+			);
+			path = BlockChyp;
+			sourceTree = "<group>";
+		};
+		B12FC23823A746E700EAB159 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				B19BA8E423AC4CAB0003A1FF /* TextPromptTest.m */,
+				B19BA8E523AC4CAB0003A1FF /* UpdateTransactionDisplayTest.m */,
+				B19BA8CD23AC4CA00003A1FF /* SimpleBatchCloseTest.m */,
+				B19BA8CA23AC4CA00003A1FF /* SimpleCaptureTest.m */,
+				B19BA8CC23AC4CA00003A1FF /* SimpleGiftActivateTest.m */,
+				B19BA8D523AC4CA10003A1FF /* SimpleMessageTest.m */,
+				B19BA8C823AC4CA00003A1FF /* SimplePingTest.m */,
+				B19BA8D223AC4CA00003A1FF /* SimpleRefundTest.m */,
+				B19BA8D023AC4CA00003A1FF /* SimpleReversalTest.m */,
+				B19BA8CF23AC4CA00003A1FF /* SimpleVoidTest.m */,
+				B19BA8D323AC4CA00003A1FF /* TerminalBalanceTest.m */,
+				B19BA8C923AC4CA00003A1FF /* TerminalChargeTest.m */,
+				B19BA8D123AC4CA00003A1FF /* TerminalClearTest.m */,
+				B19BA8CB23AC4CA00003A1FF /* TerminalEnrollTest.m */,
+				B19BA8D423AC4CA10003A1FF /* TerminalPreauthTest.m */,
+				B19BA8CE23AC4CA00003A1FF /* TermsAndConditionsTestTest.m */,
+				B19BA8C223AC4C970003A1FF /* NewTransactionDisplayTest.m */,
+				B19BA8C123AC4C960003A1FF /* PanChargeTest.m */,
+				B19BA8C323AC4C970003A1FF /* PanEnrollTest.m */,
+				B19BA8C023AC4C960003A1FF /* PanPreauthTest.m */,
+				B19BA8BE23AC4C860003A1FF /* BooleanPromptTest.m */,
+				B12FC23923A746E700EAB159 /* HeartbeatTest.m */,
+				B12FC23B23A746E700EAB159 /* Info.plist */,
+				B12FC24523A7481800EAB159 /* BlockChypTest.h */,
+				B12FC24623A7481800EAB159 /* BlockChypTest.m */,
+				B12FC24823A74B9D00EAB159 /* TestConfiguration.h */,
+				B12FC24923A74B9D00EAB159 /* TestConfiguration.m */,
+				B12FC24B23A74F6800EAB159 /* sdk-itest-config.json */,
+				B12FC24D23A74F8300EAB159 /* .gitignore */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B1081AFE23A7459800F82D94 /* blockchyp-ios */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B1081B0823A7459800F82D94 /* Build configuration list for PBXNativeTarget "blockchyp-ios" */;
+			buildPhases = (
+				C4081ADEB998364D96D6D118 /* [CP] Check Pods Manifest.lock */,
+				B1081AFB23A7459800F82D94 /* Sources */,
+				B1081AFC23A7459800F82D94 /* Frameworks */,
+				B1081AFD23A7459800F82D94 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "blockchyp-ios";
+			productName = "blockchyp-ios";
+			productReference = B1081AFF23A7459800F82D94 /* libblockchyp-ios.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		B12FC23623A746E700EAB159 /* Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B12FC23F23A746E700EAB159 /* Build configuration list for PBXNativeTarget "Tests" */;
+			buildPhases = (
+				B12FC23323A746E700EAB159 /* Sources */,
+				B12FC23423A746E700EAB159 /* Frameworks */,
+				B12FC23523A746E700EAB159 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B12FC23E23A746E700EAB159 /* PBXTargetDependency */,
+			);
+			name = Tests;
+			productName = Tests;
+			productReference = B12FC23723A746E700EAB159 /* Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B1081AF723A7459800F82D94 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1120;
+				ORGANIZATIONNAME = "Jeff Payne";
+				TargetAttributes = {
+					B1081AFE23A7459800F82D94 = {
+						CreatedOnToolsVersion = 11.2;
+					};
+					B12FC23623A746E700EAB159 = {
+						CreatedOnToolsVersion = 11.2;
+					};
+				};
+			};
+			buildConfigurationList = B1081AFA23A7459800F82D94 /* Build configuration list for PBXProject "blockchyp-ios" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B1081AF623A7459800F82D94;
+			productRefGroup = B1081B0023A7459800F82D94 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B1081AFE23A7459800F82D94 /* blockchyp-ios */,
+				B12FC23623A746E700EAB159 /* Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B12FC23523A746E700EAB159 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B12FC24E23A74F8300EAB159 /* .gitignore in Resources */,
+				B12FC24C23A74F6800EAB159 /* sdk-itest-config.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C4081ADEB998364D96D6D118 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-blockchyp-ios-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B1081AFB23A7459800F82D94 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1A8E85E23A9FE63009003D9 /* NSData+FastHex.m in Sources */,
+				B1FCB51F23A9DDA200545034 /* HTTPRequestDelegate.m in Sources */,
+				B12FC24423A7477000EAB159 /* BlockChyp.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B12FC23323A746E700EAB159 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1A8E85F23A9FEC9009003D9 /* NSData+FastHex.m in Sources */,
+				B19BA8E323AC4CA10003A1FF /* SimpleMessageTest.m in Sources */,
+				B19BA8E023AC4CA10003A1FF /* SimpleRefundTest.m in Sources */,
+				B19BA8DC23AC4CA10003A1FF /* TermsAndConditionsTestTest.m in Sources */,
+				B19BA8E723AC4CAC0003A1FF /* UpdateTransactionDisplayTest.m in Sources */,
+				B19BA8DD23AC4CA10003A1FF /* SimpleVoidTest.m in Sources */,
+				B19BA8BF23AC4C860003A1FF /* BooleanPromptTest.m in Sources */,
+				B19BA8D923AC4CA10003A1FF /* TerminalEnrollTest.m in Sources */,
+				B19BA8D823AC4CA10003A1FF /* SimpleCaptureTest.m in Sources */,
+				B12FC23A23A746E700EAB159 /* HeartbeatTest.m in Sources */,
+				B19BA8D623AC4CA10003A1FF /* SimplePingTest.m in Sources */,
+				B19BA8C423AC4C970003A1FF /* PanPreauthTest.m in Sources */,
+				B12FC24A23A74B9D00EAB159 /* TestConfiguration.m in Sources */,
+				B19BA8DA23AC4CA10003A1FF /* SimpleGiftActivateTest.m in Sources */,
+				B19BA8C523AC4C970003A1FF /* PanChargeTest.m in Sources */,
+				B19BA8E623AC4CAC0003A1FF /* TextPromptTest.m in Sources */,
+				B19BA8DF23AC4CA10003A1FF /* TerminalClearTest.m in Sources */,
+				B19BA8C623AC4C970003A1FF /* NewTransactionDisplayTest.m in Sources */,
+				B19BA8C723AC4C970003A1FF /* PanEnrollTest.m in Sources */,
+				B19BA8DB23AC4CA10003A1FF /* SimpleBatchCloseTest.m in Sources */,
+				B19BA8D723AC4CA10003A1FF /* TerminalChargeTest.m in Sources */,
+				B12FC25123A7525800EAB159 /* EncodingUtils.m in Sources */,
+				B19BA8DE23AC4CA10003A1FF /* SimpleReversalTest.m in Sources */,
+				B12FC25423A75BFF00EAB159 /* BlockChypClient.m in Sources */,
+				B19BA8E223AC4CA10003A1FF /* TerminalPreauthTest.m in Sources */,
+				B12FC24723A7481800EAB159 /* BlockChypTest.m in Sources */,
+				B19BA8E123AC4CA10003A1FF /* TerminalBalanceTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B12FC23E23A746E700EAB159 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B1081AFE23A7459800F82D94 /* blockchyp-ios */;
+			targetProxy = B12FC23D23A746E700EAB159 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		B1081B0623A7459800F82D94 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		B1081B0723A7459800F82D94 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B1081B0923A7459800F82D94 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 29EA062F00F1CAFDF673D2CE /* Pods-blockchyp-ios.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B1081B0A23A7459800F82D94 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 83CBC3B5BBA6E11850DF048D /* Pods-blockchyp-ios.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		B12FC24023A746E700EAB159 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = blockchyp.Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B12FC24123A746E700EAB159 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = blockchyp.Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B1081AFA23A7459800F82D94 /* Build configuration list for PBXProject "blockchyp-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B1081B0623A7459800F82D94 /* Debug */,
+				B1081B0723A7459800F82D94 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B1081B0823A7459800F82D94 /* Build configuration list for PBXNativeTarget "blockchyp-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B1081B0923A7459800F82D94 /* Debug */,
+				B1081B0A23A7459800F82D94 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B12FC23F23A746E700EAB159 /* Build configuration list for PBXNativeTarget "Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B12FC24023A746E700EAB159 /* Debug */,
+				B12FC24123A746E700EAB159 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B1081AF723A7459800F82D94 /* Project object */;
+}
