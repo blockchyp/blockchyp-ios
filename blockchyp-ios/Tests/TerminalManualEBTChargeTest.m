@@ -39,7 +39,7 @@
         request[@"terminalName"] = @"Test Terminal";
         request[@"amount"] = @"27.00";
         request[@"test"] = @YES;
-        request[@"cardType"] = @2;
+        request[@"cardType"] = @(CardType)EBT;
         request[@"manualEntry"] = @YES;
 
   [client chargeWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
