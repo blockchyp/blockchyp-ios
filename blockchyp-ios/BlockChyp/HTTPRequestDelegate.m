@@ -111,6 +111,8 @@ BlockChypClient *client;
     
     NSURL *url = [NSURL URLWithString:path];
     
+    NSLog(@"GET: %@", path);
+    
     NSDictionary *headers = [self generateGatewayHeaders];
     
     NSMutableURLRequest *urlRequest = [[NSMutableURLRequest alloc] initWithURL:url];
@@ -146,6 +148,8 @@ BlockChypClient *client;
     
     NSString *url = [self resolveGatewayURLFor:routePath test:NO];
     
+    NSLog(@"GET: %@", url);
+    
     [self gatewayGetWithPath:url test:false handler:^(NSDictionary * response, NSError * error) {
         
         if (error != nil) {
@@ -157,8 +161,6 @@ BlockChypClient *client;
             self.handler(request, [[NSDictionary alloc] init], nil);
             return;
         }
-        
-
         
         //update cache asyncronously
         dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
@@ -174,6 +176,7 @@ BlockChypClient *client;
 
 -(void)updateCacheWith:(NSDictionary *)route {
     
+
     
     NSString *terminalName = [route objectForKey:@"terminalName"];
     NSString *routeKey = [NSString stringWithFormat:@"%@%@", client.apiKey, terminalName];
@@ -201,6 +204,7 @@ BlockChypClient *client;
     }
     
     [offlineCache setObject:route forKey:routeKey];
+    
     NSError *error;
     NSData *jsonBody = [NSJSONSerialization dataWithJSONObject:offlineCache options:0 error:&error];
     
@@ -214,15 +218,20 @@ BlockChypClient *client;
 }
 
 -(void)routeCachedTerminalRequestWith:(NSDictionary *)request route:(NSDictionary *)route terminalPath:(NSString *)terminalPath gatewayPath:(NSString *)gatewayPath method:(NSString *)method handler:(BlockChypCompletionHandler)handler {
+
+    NSLog(@"Route State: ...");
+    [self logDictionary:route];
     
-    BOOL cloudRelay = (BOOL)[route objectForKey:@"cloudRelayEnabled"];
+    NSNumber *cloudRelay = (NSNumber *)[route objectForKey:@"cloudRelayEnabled"];
     
-    if (cloudRelay) {
+    if ( (cloudRelay != nil) && cloudRelay.boolValue) {
         [self routeGatewayRequestWith:request path:gatewayPath method:method handler:handler];
         return;
     }
     
     NSString *url = [self resolveTerminalURLFor:route path:terminalPath];
+    
+    NSLog(@"TERMINAL GET: %@", url);
     
     NSDictionary *txCreds = [route objectForKey:@"transientCredentials"];
     

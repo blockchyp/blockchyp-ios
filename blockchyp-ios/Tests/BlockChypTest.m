@@ -53,13 +53,21 @@
     
 }
 
--(void)testDelayWith:(BlockChypClient *)client testName:(NSString *)testName {
+-(void)testDelayWith:(BlockChyp *)client testName:(NSString *)testName {
     
     NSString *testDelay = [[[NSProcessInfo processInfo] environment] objectForKey:@"BC_TEST_DELAY"];
  
     int testDelayInt = [testDelay intValue];
     
     if (testDelayInt > 0) {
+        NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
+        request[@"test"] = @YES;
+        request[@"terminalName"] = @"Test Terminal";
+        request[@"message"] = [NSString stringWithFormat:@"Running %@ in %@ seconds..", testName, testDelay];
+        [client messageWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+
+        }];
+        
         NSLog(@"Test Delay: %@ seconds...", testDelay);
         [NSThread sleepForTimeInterval:testDelayInt];
     }

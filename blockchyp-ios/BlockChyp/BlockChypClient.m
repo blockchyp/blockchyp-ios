@@ -36,7 +36,7 @@
     
     NSString *url = [self resolveGatewayURLFor:path test:test];
     
-    NSLog(url);
+    NSLog(@"GET: %@", url);
     
     HTTPRequestDelegate *delegate = [[HTTPRequestDelegate alloc] initWithClient:self];
     
@@ -87,24 +87,21 @@
     NSDictionary *routeEntry = [self.routeCache objectForKey:routeKey];
     
     if (routeEntry == nil) {
-        
         NSFileManager *fileManager = [NSFileManager defaultManager];
-
         NSString *pathForFile = @".blockchyp_routes";
-
         if ([fileManager fileExistsAtPath:pathForFile]){
             NSData *jsonData = [NSData dataWithContentsOfFile:pathForFile];
             NSString *json = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
             NSDictionary *offlineCache = [EncodingUtils parseJSON:json];
             routeEntry = [offlineCache objectForKey:routeKey];
-           
        }
-    
     }
 
     if (routeEntry != nil) {
-        NSLog(@"CACHE HIT");
         NSDate *ttl = [routeEntry objectForKey:@"ttl"];
+        if (ttl == nil) {
+            return nil;
+        }
         NSDate *now = [NSDate date];
         if (stale || ([now compare: ttl] == NSOrderedAscending)) {
             return [routeEntry objectForKey:@"route"];
@@ -112,6 +109,19 @@
     }
         
     return nil;
+    
+}
+
+-(void)logDictionary:(NSDictionary *)dict {
+    
+    NSError *error;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dict options:NSJSONWritingPrettyPrinted error:&error];
+
+    if (! jsonData) {
+       NSLog(@"%s: error: %@", __func__, error.localizedDescription);
+    } else {
+       NSLog([[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding]);
+    }
     
 }
 
