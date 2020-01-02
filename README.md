@@ -216,6 +216,20 @@ To run the integration test suite via `make`, type the following command:
 `make integration`
 
 
+
+From inside the blockchyp-ios directory, run the following command to execute all tests.
+
+```
+xcodebuild test -project blockchyp-ios.xcodeproj -scheme Tests -destination 'platform=iOS Simulator,name=iPhone 11 Pro'
+```
+
+```
+xcodebuild test -project blockchyp-ios.xcodeproj -scheme Tests -destination 'platform=iOS Simulator,name=iPad' -only-testing:Tests/PANChargeTest
+```
+
+-only-testing:TestBundle/TestSuite/TestCase
+
+
 ## Contributions
 
 BlockChyp welcomes contributions from the open source community, but bear in mind

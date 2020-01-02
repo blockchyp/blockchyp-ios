@@ -7,7 +7,6 @@
 //
 
 #import "BlockChypTest.h"
-#import "../BlockChyp/BlockChyp.h"
 
 @interface PANChargeTest : BlockChypTest
 
@@ -18,6 +17,13 @@
 @implementation PANChargeTest
 
 - (void)setUp {
+
+  TestConfiguration *config = [self loadConfiguration];
+  BlockChyp *client = [[BlockChyp alloc] initWithApiKey:config.apiKey bearerToken:config.bearerToken signingKey:config.signingKey];
+  client.gatewayHost = config.gatewayHost;
+  client.testGatewayHost = config.testGatewayHost;
+
+  [self testDelayWith:client testName:@"PANChargeTest"];
 
 
 }
@@ -39,7 +45,8 @@
         request[@"pan"] = @"4111111111111111";
         request[@"amount"] = @"25.55";
         request[@"test"] = @YES;
-    
+        request[@"transactionRef"] = [self getUUID];
+
   [client chargeWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
     [self logJSON:response];
     XCTAssertNotNil(response);

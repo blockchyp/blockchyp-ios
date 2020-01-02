@@ -7,7 +7,6 @@
 //
 
 #import "BlockChypTest.h"
-#import "../BlockChyp/BlockChyp.h"
 
 @interface TextPromptTest : BlockChypTest
 
@@ -18,6 +17,13 @@
 @implementation TextPromptTest
 
 - (void)setUp {
+
+  TestConfiguration *config = [self loadConfiguration];
+  BlockChyp *client = [[BlockChyp alloc] initWithApiKey:config.apiKey bearerToken:config.bearerToken signingKey:config.signingKey];
+  client.gatewayHost = config.gatewayHost;
+  client.testGatewayHost = config.testGatewayHost;
+
+  [self testDelayWith:client testName:@"TextPromptTest"];
 
 
 }
@@ -38,7 +44,7 @@
       NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
         request[@"test"] = @YES;
         request[@"terminalName"] = @"Test Terminal";
-        request[@"promptType"] = @(PromptType)EMAIL;
+        request[@"promptType"] = PROMPT_TYPE_EMAIL;
 
   [client textPromptWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
     [self logJSON:response];

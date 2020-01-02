@@ -7,7 +7,6 @@
 //
 
 #import "BlockChypTest.h"
-#import "../BlockChyp/BlockChyp.h"
 
 @interface SimpleReversalTest : BlockChypTest
 
@@ -27,13 +26,17 @@
   client.gatewayHost = config.gatewayHost;
   client.testGatewayHost = config.testGatewayHost;
 
+  [self testDelayWith:client testName:@"SimpleReversalTest"];
+
+
   XCTestExpectation *expectation = [self expectationWithDescription:@"SimpleReversal Test Setup"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
       request[@"pan"] = @"4111111111111111";
       request[@"amount"] = @"25.55";
       request[@"test"] = @YES;
-  
+      request[@"transactionRef"] = [self getUUID];
+
   [client chargeWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
 
     XCTAssertNil(error);

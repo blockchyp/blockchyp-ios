@@ -7,7 +7,6 @@
 //
 
 #import "BlockChypTest.h"
-#import "../BlockChyp/BlockChyp.h"
 
 @interface TermsAndConditionsTest : BlockChypTest
 
@@ -18,6 +17,13 @@
 @implementation TermsAndConditionsTest
 
 - (void)setUp {
+
+  TestConfiguration *config = [self loadConfiguration];
+  BlockChyp *client = [[BlockChyp alloc] initWithApiKey:config.apiKey bearerToken:config.bearerToken signingKey:config.signingKey];
+  client.gatewayHost = config.gatewayHost;
+  client.testGatewayHost = config.testGatewayHost;
+
+  [self testDelayWith:client testName:@"TermsAndConditionsTest"];
 
 
 }
@@ -40,7 +46,7 @@
         request[@"terminalName"] = @"Test Terminal";
         request[@"tcName"] = @"HIPPA Disclosure";
         request[@"tcContent"] = @"Full contract text";
-        request[@"sigFormat"] = @(SignatureFormat)PNG;
+        request[@"sigFormat"] = SIGNATURE_FORMAT_PNG;
         request[@"sigWidth"] = @200;
         request[@"sigRequired"] = @YES;
 

@@ -17,27 +17,31 @@
 		B12FC24E23A74F8300EAB159 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = B12FC24D23A74F8300EAB159 /* .gitignore */; };
 		B12FC25123A7525800EAB159 /* EncodingUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B12FC25023A7525800EAB159 /* EncodingUtils.m */; };
 		B12FC25423A75BFF00EAB159 /* BlockChypClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B12FC25323A75BFF00EAB159 /* BlockChypClient.m */; };
-		B19BA8BF23AC4C860003A1FF /* BooleanPromptTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B19BA8BE23AC4C860003A1FF /* BooleanPromptTest.m */; };
-		B19BA8C423AC4C970003A1FF /* PanPreauthTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B19BA8C023AC4C960003A1FF /* PanPreauthTest.m */; };
-		B19BA8C523AC4C970003A1FF /* PanChargeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B19BA8C123AC4C960003A1FF /* PanChargeTest.m */; };
-		B19BA8C623AC4C970003A1FF /* NewTransactionDisplayTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B19BA8C223AC4C970003A1FF /* NewTransactionDisplayTest.m */; };
-		B19BA8C723AC4C970003A1FF /* PanEnrollTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B19BA8C323AC4C970003A1FF /* PanEnrollTest.m */; };
-		B19BA8D623AC4CA10003A1FF /* SimplePingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B19BA8C823AC4CA00003A1FF /* SimplePingTest.m */; };
-		B19BA8D723AC4CA10003A1FF /* TerminalChargeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B19BA8C923AC4CA00003A1FF /* TerminalChargeTest.m */; };
-		B19BA8D823AC4CA10003A1FF /* SimpleCaptureTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B19BA8CA23AC4CA00003A1FF /* SimpleCaptureTest.m */; };
-		B19BA8D923AC4CA10003A1FF /* TerminalEnrollTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B19BA8CB23AC4CA00003A1FF /* TerminalEnrollTest.m */; };
-		B19BA8DA23AC4CA10003A1FF /* SimpleGiftActivateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B19BA8CC23AC4CA00003A1FF /* SimpleGiftActivateTest.m */; };
-		B19BA8DB23AC4CA10003A1FF /* SimpleBatchCloseTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B19BA8CD23AC4CA00003A1FF /* SimpleBatchCloseTest.m */; };
-		B19BA8DC23AC4CA10003A1FF /* TermsAndConditionsTestTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B19BA8CE23AC4CA00003A1FF /* TermsAndConditionsTestTest.m */; };
-		B19BA8DD23AC4CA10003A1FF /* SimpleVoidTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B19BA8CF23AC4CA00003A1FF /* SimpleVoidTest.m */; };
-		B19BA8DE23AC4CA10003A1FF /* SimpleReversalTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B19BA8D023AC4CA00003A1FF /* SimpleReversalTest.m */; };
-		B19BA8DF23AC4CA10003A1FF /* TerminalClearTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B19BA8D123AC4CA00003A1FF /* TerminalClearTest.m */; };
-		B19BA8E023AC4CA10003A1FF /* SimpleRefundTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B19BA8D223AC4CA00003A1FF /* SimpleRefundTest.m */; };
-		B19BA8E123AC4CA10003A1FF /* TerminalBalanceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B19BA8D323AC4CA00003A1FF /* TerminalBalanceTest.m */; };
-		B19BA8E223AC4CA10003A1FF /* TerminalPreauthTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B19BA8D423AC4CA10003A1FF /* TerminalPreauthTest.m */; };
-		B19BA8E323AC4CA10003A1FF /* SimpleMessageTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B19BA8D523AC4CA10003A1FF /* SimpleMessageTest.m */; };
-		B19BA8E623AC4CAC0003A1FF /* TextPromptTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B19BA8E423AC4CAB0003A1FF /* TextPromptTest.m */; };
-		B19BA8E723AC4CAC0003A1FF /* UpdateTransactionDisplayTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B19BA8E523AC4CAB0003A1FF /* UpdateTransactionDisplayTest.m */; };
+		B15D17A923BDC7E9003FA0E5 /* TermsAndConditionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B15D179023BDC7E8003FA0E5 /* TermsAndConditionsTest.m */; };
+		B15D17AA23BDC7E9003FA0E5 /* TextPromptTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B15D179123BDC7E8003FA0E5 /* TextPromptTest.m */; };
+		B15D17AB23BDC7E9003FA0E5 /* NewTransactionDisplayTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B15D179223BDC7E8003FA0E5 /* NewTransactionDisplayTest.m */; };
+		B15D17AC23BDC7E9003FA0E5 /* SimpleReversalTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B15D179323BDC7E8003FA0E5 /* SimpleReversalTest.m */; };
+		B15D17AD23BDC7E9003FA0E5 /* TerminalManualEBTChargeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B15D179423BDC7E8003FA0E5 /* TerminalManualEBTChargeTest.m */; };
+		B15D17AE23BDC7E9003FA0E5 /* TerminalEBTChargeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B15D179523BDC7E8003FA0E5 /* TerminalEBTChargeTest.m */; };
+		B15D17AF23BDC7E9003FA0E5 /* UpdateTransactionDisplayTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B15D179623BDC7E8003FA0E5 /* UpdateTransactionDisplayTest.m */; };
+		B15D17B023BDC7E9003FA0E5 /* TerminalChargeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B15D179723BDC7E8003FA0E5 /* TerminalChargeTest.m */; };
+		B15D17B123BDC7E9003FA0E5 /* TerminalKeyedChargeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B15D179823BDC7E8003FA0E5 /* TerminalKeyedChargeTest.m */; };
+		B15D17B223BDC7E9003FA0E5 /* PANPreauthTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B15D179923BDC7E8003FA0E5 /* PANPreauthTest.m */; };
+		B15D17B323BDC7E9003FA0E5 /* TerminalGiftCardBalanceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B15D179A23BDC7E8003FA0E5 /* TerminalGiftCardBalanceTest.m */; };
+		B15D17B423BDC7E9003FA0E5 /* SimpleBatchCloseTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B15D179B23BDC7E8003FA0E5 /* SimpleBatchCloseTest.m */; };
+		B15D17B523BDC7E9003FA0E5 /* PANEnrollTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B15D179C23BDC7E8003FA0E5 /* PANEnrollTest.m */; };
+		B15D17B623BDC7E9003FA0E5 /* TerminalClearTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B15D179D23BDC7E8003FA0E5 /* TerminalClearTest.m */; };
+		B15D17B723BDC7E9003FA0E5 /* SimpleVoidTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B15D179E23BDC7E9003FA0E5 /* SimpleVoidTest.m */; };
+		B15D17B823BDC7E9003FA0E5 /* PANChargeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B15D179F23BDC7E9003FA0E5 /* PANChargeTest.m */; };
+		B15D17B923BDC7E9003FA0E5 /* SimplePingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B15D17A023BDC7E9003FA0E5 /* SimplePingTest.m */; };
+		B15D17BA23BDC7E9003FA0E5 /* TerminalPreauthTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B15D17A123BDC7E9003FA0E5 /* TerminalPreauthTest.m */; };
+		B15D17BB23BDC7E9003FA0E5 /* SimpleRefundTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B15D17A223BDC7E9003FA0E5 /* SimpleRefundTest.m */; };
+		B15D17BC23BDC7E9003FA0E5 /* SimpleGiftActivateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B15D17A323BDC7E9003FA0E5 /* SimpleGiftActivateTest.m */; };
+		B15D17BD23BDC7E9003FA0E5 /* SimpleCaptureTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B15D17A423BDC7E9003FA0E5 /* SimpleCaptureTest.m */; };
+		B15D17BE23BDC7E9003FA0E5 /* TerminalEnrollTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B15D17A523BDC7E9003FA0E5 /* TerminalEnrollTest.m */; };
+		B15D17BF23BDC7E9003FA0E5 /* BooleanPromptTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B15D17A623BDC7E9003FA0E5 /* BooleanPromptTest.m */; };
+		B15D17C023BDC7E9003FA0E5 /* SimpleMessageTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B15D17A723BDC7E9003FA0E5 /* SimpleMessageTest.m */; };
+		B15D17C123BDC7E9003FA0E5 /* TerminalEBTBalanceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B15D17A823BDC7E9003FA0E5 /* TerminalEBTBalanceTest.m */; };
 		B1A8E85E23A9FE63009003D9 /* NSData+FastHex.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A8E85D23A9FE63009003D9 /* NSData+FastHex.m */; };
 		B1A8E85F23A9FEC9009003D9 /* NSData+FastHex.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A8E85D23A9FE63009003D9 /* NSData+FastHex.m */; };
 		B1FCB51F23A9DDA200545034 /* HTTPRequestDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B1FCB51E23A9DDA200545034 /* HTTPRequestDelegate.m */; };
@@ -85,27 +89,31 @@
 		B12FC25023A7525800EAB159 /* EncodingUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EncodingUtils.m; sourceTree = "<group>"; };
 		B12FC25223A75BFF00EAB159 /* BlockChypClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlockChypClient.h; sourceTree = "<group>"; };
 		B12FC25323A75BFF00EAB159 /* BlockChypClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlockChypClient.m; sourceTree = "<group>"; };
-		B19BA8BE23AC4C860003A1FF /* BooleanPromptTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BooleanPromptTest.m; sourceTree = "<group>"; };
-		B19BA8C023AC4C960003A1FF /* PanPreauthTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanPreauthTest.m; sourceTree = "<group>"; };
-		B19BA8C123AC4C960003A1FF /* PanChargeTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanChargeTest.m; sourceTree = "<group>"; };
-		B19BA8C223AC4C970003A1FF /* NewTransactionDisplayTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewTransactionDisplayTest.m; sourceTree = "<group>"; };
-		B19BA8C323AC4C970003A1FF /* PanEnrollTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanEnrollTest.m; sourceTree = "<group>"; };
-		B19BA8C823AC4CA00003A1FF /* SimplePingTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimplePingTest.m; sourceTree = "<group>"; };
-		B19BA8C923AC4CA00003A1FF /* TerminalChargeTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TerminalChargeTest.m; sourceTree = "<group>"; };
-		B19BA8CA23AC4CA00003A1FF /* SimpleCaptureTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleCaptureTest.m; sourceTree = "<group>"; };
-		B19BA8CB23AC4CA00003A1FF /* TerminalEnrollTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TerminalEnrollTest.m; sourceTree = "<group>"; };
-		B19BA8CC23AC4CA00003A1FF /* SimpleGiftActivateTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleGiftActivateTest.m; sourceTree = "<group>"; };
-		B19BA8CD23AC4CA00003A1FF /* SimpleBatchCloseTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleBatchCloseTest.m; sourceTree = "<group>"; };
-		B19BA8CE23AC4CA00003A1FF /* TermsAndConditionsTestTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TermsAndConditionsTestTest.m; sourceTree = "<group>"; };
-		B19BA8CF23AC4CA00003A1FF /* SimpleVoidTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleVoidTest.m; sourceTree = "<group>"; };
-		B19BA8D023AC4CA00003A1FF /* SimpleReversalTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleReversalTest.m; sourceTree = "<group>"; };
-		B19BA8D123AC4CA00003A1FF /* TerminalClearTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TerminalClearTest.m; sourceTree = "<group>"; };
-		B19BA8D223AC4CA00003A1FF /* SimpleRefundTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleRefundTest.m; sourceTree = "<group>"; };
-		B19BA8D323AC4CA00003A1FF /* TerminalBalanceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TerminalBalanceTest.m; sourceTree = "<group>"; };
-		B19BA8D423AC4CA10003A1FF /* TerminalPreauthTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TerminalPreauthTest.m; sourceTree = "<group>"; };
-		B19BA8D523AC4CA10003A1FF /* SimpleMessageTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleMessageTest.m; sourceTree = "<group>"; };
-		B19BA8E423AC4CAB0003A1FF /* TextPromptTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextPromptTest.m; sourceTree = "<group>"; };
-		B19BA8E523AC4CAB0003A1FF /* UpdateTransactionDisplayTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateTransactionDisplayTest.m; sourceTree = "<group>"; };
+		B15D179023BDC7E8003FA0E5 /* TermsAndConditionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TermsAndConditionsTest.m; sourceTree = "<group>"; };
+		B15D179123BDC7E8003FA0E5 /* TextPromptTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextPromptTest.m; sourceTree = "<group>"; };
+		B15D179223BDC7E8003FA0E5 /* NewTransactionDisplayTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewTransactionDisplayTest.m; sourceTree = "<group>"; };
+		B15D179323BDC7E8003FA0E5 /* SimpleReversalTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleReversalTest.m; sourceTree = "<group>"; };
+		B15D179423BDC7E8003FA0E5 /* TerminalManualEBTChargeTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TerminalManualEBTChargeTest.m; sourceTree = "<group>"; };
+		B15D179523BDC7E8003FA0E5 /* TerminalEBTChargeTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TerminalEBTChargeTest.m; sourceTree = "<group>"; };
+		B15D179623BDC7E8003FA0E5 /* UpdateTransactionDisplayTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateTransactionDisplayTest.m; sourceTree = "<group>"; };
+		B15D179723BDC7E8003FA0E5 /* TerminalChargeTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TerminalChargeTest.m; sourceTree = "<group>"; };
+		B15D179823BDC7E8003FA0E5 /* TerminalKeyedChargeTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TerminalKeyedChargeTest.m; sourceTree = "<group>"; };
+		B15D179923BDC7E8003FA0E5 /* PANPreauthTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PANPreauthTest.m; sourceTree = "<group>"; };
+		B15D179A23BDC7E8003FA0E5 /* TerminalGiftCardBalanceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TerminalGiftCardBalanceTest.m; sourceTree = "<group>"; };
+		B15D179B23BDC7E8003FA0E5 /* SimpleBatchCloseTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleBatchCloseTest.m; sourceTree = "<group>"; };
+		B15D179C23BDC7E8003FA0E5 /* PANEnrollTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PANEnrollTest.m; sourceTree = "<group>"; };
+		B15D179D23BDC7E8003FA0E5 /* TerminalClearTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TerminalClearTest.m; sourceTree = "<group>"; };
+		B15D179E23BDC7E9003FA0E5 /* SimpleVoidTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleVoidTest.m; sourceTree = "<group>"; };
+		B15D179F23BDC7E9003FA0E5 /* PANChargeTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PANChargeTest.m; sourceTree = "<group>"; };
+		B15D17A023BDC7E9003FA0E5 /* SimplePingTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimplePingTest.m; sourceTree = "<group>"; };
+		B15D17A123BDC7E9003FA0E5 /* TerminalPreauthTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TerminalPreauthTest.m; sourceTree = "<group>"; };
+		B15D17A223BDC7E9003FA0E5 /* SimpleRefundTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleRefundTest.m; sourceTree = "<group>"; };
+		B15D17A323BDC7E9003FA0E5 /* SimpleGiftActivateTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleGiftActivateTest.m; sourceTree = "<group>"; };
+		B15D17A423BDC7E9003FA0E5 /* SimpleCaptureTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleCaptureTest.m; sourceTree = "<group>"; };
+		B15D17A523BDC7E9003FA0E5 /* TerminalEnrollTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TerminalEnrollTest.m; sourceTree = "<group>"; };
+		B15D17A623BDC7E9003FA0E5 /* BooleanPromptTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BooleanPromptTest.m; sourceTree = "<group>"; };
+		B15D17A723BDC7E9003FA0E5 /* SimpleMessageTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleMessageTest.m; sourceTree = "<group>"; };
+		B15D17A823BDC7E9003FA0E5 /* TerminalEBTBalanceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TerminalEBTBalanceTest.m; sourceTree = "<group>"; };
 		B1A8E85823A9FD7E009003D9 /* NSData+FastHex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSData+FastHex.h"; path = "../Pods/NSData+FastHex/NSData+FastHex.h"; sourceTree = "<group>"; };
 		B1A8E85D23A9FE63009003D9 /* NSData+FastHex.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSData+FastHex.m"; sourceTree = "<group>"; };
 		B1FCB51D23A9DDA200545034 /* HTTPRequestDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTTPRequestDelegate.h; sourceTree = "<group>"; };
@@ -189,27 +197,31 @@
 		B12FC23823A746E700EAB159 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				B19BA8E423AC4CAB0003A1FF /* TextPromptTest.m */,
-				B19BA8E523AC4CAB0003A1FF /* UpdateTransactionDisplayTest.m */,
-				B19BA8CD23AC4CA00003A1FF /* SimpleBatchCloseTest.m */,
-				B19BA8CA23AC4CA00003A1FF /* SimpleCaptureTest.m */,
-				B19BA8CC23AC4CA00003A1FF /* SimpleGiftActivateTest.m */,
-				B19BA8D523AC4CA10003A1FF /* SimpleMessageTest.m */,
-				B19BA8C823AC4CA00003A1FF /* SimplePingTest.m */,
-				B19BA8D223AC4CA00003A1FF /* SimpleRefundTest.m */,
-				B19BA8D023AC4CA00003A1FF /* SimpleReversalTest.m */,
-				B19BA8CF23AC4CA00003A1FF /* SimpleVoidTest.m */,
-				B19BA8D323AC4CA00003A1FF /* TerminalBalanceTest.m */,
-				B19BA8C923AC4CA00003A1FF /* TerminalChargeTest.m */,
-				B19BA8D123AC4CA00003A1FF /* TerminalClearTest.m */,
-				B19BA8CB23AC4CA00003A1FF /* TerminalEnrollTest.m */,
-				B19BA8D423AC4CA10003A1FF /* TerminalPreauthTest.m */,
-				B19BA8CE23AC4CA00003A1FF /* TermsAndConditionsTestTest.m */,
-				B19BA8C223AC4C970003A1FF /* NewTransactionDisplayTest.m */,
-				B19BA8C123AC4C960003A1FF /* PanChargeTest.m */,
-				B19BA8C323AC4C970003A1FF /* PanEnrollTest.m */,
-				B19BA8C023AC4C960003A1FF /* PanPreauthTest.m */,
-				B19BA8BE23AC4C860003A1FF /* BooleanPromptTest.m */,
+				B15D17A623BDC7E9003FA0E5 /* BooleanPromptTest.m */,
+				B15D179223BDC7E8003FA0E5 /* NewTransactionDisplayTest.m */,
+				B15D179F23BDC7E9003FA0E5 /* PANChargeTest.m */,
+				B15D179C23BDC7E8003FA0E5 /* PANEnrollTest.m */,
+				B15D179923BDC7E8003FA0E5 /* PANPreauthTest.m */,
+				B15D179B23BDC7E8003FA0E5 /* SimpleBatchCloseTest.m */,
+				B15D17A423BDC7E9003FA0E5 /* SimpleCaptureTest.m */,
+				B15D17A323BDC7E9003FA0E5 /* SimpleGiftActivateTest.m */,
+				B15D17A723BDC7E9003FA0E5 /* SimpleMessageTest.m */,
+				B15D17A023BDC7E9003FA0E5 /* SimplePingTest.m */,
+				B15D17A223BDC7E9003FA0E5 /* SimpleRefundTest.m */,
+				B15D179323BDC7E8003FA0E5 /* SimpleReversalTest.m */,
+				B15D179E23BDC7E9003FA0E5 /* SimpleVoidTest.m */,
+				B15D179723BDC7E8003FA0E5 /* TerminalChargeTest.m */,
+				B15D179D23BDC7E8003FA0E5 /* TerminalClearTest.m */,
+				B15D17A823BDC7E9003FA0E5 /* TerminalEBTBalanceTest.m */,
+				B15D179523BDC7E8003FA0E5 /* TerminalEBTChargeTest.m */,
+				B15D17A523BDC7E9003FA0E5 /* TerminalEnrollTest.m */,
+				B15D179A23BDC7E8003FA0E5 /* TerminalGiftCardBalanceTest.m */,
+				B15D179823BDC7E8003FA0E5 /* TerminalKeyedChargeTest.m */,
+				B15D179423BDC7E8003FA0E5 /* TerminalManualEBTChargeTest.m */,
+				B15D17A123BDC7E9003FA0E5 /* TerminalPreauthTest.m */,
+				B15D179023BDC7E8003FA0E5 /* TermsAndConditionsTest.m */,
+				B15D179123BDC7E8003FA0E5 /* TextPromptTest.m */,
+				B15D179623BDC7E8003FA0E5 /* UpdateTransactionDisplayTest.m */,
 				B12FC23923A746E700EAB159 /* HeartbeatTest.m */,
 				B12FC23B23A746E700EAB159 /* Info.plist */,
 				B12FC24523A7481800EAB159 /* BlockChypTest.h */,
@@ -349,33 +361,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B15D17AB23BDC7E9003FA0E5 /* NewTransactionDisplayTest.m in Sources */,
+				B15D17B723BDC7E9003FA0E5 /* SimpleVoidTest.m in Sources */,
 				B1A8E85F23A9FEC9009003D9 /* NSData+FastHex.m in Sources */,
-				B19BA8E323AC4CA10003A1FF /* SimpleMessageTest.m in Sources */,
-				B19BA8E023AC4CA10003A1FF /* SimpleRefundTest.m in Sources */,
-				B19BA8DC23AC4CA10003A1FF /* TermsAndConditionsTestTest.m in Sources */,
-				B19BA8E723AC4CAC0003A1FF /* UpdateTransactionDisplayTest.m in Sources */,
-				B19BA8DD23AC4CA10003A1FF /* SimpleVoidTest.m in Sources */,
-				B19BA8BF23AC4C860003A1FF /* BooleanPromptTest.m in Sources */,
-				B19BA8D923AC4CA10003A1FF /* TerminalEnrollTest.m in Sources */,
-				B19BA8D823AC4CA10003A1FF /* SimpleCaptureTest.m in Sources */,
+				B15D17C123BDC7E9003FA0E5 /* TerminalEBTBalanceTest.m in Sources */,
 				B12FC23A23A746E700EAB159 /* HeartbeatTest.m in Sources */,
-				B19BA8D623AC4CA10003A1FF /* SimplePingTest.m in Sources */,
-				B19BA8C423AC4C970003A1FF /* PanPreauthTest.m in Sources */,
+				B15D17BC23BDC7E9003FA0E5 /* SimpleGiftActivateTest.m in Sources */,
+				B15D17B923BDC7E9003FA0E5 /* SimplePingTest.m in Sources */,
+				B15D17B223BDC7E9003FA0E5 /* PANPreauthTest.m in Sources */,
+				B15D17BE23BDC7E9003FA0E5 /* TerminalEnrollTest.m in Sources */,
+				B15D17AA23BDC7E9003FA0E5 /* TextPromptTest.m in Sources */,
+				B15D17B323BDC7E9003FA0E5 /* TerminalGiftCardBalanceTest.m in Sources */,
 				B12FC24A23A74B9D00EAB159 /* TestConfiguration.m in Sources */,
-				B19BA8DA23AC4CA10003A1FF /* SimpleGiftActivateTest.m in Sources */,
-				B19BA8C523AC4C970003A1FF /* PanChargeTest.m in Sources */,
-				B19BA8E623AC4CAC0003A1FF /* TextPromptTest.m in Sources */,
-				B19BA8DF23AC4CA10003A1FF /* TerminalClearTest.m in Sources */,
-				B19BA8C623AC4C970003A1FF /* NewTransactionDisplayTest.m in Sources */,
-				B19BA8C723AC4C970003A1FF /* PanEnrollTest.m in Sources */,
-				B19BA8DB23AC4CA10003A1FF /* SimpleBatchCloseTest.m in Sources */,
-				B19BA8D723AC4CA10003A1FF /* TerminalChargeTest.m in Sources */,
+				B15D17C023BDC7E9003FA0E5 /* SimpleMessageTest.m in Sources */,
+				B15D17BD23BDC7E9003FA0E5 /* SimpleCaptureTest.m in Sources */,
+				B15D17AD23BDC7E9003FA0E5 /* TerminalManualEBTChargeTest.m in Sources */,
+				B15D17BF23BDC7E9003FA0E5 /* BooleanPromptTest.m in Sources */,
 				B12FC25123A7525800EAB159 /* EncodingUtils.m in Sources */,
-				B19BA8DE23AC4CA10003A1FF /* SimpleReversalTest.m in Sources */,
+				B15D17B623BDC7E9003FA0E5 /* TerminalClearTest.m in Sources */,
+				B15D17B123BDC7E9003FA0E5 /* TerminalKeyedChargeTest.m in Sources */,
+				B15D17A923BDC7E9003FA0E5 /* TermsAndConditionsTest.m in Sources */,
+				B15D17AC23BDC7E9003FA0E5 /* SimpleReversalTest.m in Sources */,
+				B15D17BB23BDC7E9003FA0E5 /* SimpleRefundTest.m in Sources */,
+				B15D17B023BDC7E9003FA0E5 /* TerminalChargeTest.m in Sources */,
+				B15D17B823BDC7E9003FA0E5 /* PANChargeTest.m in Sources */,
 				B12FC25423A75BFF00EAB159 /* BlockChypClient.m in Sources */,
-				B19BA8E223AC4CA10003A1FF /* TerminalPreauthTest.m in Sources */,
 				B12FC24723A7481800EAB159 /* BlockChypTest.m in Sources */,
-				B19BA8E123AC4CA10003A1FF /* TerminalBalanceTest.m in Sources */,
+				B15D17AE23BDC7E9003FA0E5 /* TerminalEBTChargeTest.m in Sources */,
+				B15D17B523BDC7E9003FA0E5 /* PANEnrollTest.m in Sources */,
+				B15D17BA23BDC7E9003FA0E5 /* TerminalPreauthTest.m in Sources */,
+				B15D17AF23BDC7E9003FA0E5 /* UpdateTransactionDisplayTest.m in Sources */,
+				B15D17B423BDC7E9003FA0E5 /* SimpleBatchCloseTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

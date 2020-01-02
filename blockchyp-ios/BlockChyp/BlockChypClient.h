@@ -8,6 +8,23 @@
 
 #import <Foundation/Foundation.h>
 
+static const int CARD_TYPE_CREDIT = 0;
+static const int CARD_TYPE_DEBIT = 1;
+static const int CARD_TYPE_EBT = 2;
+static const int CARD_TYPE_BLOCKCHAIN_GIFT = 3;
+
+
+static const NSString * SIGNATURE_FORMAT_NONE = @"";
+static const NSString * SIGNATURE_FORMAT_PNG = @"png";
+static const NSString * SIGNATURE_FORMAT_JPG = @"jpg";
+static const NSString * SIGNATURE_FORMAT_GIFT = @"gif";
+
+static const NSString * PROMPT_TYPE_AMOUNT = @"amount";
+static const NSString * PROMPT_TYPE_EMAIL = @"email";
+static const NSString * PROMPT_TYPE_PHONE_NUMBER = @"phone";
+static const NSString * PROMPT_TYPE_CUSTOMER_NUMBER = @"customer-number";
+static const NSString * PROMPT_TYPE_REWARDS_NUMBER = @"rewards-number";
+
 NS_ASSUME_NONNULL_BEGIN
 
 typedef void(^BlockChypCompletionHandler)(NSDictionary *request, NSDictionary *response, NSError * _Nullable error);

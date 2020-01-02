@@ -7,7 +7,6 @@
 //
 
 #import "BlockChypTest.h"
-#import "../BlockChyp/BlockChyp.h"
 
 @interface TerminalManualEBTChargeTest : BlockChypTest
 
@@ -18,6 +17,13 @@
 @implementation TerminalManualEBTChargeTest
 
 - (void)setUp {
+
+  TestConfiguration *config = [self loadConfiguration];
+  BlockChyp *client = [[BlockChyp alloc] initWithApiKey:config.apiKey bearerToken:config.bearerToken signingKey:config.signingKey];
+  client.gatewayHost = config.gatewayHost;
+  client.testGatewayHost = config.testGatewayHost;
+
+  [self testDelayWith:client testName:@"TerminalManualEBTChargeTest"];
 
 
 }
@@ -39,7 +45,7 @@
         request[@"terminalName"] = @"Test Terminal";
         request[@"amount"] = @"27.00";
         request[@"test"] = @YES;
-        request[@"cardType"] = @(CardType)EBT;
+        request[@"cardType"] = [NSNumber numberWithInt:CARD_TYPE_EBT];
         request[@"manualEntry"] = @YES;
 
   [client chargeWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {

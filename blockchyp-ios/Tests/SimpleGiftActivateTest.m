@@ -7,7 +7,6 @@
 //
 
 #import "BlockChypTest.h"
-#import "../BlockChyp/BlockChyp.h"
 
 @interface SimpleGiftActivateTest : BlockChypTest
 
@@ -18,6 +17,13 @@
 @implementation SimpleGiftActivateTest
 
 - (void)setUp {
+
+  TestConfiguration *config = [self loadConfiguration];
+  BlockChyp *client = [[BlockChyp alloc] initWithApiKey:config.apiKey bearerToken:config.bearerToken signingKey:config.signingKey];
+  client.gatewayHost = config.gatewayHost;
+  client.testGatewayHost = config.testGatewayHost;
+
+  [self testDelayWith:client testName:@"SimpleGiftActivateTest"];
 
 
 }

@@ -8,6 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "TestConfiguration.h"
+#import "../BlockChyp/BlockChyp.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -15,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(TestConfiguration*)loadConfiguration;
 -(void)logJSON:(NSDictionary *)dict;
+-(NSString *)getUUID;
+-(void)testDelayWith:(BlockChyp *)client testName:(NSString *)testName;
 
 @end
 

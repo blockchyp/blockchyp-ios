@@ -47,4 +47,22 @@
     }
 }
 
+-(NSString *)getUUID {
+    
+    return [[NSUUID UUID] UUIDString];
+    
+}
+
+-(void)testDelayWith:(BlockChypClient *)client testName:(NSString *)testName {
+    
+    NSString *testDelay = [[[NSProcessInfo processInfo] environment] objectForKey:@"BC_TEST_DELAY"];
+ 
+    int testDelayInt = [testDelay intValue];
+    
+    if (testDelayInt > 0) {
+        NSLog(@"Test Delay: %@ seconds...", testDelay);
+        [NSThread sleepForTimeInterval:testDelayInt];
+    }
+}
+
 @end
