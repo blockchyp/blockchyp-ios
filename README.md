@@ -1,7 +1,7 @@
 # BlockChyp iOS SDK
 
 [![Build Status](https://circleci.com/gh/blockchyp/blockchyp-ios/tree/master.svg?style=shield)](https://circleci.com/gh/blockchyp/blockchyp-ios/tree/master)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/blockchyp/blockchyp-ios/blob/master/LICENSE)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/blockchyp/blockchyp-ios/blob/master/LICENSE)
 
 This is the SDK for iOS.  Like all BlockChyp SDK's, it provides a full
 client for the BlockChyp gateway and BlockChyp payment terminals.  The SDK is
