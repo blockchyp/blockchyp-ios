@@ -16,8 +16,8 @@ Pod::Spec.new do |spec|
   spec.requires_arc                = true
   spec.platform                    = :ios
   spec.ios.deployment_target       = "8.0"
-  spec.public_header_files         = "BlockChyp/*.h"
-  spec.source_files                = "BlockChyp/*.{h,m}"
+  spec.source_files                = "blockchyp-ios/BlockChyp/*.{h,m}"
+  spec.public_header_files         = "blockchyp-ios/BlockChyp/*.h"
   spec.xcconfig = {
     "OTHER_LDFLAGS" => "$(inherited) -ObjC"
   }
