@@ -5,6 +5,9 @@ SNAPINFO := $(shell date +%Y%m%d%H%M%S)git$(shell git log -1 --pretty=%h)
 RELEASE := $(or $(BUILD_NUMBER), 1)
 VERSION := $(or $(TAG:v%=%),$(LASTTAG:v%=%))-$(or $(BUILD_NUMBER), 1)$(if $(TAG),,.$(SNAPINFO))
 
+# Executables
+SED = sed
+
 # Default target
 .PHONY: all
 all: clean build test
@@ -28,6 +31,7 @@ integration:
 # Performs any tasks necessary before a release build
 .PHONY: stage
 stage:
+	$(SED) -i 's/spec.version      = ".*"/spec.version      = "$(VERSION)"/' BlockChyp.podspec
 
 # Publish packages
 .PHONY: publish

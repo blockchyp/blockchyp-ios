@@ -3,13 +3,13 @@
 [![Build Status](https://circleci.com/gh/blockchyp/blockchyp-ios/tree/master.svg?style=shield)](https://circleci.com/gh/blockchyp/blockchyp-ios/tree/master)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/blockchyp/blockchyp-ios/blob/master/LICENSE)
 
-This is the SDK for iOS.  Like all BlockChyp SDK's, it provides a full
-client for the BlockChyp gateway and BlockChyp payment terminals.  The SDK is
+This is the SDK for iOS. Like all BlockChyp SDKs, it provides a full
+client for the BlockChyp gateway and BlockChyp payment terminals. The SDK is
 written in Objective-C, but can be used by Swift developers as well.
 
 ## Installation
 
-The preferred method of installing BlockChyp is via cocoapods.  Add the following
+The preferred method of installing BlockChyp is via cocoapods. Add the following
 dependency to your Podfile and type `pod install`.
 
 ```
@@ -51,7 +51,7 @@ int main (int argc, const char * argv[])
 ```
 
 All calls to the BlockChyp SDK must be asyncronous, so you must provide a
-`BlockChypCompletionHandler` block for each call.  The completion handler is
+`BlockChypCompletionHandler` block for each call. The completion handler is
 declared as a type in BlockChypClient.h.
 
 ```objective-c

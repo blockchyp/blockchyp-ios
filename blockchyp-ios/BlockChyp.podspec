@@ -1,17 +1,25 @@
-Pod::Spec.new do |s|
-  s.name                           = 'BlockChyp'
-  s.version                        = '2.0.0'
-  s.summary                        = 'BlockChyp SDK for iOS Developers.'
-  s.license                        = { :type => 'MIT', :file => 'LICENSE' }
-  s.homepage                       = 'https://github.com/blockchyp/blockchyp-ios'
-  s.source                         = { :git => 'https://github.com/blockchyp/blockchyp-ios.git', :tag => "v#{s.version}" }
-  s.frameworks                     = 'Foundation', 'CommonCrypto'
-  s.requires_arc                   = true
-  s.platform                       = :ios
-  s.ios.deployment_target          = '8.0'
-  s.public_header_files            = 'BlockChyp/*.h'
-  s.source_files                   = 'BlockChyp/*.{h,m}'
-  s.xcconfig = {
+Pod::Spec.new do |spec|
+
+  spec.name                        = "BlockChyp"
+  spec.version                     = "2.0.0-alpha7"
+  spec.summary                     = "BlockChyp SDK for iOS Developers."
+  spec.description                 = <<-DESC
+    This is the SDK for iOS. Like all BlockChyp SDKs, it provides a full
+    client for the BlockChyp gateway and BlockChyp payment terminals. The SDK is
+    written in Objective-C, but can be used by Swift developers as well.
+  DESC
+  spec.homepage                    = "https://www.blockchyp.com"
+  spec.license                     = { :type => "MIT", :file => "LICENSE" }
+  spec.author                      = { "BlockChyp" => "support@blockchyp.com" }
+  spec.source                      = { :git => "https://github.com/blockchyp/blockchyp-ios.git", :tag => "v#{spec.version}" }
+  spec.frameworks                  = "Foundation", "CommonCrypto"
+  spec.requires_arc                = true
+  spec.platform                    = :ios
+  spec.ios.deployment_target       = "8.0"
+  spec.public_header_files         = "BlockChyp/*.h"
+  spec.source_files                = "BlockChyp/*.{h,m}"
+  spec.xcconfig = {
     "OTHER_LDFLAGS" => "$(inherited) -ObjC"
   }
+
 end
