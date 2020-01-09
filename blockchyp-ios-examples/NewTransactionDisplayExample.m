@@ -17,7 +17,7 @@ int main (int argc, const char * argv[])
   [client newTransactionDisplayWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
     NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
-      NSLog(@"Succeded");
+      NSLog(@"Success");
     }
   }];
   [pool drain];
