@@ -115,6 +115,13 @@
 
 }
 
+// Returns the current status of a terminal.
+-(void)terminalStatusWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler; {
+
+  [self routeTerminalRequestWith:request terminalPath:@"/api/terminal-status" gatewayPath:@"/api/terminal-status" method:@"POST" handler:handler];
+
+}
+
 
 
 // Executes a manual time out reversal.

@@ -60,6 +60,9 @@ NS_ASSUME_NONNULL_BEGIN
 // Activates or recharges a gift card.
 -(void)giftActivateWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
 
+// Returns the current status of a terminal.
+-(void)terminalStatusWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
 
 
 // Executes a manual time out reversal.
