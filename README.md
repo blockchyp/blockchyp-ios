@@ -14,8 +14,11 @@ The preferred method of installing BlockChyp is via cocoapods. Add the following
 dependency to your Podfile and type `pod install`.
 
 ```
-  pod 'BlockChyp', '~> 2.0.0'
+  pod 'BlockChyp', '~> sdk.version'
 ```
+
+Note: If you're using Swift, you'll need to make sure dynamic frameworks are turned
+on in your Podfile or create a bridging header.
 
 ## A Simple Objective-C Example
 
@@ -50,6 +53,34 @@ int main (int argc, const char * argv[])
   return 0;
 }
 ```
+
+## A Simple Swift Example
+
+The following snippet illustrates how to run a simple terminal transaction from Swift.
+
+```swift
+import BlockChyp
+
+let client = BlockChyp.init(
+  apiKey: "ZN5WQGX5PN6BE2MF75CEAWRETM",
+  bearerToken: "SVVHJCYVFWJR2QKYKFWMZQVZL4",
+  signingKey: "7c1b9e4d1308e7bbe76a1920ddd9449ce50af2629f6bb70ed3c110365935970b"
+)
+
+var request: [String:Any] = [:]
+request["test"] = true
+request["terminalName"] = "Test Terminal"
+request["amount"] = "55.00"
+client.charge(withRequest: request, handler: { (request, response, error) in
+  let approved = response["approved"] as? Bool
+  if (approved.unsafelyUnwrapped) {
+    NSLog("Approved")
+  }
+  NSLog("authCode" + ": " + (response["authCode"] as? String).unsafelyUnwrapped)
+  NSLog("authorizedAmount" + ": " + (response["authorizedAmount"] as? String).unsafelyUnwrapped)
+})
+```
+
 
 All calls to the BlockChyp SDK must be asyncronous, so you must provide a
 `BlockChypCompletionHandler` block for each call. The completion handler is
@@ -119,6 +150,8 @@ stuff you can do with the BlockChyp IOS SDK and a few basic examples.
 
 Executes a standard direct preauth and capture.
 
+##### From Objective-C:
+
 ```objective-c
 #import <Foundation/Foundation.h>
 #import <BlockChyp/BlockChyp.h>
@@ -149,12 +182,46 @@ int main (int argc, const char * argv[])
 }
 
 
+```
+
+##### From Swift:
+
+```swift
+import BlockChyp
+
+class ExampleClass {
+
+  func example() {
+    let client = BlockChyp.init(
+      apiKey: "ZN5WQGX5PN6BE2MF75CEAWRETM",
+      bearerToken: "SVVHJCYVFWJR2QKYKFWMZQVZL4",
+      signingKey: "7c1b9e4d1308e7bbe76a1920ddd9449ce50af2629f6bb70ed3c110365935970b"
+    )
+
+    var request: [String:Any] = [:]
+    request["test"] = true
+    request["terminalName"] = "Test Terminal"
+    request["amount"] = "55.00"
+    client.charge(withRequest: request, handler: { (request, response, error) in
+      let approved = response["approved"] as? Bool
+      if (approved.unsafelyUnwrapped) {
+        NSLog("Approved")
+      }
+      NSLog("authCode" + ": " + (response["authCode"] as? String).unsafelyUnwrapped)
+      NSLog("authorizedAmount" + ": " + (response["authorizedAmount"] as? String).unsafelyUnwrapped)
+    })
+  }
+
 
 ```
+
+
 
 #### Preauthorization
 
 Executes a preauthorization intended to be captured later.
+
+##### From Objective-C:
 
 ```objective-c
 #import <Foundation/Foundation.h>
@@ -186,12 +253,46 @@ int main (int argc, const char * argv[])
 }
 
 
+```
+
+##### From Swift:
+
+```swift
+import BlockChyp
+
+class ExampleClass {
+
+  func example() {
+    let client = BlockChyp.init(
+      apiKey: "ZN5WQGX5PN6BE2MF75CEAWRETM",
+      bearerToken: "SVVHJCYVFWJR2QKYKFWMZQVZL4",
+      signingKey: "7c1b9e4d1308e7bbe76a1920ddd9449ce50af2629f6bb70ed3c110365935970b"
+    )
+
+    var request: [String:Any] = [:]
+    request["test"] = true
+    request["terminalName"] = "Test Terminal"
+    request["amount"] = "27.00"
+    client.preauth(withRequest: request, handler: { (request, response, error) in
+      let approved = response["approved"] as? Bool
+      if (approved.unsafelyUnwrapped) {
+        NSLog("Approved")
+      }
+      NSLog("authCode" + ": " + (response["authCode"] as? String).unsafelyUnwrapped)
+      NSLog("authorizedAmount" + ": " + (response["authorizedAmount"] as? String).unsafelyUnwrapped)
+    })
+  }
+
 
 ```
+
+
 
 #### Terminal Ping
 
 Tests connectivity with a payment terminal.
+
+##### From Objective-C:
 
 ```objective-c
 #import <Foundation/Foundation.h>
@@ -219,12 +320,42 @@ int main (int argc, const char * argv[])
 }
 
 
+```
+
+##### From Swift:
+
+```swift
+import BlockChyp
+
+class ExampleClass {
+
+  func example() {
+    let client = BlockChyp.init(
+      apiKey: "ZN5WQGX5PN6BE2MF75CEAWRETM",
+      bearerToken: "SVVHJCYVFWJR2QKYKFWMZQVZL4",
+      signingKey: "7c1b9e4d1308e7bbe76a1920ddd9449ce50af2629f6bb70ed3c110365935970b"
+    )
+
+    var request: [String:Any] = [:]
+    request["terminalName"] = "Test Terminal"
+    client.ping(withRequest: request, handler: { (request, response, error) in
+      let approved = response["success"] as? Bool
+      if (approved.unsafelyUnwrapped) {
+        NSLog("Success")
+      }
+    })
+  }
+
 
 ```
+
+
 
 #### Balance
 
 Checks the remaining balance on a payment method.
+
+##### From Objective-C:
 
 ```objective-c
 #import <Foundation/Foundation.h>
@@ -254,12 +385,44 @@ int main (int argc, const char * argv[])
 }
 
 
+```
+
+##### From Swift:
+
+```swift
+import BlockChyp
+
+class ExampleClass {
+
+  func example() {
+    let client = BlockChyp.init(
+      apiKey: "ZN5WQGX5PN6BE2MF75CEAWRETM",
+      bearerToken: "SVVHJCYVFWJR2QKYKFWMZQVZL4",
+      signingKey: "7c1b9e4d1308e7bbe76a1920ddd9449ce50af2629f6bb70ed3c110365935970b"
+    )
+
+    var request: [String:Any] = [:]
+    request["test"] = true
+    request["terminalName"] = "Test Terminal"
+    request["cardType"] = [NSNumber numberWithInt:CARD_TYPE_EBT]
+    client.balance(withRequest: request, handler: { (request, response, error) in
+      let approved = response["success"] as? Bool
+      if (approved.unsafelyUnwrapped) {
+        NSLog("Success")
+      }
+    })
+  }
+
 
 ```
+
+
 
 #### Terminal Clear
 
 Clears the line item display and any in progress transaction.
+
+##### From Objective-C:
 
 ```objective-c
 #import <Foundation/Foundation.h>
@@ -288,12 +451,43 @@ int main (int argc, const char * argv[])
 }
 
 
+```
+
+##### From Swift:
+
+```swift
+import BlockChyp
+
+class ExampleClass {
+
+  func example() {
+    let client = BlockChyp.init(
+      apiKey: "ZN5WQGX5PN6BE2MF75CEAWRETM",
+      bearerToken: "SVVHJCYVFWJR2QKYKFWMZQVZL4",
+      signingKey: "7c1b9e4d1308e7bbe76a1920ddd9449ce50af2629f6bb70ed3c110365935970b"
+    )
+
+    var request: [String:Any] = [:]
+    request["test"] = true
+    request["terminalName"] = "Test Terminal"
+    client.clear(withRequest: request, handler: { (request, response, error) in
+      let approved = response["success"] as? Bool
+      if (approved.unsafelyUnwrapped) {
+        NSLog("Success")
+      }
+    })
+  }
+
 
 ```
+
+
 
 #### Terms & Conditions Capture
 
 Prompts the user to accept terms and conditions.
+
+##### From Objective-C:
 
 ```objective-c
 #import <Foundation/Foundation.h>
@@ -330,14 +524,53 @@ int main (int argc, const char * argv[])
 }
 
 
+```
+
+##### From Swift:
+
+```swift
+import BlockChyp
+
+class ExampleClass {
+
+  func example() {
+    let client = BlockChyp.init(
+      apiKey: "ZN5WQGX5PN6BE2MF75CEAWRETM",
+      bearerToken: "SVVHJCYVFWJR2QKYKFWMZQVZL4",
+      signingKey: "7c1b9e4d1308e7bbe76a1920ddd9449ce50af2629f6bb70ed3c110365935970b"
+    )
+
+    var request: [String:Any] = [:]
+    request["test"] = true
+    request["terminalName"] = "Test Terminal"
+    request["tcAlias"] = "hippa"
+    request["tcName"] = "HIPPA Disclosure"
+    request["tcContent"] = "Full contract text"
+    request["sigFormat"] = SIGNATURE_FORMAT_PNG
+    request["sigWidth"] = 200
+    request["sigRequired"] = true
+    client.termsAndConditions(withRequest: request, handler: { (request, response, error) in
+      let approved = response["success"] as? Bool
+      if (approved.unsafelyUnwrapped) {
+        NSLog("Success")
+      }
+      NSLog("sig" + ": " + (response["sig"] as? String).unsafelyUnwrapped)
+      NSLog("sigFile" + ": " + (response["sigFile"] as? String).unsafelyUnwrapped)
+    })
+  }
+
 
 ```
 
+
+
 #### Update Transaction Display
 
-Appends items to an existing transaction display Subtotal, Tax, and Total are
+Appends items to an existing transaction display.  Subtotal, Tax, and Total are
 overwritten by the request. Items with the same description are combined into
 groups.
+
+##### From Objective-C:
 
 ```objective-c
 #import <Foundation/Foundation.h>
@@ -368,10 +601,10 @@ int main (int argc, const char * argv[])
 
 - (NSDictionary *) newTransactionDisplayTransaction {
   NSMutableDictionary *val = [[NSMutableDictionary alloc] init];
-  val[@"subtotal"] = @"60.00";
-  val[@"tax"] = @"5.00";
-  val[@"total"] = @"65.00";
-  val[@"items"] = [self newTransactionDisplayItems];
+    val["subtotal"] = "60.00"
+    val["tax"] = "5.00"
+    val["total"] = "65.00"
+    val["items"] = newTransactionDisplayItems()
   return val;
 }
 - (NSArray *) newTransactionDisplayItems {
@@ -381,10 +614,10 @@ int main (int argc, const char * argv[])
 }
 - (NSDictionary *) newTransactionDisplayItem2 {
   NSMutableDictionary *val = [[NSMutableDictionary alloc] init];
-  val[@"description"] = @"Leki Trekking Poles";
-  val[@"price"] = @"35.00";
-  val[@"extended"] = @"70.00";
-  val[@"discounts"] = [self newTransactionDisplayDiscounts];
+    val["description"] = "Leki Trekking Poles"
+    val["price"] = "35.00"
+    val["extended"] = "70.00"
+    val["discounts"] = newTransactionDisplayDiscounts()
   return val;
 }
 - (NSArray *) newTransactionDisplayDiscounts {
@@ -394,17 +627,81 @@ int main (int argc, const char * argv[])
 }
 - (NSDictionary *) newTransactionDisplayDiscount2 {
   NSMutableDictionary *val = [[NSMutableDictionary alloc] init];
-  val[@"description"] = @"memberDiscount";
-  val[@"amount"] = @"10.00";
+    val["description"] = "memberDiscount"
+    val["amount"] = "10.00"
   return val;
 }
 
+```
+
+##### From Swift:
+
+```swift
+import BlockChyp
+
+class ExampleClass {
+
+  func example() {
+    let client = BlockChyp.init(
+      apiKey: "ZN5WQGX5PN6BE2MF75CEAWRETM",
+      bearerToken: "SVVHJCYVFWJR2QKYKFWMZQVZL4",
+      signingKey: "7c1b9e4d1308e7bbe76a1920ddd9449ce50af2629f6bb70ed3c110365935970b"
+    )
+
+    var request: [String:Any] = [:]
+    request["test"] = true
+    request["terminalName"] = "Test Terminal"
+    request["transaction"] = newTransactionDisplayTransaction()
+    client.updateTransactionDisplay(withRequest: request, handler: { (request, response, error) in
+      let approved = response["success"] as? Bool
+      if (approved.unsafelyUnwrapped) {
+        NSLog("Success")
+      }
+    })
+  }
+
+  func newTransactionDisplayTransaction() -> [String:Any] {
+    var val: [String:Any] = [:]
+    val["subtotal"] = "60.00"
+    val["tax"] = "5.00"
+    val["total"] = "65.00"
+    val["items"] = newTransactionDisplayItems()
+    return val
+  }
+  func newTransactionDisplayItems()  -> [[String:Any]] {
+    var val = [[String:Any]]()
+    val.append(newTransactionDisplayItem2())
+    return val
+  }
+  func newTransactionDisplayItem2() -> [String:Any] {
+    var val: [String:Any] = [:]
+    val["description"] = "Leki Trekking Poles"
+    val["price"] = "35.00"
+    val["extended"] = "70.00"
+    val["discounts"] = newTransactionDisplayDiscounts()
+    return val;
+  }
+  func newTransactionDisplayDiscounts()  -> [[String:Any]] {
+    var val = [[String:Any]]()
+    val.append(newTransactionDisplayDiscount2())
+    return val
+  }
+  func newTransactionDisplayDiscount2() -> [String:Any] {
+    var val: [String:Any] = [:]
+    val["description"] = "memberDiscount"
+    val["amount"] = "10.00"
+    return val;
+  }
 
 ```
+
+
 
 #### New Transaction Display
 
 Displays a new transaction on the terminal.
+
+##### From Objective-C:
 
 ```objective-c
 #import <Foundation/Foundation.h>
@@ -435,10 +732,10 @@ int main (int argc, const char * argv[])
 
 - (NSDictionary *) newTransactionDisplayTransaction {
   NSMutableDictionary *val = [[NSMutableDictionary alloc] init];
-  val[@"subtotal"] = @"60.00";
-  val[@"tax"] = @"5.00";
-  val[@"total"] = @"65.00";
-  val[@"items"] = [self newTransactionDisplayItems];
+    val["subtotal"] = "60.00"
+    val["tax"] = "5.00"
+    val["total"] = "65.00"
+    val["items"] = newTransactionDisplayItems()
   return val;
 }
 - (NSArray *) newTransactionDisplayItems {
@@ -448,10 +745,10 @@ int main (int argc, const char * argv[])
 }
 - (NSDictionary *) newTransactionDisplayItem2 {
   NSMutableDictionary *val = [[NSMutableDictionary alloc] init];
-  val[@"description"] = @"Leki Trekking Poles";
-  val[@"price"] = @"35.00";
-  val[@"extended"] = @"70.00";
-  val[@"discounts"] = [self newTransactionDisplayDiscounts];
+    val["description"] = "Leki Trekking Poles"
+    val["price"] = "35.00"
+    val["extended"] = "70.00"
+    val["discounts"] = newTransactionDisplayDiscounts()
   return val;
 }
 - (NSArray *) newTransactionDisplayDiscounts {
@@ -461,17 +758,81 @@ int main (int argc, const char * argv[])
 }
 - (NSDictionary *) newTransactionDisplayDiscount2 {
   NSMutableDictionary *val = [[NSMutableDictionary alloc] init];
-  val[@"description"] = @"memberDiscount";
-  val[@"amount"] = @"10.00";
+    val["description"] = "memberDiscount"
+    val["amount"] = "10.00"
   return val;
 }
 
+```
+
+##### From Swift:
+
+```swift
+import BlockChyp
+
+class ExampleClass {
+
+  func example() {
+    let client = BlockChyp.init(
+      apiKey: "ZN5WQGX5PN6BE2MF75CEAWRETM",
+      bearerToken: "SVVHJCYVFWJR2QKYKFWMZQVZL4",
+      signingKey: "7c1b9e4d1308e7bbe76a1920ddd9449ce50af2629f6bb70ed3c110365935970b"
+    )
+
+    var request: [String:Any] = [:]
+    request["test"] = true
+    request["terminalName"] = "Test Terminal"
+    request["transaction"] = newTransactionDisplayTransaction()
+    client.newTransactionDisplay(withRequest: request, handler: { (request, response, error) in
+      let approved = response["success"] as? Bool
+      if (approved.unsafelyUnwrapped) {
+        NSLog("Success")
+      }
+    })
+  }
+
+  func newTransactionDisplayTransaction() -> [String:Any] {
+    var val: [String:Any] = [:]
+    val["subtotal"] = "60.00"
+    val["tax"] = "5.00"
+    val["total"] = "65.00"
+    val["items"] = newTransactionDisplayItems()
+    return val
+  }
+  func newTransactionDisplayItems()  -> [[String:Any]] {
+    var val = [[String:Any]]()
+    val.append(newTransactionDisplayItem2())
+    return val
+  }
+  func newTransactionDisplayItem2() -> [String:Any] {
+    var val: [String:Any] = [:]
+    val["description"] = "Leki Trekking Poles"
+    val["price"] = "35.00"
+    val["extended"] = "70.00"
+    val["discounts"] = newTransactionDisplayDiscounts()
+    return val;
+  }
+  func newTransactionDisplayDiscounts()  -> [[String:Any]] {
+    var val = [[String:Any]]()
+    val.append(newTransactionDisplayDiscount2())
+    return val
+  }
+  func newTransactionDisplayDiscount2() -> [String:Any] {
+    var val: [String:Any] = [:]
+    val["description"] = "memberDiscount"
+    val["amount"] = "10.00"
+    return val;
+  }
 
 ```
 
+
+
 #### Text Prompt
 
-Asks the consumer text based question.
+Asks the consumer a text based question.
+
+##### From Objective-C:
 
 ```objective-c
 #import <Foundation/Foundation.h>
@@ -502,12 +863,45 @@ int main (int argc, const char * argv[])
 }
 
 
+```
+
+##### From Swift:
+
+```swift
+import BlockChyp
+
+class ExampleClass {
+
+  func example() {
+    let client = BlockChyp.init(
+      apiKey: "ZN5WQGX5PN6BE2MF75CEAWRETM",
+      bearerToken: "SVVHJCYVFWJR2QKYKFWMZQVZL4",
+      signingKey: "7c1b9e4d1308e7bbe76a1920ddd9449ce50af2629f6bb70ed3c110365935970b"
+    )
+
+    var request: [String:Any] = [:]
+    request["test"] = true
+    request["terminalName"] = "Test Terminal"
+    request["promptType"] = PROMPT_TYPE_EMAIL
+    client.textPrompt(withRequest: request, handler: { (request, response, error) in
+      let approved = response["success"] as? Bool
+      if (approved.unsafelyUnwrapped) {
+        NSLog("Success")
+      }
+      NSLog("response" + ": " + (response["response"] as? String).unsafelyUnwrapped)
+    })
+  }
+
 
 ```
+
+
 
 #### Boolean Prompt
 
 Asks the consumer a yes/no question.
+
+##### From Objective-C:
 
 ```objective-c
 #import <Foundation/Foundation.h>
@@ -540,12 +934,47 @@ int main (int argc, const char * argv[])
 }
 
 
+```
+
+##### From Swift:
+
+```swift
+import BlockChyp
+
+class ExampleClass {
+
+  func example() {
+    let client = BlockChyp.init(
+      apiKey: "ZN5WQGX5PN6BE2MF75CEAWRETM",
+      bearerToken: "SVVHJCYVFWJR2QKYKFWMZQVZL4",
+      signingKey: "7c1b9e4d1308e7bbe76a1920ddd9449ce50af2629f6bb70ed3c110365935970b"
+    )
+
+    var request: [String:Any] = [:]
+    request["test"] = true
+    request["terminalName"] = "Test Terminal"
+    request["prompt"] = "Would you like to become a member?"
+    request["yesCaption"] = "Yes"
+    request["noCaption"] = "No"
+    client.booleanPrompt(withRequest: request, handler: { (request, response, error) in
+      let approved = response["success"] as? Bool
+      if (approved.unsafelyUnwrapped) {
+        NSLog("Success")
+      }
+      NSLog("response" + ": " + (response["response"] as? String).unsafelyUnwrapped)
+    })
+  }
+
 
 ```
+
+
 
 #### Display Message
 
 Displays a short message on the terminal.
+
+##### From Objective-C:
 
 ```objective-c
 #import <Foundation/Foundation.h>
@@ -575,12 +1004,44 @@ int main (int argc, const char * argv[])
 }
 
 
+```
+
+##### From Swift:
+
+```swift
+import BlockChyp
+
+class ExampleClass {
+
+  func example() {
+    let client = BlockChyp.init(
+      apiKey: "ZN5WQGX5PN6BE2MF75CEAWRETM",
+      bearerToken: "SVVHJCYVFWJR2QKYKFWMZQVZL4",
+      signingKey: "7c1b9e4d1308e7bbe76a1920ddd9449ce50af2629f6bb70ed3c110365935970b"
+    )
+
+    var request: [String:Any] = [:]
+    request["test"] = true
+    request["terminalName"] = "Test Terminal"
+    request["message"] = "Thank you for your business."
+    client.message(withRequest: request, handler: { (request, response, error) in
+      let approved = response["success"] as? Bool
+      if (approved.unsafelyUnwrapped) {
+        NSLog("Success")
+      }
+    })
+  }
+
 
 ```
+
+
 
 #### Refund
 
 Executes a refund.
+
+##### From Objective-C:
 
 ```objective-c
 #import <Foundation/Foundation.h>
@@ -610,12 +1071,44 @@ int main (int argc, const char * argv[])
 }
 
 
+```
+
+##### From Swift:
+
+```swift
+import BlockChyp
+
+class ExampleClass {
+
+  func example() {
+    let client = BlockChyp.init(
+      apiKey: "ZN5WQGX5PN6BE2MF75CEAWRETM",
+      bearerToken: "SVVHJCYVFWJR2QKYKFWMZQVZL4",
+      signingKey: "7c1b9e4d1308e7bbe76a1920ddd9449ce50af2629f6bb70ed3c110365935970b"
+    )
+
+    var request: [String:Any] = [:]
+    request["terminalName"] = "Test Terminal"
+    request["transactionId"] = "<PREVIOUS TRANSACTION ID>"
+    request["amount"] = "5.00"
+    client.refund(withRequest: request, handler: { (request, response, error) in
+      let approved = response["approved"] as? Bool
+      if (approved.unsafelyUnwrapped) {
+        NSLog("Approved")
+      }
+    })
+  }
+
 
 ```
+
+
 
 #### Enroll
 
 Adds a new payment method to the token vault.
+
+##### From Objective-C:
 
 ```objective-c
 #import <Foundation/Foundation.h>
@@ -645,12 +1138,44 @@ int main (int argc, const char * argv[])
 }
 
 
+```
+
+##### From Swift:
+
+```swift
+import BlockChyp
+
+class ExampleClass {
+
+  func example() {
+    let client = BlockChyp.init(
+      apiKey: "ZN5WQGX5PN6BE2MF75CEAWRETM",
+      bearerToken: "SVVHJCYVFWJR2QKYKFWMZQVZL4",
+      signingKey: "7c1b9e4d1308e7bbe76a1920ddd9449ce50af2629f6bb70ed3c110365935970b"
+    )
+
+    var request: [String:Any] = [:]
+    request["test"] = true
+    request["terminalName"] = "Test Terminal"
+    client.enroll(withRequest: request, handler: { (request, response, error) in
+      let approved = response["approved"] as? Bool
+      if (approved.unsafelyUnwrapped) {
+        NSLog("Approved")
+      }
+      NSLog("token" + ": " + (response["token"] as? String).unsafelyUnwrapped)
+    })
+  }
+
 
 ```
+
+
 
 #### Gift Card Activation
 
 Activates or recharges a gift card.
+
+##### From Objective-C:
 
 ```objective-c
 #import <Foundation/Foundation.h>
@@ -683,8 +1208,41 @@ int main (int argc, const char * argv[])
 }
 
 
+```
+
+##### From Swift:
+
+```swift
+import BlockChyp
+
+class ExampleClass {
+
+  func example() {
+    let client = BlockChyp.init(
+      apiKey: "ZN5WQGX5PN6BE2MF75CEAWRETM",
+      bearerToken: "SVVHJCYVFWJR2QKYKFWMZQVZL4",
+      signingKey: "7c1b9e4d1308e7bbe76a1920ddd9449ce50af2629f6bb70ed3c110365935970b"
+    )
+
+    var request: [String:Any] = [:]
+    request["test"] = true
+    request["terminalName"] = "Test Terminal"
+    request["amount"] = "50.00"
+    client.giftActivate(withRequest: request, handler: { (request, response, error) in
+      let approved = response["approved"] as? Bool
+      if (approved.unsafelyUnwrapped) {
+        NSLog("Approved")
+      }
+      NSLog("amount" + ": " + (response["amount"] as? String).unsafelyUnwrapped)
+      NSLog("currentBalance" + ": " + (response["currentBalance"] as? String).unsafelyUnwrapped)
+      NSLog("publicKey" + ": " + (response["publicKey"] as? String).unsafelyUnwrapped)
+    })
+  }
+
 
 ```
+
+
 
 #### Time Out Reversal
 
@@ -697,6 +1255,8 @@ you build the original request. Otherwise, we have no real way of knowing which
 transaction you're trying to reverse because we may not have assigned it an id
 yet. And if we did assign it an id, you wouldn't know what it is because your
 request to the terminal timed out before you got a response.
+
+##### From Objective-C:
 
 ```objective-c
 #import <Foundation/Foundation.h>
@@ -725,12 +1285,43 @@ int main (int argc, const char * argv[])
 }
 
 
+```
+
+##### From Swift:
+
+```swift
+import BlockChyp
+
+class ExampleClass {
+
+  func example() {
+    let client = BlockChyp.init(
+      apiKey: "ZN5WQGX5PN6BE2MF75CEAWRETM",
+      bearerToken: "SVVHJCYVFWJR2QKYKFWMZQVZL4",
+      signingKey: "7c1b9e4d1308e7bbe76a1920ddd9449ce50af2629f6bb70ed3c110365935970b"
+    )
+
+    var request: [String:Any] = [:]
+    request["terminalName"] = "Test Terminal"
+    request["transactionRef"] = "<LAST TRANSACTION REF>"
+    client.reverse(withRequest: request, handler: { (request, response, error) in
+      let approved = response["approved"] as? Bool
+      if (approved.unsafelyUnwrapped) {
+        NSLog("Approved")
+      }
+    })
+  }
+
 
 ```
+
+
 
 #### Capture Preauthorization
 
 Captures a preauthorization.
+
+##### From Objective-C:
 
 ```objective-c
 #import <Foundation/Foundation.h>
@@ -759,12 +1350,43 @@ int main (int argc, const char * argv[])
 }
 
 
+```
+
+##### From Swift:
+
+```swift
+import BlockChyp
+
+class ExampleClass {
+
+  func example() {
+    let client = BlockChyp.init(
+      apiKey: "ZN5WQGX5PN6BE2MF75CEAWRETM",
+      bearerToken: "SVVHJCYVFWJR2QKYKFWMZQVZL4",
+      signingKey: "7c1b9e4d1308e7bbe76a1920ddd9449ce50af2629f6bb70ed3c110365935970b"
+    )
+
+    var request: [String:Any] = [:]
+    request["test"] = true
+    request["transactionId"] = "<PREAUTH TRANSACTION ID>"
+    client.capture(withRequest: request, handler: { (request, response, error) in
+      let approved = response["approved"] as? Bool
+      if (approved.unsafelyUnwrapped) {
+        NSLog("Approved")
+      }
+    })
+  }
+
 
 ```
+
+
 
 #### Close Batch
 
 Closes the current credit card batch.
+
+##### From Objective-C:
 
 ```objective-c
 #import <Foundation/Foundation.h>
@@ -794,12 +1416,44 @@ int main (int argc, const char * argv[])
 }
 
 
+```
+
+##### From Swift:
+
+```swift
+import BlockChyp
+
+class ExampleClass {
+
+  func example() {
+    let client = BlockChyp.init(
+      apiKey: "ZN5WQGX5PN6BE2MF75CEAWRETM",
+      bearerToken: "SVVHJCYVFWJR2QKYKFWMZQVZL4",
+      signingKey: "7c1b9e4d1308e7bbe76a1920ddd9449ce50af2629f6bb70ed3c110365935970b"
+    )
+
+    var request: [String:Any] = [:]
+    request["test"] = true
+    client.closeBatch(withRequest: request, handler: { (request, response, error) in
+      let approved = response["success"] as? Bool
+      if (approved.unsafelyUnwrapped) {
+        NSLog("Success")
+      }
+      NSLog("capturedTotal" + ": " + (response["capturedTotal"] as? String).unsafelyUnwrapped)
+      NSLog("openPreauths" + ": " + (response["openPreauths"] as? String).unsafelyUnwrapped)
+    })
+  }
+
 
 ```
+
+
 
 #### Void Transaction
 
 Discards a previous preauth transaction.
+
+##### From Objective-C:
 
 ```objective-c
 #import <Foundation/Foundation.h>
@@ -828,12 +1482,43 @@ int main (int argc, const char * argv[])
 }
 
 
+```
+
+##### From Swift:
+
+```swift
+import BlockChyp
+
+class ExampleClass {
+
+  func example() {
+    let client = BlockChyp.init(
+      apiKey: "ZN5WQGX5PN6BE2MF75CEAWRETM",
+      bearerToken: "SVVHJCYVFWJR2QKYKFWMZQVZL4",
+      signingKey: "7c1b9e4d1308e7bbe76a1920ddd9449ce50af2629f6bb70ed3c110365935970b"
+    )
+
+    var request: [String:Any] = [:]
+    request["test"] = true
+    request["transactionId"] = "<PREVIOUS TRANSACTION ID>"
+    client.void(withRequest: request, handler: { (request, response, error) in
+      let approved = response["approved"] as? Bool
+      if (approved.unsafelyUnwrapped) {
+        NSLog("Approved")
+      }
+    })
+  }
+
 
 ```
+
+
 
 #### Terminal Status
 
 Returns the current status of a terminal.
+
+##### From Objective-C:
 
 ```objective-c
 #import <Foundation/Foundation.h>
@@ -863,8 +1548,38 @@ int main (int argc, const char * argv[])
 }
 
 
+```
+
+##### From Swift:
+
+```swift
+import BlockChyp
+
+class ExampleClass {
+
+  func example() {
+    let client = BlockChyp.init(
+      apiKey: "ZN5WQGX5PN6BE2MF75CEAWRETM",
+      bearerToken: "SVVHJCYVFWJR2QKYKFWMZQVZL4",
+      signingKey: "7c1b9e4d1308e7bbe76a1920ddd9449ce50af2629f6bb70ed3c110365935970b"
+    )
+
+    var request: [String:Any] = [:]
+    request["terminalName"] = "Test Terminal"
+    client.terminalStatus(withRequest: request, handler: { (request, response, error) in
+      let approved = response["success"] as? Bool
+      if (approved.unsafelyUnwrapped) {
+        NSLog("Success")
+      }
+      NSLog("idle" + ": " + (response["idle"] as? String).unsafelyUnwrapped)
+      NSLog("status" + ": " + (response["status"] as? String).unsafelyUnwrapped)
+    })
+  }
+
 
 ```
+
+
 
 ## Running Integration Tests
 

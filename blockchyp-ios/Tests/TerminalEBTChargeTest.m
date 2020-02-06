@@ -51,6 +51,7 @@
     [self logJSON:response];
     XCTAssertNotNil(response);
     // response assertions
+    XCTAssertTrue([response objectForKey:@"success"]);
     XCTAssertTrue([response objectForKey:@"approved"]);
     XCTAssertTrue([response objectForKey:@"test"]);
     XCTAssertEqual(6, [((NSString *)[response objectForKey:@"authCode"]) length]);

@@ -61,10 +61,10 @@
 
 - (NSDictionary *) newTransactionDisplayTransaction {
   NSMutableDictionary *val = [[NSMutableDictionary alloc] init];
-  val[@"subtotal"] = @"35.00";
-  val[@"tax"] = @"5.00";
-  val[@"total"] = @"70.00";
-  val[@"items"] = [self newTransactionDisplayItems];
+    val["subtotal"] = "35.00"
+    val["tax"] = "5.00"
+    val["total"] = "70.00"
+    val["items"] = newTransactionDisplayItems()
   return val;
 }
 - (NSArray *) newTransactionDisplayItems {
@@ -74,10 +74,10 @@
 }
 - (NSDictionary *) newTransactionDisplayItem2 {
   NSMutableDictionary *val = [[NSMutableDictionary alloc] init];
-  val[@"description"] = @"Leki Trekking Poles";
-  val[@"price"] = @"35.00";
-  val[@"extended"] = @"70.00";
-  val[@"discounts"] = [self newTransactionDisplayDiscounts];
+    val["description"] = "Leki Trekking Poles"
+    val["price"] = "35.00"
+    val["extended"] = "70.00"
+    val["discounts"] = newTransactionDisplayDiscounts()
   return val;
 }
 - (NSArray *) newTransactionDisplayDiscounts {
@@ -87,8 +87,8 @@
 }
 - (NSDictionary *) newTransactionDisplayDiscount2 {
   NSMutableDictionary *val = [[NSMutableDictionary alloc] init];
-  val[@"description"] = @"memberDiscount";
-  val[@"amount"] = @"10.00";
+    val["description"] = "memberDiscount"
+    val["amount"] = "10.00"
   return val;
 }
 

@@ -32,6 +32,8 @@ integration:
 .PHONY: stage
 stage:
 	$(SED) -i 's/spec.version.*= ".*"/spec.version                     = "$(VERSION)"/' blockchyp-ios/BlockChyp.podspec
+	$(SED) -i "s/pod 'BlockChyp', '~> .*'/pod 'BlockChyp', '~> $(VERSION)'" README.md
+
 
 # Publish packages
 .PHONY: publish

@@ -57,7 +57,7 @@
 
 }
 
-// Appends items to an existing transaction display Subtotal, Tax, and Total
+// Appends items to an existing transaction display. Subtotal, Tax, and Total
 // are overwritten by the request. Items with the same description are
 // combined into groups.
 -(void)updateTransactionDisplayWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler; {
@@ -73,7 +73,7 @@
 
 }
 
-// Asks the consumer text based question.
+// Asks the consumer a text based question.
 -(void)textPromptWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler; {
 
   [self routeTerminalRequestWith:request terminalPath:@"/api/text-prompt" gatewayPath:@"/api/text-prompt" method:@"POST" handler:handler];
