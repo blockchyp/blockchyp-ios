@@ -19,6 +19,8 @@
         self.routeCacheTTL = 60;
         self.gatewayTimeout = 20;
         self.terminalTimeout = 120;
+        self.gatewayHost = @"https://api.blockchyp.com";
+        self.testGatewayHost = @"https://test.blockchyp.com";
         self.routeCache = [[NSMutableDictionary alloc] init];
     }
     return self;
