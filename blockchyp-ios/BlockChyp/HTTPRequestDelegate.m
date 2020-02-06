@@ -6,8 +6,6 @@
 #import "HTTPRequestDelegate.h"
 #import "EncodingUtils.h"
 #import "NSData+FastHex.h"
-#include <CommonCrypto/CommonDigest.h>
-#include <CommonCrypto/CommonHMAC.h>
 
 @implementation HTTPRequestDelegate
 
@@ -85,15 +83,6 @@ BlockChypClient *client;
     NSString *nonce = [self generateNonceWithSize:32];
     NSString *ts = [self generateTimestamp];
      
-    NSString *canonicalString = [NSString stringWithFormat:@"%@%@%@%@", client.apiKey, client.bearerToken, ts, nonce];
-    
-    const char *cData = [canonicalString cStringUsingEncoding:NSUTF8StringEncoding];
-    const char *cKey = [client.signingKey cStringUsingEncoding:NSUTF8StringEncoding];
-
-    
-    unsigned char cHMAC[CC_SHA256_DIGEST_LENGTH];
-    CCHmac(kCCHmacAlgSHA256, cKey, strlen(cKey), cData, strlen(cData), cHMAC);
-    NSData *hash = [[NSData alloc] initWithBytes:cHMAC length:sizeof(cHMAC)];
     NSString *auth = [NSString stringWithFormat:@"Bearer %@:%@", client.bearerToken, client.apiKey];
     
     NSMutableDictionary *headers = [[NSMutableDictionary alloc] init];

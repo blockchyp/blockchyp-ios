@@ -12,7 +12,7 @@ Pod::Spec.new do |spec|
   spec.license                     = { :type => "MIT", :file => "LICENSE" }
   spec.author                      = { "BlockChyp" => "support@blockchyp.com" }
   spec.source                      = { :git => "https://github.com/blockchyp/blockchyp-ios.git", :tag => "v#{spec.version}" }
-  spec.frameworks                  = "Foundation", "CommonCrypto"
+  spec.frameworks                  = "Foundation"
   spec.requires_arc                = true
   spec.platform                    = :ios
   spec.ios.deployment_target       = "8.0"
