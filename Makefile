@@ -31,7 +31,7 @@ integration:
 # Performs any tasks necessary before a release build
 .PHONY: stage
 stage:
-	$(SED) -i 's/spec.version      = ".*"/spec.version      = "$(VERSION)"/' blockchyp-ios/BlockChyp.podspec
+	$(SED) -i 's/spec.version.*= ".*"/spec.version                     = "$(VERSION)"/' blockchyp-ios/BlockChyp.podspec
 
 # Publish packages
 .PHONY: publish
