@@ -50,6 +50,7 @@
     [self logJSON:response];
     XCTAssertNotNil(response);
     // response assertions
+    XCTAssertTrue([response objectForKey:@"success"]);
     XCTAssertTrue([response objectForKey:@"approved"]);
     XCTAssertNotNil([response objectForKey:@"publicKey"]);
     XCTAssertTrue([((NSString *)[response objectForKey:@"publicKey"]) length] > 0);

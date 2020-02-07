@@ -26,10 +26,10 @@ int main (int argc, const char * argv[])
 
 - (NSDictionary *) newTransactionDisplayTransaction {
   NSMutableDictionary *val = [[NSMutableDictionary alloc] init];
-    val["subtotal"] = "60.00"
-    val["tax"] = "5.00"
-    val["total"] = "65.00"
-    val["items"] = newTransactionDisplayItems()
+  val[@"subtotal"] = @"60.00";
+  val[@"tax"] = @"5.00";
+  val[@"total"] = @"65.00";
+  val[@"items"] = [self newTransactionDisplayItems];
   return val;
 }
 - (NSArray *) newTransactionDisplayItems {
@@ -39,10 +39,10 @@ int main (int argc, const char * argv[])
 }
 - (NSDictionary *) newTransactionDisplayItem2 {
   NSMutableDictionary *val = [[NSMutableDictionary alloc] init];
-    val["description"] = "Leki Trekking Poles"
-    val["price"] = "35.00"
-    val["extended"] = "70.00"
-    val["discounts"] = newTransactionDisplayDiscounts()
+  val[@"description"] = @"Leki Trekking Poles";
+  val[@"price"] = @"35.00";
+  val[@"extended"] = @"70.00";
+  val[@"discounts"] = [self newTransactionDisplayDiscounts];
   return val;
 }
 - (NSArray *) newTransactionDisplayDiscounts {
@@ -52,7 +52,7 @@ int main (int argc, const char * argv[])
 }
 - (NSDictionary *) newTransactionDisplayDiscount2 {
   NSMutableDictionary *val = [[NSMutableDictionary alloc] init];
-    val["description"] = "memberDiscount"
-    val["amount"] = "10.00"
+  val[@"description"] = @"memberDiscount";
+  val[@"amount"] = @"10.00";
   return val;
 }

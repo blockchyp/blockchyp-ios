@@ -72,6 +72,7 @@
     [self logJSON:response];
     XCTAssertNotNil(response);
     // response assertions
+    XCTAssertTrue([response objectForKey:@"success"]);
     XCTAssertTrue([response objectForKey:@"approved"]);
 
     [expectation fulfill];

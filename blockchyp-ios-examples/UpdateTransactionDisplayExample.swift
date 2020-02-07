@@ -23,10 +23,10 @@ class ExampleClass {
 
   func newTransactionDisplayTransaction() -> [String:Any] {
     var val: [String:Any] = [:]
-    val["subtotal"] = "60.00"
-    val["tax"] = "5.00"
-    val["total"] = "65.00"
-    val["items"] = newTransactionDisplayItems()
+  val[@"subtotal"] = @"60.00";
+  val[@"tax"] = @"5.00";
+  val[@"total"] = @"65.00";
+  val[@"items"] = [self newTransactionDisplayItems];
     return val
   }
   func newTransactionDisplayItems()  -> [[String:Any]] {
@@ -36,10 +36,10 @@ class ExampleClass {
   }
   func newTransactionDisplayItem2() -> [String:Any] {
     var val: [String:Any] = [:]
-    val["description"] = "Leki Trekking Poles"
-    val["price"] = "35.00"
-    val["extended"] = "70.00"
-    val["discounts"] = newTransactionDisplayDiscounts()
+  val[@"description"] = @"Leki Trekking Poles";
+  val[@"price"] = @"35.00";
+  val[@"extended"] = @"70.00";
+  val[@"discounts"] = [self newTransactionDisplayDiscounts];
     return val;
   }
   func newTransactionDisplayDiscounts()  -> [[String:Any]] {
@@ -49,7 +49,7 @@ class ExampleClass {
   }
   func newTransactionDisplayDiscount2() -> [String:Any] {
     var val: [String:Any] = [:]
-    val["description"] = "memberDiscount"
-    val["amount"] = "10.00"
+  val[@"description"] = @"memberDiscount";
+  val[@"amount"] = @"10.00";
     return val;
   }
