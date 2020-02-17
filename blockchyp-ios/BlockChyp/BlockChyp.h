@@ -63,6 +63,9 @@ NS_ASSUME_NONNULL_BEGIN
 // Returns the current status of a terminal.
 -(void)terminalStatusWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
 
+// Captures and returns a signature.
+-(void)captureSignatureWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
 
 
 // Executes a manual time out reversal.

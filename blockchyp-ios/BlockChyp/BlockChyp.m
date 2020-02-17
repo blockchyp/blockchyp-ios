@@ -122,6 +122,13 @@
 
 }
 
+// Captures and returns a signature.
+-(void)captureSignatureWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler; {
+
+  [self routeTerminalRequestWith:request terminalPath:@"/api/capture-signature" gatewayPath:@"/api/capture-signature" method:@"POST" handler:handler];
+
+}
+
 
 
 // Executes a manual time out reversal.
