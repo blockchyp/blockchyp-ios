@@ -24,6 +24,8 @@ static const NSString * PROMPT_TYPE_EMAIL = @"email";
 static const NSString * PROMPT_TYPE_PHONE_NUMBER = @"phone";
 static const NSString * PROMPT_TYPE_CUSTOMER_NUMBER = @"customer-number";
 static const NSString * PROMPT_TYPE_REWARDS_NUMBER = @"rewards-number";
+static const NSString * PROMPT_TYPE_FIRST_NAME = @"first-name";
+static const NSString * PROMPT_TYPE_LAST_NAME = @"last-name";
 
 NS_ASSUME_NONNULL_BEGIN
 
