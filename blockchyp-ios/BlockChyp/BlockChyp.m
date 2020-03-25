@@ -168,6 +168,41 @@
 
 }
 
+// Updates or creates a customer record.
+-(void)updateCustomerWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeGatewayRequestWith:request path:@"/api/update-customer" method:@"POST" handler:handler];
+
+}
+
+// Retrieves a customer by id.
+-(void)customerWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeGatewayRequestWith:request path:@"/api/customer" method:@"POST" handler:handler];
+
+}
+
+// Searches the customer database.
+-(void)customerSearchWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeGatewayRequestWith:request path:@"/api/customer-search" method:@"POST" handler:handler];
+
+}
+
+// Retrieves the current status of a transaction.
+-(void)transactionStatusWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeGatewayRequestWith:request path:@"/api/tx-status" method:@"POST" handler:handler];
+
+}
+
+// Creates and send a payment link to a customer.
+-(void)sendPaymentLinkWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeGatewayRequestWith:request path:@"/api/send-payment-link" method:@"POST" handler:handler];
+
+}
+
 
 @end
 

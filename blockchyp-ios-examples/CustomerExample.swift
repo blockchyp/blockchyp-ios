@@ -10,14 +10,13 @@ class ExampleClass {
     )
 
     var request: [String:Any] = [:]
-    request["terminalName"] = "Test Terminal"
-    request["sigFormat"] = SIGNATURE_FORMAT_PNG
-    request["sigWidth"] = 200
-    client.captureSignature(withRequest: request, handler: { (request, response, error) in
+    request["customerId"] = "ID of the customer to retrieve"
+    client.customer(withRequest: request, handler: { (request, response, error) in
       let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
+      NSLog("customer" + ": " + (response["customer"] as? String).unsafelyUnwrapped)
     })
   }
 

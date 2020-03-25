@@ -89,6 +89,21 @@ NS_ASSUME_NONNULL_BEGIN
 // Discards a previous preauth transaction.
 -(void)voidWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
 
+// Updates or creates a customer record.
+-(void)updateCustomerWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
+// Retrieves a customer by id.
+-(void)customerWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
+// Searches the customer database.
+-(void)customerSearchWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
+// Retrieves the current status of a transaction.
+-(void)transactionStatusWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
+// Creates and send a payment link to a customer.
+-(void)sendPaymentLinkWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
 
 @end
 

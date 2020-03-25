@@ -1605,7 +1605,7 @@ int main (int argc, const char * argv[])
   request[@"sigFormat"] = SIGNATURE_FORMAT_PNG;
   request[@"sigWidth"] = @200;
   [client captureSignatureWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"approved"];
+    NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -1636,13 +1636,432 @@ class ExampleClass {
     request["sigFormat"] = SIGNATURE_FORMAT_PNG
     request["sigWidth"] = 200
     client.captureSignature(withRequest: request, handler: { (request, response, error) in
-      let approved = response["approved"] as? Bool
+      let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
     })
   }
 
+
+```
+
+
+
+#### Update Customer
+
+Updates or creates a customer record.
+
+##### From Objective-C:
+
+```objective-c
+#import <Foundation/Foundation.h>
+#import <BlockChyp/BlockChyp.h>
+
+int main (int argc, const char * argv[])
+{
+  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+
+  BlockChyp *client = [[BlockChyp alloc]
+    initWithApiKey:@"SPBXTSDAQVFFX5MGQMUMIRINVI"
+    bearerToken:@"7BXBTBUPSL3BP7I6Z2CFU6H3WQ"
+    signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
+
+  NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
+  [request setObject:[self newCustomer] forKey:@"customer"];
+  [client updateCustomerWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+    NSNumber *success = [response objectForKey:@"success"];
+    if (success.boolValue) {
+      NSLog(@"Success");
+    }
+    NSLog(@"%@: %@", @"customer", [response objectForKey:@"customer"])
+  }];
+  [pool drain];
+  return 0;
+}
+
+- (NSDictionary *) newCustomer {
+  NSMutableDictionary *val = [[NSMutableDictionary alloc] init];
+  val[@"id"] = @"ID of the customer to update";
+  val[@"customerRef"] = @"Customer reference string";
+  val[@"firstName"] = @"FirstName";
+  val[@"lastName"] = @"LastName";
+  val[@"companyName"] = @"Company Name";
+  val[@"emailAddress"] = @"support@blockchyp.com";
+  val[@"smsNumber"] = @"(123) 123-1231";
+  return val;
+}
+
+```
+
+##### From Swift:
+
+```swift
+import BlockChyp
+
+class ExampleClass {
+
+  func example() {
+    let client = BlockChyp.init(
+      apiKey: "ZN5WQGX5PN6BE2MF75CEAWRETM",
+      bearerToken: "SVVHJCYVFWJR2QKYKFWMZQVZL4",
+      signingKey: "7c1b9e4d1308e7bbe76a1920ddd9449ce50af2629f6bb70ed3c110365935970b"
+    )
+
+    var request: [String:Any] = [:]
+    request["customer"] = newCustomer()
+    client.updateCustomer(withRequest: request, handler: { (request, response, error) in
+      let approved = response["success"] as? Bool
+      if (approved.unsafelyUnwrapped) {
+        NSLog("Success")
+      }
+      NSLog("customer" + ": " + (response["customer"] as? String).unsafelyUnwrapped)
+    })
+  }
+
+  func newCustomer() -> [String:Any] {
+    var val: [String:Any] = [:]
+  val[@"id"] = @"ID of the customer to update";
+  val[@"customerRef"] = @"Customer reference string";
+  val[@"firstName"] = @"FirstName";
+  val[@"lastName"] = @"LastName";
+  val[@"companyName"] = @"Company Name";
+  val[@"emailAddress"] = @"support@blockchyp.com";
+  val[@"smsNumber"] = @"(123) 123-1231";
+    return val
+  }
+
+```
+
+
+
+#### Retrieve Customer
+
+Retrieves a customer by id.
+
+##### From Objective-C:
+
+```objective-c
+#import <Foundation/Foundation.h>
+#import <BlockChyp/BlockChyp.h>
+
+int main (int argc, const char * argv[])
+{
+  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+
+  BlockChyp *client = [[BlockChyp alloc]
+    initWithApiKey:@"SPBXTSDAQVFFX5MGQMUMIRINVI"
+    bearerToken:@"7BXBTBUPSL3BP7I6Z2CFU6H3WQ"
+    signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
+
+  NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
+  request[@"customerId"] = @"ID of the customer to retrieve";
+  [client customerWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+    NSNumber *success = [response objectForKey:@"success"];
+    if (success.boolValue) {
+      NSLog(@"Success");
+    }
+    NSLog(@"%@: %@", @"customer", [response objectForKey:@"customer"])
+  }];
+  [pool drain];
+  return 0;
+}
+
+
+```
+
+##### From Swift:
+
+```swift
+import BlockChyp
+
+class ExampleClass {
+
+  func example() {
+    let client = BlockChyp.init(
+      apiKey: "ZN5WQGX5PN6BE2MF75CEAWRETM",
+      bearerToken: "SVVHJCYVFWJR2QKYKFWMZQVZL4",
+      signingKey: "7c1b9e4d1308e7bbe76a1920ddd9449ce50af2629f6bb70ed3c110365935970b"
+    )
+
+    var request: [String:Any] = [:]
+    request["customerId"] = "ID of the customer to retrieve"
+    client.customer(withRequest: request, handler: { (request, response, error) in
+      let approved = response["success"] as? Bool
+      if (approved.unsafelyUnwrapped) {
+        NSLog("Success")
+      }
+      NSLog("customer" + ": " + (response["customer"] as? String).unsafelyUnwrapped)
+    })
+  }
+
+
+```
+
+
+
+#### Search Customer
+
+Searches the customer database.
+
+##### From Objective-C:
+
+```objective-c
+#import <Foundation/Foundation.h>
+#import <BlockChyp/BlockChyp.h>
+
+int main (int argc, const char * argv[])
+{
+  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+
+  BlockChyp *client = [[BlockChyp alloc]
+    initWithApiKey:@"SPBXTSDAQVFFX5MGQMUMIRINVI"
+    bearerToken:@"7BXBTBUPSL3BP7I6Z2CFU6H3WQ"
+    signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
+
+  NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
+  request[@"query"] = @"(123) 123-1234";
+  [client customerSearchWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+    NSNumber *success = [response objectForKey:@"success"];
+    if (success.boolValue) {
+      NSLog(@"Success");
+    }
+    NSLog(@"%@: %@", @"customers", [response objectForKey:@"customers"])
+  }];
+  [pool drain];
+  return 0;
+}
+
+
+```
+
+##### From Swift:
+
+```swift
+import BlockChyp
+
+class ExampleClass {
+
+  func example() {
+    let client = BlockChyp.init(
+      apiKey: "ZN5WQGX5PN6BE2MF75CEAWRETM",
+      bearerToken: "SVVHJCYVFWJR2QKYKFWMZQVZL4",
+      signingKey: "7c1b9e4d1308e7bbe76a1920ddd9449ce50af2629f6bb70ed3c110365935970b"
+    )
+
+    var request: [String:Any] = [:]
+    request["query"] = "(123) 123-1234"
+    client.customerSearch(withRequest: request, handler: { (request, response, error) in
+      let approved = response["success"] as? Bool
+      if (approved.unsafelyUnwrapped) {
+        NSLog("Success")
+      }
+      NSLog("customers" + ": " + (response["customers"] as? String).unsafelyUnwrapped)
+    })
+  }
+
+
+```
+
+
+
+#### Transaction Status
+
+Retrieves the current status of a transaction.
+
+##### From Objective-C:
+
+```objective-c
+#import <Foundation/Foundation.h>
+#import <BlockChyp/BlockChyp.h>
+
+int main (int argc, const char * argv[])
+{
+  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+
+  BlockChyp *client = [[BlockChyp alloc]
+    initWithApiKey:@"SPBXTSDAQVFFX5MGQMUMIRINVI"
+    bearerToken:@"7BXBTBUPSL3BP7I6Z2CFU6H3WQ"
+    signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
+
+  NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
+  request[@"transactionId"] = @"ID of transaction to retrieve";
+  [client transactionStatusWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+    NSNumber *success = [response objectForKey:@"success"];
+    if (success.boolValue) {
+      NSLog(@"Success");
+    }
+    NSLog(@"%@: %@", @"responseDescription", [response objectForKey:@"responseDescription"])
+    NSLog(@"%@: %@", @"authorizedAmount", [response objectForKey:@"authorizedAmount"])
+  }];
+  [pool drain];
+  return 0;
+}
+
+
+```
+
+##### From Swift:
+
+```swift
+import BlockChyp
+
+class ExampleClass {
+
+  func example() {
+    let client = BlockChyp.init(
+      apiKey: "ZN5WQGX5PN6BE2MF75CEAWRETM",
+      bearerToken: "SVVHJCYVFWJR2QKYKFWMZQVZL4",
+      signingKey: "7c1b9e4d1308e7bbe76a1920ddd9449ce50af2629f6bb70ed3c110365935970b"
+    )
+
+    var request: [String:Any] = [:]
+    request["transactionId"] = "ID of transaction to retrieve"
+    client.transactionStatus(withRequest: request, handler: { (request, response, error) in
+      let approved = response["success"] as? Bool
+      if (approved.unsafelyUnwrapped) {
+        NSLog("Success")
+      }
+      NSLog("responseDescription" + ": " + (response["responseDescription"] as? String).unsafelyUnwrapped)
+      NSLog("authorizedAmount" + ": " + (response["authorizedAmount"] as? String).unsafelyUnwrapped)
+    })
+  }
+
+
+```
+
+
+
+#### Send Payment Link
+
+Creates and send a payment link to a customer.
+
+##### From Objective-C:
+
+```objective-c
+#import <Foundation/Foundation.h>
+#import <BlockChyp/BlockChyp.h>
+
+int main (int argc, const char * argv[])
+{
+  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+
+  BlockChyp *client = [[BlockChyp alloc]
+    initWithApiKey:@"SPBXTSDAQVFFX5MGQMUMIRINVI"
+    bearerToken:@"7BXBTBUPSL3BP7I6Z2CFU6H3WQ"
+    signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
+
+  NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
+  request[@"amount"] = @"199.99";
+  request[@"description"] = @"Widget";
+  request[@"subject"] = @"Widget invoice";
+  [request setObject:[self newTransactionDisplayTransaction] forKey:@"transaction"];
+  request[@"autoSend"] = @YES;
+  [request setObject:[self newCustomer] forKey:@"customer"];
+  [client sendPaymentLinkWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+    NSNumber *success = [response objectForKey:@"success"];
+    if (success.boolValue) {
+      NSLog(@"Success");
+    }
+    NSLog(@"%@: %@", @"responseDescription", [response objectForKey:@"responseDescription"])
+    NSLog(@"%@: %@", @"authorizedAmount", [response objectForKey:@"authorizedAmount"])
+  }];
+  [pool drain];
+  return 0;
+}
+
+- (NSDictionary *) newTransactionDisplayTransaction {
+  NSMutableDictionary *val = [[NSMutableDictionary alloc] init];
+  val[@"subtotal"] = @"195.00";
+  val[@"tax"] = @"4.99";
+  val[@"total"] = @"199.99";
+  val[@"items"] = [self newTransactionDisplayItems];
+  return val;
+}
+- (NSArray *) newTransactionDisplayItems {
+  NSMutableArray *val = [[NSMutableArray alloc] init];
+  [val addObject: [self newTransactionDisplayItem2]];
+  return val;
+}
+- (NSDictionary *) newTransactionDisplayItem2 {
+  NSMutableDictionary *val = [[NSMutableDictionary alloc] init];
+  val[@"description"] = @"Widget";
+  val[@"price"] = @"195.00";
+  return val;
+}
+- (NSDictionary *) newCustomer {
+  NSMutableDictionary *val = [[NSMutableDictionary alloc] init];
+  val[@"customerRef"] = @"Customer reference string";
+  val[@"firstName"] = @"FirstName";
+  val[@"lastName"] = @"LastName";
+  val[@"companyName"] = @"Company Name";
+  val[@"emailAddress"] = @"support@blockchyp.com";
+  val[@"smsNumber"] = @"(123) 123-1231";
+  return val;
+}
+
+```
+
+##### From Swift:
+
+```swift
+import BlockChyp
+
+class ExampleClass {
+
+  func example() {
+    let client = BlockChyp.init(
+      apiKey: "ZN5WQGX5PN6BE2MF75CEAWRETM",
+      bearerToken: "SVVHJCYVFWJR2QKYKFWMZQVZL4",
+      signingKey: "7c1b9e4d1308e7bbe76a1920ddd9449ce50af2629f6bb70ed3c110365935970b"
+    )
+
+    var request: [String:Any] = [:]
+    request["amount"] = "199.99"
+    request["description"] = "Widget"
+    request["subject"] = "Widget invoice"
+    request["transaction"] = newTransactionDisplayTransaction()
+    request["autoSend"] = true
+    request["customer"] = newCustomer()
+    client.sendPaymentLink(withRequest: request, handler: { (request, response, error) in
+      let approved = response["success"] as? Bool
+      if (approved.unsafelyUnwrapped) {
+        NSLog("Success")
+      }
+      NSLog("responseDescription" + ": " + (response["responseDescription"] as? String).unsafelyUnwrapped)
+      NSLog("authorizedAmount" + ": " + (response["authorizedAmount"] as? String).unsafelyUnwrapped)
+    })
+  }
+
+  func newTransactionDisplayTransaction() -> [String:Any] {
+    var val: [String:Any] = [:]
+  val[@"subtotal"] = @"195.00";
+  val[@"tax"] = @"4.99";
+  val[@"total"] = @"199.99";
+  val[@"items"] = [self newTransactionDisplayItems];
+    return val
+  }
+  func newTransactionDisplayItems()  -> [[String:Any]] {
+    var val = [[String:Any]]()
+    val.append(newTransactionDisplayItem2())
+    return val
+  }
+  func newTransactionDisplayItem2() -> [String:Any] {
+    var val: [String:Any] = [:]
+  val[@"description"] = @"Widget";
+  val[@"price"] = @"195.00";
+    return val;
+  }
+  func newCustomer() -> [String:Any] {
+    var val: [String:Any] = [:]
+  val[@"customerRef"] = @"Customer reference string";
+  val[@"firstName"] = @"FirstName";
+  val[@"lastName"] = @"LastName";
+  val[@"companyName"] = @"Company Name";
+  val[@"emailAddress"] = @"support@blockchyp.com";
+  val[@"smsNumber"] = @"(123) 123-1231";
+    return val
+  }
 
 ```
 
