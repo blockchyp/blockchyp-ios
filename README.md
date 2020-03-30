@@ -1963,8 +1963,7 @@ int main (int argc, const char * argv[])
     if (success.boolValue) {
       NSLog(@"Success");
     }
-    NSLog(@"%@: %@", @"responseDescription", [response objectForKey:@"responseDescription"])
-    NSLog(@"%@: %@", @"authorizedAmount", [response objectForKey:@"authorizedAmount"])
+    NSLog(@"%@: %@", @"url", [response objectForKey:@"url"])
   }];
   [pool drain];
   return 0;
@@ -2028,8 +2027,7 @@ class ExampleClass {
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
-      NSLog("responseDescription" + ": " + (response["responseDescription"] as? String).unsafelyUnwrapped)
-      NSLog("authorizedAmount" + ": " + (response["authorizedAmount"] as? String).unsafelyUnwrapped)
+      NSLog("url" + ": " + (response["url"] as? String).unsafelyUnwrapped)
     })
   }
 

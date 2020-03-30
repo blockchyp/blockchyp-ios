@@ -22,8 +22,7 @@ int main (int argc, const char * argv[])
     if (success.boolValue) {
       NSLog(@"Success");
     }
-    NSLog(@"%@: %@", @"responseDescription", [response objectForKey:@"responseDescription"])
-    NSLog(@"%@: %@", @"authorizedAmount", [response objectForKey:@"authorizedAmount"])
+    NSLog(@"%@: %@", @"url", [response objectForKey:@"url"])
   }];
   [pool drain];
   return 0;

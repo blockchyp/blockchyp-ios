@@ -21,8 +21,7 @@ class ExampleClass {
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
-      NSLog("responseDescription" + ": " + (response["responseDescription"] as? String).unsafelyUnwrapped)
-      NSLog("authorizedAmount" + ": " + (response["authorizedAmount"] as? String).unsafelyUnwrapped)
+      NSLog("url" + ": " + (response["url"] as? String).unsafelyUnwrapped)
     })
   }
 
