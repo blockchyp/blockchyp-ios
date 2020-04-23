@@ -16,7 +16,7 @@ int main (int argc, const char * argv[])
   [client enrollWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
     NSNumber *success = [response objectForKey:@"approved"];
     if (success.boolValue) {
-      NSLog(@"Approved");
+      NSLog(@"approved");
     }
     NSLog(@"%@: %@", @"token", [response objectForKey:@"token"])
   }];

@@ -15,7 +15,7 @@ class ExampleClass {
     client.enroll(withRequest: request, handler: { (request, response, error) in
       let approved = response["approved"] as? Bool
       if (approved.unsafelyUnwrapped) {
-        NSLog("Approved")
+        NSLog("approved")
       }
       NSLog("token" + ": " + (response["token"] as? String).unsafelyUnwrapped)
     })

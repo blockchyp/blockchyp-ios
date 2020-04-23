@@ -16,7 +16,7 @@ class ExampleClass {
     client.charge(withRequest: request, handler: { (request, response, error) in
       let approved = response["approved"] as? Bool
       if (approved.unsafelyUnwrapped) {
-        NSLog("Approved")
+        NSLog("approved")
       }
       NSLog("authCode" + ": " + (response["authCode"] as? String).unsafelyUnwrapped)
       NSLog("authorizedAmount" + ": " + (response["authorizedAmount"] as? String).unsafelyUnwrapped)

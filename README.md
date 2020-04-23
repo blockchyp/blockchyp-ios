@@ -172,7 +172,7 @@ int main (int argc, const char * argv[])
   [client chargeWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
     NSNumber *success = [response objectForKey:@"approved"];
     if (success.boolValue) {
-      NSLog(@"Approved");
+      NSLog(@"approved");
     }
     NSLog(@"%@: %@", @"authCode", [response objectForKey:@"authCode"])
     NSLog(@"%@: %@", @"authorizedAmount", [response objectForKey:@"authorizedAmount"])
@@ -205,7 +205,7 @@ class ExampleClass {
     client.charge(withRequest: request, handler: { (request, response, error) in
       let approved = response["approved"] as? Bool
       if (approved.unsafelyUnwrapped) {
-        NSLog("Approved")
+        NSLog("approved")
       }
       NSLog("authCode" + ": " + (response["authCode"] as? String).unsafelyUnwrapped)
       NSLog("authorizedAmount" + ": " + (response["authorizedAmount"] as? String).unsafelyUnwrapped)
@@ -243,7 +243,7 @@ int main (int argc, const char * argv[])
   [client preauthWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
     NSNumber *success = [response objectForKey:@"approved"];
     if (success.boolValue) {
-      NSLog(@"Approved");
+      NSLog(@"approved");
     }
     NSLog(@"%@: %@", @"authCode", [response objectForKey:@"authCode"])
     NSLog(@"%@: %@", @"authorizedAmount", [response objectForKey:@"authorizedAmount"])
@@ -276,7 +276,7 @@ class ExampleClass {
     client.preauth(withRequest: request, handler: { (request, response, error) in
       let approved = response["approved"] as? Bool
       if (approved.unsafelyUnwrapped) {
-        NSLog("Approved")
+        NSLog("approved")
       }
       NSLog("authCode" + ": " + (response["authCode"] as? String).unsafelyUnwrapped)
       NSLog("authorizedAmount" + ": " + (response["authorizedAmount"] as? String).unsafelyUnwrapped)
@@ -1063,7 +1063,7 @@ int main (int argc, const char * argv[])
   [client refundWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
     NSNumber *success = [response objectForKey:@"approved"];
     if (success.boolValue) {
-      NSLog(@"Approved");
+      NSLog(@"approved");
     }
   }];
   [pool drain];
@@ -1094,7 +1094,7 @@ class ExampleClass {
     client.refund(withRequest: request, handler: { (request, response, error) in
       let approved = response["approved"] as? Bool
       if (approved.unsafelyUnwrapped) {
-        NSLog("Approved")
+        NSLog("approved")
       }
     })
   }
@@ -1129,7 +1129,7 @@ int main (int argc, const char * argv[])
   [client enrollWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
     NSNumber *success = [response objectForKey:@"approved"];
     if (success.boolValue) {
-      NSLog(@"Approved");
+      NSLog(@"approved");
     }
     NSLog(@"%@: %@", @"token", [response objectForKey:@"token"])
   }];
@@ -1160,7 +1160,7 @@ class ExampleClass {
     client.enroll(withRequest: request, handler: { (request, response, error) in
       let approved = response["approved"] as? Bool
       if (approved.unsafelyUnwrapped) {
-        NSLog("Approved")
+        NSLog("approved")
       }
       NSLog("token" + ": " + (response["token"] as? String).unsafelyUnwrapped)
     })
@@ -1197,7 +1197,7 @@ int main (int argc, const char * argv[])
   [client giftActivateWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
     NSNumber *success = [response objectForKey:@"approved"];
     if (success.boolValue) {
-      NSLog(@"Approved");
+      NSLog(@"approved");
     }
     NSLog(@"%@: %@", @"amount", [response objectForKey:@"amount"])
     NSLog(@"%@: %@", @"currentBalance", [response objectForKey:@"currentBalance"])
@@ -1231,7 +1231,7 @@ class ExampleClass {
     client.giftActivate(withRequest: request, handler: { (request, response, error) in
       let approved = response["approved"] as? Bool
       if (approved.unsafelyUnwrapped) {
-        NSLog("Approved")
+        NSLog("approved")
       }
       NSLog("amount" + ": " + (response["amount"] as? String).unsafelyUnwrapped)
       NSLog("currentBalance" + ": " + (response["currentBalance"] as? String).unsafelyUnwrapped)
@@ -1277,7 +1277,7 @@ int main (int argc, const char * argv[])
   [client reverseWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
     NSNumber *success = [response objectForKey:@"approved"];
     if (success.boolValue) {
-      NSLog(@"Approved");
+      NSLog(@"approved");
     }
   }];
   [pool drain];
@@ -1307,7 +1307,7 @@ class ExampleClass {
     client.reverse(withRequest: request, handler: { (request, response, error) in
       let approved = response["approved"] as? Bool
       if (approved.unsafelyUnwrapped) {
-        NSLog("Approved")
+        NSLog("approved")
       }
     })
   }
@@ -1342,7 +1342,7 @@ int main (int argc, const char * argv[])
   [client captureWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
     NSNumber *success = [response objectForKey:@"approved"];
     if (success.boolValue) {
-      NSLog(@"Approved");
+      NSLog(@"approved");
     }
   }];
   [pool drain];
@@ -1372,7 +1372,7 @@ class ExampleClass {
     client.capture(withRequest: request, handler: { (request, response, error) in
       let approved = response["approved"] as? Bool
       if (approved.unsafelyUnwrapped) {
-        NSLog("Approved")
+        NSLog("approved")
       }
     })
   }
@@ -1474,7 +1474,7 @@ int main (int argc, const char * argv[])
   [client voidWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
     NSNumber *success = [response objectForKey:@"approved"];
     if (success.boolValue) {
-      NSLog(@"Approved");
+      NSLog(@"approved");
     }
   }];
   [pool drain];
@@ -1504,7 +1504,7 @@ class ExampleClass {
     client.void(withRequest: request, handler: { (request, response, error) in
       let approved = response["approved"] as? Bool
       if (approved.unsafelyUnwrapped) {
-        NSLog("Approved")
+        NSLog("approved")
       }
     })
   }
