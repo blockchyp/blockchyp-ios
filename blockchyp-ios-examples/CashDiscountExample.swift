@@ -10,13 +10,13 @@ class ExampleClass {
     )
 
     var request: [String:Any] = [:]
-    request["terminalName"] = "Test Terminal"
-    request["transactionRef"] = "<LAST TRANSACTION REF>"
-    client.reverse(withRequest: request, handler: { (request, response, error) in
-      let approved = response["approved"] as? Bool
+    request["amount"] = "100.00"
+    client.cashDiscount(withRequest: request, handler: { (request, response, error) in
+      let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
-        NSLog("approved")
+        NSLog("Success")
       }
+      NSLog("amount" + ": " + (response["amount"] as? String).unsafelyUnwrapped)
     })
   }
 

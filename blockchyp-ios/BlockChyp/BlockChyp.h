@@ -98,6 +98,9 @@ NS_ASSUME_NONNULL_BEGIN
 // Searches the customer database.
 -(void)customerSearchWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
 
+// Calculates the discount for actual cash transactions.
+-(void)cashDiscountWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
 // Retrieves the current status of a transaction.
 -(void)transactionStatusWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
 

@@ -61,7 +61,7 @@
     XCTAssertTrue([((NSString *)[response objectForKey:@"timestamp"]) length] > 0);
     XCTAssertNotNil([response objectForKey:@"tickBlock"]);
     XCTAssertTrue([((NSString *)[response objectForKey:@"tickBlock"]) length] > 0);
-    XCTAssertEqualObjects(@"Approved", (NSString *)[response objectForKey:@"responseDescription"]);
+    XCTAssertEqualObjects(@"approved", (NSString *)[response objectForKey:@"responseDescription"]);
     XCTAssertNotNil([response objectForKey:@"paymentType"]);
     XCTAssertTrue([((NSString *)[response objectForKey:@"paymentType"]) length] > 0);
     XCTAssertNotNil([response objectForKey:@"maskedPan"]);
