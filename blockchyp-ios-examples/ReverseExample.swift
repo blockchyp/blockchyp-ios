@@ -10,7 +10,6 @@ class ExampleClass {
     )
 
     var request: [String:Any] = [:]
-    request["terminalName"] = "Test Terminal"
     request["transactionRef"] = "<LAST TRANSACTION REF>"
     client.reverse(withRequest: request, handler: { (request, response, error) in
       let approved = response["approved"] as? Bool

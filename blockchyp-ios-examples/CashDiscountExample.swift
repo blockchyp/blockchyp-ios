@@ -11,6 +11,8 @@ class ExampleClass {
 
     var request: [String:Any] = [:]
     request["amount"] = "100.00"
+    request["cashDiscount"] = true
+    request["surcharge"] = true
     client.cashDiscount(withRequest: request, handler: { (request, response, error) in
       let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {

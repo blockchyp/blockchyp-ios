@@ -15,6 +15,13 @@
 }
 
 
+// Tests connectivity with a payment terminal.
+-(void)pingWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler; {
+
+  [self routeTerminalRequestWith:request terminalPath:@"/api/test" gatewayPath:@"/api/terminal-test" method:@"POST" handler:handler];
+
+}
+
 // Executes a standard direct preauth and capture.
 -(void)chargeWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler; {
 
@@ -26,71 +33,6 @@
 -(void)preauthWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler; {
 
   [self routeTerminalRequestWith:request terminalPath:@"/api/preauth" gatewayPath:@"/api/preauth" method:@"POST" handler:handler];
-
-}
-
-// Tests connectivity with a payment terminal.
--(void)pingWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler; {
-
-  [self routeTerminalRequestWith:request terminalPath:@"/api/test" gatewayPath:@"/api/terminal-test" method:@"POST" handler:handler];
-
-}
-
-// Checks the remaining balance on a payment method.
--(void)balanceWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler; {
-
-  [self routeTerminalRequestWith:request terminalPath:@"/api/balance" gatewayPath:@"/api/balance" method:@"POST" handler:handler];
-
-}
-
-// Clears the line item display and any in progress transaction.
--(void)clearWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler; {
-
-  [self routeTerminalRequestWith:request terminalPath:@"/api/clear" gatewayPath:@"/api/terminal-clear" method:@"POST" handler:handler];
-
-}
-
-// Prompts the user to accept terms and conditions.
--(void)termsAndConditionsWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler; {
-
-  [self routeTerminalRequestWith:request terminalPath:@"/api/tc" gatewayPath:@"/api/terminal-tc" method:@"POST" handler:handler];
-
-}
-
-// Appends items to an existing transaction display. Subtotal, Tax, and Total
-// are overwritten by the request. Items with the same description are
-// combined into groups.
--(void)updateTransactionDisplayWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler; {
-
-  [self routeTerminalRequestWith:request terminalPath:@"/api/txdisplay" gatewayPath:@"/api/terminal-txdisplay" method:@"PUT" handler:handler];
-
-}
-
-// Displays a new transaction on the terminal.
--(void)newTransactionDisplayWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler; {
-
-  [self routeTerminalRequestWith:request terminalPath:@"/api/txdisplay" gatewayPath:@"/api/terminal-txdisplay" method:@"POST" handler:handler];
-
-}
-
-// Asks the consumer a text based question.
--(void)textPromptWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler; {
-
-  [self routeTerminalRequestWith:request terminalPath:@"/api/text-prompt" gatewayPath:@"/api/text-prompt" method:@"POST" handler:handler];
-
-}
-
-// Asks the consumer a yes/no question.
--(void)booleanPromptWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler; {
-
-  [self routeTerminalRequestWith:request terminalPath:@"/api/boolean-prompt" gatewayPath:@"/api/boolean-prompt" method:@"POST" handler:handler];
-
-}
-
-// Displays a short message on the terminal.
--(void)messageWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler; {
-
-  [self routeTerminalRequestWith:request terminalPath:@"/api/message" gatewayPath:@"/api/message" method:@"POST" handler:handler];
 
 }
 
@@ -115,10 +57,31 @@
 
 }
 
+// Checks the remaining balance on a payment method.
+-(void)balanceWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler; {
+
+  [self routeTerminalRequestWith:request terminalPath:@"/api/balance" gatewayPath:@"/api/balance" method:@"POST" handler:handler];
+
+}
+
+// Clears the line item display and any in progress transaction.
+-(void)clearWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler; {
+
+  [self routeTerminalRequestWith:request terminalPath:@"/api/clear" gatewayPath:@"/api/terminal-clear" method:@"POST" handler:handler];
+
+}
+
 // Returns the current status of a terminal.
 -(void)terminalStatusWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler; {
 
   [self routeTerminalRequestWith:request terminalPath:@"/api/terminal-status" gatewayPath:@"/api/terminal-status" method:@"POST" handler:handler];
+
+}
+
+// Prompts the user to accept terms and conditions.
+-(void)termsAndConditionsWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler; {
+
+  [self routeTerminalRequestWith:request terminalPath:@"/api/tc" gatewayPath:@"/api/terminal-tc" method:@"POST" handler:handler];
 
 }
 
@@ -129,7 +92,58 @@
 
 }
 
+// Displays a new transaction on the terminal.
+-(void)newTransactionDisplayWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler; {
 
+  [self routeTerminalRequestWith:request terminalPath:@"/api/txdisplay" gatewayPath:@"/api/terminal-txdisplay" method:@"POST" handler:handler];
+
+}
+
+// Appends items to an existing transaction display. Subtotal, Tax, and Total
+// are overwritten by the request. Items with the same description are
+// combined into groups.
+-(void)updateTransactionDisplayWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler; {
+
+  [self routeTerminalRequestWith:request terminalPath:@"/api/txdisplay" gatewayPath:@"/api/terminal-txdisplay" method:@"PUT" handler:handler];
+
+}
+
+// Displays a short message on the terminal.
+-(void)messageWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler; {
+
+  [self routeTerminalRequestWith:request terminalPath:@"/api/message" gatewayPath:@"/api/message" method:@"POST" handler:handler];
+
+}
+
+// Asks the consumer a yes/no question.
+-(void)booleanPromptWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler; {
+
+  [self routeTerminalRequestWith:request terminalPath:@"/api/boolean-prompt" gatewayPath:@"/api/boolean-prompt" method:@"POST" handler:handler];
+
+}
+
+// Asks the consumer a text based question.
+-(void)textPromptWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler; {
+
+  [self routeTerminalRequestWith:request terminalPath:@"/api/text-prompt" gatewayPath:@"/api/text-prompt" method:@"POST" handler:handler];
+
+}
+
+
+
+// Captures a preauthorization.
+-(void)captureWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeGatewayRequestWith:request path:@"/api/capture" method:@"POST" handler:handler];
+
+}
+
+// Discards a previous preauth transaction.
+-(void)voidWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeGatewayRequestWith:request path:@"/api/void" method:@"POST" handler:handler];
+
+}
 
 // Executes a manual time out reversal.
 //
@@ -147,13 +161,6 @@
 
 }
 
-// Captures a preauthorization.
--(void)captureWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
-
-  [self routeGatewayRequestWith:request path:@"/api/capture" method:@"POST" handler:handler];
-
-}
-
 // Closes the current credit card batch.
 -(void)closeBatchWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
 
@@ -161,10 +168,17 @@
 
 }
 
-// Discards a previous preauth transaction.
--(void)voidWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+// Creates and send a payment link to a customer.
+-(void)sendPaymentLinkWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
 
-  [self routeGatewayRequestWith:request path:@"/api/void" method:@"POST" handler:handler];
+  [self routeGatewayRequestWith:request path:@"/api/send-payment-link" method:@"POST" handler:handler];
+
+}
+
+// Retrieves the current status of a transaction.
+-(void)transactionStatusWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeGatewayRequestWith:request path:@"/api/tx-status" method:@"POST" handler:handler];
 
 }
 
@@ -193,20 +207,6 @@
 -(void)cashDiscountWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
 
   [self routeGatewayRequestWith:request path:@"/api/cash-discount" method:@"POST" handler:handler];
-
-}
-
-// Retrieves the current status of a transaction.
--(void)transactionStatusWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
-
-  [self routeGatewayRequestWith:request path:@"/api/tx-status" method:@"POST" handler:handler];
-
-}
-
-// Creates and send a payment link to a customer.
--(void)sendPaymentLinkWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
-
-  [self routeGatewayRequestWith:request path:@"/api/send-payment-link" method:@"POST" handler:handler];
 
 }
 

@@ -12,6 +12,8 @@ int main (int argc, const char * argv[])
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
   request[@"amount"] = @"100.00";
+  request[@"cashDiscount"] = @YES;
+  request[@"surcharge"] = @YES;
   [client cashDiscountWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
     NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
