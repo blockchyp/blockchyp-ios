@@ -107,6 +107,15 @@ NS_ASSUME_NONNULL_BEGIN
 // Calculates the discount for actual cash transactions.
 -(void)cashDiscountWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
 
+// Returns the batch history for a merchant.
+-(void)batchHistoryWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
+// Returns the batch details for a single batch.
+-(void)batchDetailsWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
+// Returns the transaction history for a merchant.
+-(void)transactionHistoryWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
 
 @end
 

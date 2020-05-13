@@ -230,7 +230,7 @@ might be maliciously running on the point-of-sale system.
 * **Cash Back**: To enable cash back for debit transactions, set the `cashBack` flag.  If the card presented isn't a debit card, the `cashBack` flag will be ignored.
 * **Manual Card Entry**: Set the `manual` flag to enable manual card entry.  Good as a backup when chips and MSR's don't work or for more secure phone orders.  You can even combine the `manual` flag with the `ebt` flag for manual EBT card entry.
 * **Inline Tokenization**: You can enroll the payment method in the token vault inline with a charge transaction by setting the `enroll` flag.  You'll get a token back in the response.  You can even bind the token to a customer record if you also pass in customer data.
-* **Prompting for Tips**: Set the `promptForTips` flag if you'd like to prompt the customer for a tip before authorization.  Good for pay-at-the-table and other services related scenarios.
+* **Prompting for Tips**: Set the `promptForTips` flag if you'd like to prompt the customer for a tip before authorization.  Good for pay-at-the-table and other service related scenarios.
 * **Cash Discounting and Surcharging**:  The `surcharge` and `cashDiscount` flags can be used together to support cash discounting or surcharge problems. Consult the Cash Discount documentation for more details.
 
 
@@ -306,8 +306,8 @@ class ExampleClass {
 
 
 A preauthorization puts a hold on funds and must be captured later.  This is used
-in scenarios where the final transaction amount might change.  Examples would
-be fine dining where a tip adjustment is required prior to capture or hotels
+in scenarios where the final transaction amount might change.  A common examples would
+be fine dining where a tip adjustment is required prior to final settlement.
 
 Another use case for preauthorization is e-commerce.  Typically, an online order
 is preauthorized at the time of the order and then captured when the order ships.
@@ -494,14 +494,14 @@ returned in a BlockChyp response.  To refund the full amount of the previous tra
 
 **Partial Refunds**
 
-For a partial refund, just passing an amount along with the Transaction ID.
+For a partial refund, just pass in an amount along with the Transaction ID.
 The only rule is that the amount has to be equal to or less than the original
-transaction.  You can even execute multiple partial refunds against the same
-original transaction as long as the total refunded amount doesn't exceed the original transaction.
+transaction.  You can execute multiple partial refunds against the same
+original transaction as long as the total refunded amount doesn't exceed the original amount.
 
 **Tokenized Refunds**
 
-You can also use a token to execute a refund.  Just pass in a token instead
+You can also use a token to execute a refund.  Pass in a token instead
 of the Transaction ID along with the desired refund amount.
 
 **Free Range Refunds**
@@ -509,10 +509,10 @@ of the Transaction ID along with the desired refund amount.
 When you execute a refund without referencing a previous transaction, we
 call this a *free range refund*.
 
-We don't recommend it, but it is permitted.  Just pass in a
-Terminal Name and an amount.
+We don't recommend it, but it is permitted.  If you absolutely insist on
+doing it, pass in a Terminal Name and an amount.
 
-You can even execute a manual or keyed refund by passing the `manual` flag
+You can execute a manual or keyed refund by passing the `manual` flag
 to a free range refund request.
 
 **Gift Card Refunds**
@@ -549,7 +549,6 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"terminalName"] = @"Test Terminal";
   request[@"transactionId"] = @"<PREVIOUS TRANSACTION ID>";
   request[@"amount"] = @"5.00";
   [client refundWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
@@ -580,7 +579,6 @@ class ExampleClass {
     )
 
     var request: [String:Any] = [:]
-    request["terminalName"] = "Test Terminal"
     request["transactionId"] = "<PREVIOUS TRANSACTION ID>"
     request["amount"] = "5.00"
     client.refund(withRequest: request, handler: { (request, response, error) in
@@ -765,13 +763,13 @@ are retried during shaky network conditions.
 We highly recommend developers use this API whenever a charge, preauth, or refund transaction times out.  If you don't receive a definitive response
 from BlockChyp, you can't be certain about whether or not the transaction went through.
 
-A best practice in this situation is to send a time out reversal request.  Time out reversals check for a transaction and void it if it exists.
+The best practice in this situation is to send a time out reversal request.  Time out reversals check for a transaction and void it if it exists.
 
 The only caveat is that developers must use the `transactionRef` property (`txRef` for the CLI) when executing charge, preauth, and refund transactions.
 
 The reason for this requirement is that if a system never receives a definitive
 response for a transaction, the system would never have received the BlockChyp
-generated Transaction ID.  We have to fallback to transaction ref to identify
+generated Transaction ID.  We have to fallback to Transaction Ref to identify
 a transaction.
 
 
@@ -843,7 +841,7 @@ Just pass in the terminal name and the amount to add to the card.
 Once the customer swipes their card, the terminal will use keys
 on the mag stripe to add value to the card.
 
-You don't need to handle a new gift card or a gift card recharge any
+You don't need to handle a new gift card activation or a gift card recharge any
 differently.  The terminal firmware will figure out what to do on its
 own and also returns the new balance for the gift card.
 
@@ -853,8 +851,7 @@ use gift card numbers.  This means they can't be stolen.
 
 BlockChyp identifies cards with an elliptic curve public key instead.
 Gift card transactions are actually blocks signed with those keys.
-This means there are no shared secrets sent over the network with
-BlockChyp gift cards.
+This means there are no shared secrets sent over the network.
 To keep track of a BlockChyp gift card, hang on to the **public key** returned
 during gift card activation.  That's the gift card's elliptic curve public key.
 
@@ -876,7 +873,7 @@ voiding or reversing a conventional payment transaction.
 BlockChyp does have the ability to import gift card liability from
 conventional gift card platforms.  Unfortunately, BlockChyp does not
 support activating cards on third party systems, but you can import
-your outstanding gift cards and customerSearch can swipe them on the
+your outstanding gift cards and customers can swipe them on the
 terminals just like BlockChyp's standard gift cards.
 
 No special coding is required to access this feature.  The gateway and
@@ -885,8 +882,10 @@ terminal firmware handle everything for you.
 **Third Party Gift Card Networks**
 
 BlockChyp does not currently provide any native support for other gift card
-platforms beyond importing gift card liability.  We do have a white listing system however that be used support your own custom gift card implementations.  We have a security review
-process before we allow a BIN range to be white listed, so contact support@blockchyp.com if you need to white list a BIN range.
+platforms beyond importing gift card liability.  We do have a white listing system
+that can be used to support your own custom gift card implementations.  We have a security review
+process before we allow a BIN range to be white listed, so contact
+support@blockchyp.com if you need to white list a BIN range.
 
 
 
@@ -980,7 +979,7 @@ enter a PIN code.  If everything checks out, the remaining balance on the card w
 
 **Testing Gift Card Balance Checks**
 
-Test gift card balance checks works no differently than live gift cards.  You
+Test gift card balance checks work no differently than live gift cards.  You
 must activate a test gift card first in order to test balance checks.  Test
 gift cards are real blockchain cards that live on our parallel test blockchain.
 
@@ -1057,7 +1056,7 @@ class ExampleClass {
 #### Close Batch
 
 
-This API will close the merchant's batch, if it's currently open.
+This API will close the merchant's batch if it's currently open.
 
 By default, merchant batches will close automatically at 3 AM in their
 local time zone.  The automatic batch closure time can be changed
@@ -1162,28 +1161,28 @@ for terminal line item display, so the same code can be used to support both are
 
 You can also provide a free form description or message that's displayed near
 the bottom of the invoice.  Usually this is some kind of thank you note
-or instructions.
+or instruction.
 
 **Terms and Conditions**
 
 You can include long form contract language with a request and capture
 terms and conditions acceptance at the same time payment is captured.
 
-The interface is identical to that used for the terminal based terms and
-conditions API in that you can pass in content directly via `tcContent` or via
-a preconfigured template via `tcAlias`.  The terms and conditions log will also be updated when
-terms and conditions acceptance is incorporated into a send link request.
+The interface is identical to that used for the terminal based Terms and
+Conditions API in that you can pass in content directly via `tcContent` or via
+a preconfigured template via `tcAlias`.  The Terms and Conditions log will also be updated when
+agreement acceptance is incorporated into a send link request.
 
 **Auto Send**
 
-By default, BlockChyp does not send the email notification automatically.  This is
-really just a safeguard to prevent real emails from going out when you may not expect it.
+BlockChyp does not send the email notification automatically.  This is
+a safeguard to prevent real emails from going out when you may not expect it.
 If you want BlockChyp to send the email for you, just add the `autoSend` flag with
 all requests.
 
 **Cashier Facing Card Entry**
 
-BlockChyp can be used to generate internal/cashier facing links as well.  This is
+BlockChyp can be used to generate internal/cashier facing card entry pages as well.  This is
 designed for situations where you might need to take a phone order and you don't
 have a terminal.
 
@@ -1198,7 +1197,7 @@ notifying them that the payment was received.
 
 **Real Time Callback Notifications**
 
-Email notifications are fine, but you may also want your system to be informed
+Email notifications are fine, but you may want your system to be informed
 immediately whenever a payment event occurs.  By using the optional `callbackUrl` request
 property, you can specify a URL to which the Authorization Response will be posted
 every time the user submits a payment, whether approved or otherwise.
@@ -1507,7 +1506,7 @@ will also return the timestamp of the last status change in the `since` field.
 
 If the system is running a payment transaction and you wisely passed in a
 Transaction Ref, this API will also return the Transaction Ref of the in progress
-transaction in the response.
+transaction.
 
 
 
@@ -1579,7 +1578,7 @@ class ExampleClass {
 
 
 This API allows you to prompt a customer to accept a legal agreement on the terminal
-and optionally capture their signature.
+and (usually) capture their signature.
 
 Content for the agreement can be specified in two ways.  You can reference a
 previously configured T&C template or pass in the full agreement text with every request.
@@ -1600,12 +1599,12 @@ pass in the contract text.  Note that only plain text is supported.
 **Bypassing Signatures**
 
 Signature images are captured by default.  If for some reason this doesn't fit your
-use case and you'd like to capture acceptance without actually capturing a signature image set
+use case and you'd like to capture acceptance without actually capturing a signature image, set
 the `disableSignature` flag in the request.
 
 **Terms & Conditions Log**
 
-Every time a user accepts an agreement on the terminal the signature image (if captured),
+Every time a user accepts an agreement on the terminal, the signature image (if captured),
 will be uploaded to the gateway and added to the log along with the full text of the
 agreement.  This preserves the historical record in the event that standard agreements
 or templates change over time.
@@ -2677,6 +2676,273 @@ class ExampleClass {
         NSLog("Success")
       }
       NSLog("amount" + ": " + (response["amount"] as? String).unsafelyUnwrapped)
+    })
+  }
+
+
+```
+
+
+
+#### Batch History
+
+
+
+This endpoint allows developers to query the gateway for the merchant's batch history.
+The data will be returned in descending order of open date with the most recent
+batch returned first.  The results will include basic information about the batch.
+For more detail about a specific batch, consider using the Batch Details API.
+
+**Limiting Results**
+
+This API will return a maximum of 250 results.  Use the `maxResults` property to
+limit maximum results even further and use the `startIndex` property to
+page through results that span multiple queries.
+
+For example, if you want the ten most recent batches, just pass in a value of
+`10` for `maxResults`.  Also note that `startIndex` is zero based. Use a value of `0` to
+get the first batch in the dataset.
+
+**Filtering By Date Range**
+
+You can also filter results by date.  Use the `startDate` and `endDate`
+properties to return only those batches opened between those dates.
+You can use either `startDate` and `endDate` and you can use date filters
+in conjunction with `maxResults` and `startIndex`
+
+
+
+##### From Objective-C:
+
+```objective-c
+#import <Foundation/Foundation.h>
+#import <BlockChyp/BlockChyp.h>
+
+int main (int argc, const char * argv[])
+{
+  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+
+  BlockChyp *client = [[BlockChyp alloc]
+    initWithApiKey:@"SPBXTSDAQVFFX5MGQMUMIRINVI"
+    bearerToken:@"7BXBTBUPSL3BP7I6Z2CFU6H3WQ"
+    signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
+
+  NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
+  request[@"maxResults"] = @250;
+  request[@"startIndex"] = @1;
+  [client batchHistoryWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+    NSNumber *success = [response objectForKey:@"success"];
+    if (success.boolValue) {
+      NSLog(@"Success");
+    }
+  }];
+  [pool drain];
+  return 0;
+}
+
+
+```
+
+##### From Swift:
+
+```swift
+import BlockChyp
+
+class ExampleClass {
+
+  func example() {
+    let client = BlockChyp.init(
+      apiKey: "ZN5WQGX5PN6BE2MF75CEAWRETM",
+      bearerToken: "SVVHJCYVFWJR2QKYKFWMZQVZL4",
+      signingKey: "7c1b9e4d1308e7bbe76a1920ddd9449ce50af2629f6bb70ed3c110365935970b"
+    )
+
+    var request: [String:Any] = [:]
+    request["maxResults"] = 250
+    request["startIndex"] = 1
+    client.batchHistory(withRequest: request, handler: { (request, response, error) in
+      let approved = response["success"] as? Bool
+      if (approved.unsafelyUnwrapped) {
+        NSLog("Success")
+      }
+    })
+  }
+
+
+```
+
+
+
+#### Batch Details
+
+
+
+This endpoint allows developers to pull down details for a specific batch,
+including captured volume, gift card activity, expected deposit, and
+captured volume broken down by terminal.
+
+The only required request parameter is `batchId`.  Batch IDs are returned
+with every transaction response and can also be discovered using the Batch
+History API.
+
+
+
+##### From Objective-C:
+
+```objective-c
+#import <Foundation/Foundation.h>
+#import <BlockChyp/BlockChyp.h>
+
+int main (int argc, const char * argv[])
+{
+  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+
+  BlockChyp *client = [[BlockChyp alloc]
+    initWithApiKey:@"SPBXTSDAQVFFX5MGQMUMIRINVI"
+    bearerToken:@"7BXBTBUPSL3BP7I6Z2CFU6H3WQ"
+    signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
+
+  NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
+  request[@"batchId"] = @"BATCHID";
+  [client batchDetailsWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+    NSNumber *success = [response objectForKey:@"success"];
+    if (success.boolValue) {
+      NSLog(@"Success");
+    }
+    NSLog(@"%@: %@", @"capturedAmount", [response objectForKey:@"capturedAmount"])
+  }];
+  [pool drain];
+  return 0;
+}
+
+
+```
+
+##### From Swift:
+
+```swift
+import BlockChyp
+
+class ExampleClass {
+
+  func example() {
+    let client = BlockChyp.init(
+      apiKey: "ZN5WQGX5PN6BE2MF75CEAWRETM",
+      bearerToken: "SVVHJCYVFWJR2QKYKFWMZQVZL4",
+      signingKey: "7c1b9e4d1308e7bbe76a1920ddd9449ce50af2629f6bb70ed3c110365935970b"
+    )
+
+    var request: [String:Any] = [:]
+    request["batchId"] = "BATCHID"
+    client.batchDetails(withRequest: request, handler: { (request, response, error) in
+      let approved = response["success"] as? Bool
+      if (approved.unsafelyUnwrapped) {
+        NSLog("Success")
+      }
+      NSLog("capturedAmount" + ": " + (response["capturedAmount"] as? String).unsafelyUnwrapped)
+    })
+  }
+
+
+```
+
+
+
+#### Transaction History
+
+
+
+This endpoint provides a number of different methods to sift through
+transaction history.
+
+By default with no filtering properties, this endpoint will return the 250
+most recent transactions.
+
+**Limiting Results**
+
+This API will return a maximum of 250 results in a single query.  Use the `maxResults` property
+to limit maximum results even further and use the `startIndex` property to
+page through results that span multiple queries.
+
+For example, if you want the ten most recent batches, just pass in a value of
+`10` for `maxResults`.  Also note that `startIndex` is zero based. Use a value of `0` to
+get the first transaction in the dataset.
+
+**Filtering By Date Range**
+
+You can also filter results by date.  Use the `startDate` and `endDate`
+properties to return only transactions run between those dates.
+You can use either `startDate` or `endDate` and you can use date filters
+in conjunction with `maxResults` and `startIndex`
+
+**Filtering By Batch**
+
+To restrict results to a single batch, pass in the `batchId` parameter.
+
+**Filtering By Terminal**
+
+To restrict results to those executed on a single terminal, just
+pass in the terminal name.
+
+**Combining Filters**
+
+None of the above filters are mutually exclusive.  You can combine any of the
+above properties in a single request to restrict transaction results to a
+narrower set of results.
+
+
+
+##### From Objective-C:
+
+```objective-c
+#import <Foundation/Foundation.h>
+#import <BlockChyp/BlockChyp.h>
+
+int main (int argc, const char * argv[])
+{
+  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+
+  BlockChyp *client = [[BlockChyp alloc]
+    initWithApiKey:@"SPBXTSDAQVFFX5MGQMUMIRINVI"
+    bearerToken:@"7BXBTBUPSL3BP7I6Z2CFU6H3WQ"
+    signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
+
+  NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
+  request[@"maxResults"] = @10;
+  [client transactionHistoryWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+    NSNumber *success = [response objectForKey:@"success"];
+    if (success.boolValue) {
+      NSLog(@"Success");
+    }
+  }];
+  [pool drain];
+  return 0;
+}
+
+
+```
+
+##### From Swift:
+
+```swift
+import BlockChyp
+
+class ExampleClass {
+
+  func example() {
+    let client = BlockChyp.init(
+      apiKey: "ZN5WQGX5PN6BE2MF75CEAWRETM",
+      bearerToken: "SVVHJCYVFWJR2QKYKFWMZQVZL4",
+      signingKey: "7c1b9e4d1308e7bbe76a1920ddd9449ce50af2629f6bb70ed3c110365935970b"
+    )
+
+    var request: [String:Any] = [:]
+    request["maxResults"] = 10
+    client.transactionHistory(withRequest: request, handler: { (request, response, error) in
+      let approved = response["success"] as? Bool
+      if (approved.unsafelyUnwrapped) {
+        NSLog("Success")
+      }
     })
   }
 

@@ -210,6 +210,27 @@
 
 }
 
+// Returns the batch history for a merchant.
+-(void)batchHistoryWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeGatewayRequestWith:request path:@"/api/batch-history" method:@"POST" handler:handler];
+
+}
+
+// Returns the batch details for a single batch.
+-(void)batchDetailsWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeGatewayRequestWith:request path:@"/api/batch-details" method:@"POST" handler:handler];
+
+}
+
+// Returns the transaction history for a merchant.
+-(void)transactionHistoryWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeGatewayRequestWith:request path:@"/api/tx-history" method:@"POST" handler:handler];
+
+}
+
 
 @end
 

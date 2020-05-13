@@ -10,12 +10,12 @@ class ExampleClass {
     )
 
     var request: [String:Any] = [:]
-    request["transactionId"] = "<PREVIOUS TRANSACTION ID>"
-    request["amount"] = "5.00"
-    client.refund(withRequest: request, handler: { (request, response, error) in
-      let approved = response["approved"] as? Bool
+    request["maxResults"] = 250
+    request["startIndex"] = 1
+    client.batchHistory(withRequest: request, handler: { (request, response, error) in
+      let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
-        NSLog("approved")
+        NSLog("Success")
       }
     })
   }
