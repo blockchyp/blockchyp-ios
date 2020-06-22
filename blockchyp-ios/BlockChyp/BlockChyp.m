@@ -231,6 +231,13 @@
 
 }
 
+// Returns profile information for a merchant.
+-(void)merchantProfileWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeGatewayRequestWith:request path:@"/api/merchant-profile" method:@"POST" handler:handler];
+
+}
+
 
 @end
 
