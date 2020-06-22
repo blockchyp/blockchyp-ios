@@ -72,10 +72,6 @@
     XCTAssertNotNil(response);
     // response assertions
     XCTAssertTrue([response objectForKey:@"success"]);
-    XCTAssertNotNil([response objectForKey:@"capturedTotal"]);
-    XCTAssertTrue([((NSString *)[response objectForKey:@"capturedTotal"]) length] > 0);
-    XCTAssertNotNil([response objectForKey:@"openPreauths"]);
-    XCTAssertTrue([((NSString *)[response objectForKey:@"openPreauths"]) length] > 0);
 
     [expectation fulfill];
   }];

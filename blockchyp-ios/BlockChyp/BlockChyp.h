@@ -116,6 +116,9 @@ NS_ASSUME_NONNULL_BEGIN
 // Returns the transaction history for a merchant.
 -(void)transactionHistoryWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
 
+// Returns profile information for a merchant.
+-(void)merchantProfileWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
 
 @end
 
