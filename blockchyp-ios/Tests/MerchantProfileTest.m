@@ -42,6 +42,7 @@
   XCTestExpectation *expectation = [self expectationWithDescription:@"MerchantProfile Test"];
 
       NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
+        request[@"test"] = @YES;
 
   [client merchantProfileWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
     [self logJSON:response];
