@@ -44,6 +44,8 @@
       NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
         request[@"timeout"] = @1;
         request[@"pan"] = @"5555555555554444";
+        request[@"expMonth"] = @"12";
+        request[@"expYear"] = @"2025";
         request[@"amount"] = @"25.55";
         request[@"test"] = @YES;
         request[@"transactionRef"] = [self getUUID];

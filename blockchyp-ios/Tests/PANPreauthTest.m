@@ -43,6 +43,8 @@
 
       NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
         request[@"pan"] = @"4111111111111111";
+        request[@"expMonth"] = @"12";
+        request[@"expYear"] = @"2025";
         request[@"amount"] = @"25.55";
         request[@"test"] = @YES;
 
