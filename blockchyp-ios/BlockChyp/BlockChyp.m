@@ -138,7 +138,7 @@
 
 }
 
-// Discards a previous preauth transaction.
+// Discards a previous transaction.
 -(void)voidWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
 
   [self routeGatewayRequestWith:request path:@"/api/void" method:@"POST" handler:handler];

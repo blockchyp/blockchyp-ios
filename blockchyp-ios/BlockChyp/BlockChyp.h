@@ -71,7 +71,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Captures a preauthorization.
 -(void)captureWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
 
-// Discards a previous preauth transaction.
+// Discards a previous transaction.
 -(void)voidWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
 
 // Executes a manual time out reversal.
