@@ -27,6 +27,12 @@ static const NSString * PROMPT_TYPE_REWARDS_NUMBER = @"rewards-number";
 static const NSString * PROMPT_TYPE_FIRST_NAME = @"first-name";
 static const NSString * PROMPT_TYPE_LAST_NAME = @"last-name";
 
+static const NSString * CVM_TYPE_SIGNATURE = @"Signature";
+static const NSString * CVM_TYPE_OFFLINE_PIN = @"Offline PIN";
+static const NSString * CVM_TYPE_ONLINE_PIN = @"Online PIN";
+static const NSString * CVM_TYPE_CDCVM = @"CDCVM";
+static const NSString * CVM_TYPE_NO_CVM = @"No CVM";
+
 NS_ASSUME_NONNULL_BEGIN
 
 typedef void(^BlockChypCompletionHandler)(NSDictionary *request, NSDictionary *response, NSError * _Nullable error);
