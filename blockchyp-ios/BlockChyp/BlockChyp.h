@@ -66,6 +66,12 @@ NS_ASSUME_NONNULL_BEGIN
 // Asks the consumer a text based question.
 -(void)textPromptWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
 
+// Returns a list of queued transactions on a terminal.
+-(void)listQueuedTransactionsWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
+// Deletes a queued transaction from the terminal.
+-(void)deleteQueuedTransactionWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
 
 
 // Captures a preauthorization.

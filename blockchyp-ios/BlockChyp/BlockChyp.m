@@ -129,6 +129,20 @@
 
 }
 
+// Returns a list of queued transactions on a terminal.
+-(void)listQueuedTransactionsWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler; {
+
+  [self routeTerminalRequestWith:request terminalPath:@"/api/queue/list" gatewayPath:@"/api/queue/list" method:@"GET" handler:handler];
+
+}
+
+// Deletes a queued transaction from the terminal.
+-(void)deleteQueuedTransactionWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler; {
+
+  [self routeTerminalRequestWith:request terminalPath:@"/api/queue/delete" gatewayPath:@"/api/queue/delete" method:@"POST" handler:handler];
+
+}
+
 
 
 // Captures a preauthorization.
