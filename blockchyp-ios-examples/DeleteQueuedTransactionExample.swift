@@ -15,7 +15,7 @@ class ExampleClass {
     client.deleteQueuedTransaction(withRequest: request, handler: { (request, response, error) in
       let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
-        NSLog("")
+        NSLog("Success")
       }
     })
   }

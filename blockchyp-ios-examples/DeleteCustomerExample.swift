@@ -10,11 +10,11 @@ class ExampleClass {
     )
 
     var request: [String:Any] = [:]
-    request["terminalName"] = "Test Terminal"
-    client.deleteQueuedTransactions(withRequest: request, handler: { (request, response, error) in
+    request["customerId"] = "ID of the customer to delete"
+    client.deleteCustomer(withRequest: request, handler: { (request, response, error) in
       let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
-        NSLog("")
+        NSLog("Success")
       }
     })
   }

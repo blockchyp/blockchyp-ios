@@ -43,7 +43,7 @@
 
       NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
         request[@"test"] = @YES;
-        request[@"terminalName"] = @"Test Terminal";
+        request[@"terminalName"] = @"$testTerminal";
 
   [client pingWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
     [self logJSON:response];

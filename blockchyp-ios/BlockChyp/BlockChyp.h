@@ -125,6 +125,12 @@ NS_ASSUME_NONNULL_BEGIN
 // Returns profile information for a merchant.
 -(void)merchantProfileWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
 
+// Deletes a customer record.
+-(void)deleteCustomerWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
+// Deletes a payment token.
+-(void)deleteTokenWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
 
 @end
 

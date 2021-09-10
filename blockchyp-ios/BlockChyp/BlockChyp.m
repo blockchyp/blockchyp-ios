@@ -132,7 +132,7 @@
 // Returns a list of queued transactions on a terminal.
 -(void)listQueuedTransactionsWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler; {
 
-  [self routeTerminalRequestWith:request terminalPath:@"/api/queue/list" gatewayPath:@"/api/queue/list" method:@"GET" handler:handler];
+  [self routeTerminalRequestWith:request terminalPath:@"/api/queue/list" gatewayPath:@"/api/queue/list" method:@"POST" handler:handler];
 
 }
 
@@ -249,6 +249,20 @@
 -(void)merchantProfileWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
 
   [self routeGatewayRequestWith:request path:@"/api/public-merchant-profile" method:@"POST" handler:handler];
+
+}
+
+// Deletes a customer record.
+-(void)deleteCustomerWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeGatewayRequestWith:request path:@"/api/customer/" + request.customerId method:@"DELETE" handler:handler];
+
+}
+
+// Deletes a payment token.
+-(void)deleteTokenWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeGatewayRequestWith:request path:@"/api/token/" + request.token method:@"DELETE" handler:handler];
 
 }
 
