@@ -98,6 +98,9 @@ NS_ASSUME_NONNULL_BEGIN
 // Creates and send a payment link to a customer.
 -(void)sendPaymentLinkWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
 
+// Cancels a payment link.
+-(void)cancelPaymentLinkWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
 // Retrieves the current status of a transaction.
 -(void)transactionStatusWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
 

@@ -189,6 +189,13 @@
 
 }
 
+// Cancels a payment link.
+-(void)cancelPaymentLinkWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeGatewayRequestWith:request path:@"/api/cancel-payment-link" method:@"POST" handler:handler];
+
+}
+
 // Retrieves the current status of a transaction.
 -(void)transactionStatusWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
 
