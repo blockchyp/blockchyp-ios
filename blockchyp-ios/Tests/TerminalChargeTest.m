@@ -42,7 +42,7 @@
   XCTestExpectation *expectation = [self expectationWithDescription:@"TerminalCharge Test"];
 
       NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-        request[@"terminalName"] = @"$testTerminal";
+        request[@"terminalName"] = @"Test Terminal";
         request[@"amount"] = @"25.15";
         request[@"test"] = @YES;
 
