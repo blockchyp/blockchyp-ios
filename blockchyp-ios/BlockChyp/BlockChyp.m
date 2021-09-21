@@ -262,14 +262,14 @@
 // Deletes a customer record.
 -(void)deleteCustomerWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
 
-  [self routeGatewayRequestWith:request path:@"/api/customer/" + request.customerId method:@"DELETE" handler:handler];
+  [self routeGatewayRequestWith:request path:[@"/api/customer/" stringByAppendingString:[request objectForKey:@"customerId"]] method:@"DELETE" handler:handler];
 
 }
 
 // Deletes a payment token.
 -(void)deleteTokenWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
 
-  [self routeGatewayRequestWith:request path:@"/api/token/" + request.token method:@"DELETE" handler:handler];
+  [self routeGatewayRequestWith:request path:[@"/api/token/" stringByAppendingString:[request objectForKey:@"token"]] method:@"DELETE" handler:handler];
 
 }
 
