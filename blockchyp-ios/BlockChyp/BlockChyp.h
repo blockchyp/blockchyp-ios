@@ -134,6 +134,15 @@ NS_ASSUME_NONNULL_BEGIN
 // Deletes a payment token.
 -(void)deleteTokenWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
 
+// Retrieves payment token metadata.
+-(void)tokenMetadataWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
+// Links a token to a customer record.
+-(void)linkTokenWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
+// Removes a link between a customer and a token.
+-(void)unlinkTokenWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
 
 @end
 

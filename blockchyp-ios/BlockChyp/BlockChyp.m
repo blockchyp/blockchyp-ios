@@ -273,6 +273,27 @@
 
 }
 
+// Retrieves payment token metadata.
+-(void)tokenMetadataWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeGatewayRequestWith:request path:[@"/api/token/" stringByAppendingString:[request objectForKey:@"token"]] method:@"GET" handler:handler];
+
+}
+
+// Links a token to a customer record.
+-(void)linkTokenWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeGatewayRequestWith:request path:@"/api/link-token" method:@"POST" handler:handler];
+
+}
+
+// Removes a link between a customer and a token.
+-(void)unlinkTokenWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeGatewayRequestWith:request path:@"/api/unlink-token" method:@"POST" handler:handler];
+
+}
+
 
 @end
 

@@ -2958,6 +2958,15 @@ None of the above filters are mutually exclusive.  You can combine any of the
 above properties in a single request to restrict transaction results to a
 narrower set of results.
 
+**Searching Transaction History**
+
+You can search transaction history by passing in search criteria with the 
+`query` option.  The search system will match on amount (requested and authorized),
+last four of the card number, cardholder name, and the auth code.
+
+Note that when search queries are used, terminalName or 
+batch id filters are not supported.
+
 
 
 ##### From Objective-C:
@@ -3348,6 +3357,221 @@ class ExampleClass {
     var request: [String:Any] = [:]
     request["token"] = "Token to delete"
     client.deleteToken(withRequest: request, handler: { (request, response, error) in
+      let approved = response["success"] as? Bool
+      if (approved.unsafelyUnwrapped) {
+        NSLog("Success")
+      }
+    })
+  }
+
+
+```
+
+
+
+#### Token Metadata
+
+
+
+Retrieves status and metadata information about a token, 
+including any links to customer records.  
+
+This will also return any customer records related to the card
+behind the token.  If the underlying card has been tokenized
+multiple times, all customers related to the card will be returned,
+even if those customer associations are related to other tokens.
+
+
+
+##### From Objective-C:
+
+```objective-c
+#import <Foundation/Foundation.h>
+#import <BlockChyp/BlockChyp.h>
+
+int main (int argc, const char * argv[])
+{
+  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+
+  BlockChyp *client = [[BlockChyp alloc]
+    initWithApiKey:@"SPBXTSDAQVFFX5MGQMUMIRINVI"
+    bearerToken:@"7BXBTBUPSL3BP7I6Z2CFU6H3WQ"
+    signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
+
+  NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
+  request[@"token"] = @"Token to retrieve";
+  [client tokenMetadataWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+    NSNumber *success = [response objectForKey:@"success"];
+    if (success.boolValue) {
+      NSLog(@"Success");
+    }
+  }];
+  [pool drain];
+  return 0;
+}
+
+
+```
+
+##### From Swift:
+
+```swift
+import BlockChyp
+
+class ExampleClass {
+
+  func example() {
+    let client = BlockChyp.init(
+      apiKey: "ZN5WQGX5PN6BE2MF75CEAWRETM",
+      bearerToken: "SVVHJCYVFWJR2QKYKFWMZQVZL4",
+      signingKey: "7c1b9e4d1308e7bbe76a1920ddd9449ce50af2629f6bb70ed3c110365935970b"
+    )
+
+    var request: [String:Any] = [:]
+    request["token"] = "Token to retrieve"
+    client.tokenMetadata(withRequest: request, handler: { (request, response, error) in
+      let approved = response["success"] as? Bool
+      if (approved.unsafelyUnwrapped) {
+        NSLog("Success")
+      }
+    })
+  }
+
+
+```
+
+
+
+#### Link Token
+
+
+
+Links a payment token with a customer record.  Usually this would only be used
+to reverse a previous unlink operation.
+
+
+
+##### From Objective-C:
+
+```objective-c
+#import <Foundation/Foundation.h>
+#import <BlockChyp/BlockChyp.h>
+
+int main (int argc, const char * argv[])
+{
+  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+
+  BlockChyp *client = [[BlockChyp alloc]
+    initWithApiKey:@"SPBXTSDAQVFFX5MGQMUMIRINVI"
+    bearerToken:@"7BXBTBUPSL3BP7I6Z2CFU6H3WQ"
+    signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
+
+  NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
+  request[@"token"] = @"Token to link";
+  request[@"customerId"] = @"Customer to link";
+  [client linkTokenWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+    NSNumber *success = [response objectForKey:@"success"];
+    if (success.boolValue) {
+      NSLog(@"Success");
+    }
+  }];
+  [pool drain];
+  return 0;
+}
+
+
+```
+
+##### From Swift:
+
+```swift
+import BlockChyp
+
+class ExampleClass {
+
+  func example() {
+    let client = BlockChyp.init(
+      apiKey: "ZN5WQGX5PN6BE2MF75CEAWRETM",
+      bearerToken: "SVVHJCYVFWJR2QKYKFWMZQVZL4",
+      signingKey: "7c1b9e4d1308e7bbe76a1920ddd9449ce50af2629f6bb70ed3c110365935970b"
+    )
+
+    var request: [String:Any] = [:]
+    request["token"] = "Token to link"
+    request["customerId"] = "Customer to link"
+    client.linkToken(withRequest: request, handler: { (request, response, error) in
+      let approved = response["success"] as? Bool
+      if (approved.unsafelyUnwrapped) {
+        NSLog("Success")
+      }
+    })
+  }
+
+
+```
+
+
+
+#### Unlink Token
+
+
+
+Removes a payment token link from a customer record.
+
+This will remove links between the customer record and all tokens
+for the same underlying card.
+
+
+
+##### From Objective-C:
+
+```objective-c
+#import <Foundation/Foundation.h>
+#import <BlockChyp/BlockChyp.h>
+
+int main (int argc, const char * argv[])
+{
+  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+
+  BlockChyp *client = [[BlockChyp alloc]
+    initWithApiKey:@"SPBXTSDAQVFFX5MGQMUMIRINVI"
+    bearerToken:@"7BXBTBUPSL3BP7I6Z2CFU6H3WQ"
+    signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
+
+  NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
+  request[@"token"] = @"Token to unlink";
+  request[@"customerId"] = @"Customer to unlink";
+  [client unlinkTokenWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+    NSNumber *success = [response objectForKey:@"success"];
+    if (success.boolValue) {
+      NSLog(@"Success");
+    }
+  }];
+  [pool drain];
+  return 0;
+}
+
+
+```
+
+##### From Swift:
+
+```swift
+import BlockChyp
+
+class ExampleClass {
+
+  func example() {
+    let client = BlockChyp.init(
+      apiKey: "ZN5WQGX5PN6BE2MF75CEAWRETM",
+      bearerToken: "SVVHJCYVFWJR2QKYKFWMZQVZL4",
+      signingKey: "7c1b9e4d1308e7bbe76a1920ddd9449ce50af2629f6bb70ed3c110365935970b"
+    )
+
+    var request: [String:Any] = [:]
+    request["token"] = "Token to unlink"
+    request["customerId"] = "Customer to unlink"
+    client.unlinkToken(withRequest: request, handler: { (request, response, error) in
       let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
