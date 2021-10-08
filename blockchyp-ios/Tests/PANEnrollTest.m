@@ -44,6 +44,7 @@
       NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
         request[@"pan"] = @"4111111111111111";
         request[@"test"] = @YES;
+        [request setObject:[self newCustomer] forKey:@"customer"];
 
   [client enrollWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
     [self logJSON:response];
@@ -77,6 +78,13 @@
 
 }
 
+- (NSDictionary *) newCustomer {
+  NSMutableDictionary *val = [[NSMutableDictionary alloc] init];
+  val[@"customerRef"] = @"TESTCUSTOMER";
+  val[@"firstName"] = @"Test";
+  val[@"lastName"] = @"Customer";
+  return val;
+}
 
 
 @end

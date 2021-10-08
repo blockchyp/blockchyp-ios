@@ -13,6 +13,8 @@
 
   @property NSString *lastTransactionId;
   @property NSString *lastTransactionRef;
+  @property NSString *lastToken;
+  @property NSString *lastCustomerId;
 
 
 @end
@@ -43,6 +45,8 @@
     XCTAssertNil(error);
     self.lastTransactionId = [response objectForKey:@"transactionId"];
     self.lastTransactionRef = [response objectForKey:@"transactionRef"];
+    self.lastToken = [response objectForKey:@"lastToken"];
+    self.lastCustomerId = [response objectForKey:@"lastCustomerId"];
 
     [expectation fulfill];
   }];

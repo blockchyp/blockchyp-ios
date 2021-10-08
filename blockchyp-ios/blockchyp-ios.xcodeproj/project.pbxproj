@@ -44,6 +44,24 @@
 		B15D17C123BDC7E9003FA0E5 /* TerminalEBTBalanceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B15D17A823BDC7E9003FA0E5 /* TerminalEBTBalanceTest.m */; };
 		B1A8E85E23A9FE63009003D9 /* NSData+FastHex.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A8E85D23A9FE63009003D9 /* NSData+FastHex.m */; };
 		B1A8E85F23A9FEC9009003D9 /* NSData+FastHex.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A8E85D23A9FE63009003D9 /* NSData+FastHex.m */; };
+		B1D7D8512710CC3700DA2211 /* DeleteTokenTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D7D83F2710CC3600DA2211 /* DeleteTokenTest.m */; };
+		B1D7D8522710CC3700DA2211 /* BatchHistoryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D7D8402710CC3600DA2211 /* BatchHistoryTest.m */; };
+		B1D7D8532710CC3700DA2211 /* UnlinkTokenTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D7D8412710CC3600DA2211 /* UnlinkTokenTest.m */; };
+		B1D7D8542710CC3700DA2211 /* TerminalTimeoutTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D7D8422710CC3600DA2211 /* TerminalTimeoutTest.m */; };
+		B1D7D8552710CC3700DA2211 /* MerchantProfileTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D7D8432710CC3600DA2211 /* MerchantProfileTest.m */; };
+		B1D7D8562710CC3700DA2211 /* TransactionHistoryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D7D8442710CC3600DA2211 /* TransactionHistoryTest.m */; };
+		B1D7D8572710CC3700DA2211 /* UpdateCustomerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D7D8452710CC3600DA2211 /* UpdateCustomerTest.m */; };
+		B1D7D8582710CC3700DA2211 /* SearchCustomerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D7D8462710CC3600DA2211 /* SearchCustomerTest.m */; };
+		B1D7D8592710CC3700DA2211 /* SendPaymentLinkTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D7D8472710CC3600DA2211 /* SendPaymentLinkTest.m */; };
+		B1D7D85A2710CC3700DA2211 /* GatewayTimeoutTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D7D8482710CC3600DA2211 /* GatewayTimeoutTest.m */; };
+		B1D7D85B2710CC3700DA2211 /* DeleteCustomerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D7D8492710CC3600DA2211 /* DeleteCustomerTest.m */; };
+		B1D7D85C2710CC3700DA2211 /* TokenMetadataTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D7D84A2710CC3600DA2211 /* TokenMetadataTest.m */; };
+		B1D7D85D2710CC3700DA2211 /* TerminalStatusTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D7D84B2710CC3600DA2211 /* TerminalStatusTest.m */; };
+		B1D7D85E2710CC3700DA2211 /* PartialRefundTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D7D84C2710CC3600DA2211 /* PartialRefundTest.m */; };
+		B1D7D85F2710CC3700DA2211 /* CancelPaymentLinkTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D7D84D2710CC3600DA2211 /* CancelPaymentLinkTest.m */; };
+		B1D7D8602710CC3700DA2211 /* CaptureSignatureTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D7D84E2710CC3600DA2211 /* CaptureSignatureTest.m */; };
+		B1D7D8612710CC3700DA2211 /* LinkTokenTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D7D84F2710CC3600DA2211 /* LinkTokenTest.m */; };
+		B1D7D8622710CC3700DA2211 /* GetCustomerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D7D8502710CC3600DA2211 /* GetCustomerTest.m */; };
 		B1FCB51F23A9DDA200545034 /* HTTPRequestDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B1FCB51E23A9DDA200545034 /* HTTPRequestDelegate.m */; };
 /* End PBXBuildFile section */
 
@@ -115,6 +133,24 @@
 		B15D17A723BDC7E9003FA0E5 /* SimpleMessageTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleMessageTest.m; sourceTree = "<group>"; };
 		B15D17A823BDC7E9003FA0E5 /* TerminalEBTBalanceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TerminalEBTBalanceTest.m; sourceTree = "<group>"; };
 		B1A8E85D23A9FE63009003D9 /* NSData+FastHex.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSData+FastHex.m"; sourceTree = "<group>"; };
+		B1D7D83F2710CC3600DA2211 /* DeleteTokenTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeleteTokenTest.m; sourceTree = "<group>"; };
+		B1D7D8402710CC3600DA2211 /* BatchHistoryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BatchHistoryTest.m; sourceTree = "<group>"; };
+		B1D7D8412710CC3600DA2211 /* UnlinkTokenTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnlinkTokenTest.m; sourceTree = "<group>"; };
+		B1D7D8422710CC3600DA2211 /* TerminalTimeoutTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TerminalTimeoutTest.m; sourceTree = "<group>"; };
+		B1D7D8432710CC3600DA2211 /* MerchantProfileTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MerchantProfileTest.m; sourceTree = "<group>"; };
+		B1D7D8442710CC3600DA2211 /* TransactionHistoryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionHistoryTest.m; sourceTree = "<group>"; };
+		B1D7D8452710CC3600DA2211 /* UpdateCustomerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateCustomerTest.m; sourceTree = "<group>"; };
+		B1D7D8462710CC3600DA2211 /* SearchCustomerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchCustomerTest.m; sourceTree = "<group>"; };
+		B1D7D8472710CC3600DA2211 /* SendPaymentLinkTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendPaymentLinkTest.m; sourceTree = "<group>"; };
+		B1D7D8482710CC3600DA2211 /* GatewayTimeoutTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GatewayTimeoutTest.m; sourceTree = "<group>"; };
+		B1D7D8492710CC3600DA2211 /* DeleteCustomerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeleteCustomerTest.m; sourceTree = "<group>"; };
+		B1D7D84A2710CC3600DA2211 /* TokenMetadataTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TokenMetadataTest.m; sourceTree = "<group>"; };
+		B1D7D84B2710CC3600DA2211 /* TerminalStatusTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TerminalStatusTest.m; sourceTree = "<group>"; };
+		B1D7D84C2710CC3600DA2211 /* PartialRefundTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PartialRefundTest.m; sourceTree = "<group>"; };
+		B1D7D84D2710CC3600DA2211 /* CancelPaymentLinkTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CancelPaymentLinkTest.m; sourceTree = "<group>"; };
+		B1D7D84E2710CC3600DA2211 /* CaptureSignatureTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaptureSignatureTest.m; sourceTree = "<group>"; };
+		B1D7D84F2710CC3600DA2211 /* LinkTokenTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkTokenTest.m; sourceTree = "<group>"; };
+		B1D7D8502710CC3600DA2211 /* GetCustomerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetCustomerTest.m; sourceTree = "<group>"; };
 		B1FCB51D23A9DDA200545034 /* HTTPRequestDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTTPRequestDelegate.h; sourceTree = "<group>"; };
 		B1FCB51E23A9DDA200545034 /* HTTPRequestDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTTPRequestDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -195,6 +231,24 @@
 		B12FC23823A746E700EAB159 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				B1D7D8402710CC3600DA2211 /* BatchHistoryTest.m */,
+				B1D7D84D2710CC3600DA2211 /* CancelPaymentLinkTest.m */,
+				B1D7D84E2710CC3600DA2211 /* CaptureSignatureTest.m */,
+				B1D7D8492710CC3600DA2211 /* DeleteCustomerTest.m */,
+				B1D7D83F2710CC3600DA2211 /* DeleteTokenTest.m */,
+				B1D7D8482710CC3600DA2211 /* GatewayTimeoutTest.m */,
+				B1D7D8502710CC3600DA2211 /* GetCustomerTest.m */,
+				B1D7D84F2710CC3600DA2211 /* LinkTokenTest.m */,
+				B1D7D8432710CC3600DA2211 /* MerchantProfileTest.m */,
+				B1D7D84C2710CC3600DA2211 /* PartialRefundTest.m */,
+				B1D7D8462710CC3600DA2211 /* SearchCustomerTest.m */,
+				B1D7D8472710CC3600DA2211 /* SendPaymentLinkTest.m */,
+				B1D7D84B2710CC3600DA2211 /* TerminalStatusTest.m */,
+				B1D7D8422710CC3600DA2211 /* TerminalTimeoutTest.m */,
+				B1D7D84A2710CC3600DA2211 /* TokenMetadataTest.m */,
+				B1D7D8442710CC3600DA2211 /* TransactionHistoryTest.m */,
+				B1D7D8412710CC3600DA2211 /* UnlinkTokenTest.m */,
+				B1D7D8452710CC3600DA2211 /* UpdateCustomerTest.m */,
 				B15D17A623BDC7E9003FA0E5 /* BooleanPromptTest.m */,
 				B15D179223BDC7E8003FA0E5 /* NewTransactionDisplayTest.m */,
 				B15D179F23BDC7E9003FA0E5 /* PANChargeTest.m */,
@@ -359,36 +413,54 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1D7D8512710CC3700DA2211 /* DeleteTokenTest.m in Sources */,
 				B15D17AB23BDC7E9003FA0E5 /* NewTransactionDisplayTest.m in Sources */,
+				B1D7D85F2710CC3700DA2211 /* CancelPaymentLinkTest.m in Sources */,
 				B15D17B723BDC7E9003FA0E5 /* SimpleVoidTest.m in Sources */,
 				B1A8E85F23A9FEC9009003D9 /* NSData+FastHex.m in Sources */,
 				B15D17C123BDC7E9003FA0E5 /* TerminalEBTBalanceTest.m in Sources */,
 				B12FC23A23A746E700EAB159 /* HeartbeatTest.m in Sources */,
 				B15D17BC23BDC7E9003FA0E5 /* SimpleGiftActivateTest.m in Sources */,
 				B15D17B923BDC7E9003FA0E5 /* SimplePingTest.m in Sources */,
+				B1D7D8582710CC3700DA2211 /* SearchCustomerTest.m in Sources */,
 				B15D17B223BDC7E9003FA0E5 /* PANPreauthTest.m in Sources */,
 				B15D17BE23BDC7E9003FA0E5 /* TerminalEnrollTest.m in Sources */,
 				B15D17AA23BDC7E9003FA0E5 /* TextPromptTest.m in Sources */,
 				B15D17B323BDC7E9003FA0E5 /* TerminalGiftCardBalanceTest.m in Sources */,
 				B12FC24A23A74B9D00EAB159 /* TestConfiguration.m in Sources */,
+				B1D7D85B2710CC3700DA2211 /* DeleteCustomerTest.m in Sources */,
 				B15D17C023BDC7E9003FA0E5 /* SimpleMessageTest.m in Sources */,
 				B15D17BD23BDC7E9003FA0E5 /* SimpleCaptureTest.m in Sources */,
+				B1D7D8552710CC3700DA2211 /* MerchantProfileTest.m in Sources */,
+				B1D7D85E2710CC3700DA2211 /* PartialRefundTest.m in Sources */,
+				B1D7D8602710CC3700DA2211 /* CaptureSignatureTest.m in Sources */,
 				B15D17AD23BDC7E9003FA0E5 /* TerminalManualEBTChargeTest.m in Sources */,
+				B1D7D85D2710CC3700DA2211 /* TerminalStatusTest.m in Sources */,
+				B1D7D8542710CC3700DA2211 /* TerminalTimeoutTest.m in Sources */,
 				B15D17BF23BDC7E9003FA0E5 /* BooleanPromptTest.m in Sources */,
 				B12FC25123A7525800EAB159 /* EncodingUtils.m in Sources */,
 				B15D17B623BDC7E9003FA0E5 /* TerminalClearTest.m in Sources */,
+				B1D7D8592710CC3700DA2211 /* SendPaymentLinkTest.m in Sources */,
 				B15D17B123BDC7E9003FA0E5 /* TerminalKeyedChargeTest.m in Sources */,
 				B15D17A923BDC7E9003FA0E5 /* TermsAndConditionsTest.m in Sources */,
+				B1D7D8622710CC3700DA2211 /* GetCustomerTest.m in Sources */,
 				B15D17AC23BDC7E9003FA0E5 /* SimpleReversalTest.m in Sources */,
+				B1D7D85C2710CC3700DA2211 /* TokenMetadataTest.m in Sources */,
 				B15D17BB23BDC7E9003FA0E5 /* SimpleRefundTest.m in Sources */,
 				B15D17B023BDC7E9003FA0E5 /* TerminalChargeTest.m in Sources */,
+				B1D7D85A2710CC3700DA2211 /* GatewayTimeoutTest.m in Sources */,
+				B1D7D8562710CC3700DA2211 /* TransactionHistoryTest.m in Sources */,
 				B15D17B823BDC7E9003FA0E5 /* PANChargeTest.m in Sources */,
+				B1D7D8572710CC3700DA2211 /* UpdateCustomerTest.m in Sources */,
 				B12FC25423A75BFF00EAB159 /* BlockChypClient.m in Sources */,
 				B12FC24723A7481800EAB159 /* BlockChypTest.m in Sources */,
 				B15D17AE23BDC7E9003FA0E5 /* TerminalEBTChargeTest.m in Sources */,
+				B1D7D8612710CC3700DA2211 /* LinkTokenTest.m in Sources */,
 				B15D17B523BDC7E9003FA0E5 /* PANEnrollTest.m in Sources */,
 				B15D17BA23BDC7E9003FA0E5 /* TerminalPreauthTest.m in Sources */,
+				B1D7D8532710CC3700DA2211 /* UnlinkTokenTest.m in Sources */,
 				B15D17AF23BDC7E9003FA0E5 /* UpdateTransactionDisplayTest.m in Sources */,
+				B1D7D8522710CC3700DA2211 /* BatchHistoryTest.m in Sources */,
 				B15D17B423BDC7E9003FA0E5 /* SimpleBatchCloseTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -13,6 +13,8 @@
 
   @property NSString *lastTransactionId;
   @property NSString *lastTransactionRef;
+  @property NSString *lastToken;
+  @property NSString *lastCustomerId;
 
 
 @end
@@ -34,12 +36,15 @@
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
       request[@"pan"] = @"4111111111111111";
       request[@"test"] = @YES;
+      [request setObject:[self newCustomer] forKey:@"customer"];
 
   [client enrollWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
 
     XCTAssertNil(error);
     self.lastTransactionId = [response objectForKey:@"transactionId"];
     self.lastTransactionRef = [response objectForKey:@"transactionRef"];
+    self.lastToken = [response objectForKey:@"lastToken"];
+    self.lastCustomerId = [response objectForKey:@"lastCustomerId"];
 
     [expectation fulfill];
   }];
