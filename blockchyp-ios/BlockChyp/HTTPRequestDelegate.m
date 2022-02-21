@@ -83,7 +83,7 @@ BlockChypClient *client;
     NSString *nonce = [self generateNonceWithSize:32];
     NSString *ts = [self generateTimestamp];
      
-    NSString *auth = [NSString stringWithFormat:@"Bearer %@:%@", client.bearerToken, client.apiKey];
+    NSString *auth = [NSString stringWithFormat:@"Dual %@:%@", client.bearerToken, client.apiKey];
     
     NSMutableDictionary *headers = [[NSMutableDictionary alloc] init];
     [headers setValue:nonce forKey:@"Nonce"];
