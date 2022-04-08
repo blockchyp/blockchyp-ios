@@ -145,6 +145,13 @@
 
 
 
+// Returns routing and location data for a payment terminal.
+-(void)locateWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeGatewayRequestWith:request path:@"/api/terminal-locate" method:@"POST" handler:handler];
+
+}
+
 // Captures a preauthorization.
 -(void)captureWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
 
