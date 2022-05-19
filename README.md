@@ -5280,6 +5280,743 @@ class ExampleClass {
 
 
 
+#### Upload Status
+
+
+
+This API returns the status of a file upload.
+
+
+
+##### From Objective-C:
+
+```objective-c
+#import <Foundation/Foundation.h>
+#import <BlockChyp/BlockChyp.h>
+
+int main (int argc, const char * argv[])
+{
+  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+
+  BlockChyp *client = [[BlockChyp alloc]
+    initWithApiKey:@"SPBXTSDAQVFFX5MGQMUMIRINVI"
+    bearerToken:@"7BXBTBUPSL3BP7I6Z2CFU6H3WQ"
+    signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
+
+  NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
+  request[@"timeout"] = @120;
+  [client uploadStatusWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+    NSNumber *success = [response objectForKey:@"success"];
+    if (success.boolValue) {
+      NSLog(@"Success");
+    }
+  }];
+  [pool drain];
+  return 0;
+}
+
+
+```
+
+##### From Swift:
+
+```swift
+import BlockChyp
+
+class ExampleClass {
+
+  func example() {
+    let client = BlockChyp.init(
+      apiKey: "ZN5WQGX5PN6BE2MF75CEAWRETM",
+      bearerToken: "SVVHJCYVFWJR2QKYKFWMZQVZL4",
+      signingKey: "7c1b9e4d1308e7bbe76a1920ddd9449ce50af2629f6bb70ed3c110365935970b"
+    )
+
+    var request: [String:Any] = [:]
+    request["timeout"] = 120
+    client.uploadStatus(withRequest: request, handler: { (request, response, error) in
+      let approved = response["success"] as? Bool
+      if (approved.unsafelyUnwrapped) {
+        NSLog("Success")
+      }
+    })
+  }
+
+
+```
+
+
+
+#### Media Library
+
+
+
+This API returns the media library associated with the API credentials.
+
+
+
+##### From Objective-C:
+
+```objective-c
+#import <Foundation/Foundation.h>
+#import <BlockChyp/BlockChyp.h>
+
+int main (int argc, const char * argv[])
+{
+  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+
+  BlockChyp *client = [[BlockChyp alloc]
+    initWithApiKey:@"SPBXTSDAQVFFX5MGQMUMIRINVI"
+    bearerToken:@"7BXBTBUPSL3BP7I6Z2CFU6H3WQ"
+    signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
+
+  NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
+  request[@"timeout"] = @120;
+  [client mediaWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+    NSNumber *success = [response objectForKey:@"success"];
+    if (success.boolValue) {
+      NSLog(@"Success");
+    }
+  }];
+  [pool drain];
+  return 0;
+}
+
+
+```
+
+##### From Swift:
+
+```swift
+import BlockChyp
+
+class ExampleClass {
+
+  func example() {
+    let client = BlockChyp.init(
+      apiKey: "ZN5WQGX5PN6BE2MF75CEAWRETM",
+      bearerToken: "SVVHJCYVFWJR2QKYKFWMZQVZL4",
+      signingKey: "7c1b9e4d1308e7bbe76a1920ddd9449ce50af2629f6bb70ed3c110365935970b"
+    )
+
+    var request: [String:Any] = [:]
+    request["timeout"] = 120
+    client.media(withRequest: request, handler: { (request, response, error) in
+      let approved = response["success"] as? Bool
+      if (approved.unsafelyUnwrapped) {
+        NSLog("Success")
+      }
+    })
+  }
+
+
+```
+
+
+
+#### Get Media Asset
+
+
+
+This API returns a detailed media asset.
+
+
+
+##### From Objective-C:
+
+```objective-c
+#import <Foundation/Foundation.h>
+#import <BlockChyp/BlockChyp.h>
+
+int main (int argc, const char * argv[])
+{
+  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+
+  BlockChyp *client = [[BlockChyp alloc]
+    initWithApiKey:@"SPBXTSDAQVFFX5MGQMUMIRINVI"
+    bearerToken:@"7BXBTBUPSL3BP7I6Z2CFU6H3WQ"
+    signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
+
+  NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
+  request[@"timeout"] = @120;
+  [client mediaAssetWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+    NSNumber *success = [response objectForKey:@"success"];
+    if (success.boolValue) {
+      NSLog(@"Success");
+    }
+  }];
+  [pool drain];
+  return 0;
+}
+
+
+```
+
+##### From Swift:
+
+```swift
+import BlockChyp
+
+class ExampleClass {
+
+  func example() {
+    let client = BlockChyp.init(
+      apiKey: "ZN5WQGX5PN6BE2MF75CEAWRETM",
+      bearerToken: "SVVHJCYVFWJR2QKYKFWMZQVZL4",
+      signingKey: "7c1b9e4d1308e7bbe76a1920ddd9449ce50af2629f6bb70ed3c110365935970b"
+    )
+
+    var request: [String:Any] = [:]
+    request["timeout"] = 120
+    client.mediaAsset(withRequest: request, handler: { (request, response, error) in
+      let approved = response["success"] as? Bool
+      if (approved.unsafelyUnwrapped) {
+        NSLog("Success")
+      }
+    })
+  }
+
+
+```
+
+
+
+#### Delete Media Asset
+
+
+
+This API deletes a media asset.
+
+
+
+##### From Objective-C:
+
+```objective-c
+#import <Foundation/Foundation.h>
+#import <BlockChyp/BlockChyp.h>
+
+int main (int argc, const char * argv[])
+{
+  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+
+  BlockChyp *client = [[BlockChyp alloc]
+    initWithApiKey:@"SPBXTSDAQVFFX5MGQMUMIRINVI"
+    bearerToken:@"7BXBTBUPSL3BP7I6Z2CFU6H3WQ"
+    signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
+
+  NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
+  request[@"timeout"] = @120;
+  [client deleteMediaAssetWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+    NSNumber *success = [response objectForKey:@"success"];
+    if (success.boolValue) {
+      NSLog(@"Success");
+    }
+  }];
+  [pool drain];
+  return 0;
+}
+
+
+```
+
+##### From Swift:
+
+```swift
+import BlockChyp
+
+class ExampleClass {
+
+  func example() {
+    let client = BlockChyp.init(
+      apiKey: "ZN5WQGX5PN6BE2MF75CEAWRETM",
+      bearerToken: "SVVHJCYVFWJR2QKYKFWMZQVZL4",
+      signingKey: "7c1b9e4d1308e7bbe76a1920ddd9449ce50af2629f6bb70ed3c110365935970b"
+    )
+
+    var request: [String:Any] = [:]
+    request["timeout"] = 120
+    client.deleteMediaAsset(withRequest: request, handler: { (request, response, error) in
+      let approved = response["success"] as? Bool
+      if (approved.unsafelyUnwrapped) {
+        NSLog("Success")
+      }
+    })
+  }
+
+
+```
+
+
+
+#### Update Slide Show
+
+
+
+This API updates or creates a slide show.
+
+
+
+##### From Objective-C:
+
+```objective-c
+#import <Foundation/Foundation.h>
+#import <BlockChyp/BlockChyp.h>
+
+int main (int argc, const char * argv[])
+{
+  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+
+  BlockChyp *client = [[BlockChyp alloc]
+    initWithApiKey:@"SPBXTSDAQVFFX5MGQMUMIRINVI"
+    bearerToken:@"7BXBTBUPSL3BP7I6Z2CFU6H3WQ"
+    signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
+
+  NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
+  request[@"timeout"] = @120;
+  [client updateSlideShowWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+    NSNumber *success = [response objectForKey:@"success"];
+    if (success.boolValue) {
+      NSLog(@"Success");
+    }
+  }];
+  [pool drain];
+  return 0;
+}
+
+
+```
+
+##### From Swift:
+
+```swift
+import BlockChyp
+
+class ExampleClass {
+
+  func example() {
+    let client = BlockChyp.init(
+      apiKey: "ZN5WQGX5PN6BE2MF75CEAWRETM",
+      bearerToken: "SVVHJCYVFWJR2QKYKFWMZQVZL4",
+      signingKey: "7c1b9e4d1308e7bbe76a1920ddd9449ce50af2629f6bb70ed3c110365935970b"
+    )
+
+    var request: [String:Any] = [:]
+    request["timeout"] = 120
+    client.updateSlideShow(withRequest: request, handler: { (request, response, error) in
+      let approved = response["success"] as? Bool
+      if (approved.unsafelyUnwrapped) {
+        NSLog("Success")
+      }
+    })
+  }
+
+
+```
+
+
+
+#### Slide Shows
+
+
+
+This API returns all slide shows.
+
+
+
+##### From Objective-C:
+
+```objective-c
+#import <Foundation/Foundation.h>
+#import <BlockChyp/BlockChyp.h>
+
+int main (int argc, const char * argv[])
+{
+  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+
+  BlockChyp *client = [[BlockChyp alloc]
+    initWithApiKey:@"SPBXTSDAQVFFX5MGQMUMIRINVI"
+    bearerToken:@"7BXBTBUPSL3BP7I6Z2CFU6H3WQ"
+    signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
+
+  NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
+  request[@"timeout"] = @120;
+  [client slideShowsWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+    NSNumber *success = [response objectForKey:@"success"];
+    if (success.boolValue) {
+      NSLog(@"Success");
+    }
+  }];
+  [pool drain];
+  return 0;
+}
+
+
+```
+
+##### From Swift:
+
+```swift
+import BlockChyp
+
+class ExampleClass {
+
+  func example() {
+    let client = BlockChyp.init(
+      apiKey: "ZN5WQGX5PN6BE2MF75CEAWRETM",
+      bearerToken: "SVVHJCYVFWJR2QKYKFWMZQVZL4",
+      signingKey: "7c1b9e4d1308e7bbe76a1920ddd9449ce50af2629f6bb70ed3c110365935970b"
+    )
+
+    var request: [String:Any] = [:]
+    request["timeout"] = 120
+    client.slideShows(withRequest: request, handler: { (request, response, error) in
+      let approved = response["success"] as? Bool
+      if (approved.unsafelyUnwrapped) {
+        NSLog("Success")
+      }
+    })
+  }
+
+
+```
+
+
+
+#### Slide Show
+
+
+
+This API returns a single slide show.
+
+
+
+##### From Objective-C:
+
+```objective-c
+#import <Foundation/Foundation.h>
+#import <BlockChyp/BlockChyp.h>
+
+int main (int argc, const char * argv[])
+{
+  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+
+  BlockChyp *client = [[BlockChyp alloc]
+    initWithApiKey:@"SPBXTSDAQVFFX5MGQMUMIRINVI"
+    bearerToken:@"7BXBTBUPSL3BP7I6Z2CFU6H3WQ"
+    signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
+
+  NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
+  request[@"timeout"] = @120;
+  [client slideShowWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+    NSNumber *success = [response objectForKey:@"success"];
+    if (success.boolValue) {
+      NSLog(@"Success");
+    }
+  }];
+  [pool drain];
+  return 0;
+}
+
+
+```
+
+##### From Swift:
+
+```swift
+import BlockChyp
+
+class ExampleClass {
+
+  func example() {
+    let client = BlockChyp.init(
+      apiKey: "ZN5WQGX5PN6BE2MF75CEAWRETM",
+      bearerToken: "SVVHJCYVFWJR2QKYKFWMZQVZL4",
+      signingKey: "7c1b9e4d1308e7bbe76a1920ddd9449ce50af2629f6bb70ed3c110365935970b"
+    )
+
+    var request: [String:Any] = [:]
+    request["timeout"] = 120
+    client.slideShow(withRequest: request, handler: { (request, response, error) in
+      let approved = response["success"] as? Bool
+      if (approved.unsafelyUnwrapped) {
+        NSLog("Success")
+      }
+    })
+  }
+
+
+```
+
+
+
+#### Delete Slide Show
+
+
+
+This API deletes a single slide show.
+
+
+
+##### From Objective-C:
+
+```objective-c
+#import <Foundation/Foundation.h>
+#import <BlockChyp/BlockChyp.h>
+
+int main (int argc, const char * argv[])
+{
+  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+
+  BlockChyp *client = [[BlockChyp alloc]
+    initWithApiKey:@"SPBXTSDAQVFFX5MGQMUMIRINVI"
+    bearerToken:@"7BXBTBUPSL3BP7I6Z2CFU6H3WQ"
+    signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
+
+  NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
+  request[@"timeout"] = @120;
+  [client deleteSlideShowWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+    NSNumber *success = [response objectForKey:@"success"];
+    if (success.boolValue) {
+      NSLog(@"Success");
+    }
+  }];
+  [pool drain];
+  return 0;
+}
+
+
+```
+
+##### From Swift:
+
+```swift
+import BlockChyp
+
+class ExampleClass {
+
+  func example() {
+    let client = BlockChyp.init(
+      apiKey: "ZN5WQGX5PN6BE2MF75CEAWRETM",
+      bearerToken: "SVVHJCYVFWJR2QKYKFWMZQVZL4",
+      signingKey: "7c1b9e4d1308e7bbe76a1920ddd9449ce50af2629f6bb70ed3c110365935970b"
+    )
+
+    var request: [String:Any] = [:]
+    request["timeout"] = 120
+    client.deleteSlideShow(withRequest: request, handler: { (request, response, error) in
+      let approved = response["success"] as? Bool
+      if (approved.unsafelyUnwrapped) {
+        NSLog("Success")
+      }
+    })
+  }
+
+
+```
+
+
+
+#### Terminal Branding
+
+
+
+This API returns the terminal branding stack for a given API scope.
+
+
+
+##### From Objective-C:
+
+```objective-c
+#import <Foundation/Foundation.h>
+#import <BlockChyp/BlockChyp.h>
+
+int main (int argc, const char * argv[])
+{
+  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+
+  BlockChyp *client = [[BlockChyp alloc]
+    initWithApiKey:@"SPBXTSDAQVFFX5MGQMUMIRINVI"
+    bearerToken:@"7BXBTBUPSL3BP7I6Z2CFU6H3WQ"
+    signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
+
+  NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
+  request[@"timeout"] = @120;
+  [client terminalBrandingWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+    NSNumber *success = [response objectForKey:@"success"];
+    if (success.boolValue) {
+      NSLog(@"Success");
+    }
+  }];
+  [pool drain];
+  return 0;
+}
+
+
+```
+
+##### From Swift:
+
+```swift
+import BlockChyp
+
+class ExampleClass {
+
+  func example() {
+    let client = BlockChyp.init(
+      apiKey: "ZN5WQGX5PN6BE2MF75CEAWRETM",
+      bearerToken: "SVVHJCYVFWJR2QKYKFWMZQVZL4",
+      signingKey: "7c1b9e4d1308e7bbe76a1920ddd9449ce50af2629f6bb70ed3c110365935970b"
+    )
+
+    var request: [String:Any] = [:]
+    request["timeout"] = 120
+    client.terminalBranding(withRequest: request, handler: { (request, response, error) in
+      let approved = response["success"] as? Bool
+      if (approved.unsafelyUnwrapped) {
+        NSLog("Success")
+      }
+    })
+  }
+
+
+```
+
+
+
+#### Update Branding Asset
+
+
+
+This API updates a single branding asset.
+
+
+
+##### From Objective-C:
+
+```objective-c
+#import <Foundation/Foundation.h>
+#import <BlockChyp/BlockChyp.h>
+
+int main (int argc, const char * argv[])
+{
+  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+
+  BlockChyp *client = [[BlockChyp alloc]
+    initWithApiKey:@"SPBXTSDAQVFFX5MGQMUMIRINVI"
+    bearerToken:@"7BXBTBUPSL3BP7I6Z2CFU6H3WQ"
+    signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
+
+  NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
+  request[@"timeout"] = @120;
+  [client updateBrandingAssetWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+    NSNumber *success = [response objectForKey:@"success"];
+    if (success.boolValue) {
+      NSLog(@"Success");
+    }
+  }];
+  [pool drain];
+  return 0;
+}
+
+
+```
+
+##### From Swift:
+
+```swift
+import BlockChyp
+
+class ExampleClass {
+
+  func example() {
+    let client = BlockChyp.init(
+      apiKey: "ZN5WQGX5PN6BE2MF75CEAWRETM",
+      bearerToken: "SVVHJCYVFWJR2QKYKFWMZQVZL4",
+      signingKey: "7c1b9e4d1308e7bbe76a1920ddd9449ce50af2629f6bb70ed3c110365935970b"
+    )
+
+    var request: [String:Any] = [:]
+    request["timeout"] = 120
+    client.updateBrandingAsset(withRequest: request, handler: { (request, response, error) in
+      let approved = response["success"] as? Bool
+      if (approved.unsafelyUnwrapped) {
+        NSLog("Success")
+      }
+    })
+  }
+
+
+```
+
+
+
+#### Delete Branding Asset
+
+
+
+This API deletes a branding asset.
+
+
+
+##### From Objective-C:
+
+```objective-c
+#import <Foundation/Foundation.h>
+#import <BlockChyp/BlockChyp.h>
+
+int main (int argc, const char * argv[])
+{
+  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+
+  BlockChyp *client = [[BlockChyp alloc]
+    initWithApiKey:@"SPBXTSDAQVFFX5MGQMUMIRINVI"
+    bearerToken:@"7BXBTBUPSL3BP7I6Z2CFU6H3WQ"
+    signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
+
+  NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
+  request[@"timeout"] = @120;
+  [client deleteBrandingAssetWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+    NSNumber *success = [response objectForKey:@"success"];
+    if (success.boolValue) {
+      NSLog(@"Success");
+    }
+  }];
+  [pool drain];
+  return 0;
+}
+
+
+```
+
+##### From Swift:
+
+```swift
+import BlockChyp
+
+class ExampleClass {
+
+  func example() {
+    let client = BlockChyp.init(
+      apiKey: "ZN5WQGX5PN6BE2MF75CEAWRETM",
+      bearerToken: "SVVHJCYVFWJR2QKYKFWMZQVZL4",
+      signingKey: "7c1b9e4d1308e7bbe76a1920ddd9449ce50af2629f6bb70ed3c110365935970b"
+    )
+
+    var request: [String:Any] = [:]
+    request["timeout"] = 120
+    client.deleteBrandingAsset(withRequest: request, handler: { (request, response, error) in
+      let approved = response["success"] as? Bool
+      if (approved.unsafelyUnwrapped) {
+        NSLog("Success")
+      }
+    })
+  }
+
+
+```
+
+
+
 ## Running Integration Tests
 
 If you'd like to run the integration tests, create a new file on your system
