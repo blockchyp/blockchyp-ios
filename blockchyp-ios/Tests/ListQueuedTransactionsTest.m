@@ -8,7 +8,7 @@
 
 #import "BlockChypTest.h"
 
-@interface TCEntryTest : BlockChypTest
+@interface ListQueuedTransactionsTest : BlockChypTest
 
 
   @property NSString *lastTransactionId;
@@ -19,7 +19,7 @@
 
 @end
 
-@implementation TCEntryTest
+@implementation ListQueuedTransactionsTest
 
 - (void)setUp {
 
@@ -28,14 +28,20 @@
   client.gatewayHost = config.gatewayHost;
   client.testGatewayHost = config.testGatewayHost;
 
-  [self testDelayWith:client testName:@"TCEntryTest"];
+  [self testDelayWith:client testName:@"ListQueuedTransactionsTest"];
 
 
-  XCTestExpectation *expectation = [self expectationWithDescription:@"TCEntry Test Setup"];
+  XCTestExpectation *expectation = [self expectationWithDescription:@"ListQueuedTransactions Test Setup"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
+      request[@"terminalName"] = @"Test Terminal";
+      request[@"transactionRef"] = [self getUUID];
+      request[@"description"] = @"1060 West Addison";
+      request[@"amount"] = @"25.15";
+      request[@"test"] = @YES;
+      request[@"queue"] = @YES;
 
-  [client tcLogWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+  [client chargeWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
 
     XCTAssertNil(error);
     self.lastTransactionId = [response objectForKey:@"transactionId"];
@@ -55,37 +61,23 @@
 
 }
 
-- (void)testTCEntry{
+- (void)testListQueuedTransactions{
 
   TestConfiguration *config = [self loadConfiguration];
   BlockChyp *client = [[BlockChyp alloc] initWithApiKey:config.apiKey bearerToken:config.bearerToken signingKey:config.signingKey];
   client.gatewayHost = config.gatewayHost;
   client.testGatewayHost = config.testGatewayHost;
 
-  XCTestExpectation *expectation = [self expectationWithDescription:@"TCEntry Test"];
+  XCTestExpectation *expectation = [self expectationWithDescription:@"ListQueuedTransactions Test"];
 
       NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-    
-  [client tcEntryWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+        request[@"terminalName"] = @"Test Terminal";
+
+  [client listQueuedTransactionsWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
     [self logJSON:response];
     XCTAssertNotNil(response);
     // response assertions
     XCTAssertTrue([response objectForKey:@"success"]);
-    XCTAssertNotNil([response objectForKey:@"id"]);
-    XCTAssertTrue([((NSString *)[response objectForKey:@"id"]) length] > 0);
-    XCTAssertNotNil([response objectForKey:@"terminalId"]);
-    XCTAssertTrue([((NSString *)[response objectForKey:@"terminalId"]) length] > 0);
-    XCTAssertNotNil([response objectForKey:@"terminalName"]);
-    XCTAssertTrue([((NSString *)[response objectForKey:@"terminalName"]) length] > 0);
-    XCTAssertNotNil([response objectForKey:@"timestamp"]);
-    XCTAssertTrue([((NSString *)[response objectForKey:@"timestamp"]) length] > 0);
-    XCTAssertNotNil([response objectForKey:@"name"]);
-    XCTAssertTrue([((NSString *)[response objectForKey:@"name"]) length] > 0);
-    XCTAssertNotNil([response objectForKey:@"content"]);
-    XCTAssertTrue([((NSString *)[response objectForKey:@"content"]) length] > 0);
-    XCTAssertTrue([response objectForKey:@"hasSignature"]);
-    XCTAssertNotNil([response objectForKey:@"signature"]);
-    XCTAssertTrue([((NSString *)[response objectForKey:@"signature"]) length] > 0);
 
     [expectation fulfill];
   }];

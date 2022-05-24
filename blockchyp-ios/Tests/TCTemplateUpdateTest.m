@@ -42,12 +42,19 @@
   XCTestExpectation *expectation = [self expectationWithDescription:@"TCTemplateUpdate Test"];
 
       NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
+        request[@"alias"] = [self getUUID];
+        request[@"name"] = @"HIPPA Disclosure";
+        request[@"content"] = @"Lorem ipsum dolor sit amet.";
 
   [client tcUpdateTemplateWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
     [self logJSON:response];
     XCTAssertNotNil(response);
     // response assertions
     XCTAssertTrue([response objectForKey:@"success"]);
+    XCTAssertNotNil([response objectForKey:@"alias"]);
+    XCTAssertTrue([((NSString *)[response objectForKey:@"alias"]) length] > 0);
+    XCTAssertEqualObjects(@"HIPPA Disclosure", (NSString *)[response objectForKey:@"name"]);
+    XCTAssertEqualObjects(@"Lorem ipsum dolor sit amet.", (NSString *)[response objectForKey:@"content"]);
 
     [expectation fulfill];
   }];

@@ -42,12 +42,15 @@
   XCTestExpectation *expectation = [self expectationWithDescription:@"ActivateTerminal Test"];
 
       NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
+        request[@"terminalName"] = @"Bad Terminal Code";
+        request[@"activationCode"] = @"XXXXXX";
 
   [client activateTerminalWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
     [self logJSON:response];
     XCTAssertNotNil(response);
     // response assertions
-    XCTAssertTrue([response objectForKey:@"success"]);
+    XCTAssertFalse([response objectForKey:@"success"]);
+    XCTAssertEqualObjects(@"Invalid Activation Code", (NSString *)[response objectForKey:@"error"]);
 
     [expectation fulfill];
   }];

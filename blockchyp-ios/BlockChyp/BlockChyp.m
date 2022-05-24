@@ -273,13 +273,6 @@
 
 }
 
-// Deletes a payment token.
--(void)deleteTokenWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
-
-  [self routeGatewayRequestWith:request path:[@"/api/token/" stringByAppendingString:[request objectForKey:@"token"]] method:@"DELETE" handler:handler];
-
-}
-
 // Retrieves payment token metadata.
 -(void)tokenMetadataWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
 
@@ -298,6 +291,13 @@
 -(void)unlinkTokenWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
 
   [self routeGatewayRequestWith:request path:@"/api/unlink-token" method:@"POST" handler:handler];
+
+}
+
+// Deletes a payment token.
+-(void)deleteTokenWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeGatewayRequestWith:request path:[@"/api/token/" stringByAppendingString:[request objectForKey:@"token"]] method:@"DELETE" handler:handler];
 
 }
 
