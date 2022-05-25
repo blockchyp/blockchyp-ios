@@ -10,7 +10,8 @@ class ExampleClass {
     )
 
     var request: [String:Any] = [:]
-    request["timeout"] = 120
+    request["name"] = "Test Slide Show"
+    request["delay"] = 5
     client.updateSlideShow(withRequest: request, handler: { (request, response, error) in
       let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
@@ -19,3 +20,12 @@ class ExampleClass {
     })
   }
 
+  func newSlides()  -> [[String:Any]] {
+    var val = [[String:Any]]()
+    val.append(newSlide1())
+    return val
+  }
+  func newSlide1() -> [String:Any] {
+    var val: [String:Any] = [:]
+    return val;
+  }

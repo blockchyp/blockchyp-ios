@@ -11,6 +11,11 @@
 @interface SurveyResultsTest : BlockChypTest
 
 
+  @property NSString *lastTransactionId;
+  @property NSString *lastTransactionRef;
+  @property NSString *lastToken;
+  @property NSString *lastCustomerId;
+
 
 @end
 
@@ -24,6 +29,24 @@
   client.testGatewayHost = config.testGatewayHost;
 
   [self testDelayWith:client testName:@"SurveyResultsTest"];
+
+
+  XCTestExpectation *expectation = [self expectationWithDescription:@"SurveyResults Test Setup"];
+
+  NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
+
+  [client surveyQuestionsWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+
+    XCTAssertNil(error);
+    self.lastTransactionId = [response objectForKey:@"transactionId"];
+    self.lastTransactionRef = [response objectForKey:@"transactionRef"];
+    self.lastToken = [response objectForKey:@"lastToken"];
+    self.lastCustomerId = [response objectForKey:@"lastCustomerId"];
+
+    [expectation fulfill];
+  }];
+
+  [self waitForExpectationsWithTimeout:60 handler:nil];
 
 
 }

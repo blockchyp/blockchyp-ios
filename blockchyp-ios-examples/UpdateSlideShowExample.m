@@ -11,7 +11,8 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"timeout"] = @120;
+  request[@"name"] = @"Test Slide Show";
+  request[@"delay"] = @5;
   [client updateSlideShowWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
     NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
@@ -22,3 +23,12 @@ int main (int argc, const char * argv[])
   return 0;
 }
 
+- (NSArray *) newSlides {
+  NSMutableArray *val = [[NSMutableArray alloc] init];
+  [val addObject: [self newSlide1]];
+  return val;
+}
+- (NSDictionary *) newSlide1 {
+  NSMutableDictionary *val = [[NSMutableDictionary alloc] init];
+  return val;
+}

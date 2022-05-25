@@ -42,12 +42,22 @@
   XCTestExpectation *expectation = [self expectationWithDescription:@"MediaUpload Test"];
 
       NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
+        request[@"fileName"] = @"aviato.png";
+        request[@"fileSize"] = 18843;
+        request[@"uploadId"] = [self getUUID];
 
   [client uploadMediaWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
     [self logJSON:response];
     XCTAssertNotNil(response);
     // response assertions
     XCTAssertTrue([response objectForKey:@"success"]);
+    XCTAssertNotNil([response objectForKey:@"id"]);
+    XCTAssertTrue([((NSString *)[response objectForKey:@"id"]) length] > 0);
+    XCTAssertEqualObjects(@"aviato.png", (NSString *)[response objectForKey:@"originalFile"]);
+    XCTAssertNotNil([response objectForKey:@"fileUrl"]);
+    XCTAssertTrue([((NSString *)[response objectForKey:@"fileUrl"]) length] > 0);
+    XCTAssertNotNil([response objectForKey:@"thumbnailUrl"]);
+    XCTAssertTrue([((NSString *)[response objectForKey:@"thumbnailUrl"]) length] > 0);
 
     [expectation fulfill];
   }];

@@ -42,12 +42,17 @@
   XCTestExpectation *expectation = [self expectationWithDescription:@"UpdateSurveyQuestion Test"];
 
       NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
+        request[@"ordinal"] = @1;
+        request[@"questionText"] = @"Would you shop here again?";
+        request[@"questionType"] = @"yes_no";
 
   [client updateSurveyQuestionWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
     [self logJSON:response];
     XCTAssertNotNil(response);
     // response assertions
     XCTAssertTrue([response objectForKey:@"success"]);
+    XCTAssertEqualObjects(@"Would you shop here again?", (NSString *)[response objectForKey:@"questionText"]);
+    XCTAssertEqualObjects(@"yes_no", (NSString *)[response objectForKey:@"questionType"]);
 
     [expectation fulfill];
   }];

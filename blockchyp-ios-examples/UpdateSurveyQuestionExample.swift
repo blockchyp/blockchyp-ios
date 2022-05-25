@@ -10,7 +10,10 @@ class ExampleClass {
     )
 
     var request: [String:Any] = [:]
-    request["timeout"] = 120
+    request["ordinal"] = 1
+    request["questionText"] = "Would you shop here again?"
+    request["questionType"] = "yes_no"
+    request["enabled"] = true
     client.updateSurveyQuestion(withRequest: request, handler: { (request, response, error) in
       let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {

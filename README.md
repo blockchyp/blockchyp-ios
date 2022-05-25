@@ -3789,7 +3789,7 @@ class ExampleClass {
 
 
 
-Links a payment token with a customer record.  Usually this would only be used
+Links a payment token with a customer record.  Usually this would only be needed
 to reverse a previous unlink operation.
 
 
@@ -3931,7 +3931,8 @@ class ExampleClass {
 
 
 
-Deletes a payment token from the gateway.
+Deletes a payment token from the gateway.  Tokens are deleted automatically if they have not been used
+for a year.
 
 
 
@@ -4346,11 +4347,13 @@ or result visualization into their own systems.
 
 
 
-#### Survey Questions
+#### List Questions
 
 
 
-This API returns all survey questions.
+This API returns all survey questions in the order in which they would be presented on the terminal.
+
+All questions are returned, whether enabled or disabled.
 
 
 
@@ -4370,7 +4373,6 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"timeout"] = @120;
   [client surveyQuestionsWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
     NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
@@ -4399,7 +4401,6 @@ class ExampleClass {
     )
 
     var request: [String:Any] = [:]
-    request["timeout"] = 120
     client.surveyQuestions(withRequest: request, handler: { (request, response, error) in
       let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
@@ -4413,11 +4414,11 @@ class ExampleClass {
 
 
 
-#### Survey Question
+#### Question Details
 
 
 
-This API returns a single survey question with response data.
+This API returns a single survey question with response data.  `questionId` is required.
 
 
 
@@ -4437,7 +4438,7 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"timeout"] = @120;
+  request[@"questionId"] = @"XXXXXXXX";
   [client surveyQuestionWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
     NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
@@ -4466,7 +4467,7 @@ class ExampleClass {
     )
 
     var request: [String:Any] = [:]
-    request["timeout"] = 120
+    request["questionId"] = "XXXXXXXX"
     client.surveyQuestion(withRequest: request, handler: { (request, response, error) in
       let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
@@ -4480,78 +4481,20 @@ class ExampleClass {
 
 
 
-#### Survey Results
+#### Update Question
 
 
 
-This API returns survey results for a single question.
+This API updates or creates survey questions.  `questionText` and `questionType` are required 
+fields.  The following values are valid for `questionType`.
 
+* **yes_no:** Use for simple yes or no questions.
+* **scaled:** Displays the question with buttons than allow the customer to respond with values from 1 through 5.
 
+Questions are disabled by default.  Pass in `enabled` to enable a question.
 
-##### From Objective-C:
-
-```objective-c
-#import <Foundation/Foundation.h>
-#import <BlockChyp/BlockChyp.h>
-
-int main (int argc, const char * argv[])
-{
-  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-
-  BlockChyp *client = [[BlockChyp alloc]
-    initWithApiKey:@"SPBXTSDAQVFFX5MGQMUMIRINVI"
-    bearerToken:@"7BXBTBUPSL3BP7I6Z2CFU6H3WQ"
-    signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
-
-  NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"timeout"] = @120;
-  [client surveyResultsWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
-    if (success.boolValue) {
-      NSLog(@"Success");
-    }
-  }];
-  [pool drain];
-  return 0;
-}
-
-
-```
-
-##### From Swift:
-
-```swift
-import BlockChyp
-
-class ExampleClass {
-
-  func example() {
-    let client = BlockChyp.init(
-      apiKey: "ZN5WQGX5PN6BE2MF75CEAWRETM",
-      bearerToken: "SVVHJCYVFWJR2QKYKFWMZQVZL4",
-      signingKey: "7c1b9e4d1308e7bbe76a1920ddd9449ce50af2629f6bb70ed3c110365935970b"
-    )
-
-    var request: [String:Any] = [:]
-    request["timeout"] = 120
-    client.surveyResults(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
-      if (approved.unsafelyUnwrapped) {
-        NSLog("Success")
-      }
-    })
-  }
-
-
-```
-
-
-
-#### Update Survey Question
-
-
-
-This API updates survey questions.
+The `ordinal` field is used to control the sequence of questions when multiple questions are enabled.  We recommend keeping
+the number of questions minimal.
 
 
 
@@ -4571,7 +4514,10 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"timeout"] = @120;
+  request[@"ordinal"] = @1;
+  request[@"questionText"] = @"Would you shop here again?";
+  request[@"questionType"] = @"yes_no";
+  request[@"enabled"] = @YES;
   [client updateSurveyQuestionWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
     NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
@@ -4600,7 +4546,10 @@ class ExampleClass {
     )
 
     var request: [String:Any] = [:]
-    request["timeout"] = 120
+    request["ordinal"] = 1
+    request["questionText"] = "Would you shop here again?"
+    request["questionType"] = "yes_no"
+    request["enabled"] = true
     client.updateSurveyQuestion(withRequest: request, handler: { (request, response, error) in
       let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
@@ -4614,11 +4563,11 @@ class ExampleClass {
 
 
 
-#### Delete Survey Question
+#### Delete Question
 
 
 
-This API deletes survey questions.
+This API deletes a survey question. `questionId` is a required parameter.
 
 
 
@@ -4638,7 +4587,7 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"timeout"] = @120;
+  request[@"questionId"] = @"XXXXXXXX";
   [client deleteSurveyQuestionWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
     NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
@@ -4667,8 +4616,87 @@ class ExampleClass {
     )
 
     var request: [String:Any] = [:]
-    request["timeout"] = 120
+    request["questionId"] = "XXXXXXXX"
     client.deleteSurveyQuestion(withRequest: request, handler: { (request, response, error) in
+      let approved = response["success"] as? Bool
+      if (approved.unsafelyUnwrapped) {
+        NSLog("Success")
+      }
+    })
+  }
+
+
+```
+
+
+
+#### Survey Results
+
+
+
+This API returns survey results for a single question.
+
+The results returned include the response rate, which is the percentage of transactions after which
+the consumer provided an answer.
+
+The `responses` array breaks down the results by answer, providing the total number of responses,
+the answer's percentage of the total, and the average transaction amount associated with a specific
+answer.
+
+By default, all results based on all responses are returned, but developers may optionally provide 
+`startDate` and `endDate` parameters to return only responses provided between certain dates.
+
+`startDate` and `endDate` can be provided in MM/DD/YYYY or YYYY-MM-DD format.
+
+
+
+##### From Objective-C:
+
+```objective-c
+#import <Foundation/Foundation.h>
+#import <BlockChyp/BlockChyp.h>
+
+int main (int argc, const char * argv[])
+{
+  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+
+  BlockChyp *client = [[BlockChyp alloc]
+    initWithApiKey:@"SPBXTSDAQVFFX5MGQMUMIRINVI"
+    bearerToken:@"7BXBTBUPSL3BP7I6Z2CFU6H3WQ"
+    signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
+
+  NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
+  request[@"questionId"] = @"<SURVEY QUESTION ID>";
+  [client surveyResultsWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+    NSNumber *success = [response objectForKey:@"success"];
+    if (success.boolValue) {
+      NSLog(@"Success");
+    }
+  }];
+  [pool drain];
+  return 0;
+}
+
+
+```
+
+##### From Swift:
+
+```swift
+import BlockChyp
+
+class ExampleClass {
+
+  func example() {
+    let client = BlockChyp.init(
+      apiKey: "ZN5WQGX5PN6BE2MF75CEAWRETM",
+      bearerToken: "SVVHJCYVFWJR2QKYKFWMZQVZL4",
+      signingKey: "7c1b9e4d1308e7bbe76a1920ddd9449ce50af2629f6bb70ed3c110365935970b"
+    )
+
+    var request: [String:Any] = [:]
+    request["questionId"] = "<SURVEY QUESTION ID>"
+    client.surveyResults(withRequest: request, handler: { (request, response, error) in
       let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
@@ -4688,139 +4716,35 @@ BlockChyp has a sophisticated terminal media and branding control platform.  Ter
 display logos, images, videos, and slide shows when a terminal is idle.  Branding assets can be configured
 at the partner, organization, and merchant level with fine-grained hour by hour schedules, if desired. 
 
+Conceptually, all branding and media starts with the media library.  Merchants, Partners, and Organization can
+upload images or video and build branding assets from uploaded media.
 
+Slide shows can combine images from the media library into a timed loop of repeating images.
 
-#### Upload Media
+Branding Assets can then be used to combine media or slide shows with priority and timing rules to create what 
+we call the Terminal Branding Stack.
 
+We call a group of branding assets the Terminal Branding Stack because there are implicit rules about which 
+branding assets take priority. For example, a merchant with no branding assets configured will inherit the branding rules from any organization
+the merchant may belong.  If the merchant doesn't belong to an organization or the organization has no branding
+rules configured, then the system will defer to branding defaults established by the point-of-sale or software
+partner that owns the merchant.
 
+This enabled partners and organizations (multi-store operators and large national chains) to configure branding
+for potentially thousands of terminals from a single interface.
 
-This API supports media library uploads.
+Terminal Branding can also be configured at the individual terminal level and a merchant's terminal fleet 
+can be broken into groups and branding configured at the group level.  Branding configured at the terminal
+level will always override branding from any higher level group.
 
+The order of priority for the Terminal Branding Stack is given below.
 
-
-##### From Objective-C:
-
-```objective-c
-#import <Foundation/Foundation.h>
-#import <BlockChyp/BlockChyp.h>
-
-int main (int argc, const char * argv[])
-{
-  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-
-  BlockChyp *client = [[BlockChyp alloc]
-    initWithApiKey:@"SPBXTSDAQVFFX5MGQMUMIRINVI"
-    bearerToken:@"7BXBTBUPSL3BP7I6Z2CFU6H3WQ"
-    signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
-
-  NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"timeout"] = @120;
-  [client uploadMediaWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
-    if (success.boolValue) {
-      NSLog(@"Success");
-    }
-  }];
-  [pool drain];
-  return 0;
-}
-
-
-```
-
-##### From Swift:
-
-```swift
-import BlockChyp
-
-class ExampleClass {
-
-  func example() {
-    let client = BlockChyp.init(
-      apiKey: "ZN5WQGX5PN6BE2MF75CEAWRETM",
-      bearerToken: "SVVHJCYVFWJR2QKYKFWMZQVZL4",
-      signingKey: "7c1b9e4d1308e7bbe76a1920ddd9449ce50af2629f6bb70ed3c110365935970b"
-    )
-
-    var request: [String:Any] = [:]
-    request["timeout"] = 120
-    client.uploadMedia(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
-      if (approved.unsafelyUnwrapped) {
-        NSLog("Success")
-      }
-    })
-  }
-
-
-```
-
-
-
-#### Upload Status
-
-
-
-This API returns the status of a file upload.
-
-
-
-##### From Objective-C:
-
-```objective-c
-#import <Foundation/Foundation.h>
-#import <BlockChyp/BlockChyp.h>
-
-int main (int argc, const char * argv[])
-{
-  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-
-  BlockChyp *client = [[BlockChyp alloc]
-    initWithApiKey:@"SPBXTSDAQVFFX5MGQMUMIRINVI"
-    bearerToken:@"7BXBTBUPSL3BP7I6Z2CFU6H3WQ"
-    signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
-
-  NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"timeout"] = @120;
-  [client uploadStatusWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
-    if (success.boolValue) {
-      NSLog(@"Success");
-    }
-  }];
-  [pool drain];
-  return 0;
-}
-
-
-```
-
-##### From Swift:
-
-```swift
-import BlockChyp
-
-class ExampleClass {
-
-  func example() {
-    let client = BlockChyp.init(
-      apiKey: "ZN5WQGX5PN6BE2MF75CEAWRETM",
-      bearerToken: "SVVHJCYVFWJR2QKYKFWMZQVZL4",
-      signingKey: "7c1b9e4d1308e7bbe76a1920ddd9449ce50af2629f6bb70ed3c110365935970b"
-    )
-
-    var request: [String:Any] = [:]
-    request["timeout"] = 120
-    client.uploadStatus(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
-      if (approved.unsafelyUnwrapped) {
-        NSLog("Success")
-      }
-    })
-  }
-
-
-```
+* Terminal
+* Terminal Group
+* Merchant
+* Organization (Region, Chain, etc)
+* Partner
+* BlockChyp Default Logo
 
 
 
@@ -4828,7 +4752,8 @@ class ExampleClass {
 
 
 
-This API returns the media library associated with the API credentials.
+This API returns the entire media library associated with the API Credentials (Merchant, Partner, or Organization).  The media library results will include the ID used
+to reference a media asset in slide shows and branding assets along with the full file url and thumbnail.
 
 
 
@@ -4891,11 +4816,120 @@ class ExampleClass {
 
 
 
-#### Get Media Asset
+#### Upload Media
 
 
 
-This API returns a detailed media asset.
+This API supports media library uploads.  The operation of this API works slightly differently depending 
+on the SDK platform.  In all cases, the intent is to allow the file's binary to be passed into the SDK using 
+the lowest level I/O primitive possible in order to support situations where developers aren't working
+with literal files.  It might be (and usually is) more convenient to work with buffers, raw bytes, or streams.
+
+For example, the Go implementation accepts an `io.Reader` and the Java implementation accepts a
+`java.io.InputStream`.  The CLI does accept a literal File URL via the `-file` command line parameter.
+
+The following file formats are accepted as valid uploads:
+
+* .png
+* .jpg
+* .jpeg
+* .gif
+* .mov
+* .mpg
+* .mp4
+* .mpeg
+
+The UploadMetadata object allows developers to pass additional metadata about the upload including
+`fileName`, `fileSize`, and `uploadId`.
+
+None of these values are required, but providing them can unlock some additional functionality relating to 
+media uploads.  `fileName` will be used to record the original file name in the media library.  `fileSize` 
+and `uploadId` are used to support upload status tracking, which is especially useful for large video file
+uploads.  
+
+The `fileSize` should be the file's full size in bytes.  
+
+The `uploadId` value can be any random string.  This is the value you'll use to check the status of an upload
+via the Upload Status API.  This API will return information needed to drive progress feedback on uploads and 
+return video transcoding information.
+
+
+
+##### From Objective-C:
+
+```objective-c
+#import <Foundation/Foundation.h>
+#import <BlockChyp/BlockChyp.h>
+
+int main (int argc, const char * argv[])
+{
+  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+
+  BlockChyp *client = [[BlockChyp alloc]
+    initWithApiKey:@"SPBXTSDAQVFFX5MGQMUMIRINVI"
+    bearerToken:@"7BXBTBUPSL3BP7I6Z2CFU6H3WQ"
+    signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
+
+  NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
+  request[@"fileName"] = @"aviato.png";
+  request[@"fileSize"] = 18843;
+  request[@"uploadId"] = @"<RANDOM ID>";
+  [client uploadMediaWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+    NSNumber *success = [response objectForKey:@"success"];
+    if (success.boolValue) {
+      NSLog(@"Success");
+    }
+  }];
+  [pool drain];
+  return 0;
+}
+
+
+```
+
+##### From Swift:
+
+```swift
+import BlockChyp
+
+class ExampleClass {
+
+  func example() {
+    let client = BlockChyp.init(
+      apiKey: "ZN5WQGX5PN6BE2MF75CEAWRETM",
+      bearerToken: "SVVHJCYVFWJR2QKYKFWMZQVZL4",
+      signingKey: "7c1b9e4d1308e7bbe76a1920ddd9449ce50af2629f6bb70ed3c110365935970b"
+    )
+
+    var request: [String:Any] = [:]
+    request["fileName"] = "aviato.png"
+    request["fileSize"] = 18843
+    request["uploadId"] = "<RANDOM ID>"
+    client.uploadMedia(withRequest: request, handler: { (request, response, error) in
+      let approved = response["success"] as? Bool
+      if (approved.unsafelyUnwrapped) {
+        NSLog("Success")
+      }
+    })
+  }
+
+
+```
+
+
+
+#### Upload Status
+
+
+
+This API returns status and progress information about in progress or recently completed uploads.
+
+Before calling this API, developers must first start a file upload with `fileSize` and `uploadId` parameters.
+
+The data structure returned will include the file size, number of bytes uploaded, a narrative status
+and flags indicating whether or not the upload is complete or post upload processing is in progress.  
+If the upload is completed, the ID assigned to the media asset and a link to the thumbnail image will 
+also be returned.
 
 
 
@@ -4916,7 +4950,7 @@ int main (int argc, const char * argv[])
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
   request[@"timeout"] = @120;
-  [client mediaAssetWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+  [client uploadStatusWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
     NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
@@ -4945,6 +4979,75 @@ class ExampleClass {
 
     var request: [String:Any] = [:]
     request["timeout"] = 120
+    client.uploadStatus(withRequest: request, handler: { (request, response, error) in
+      let approved = response["success"] as? Bool
+      if (approved.unsafelyUnwrapped) {
+        NSLog("Success")
+      }
+    })
+  }
+
+
+```
+
+
+
+#### Get Media Asset
+
+
+
+This API returns a detailed media asset.  The data returned includes the exact same media information returned
+by the full media library endpoint, including fully qualified URLs pointing to the original media file
+and the thumbnail.
+
+
+
+##### From Objective-C:
+
+```objective-c
+#import <Foundation/Foundation.h>
+#import <BlockChyp/BlockChyp.h>
+
+int main (int argc, const char * argv[])
+{
+  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+
+  BlockChyp *client = [[BlockChyp alloc]
+    initWithApiKey:@"SPBXTSDAQVFFX5MGQMUMIRINVI"
+    bearerToken:@"7BXBTBUPSL3BP7I6Z2CFU6H3WQ"
+    signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
+
+  NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
+  request[@"mediaId"] = @"<MEDIA ASSET ID>";
+  [client mediaAssetWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+    NSNumber *success = [response objectForKey:@"success"];
+    if (success.boolValue) {
+      NSLog(@"Success");
+    }
+  }];
+  [pool drain];
+  return 0;
+}
+
+
+```
+
+##### From Swift:
+
+```swift
+import BlockChyp
+
+class ExampleClass {
+
+  func example() {
+    let client = BlockChyp.init(
+      apiKey: "ZN5WQGX5PN6BE2MF75CEAWRETM",
+      bearerToken: "SVVHJCYVFWJR2QKYKFWMZQVZL4",
+      signingKey: "7c1b9e4d1308e7bbe76a1920ddd9449ce50af2629f6bb70ed3c110365935970b"
+    )
+
+    var request: [String:Any] = [:]
+    request["mediaId"] = "<MEDIA ASSET ID>"
     client.mediaAsset(withRequest: request, handler: { (request, response, error) in
       let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
@@ -4962,7 +5065,8 @@ class ExampleClass {
 
 
 
-This API deletes a media asset.
+This API deletes a media asset.  Note that a media asset cannot be deleted if it is in use in a slide 
+show or in the terminal branding stack.
 
 
 
@@ -5025,74 +5129,7 @@ class ExampleClass {
 
 
 
-#### Update Slide Show
-
-
-
-This API updates or creates a slide show.
-
-
-
-##### From Objective-C:
-
-```objective-c
-#import <Foundation/Foundation.h>
-#import <BlockChyp/BlockChyp.h>
-
-int main (int argc, const char * argv[])
-{
-  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-
-  BlockChyp *client = [[BlockChyp alloc]
-    initWithApiKey:@"SPBXTSDAQVFFX5MGQMUMIRINVI"
-    bearerToken:@"7BXBTBUPSL3BP7I6Z2CFU6H3WQ"
-    signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
-
-  NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"timeout"] = @120;
-  [client updateSlideShowWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
-    if (success.boolValue) {
-      NSLog(@"Success");
-    }
-  }];
-  [pool drain];
-  return 0;
-}
-
-
-```
-
-##### From Swift:
-
-```swift
-import BlockChyp
-
-class ExampleClass {
-
-  func example() {
-    let client = BlockChyp.init(
-      apiKey: "ZN5WQGX5PN6BE2MF75CEAWRETM",
-      bearerToken: "SVVHJCYVFWJR2QKYKFWMZQVZL4",
-      signingKey: "7c1b9e4d1308e7bbe76a1920ddd9449ce50af2629f6bb70ed3c110365935970b"
-    )
-
-    var request: [String:Any] = [:]
-    request["timeout"] = 120
-    client.updateSlideShow(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
-      if (approved.unsafelyUnwrapped) {
-        NSLog("Success")
-      }
-    })
-  }
-
-
-```
-
-
-
-#### Slide Shows
+#### List Slide Shows
 
 
 
@@ -5159,7 +5196,7 @@ class ExampleClass {
 
 
 
-#### Slide Show
+#### Get Slide Show
 
 
 
@@ -5221,6 +5258,98 @@ class ExampleClass {
     })
   }
 
+
+```
+
+
+
+#### Update Slide Show
+
+
+
+This API updates or creates a slide show.  `name`, `delay` and `slides` are required.
+
+The slides property is an array of slides.  The Slide data structure has ordinal and thumbnail URL fields, 
+but these are not required when updating or creating a slide show.  Only the `mediaId` field is required
+when updating or creating a slide show.
+
+
+
+
+##### From Objective-C:
+
+```objective-c
+#import <Foundation/Foundation.h>
+#import <BlockChyp/BlockChyp.h>
+
+int main (int argc, const char * argv[])
+{
+  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+
+  BlockChyp *client = [[BlockChyp alloc]
+    initWithApiKey:@"SPBXTSDAQVFFX5MGQMUMIRINVI"
+    bearerToken:@"7BXBTBUPSL3BP7I6Z2CFU6H3WQ"
+    signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
+
+  NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
+  request[@"name"] = @"Test Slide Show";
+  request[@"delay"] = @5;
+  [client updateSlideShowWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+    NSNumber *success = [response objectForKey:@"success"];
+    if (success.boolValue) {
+      NSLog(@"Success");
+    }
+  }];
+  [pool drain];
+  return 0;
+}
+
+- (NSArray *) newSlides {
+  NSMutableArray *val = [[NSMutableArray alloc] init];
+  [val addObject: [self newSlide1]];
+  return val;
+}
+- (NSDictionary *) newSlide1 {
+  NSMutableDictionary *val = [[NSMutableDictionary alloc] init];
+  return val;
+}
+
+```
+
+##### From Swift:
+
+```swift
+import BlockChyp
+
+class ExampleClass {
+
+  func example() {
+    let client = BlockChyp.init(
+      apiKey: "ZN5WQGX5PN6BE2MF75CEAWRETM",
+      bearerToken: "SVVHJCYVFWJR2QKYKFWMZQVZL4",
+      signingKey: "7c1b9e4d1308e7bbe76a1920ddd9449ce50af2629f6bb70ed3c110365935970b"
+    )
+
+    var request: [String:Any] = [:]
+    request["name"] = "Test Slide Show"
+    request["delay"] = 5
+    client.updateSlideShow(withRequest: request, handler: { (request, response, error) in
+      let approved = response["success"] as? Bool
+      if (approved.unsafelyUnwrapped) {
+        NSLog("Success")
+      }
+    })
+  }
+
+  func newSlides()  -> [[String:Any]] {
+    var val = [[String:Any]]()
+    val.append(newSlide1())
+    return val
+  }
+  func newSlide1() -> [String:Any] {
+    var val: [String:Any] = [:]
+    return val;
+  }
 
 ```
 

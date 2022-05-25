@@ -11,6 +11,11 @@
 @interface UpdateSlideShowTest : BlockChypTest
 
 
+  @property NSString *lastTransactionId;
+  @property NSString *lastTransactionRef;
+  @property NSString *lastToken;
+  @property NSString *lastCustomerId;
+
 
 @end
 
@@ -24,6 +29,27 @@
   client.testGatewayHost = config.testGatewayHost;
 
   [self testDelayWith:client testName:@"UpdateSlideShowTest"];
+
+
+  XCTestExpectation *expectation = [self expectationWithDescription:@"UpdateSlideShow Test Setup"];
+
+  NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
+      request[@"fileName"] = @"aviato.png";
+      request[@"fileSize"] = 18843;
+      request[@"uploadId"] = [self getUUID];
+
+  [client uploadMediaWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+
+    XCTAssertNil(error);
+    self.lastTransactionId = [response objectForKey:@"transactionId"];
+    self.lastTransactionRef = [response objectForKey:@"transactionRef"];
+    self.lastToken = [response objectForKey:@"lastToken"];
+    self.lastCustomerId = [response objectForKey:@"lastCustomerId"];
+
+    [expectation fulfill];
+  }];
+
+  [self waitForExpectationsWithTimeout:60 handler:nil];
 
 
 }
@@ -42,7 +68,9 @@
   XCTestExpectation *expectation = [self expectationWithDescription:@"UpdateSlideShow Test"];
 
       NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-
+        request[@"name"] = @"Test Slide Show";
+        request[@"delay"] = @5;
+    
   [client updateSlideShowWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
     [self logJSON:response];
     XCTAssertNotNil(response);
@@ -56,6 +84,15 @@
 
 }
 
+- (NSArray *) newSlides {
+  NSMutableArray *val = [[NSMutableArray alloc] init];
+  [val addObject: [self newSlide1]];
+  return val;
+}
+- (NSDictionary *) newSlide1 {
+  NSMutableDictionary *val = [[NSMutableDictionary alloc] init];
+  return val;
+}
 
 
 @end

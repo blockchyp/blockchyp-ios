@@ -10,7 +10,9 @@ class ExampleClass {
     )
 
     var request: [String:Any] = [:]
-    request["timeout"] = 120
+    request["fileName"] = "aviato.png"
+    request["fileSize"] = 18843
+    request["uploadId"] = "<RANDOM ID>"
     client.uploadMedia(withRequest: request, handler: { (request, response, error) in
       let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
