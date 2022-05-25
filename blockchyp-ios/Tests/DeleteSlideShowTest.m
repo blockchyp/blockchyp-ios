@@ -11,6 +11,11 @@
 @interface DeleteSlideShowTest : BlockChypTest
 
 
+  @property NSString *lastTransactionId;
+  @property NSString *lastTransactionRef;
+  @property NSString *lastToken;
+  @property NSString *lastCustomerId;
+
 
 @end
 
@@ -24,6 +29,26 @@
   client.testGatewayHost = config.testGatewayHost;
 
   [self testDelayWith:client testName:@"DeleteSlideShowTest"];
+
+
+  XCTestExpectation *expectation = [self expectationWithDescription:@"DeleteSlideShow Test Setup"];
+
+  NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
+      request[@"name"] = @"Test Slide Show";
+      request[@"delay"] = @5;
+
+  [client updateSlideShowWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+
+    XCTAssertNil(error);
+    self.lastTransactionId = [response objectForKey:@"transactionId"];
+    self.lastTransactionRef = [response objectForKey:@"transactionRef"];
+    self.lastToken = [response objectForKey:@"lastToken"];
+    self.lastCustomerId = [response objectForKey:@"lastCustomerId"];
+
+    [expectation fulfill];
+  }];
+
+  [self waitForExpectationsWithTimeout:60 handler:nil];
 
 
 }
@@ -42,7 +67,7 @@
   XCTestExpectation *expectation = [self expectationWithDescription:@"DeleteSlideShow Test"];
 
       NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-
+    
   [client deleteSlideShowWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
     [self logJSON:response];
     XCTAssertNotNil(response);

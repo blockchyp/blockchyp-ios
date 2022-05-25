@@ -50,6 +50,7 @@
     XCTAssertNotNil(response);
     // response assertions
     XCTAssertTrue([response objectForKey:@"success"]);
+    XCTAssertEqualObjects(@"Test Slide Show", (NSString *)[response objectForKey:@"name"]);
 
     [expectation fulfill];
   }];
