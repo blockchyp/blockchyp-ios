@@ -5431,7 +5431,16 @@ class ExampleClass {
 
 
 
-This API returns the terminal branding stack for a given API scope.
+This API returns the full branding stack for a given API scope in the order of priority.
+
+Consumers of this API should pay special attention to the `editable` field.  This field indicates whether or
+not a branding asset is read only from the perspective of a particular API Credential scope.
+
+The `thumbnail` and `previewImage` attributes can be used to support building user interfaces for
+managing the branding stack. `previewImage` differs from `thumbnail` in that the preview image is 
+intended to show how an asset would actually look when displayed on the terminal.
+
+`activeAsset` returns the asset that is currently visible on the terminal.
 
 
 
@@ -5451,7 +5460,6 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"timeout"] = @120;
   [client terminalBrandingWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
     NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
@@ -5480,7 +5488,6 @@ class ExampleClass {
     )
 
     var request: [String:Any] = [:]
-    request["timeout"] = 120
     client.terminalBranding(withRequest: request, handler: { (request, response, error) in
       let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
@@ -5585,7 +5592,7 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"timeout"] = @120;
+  request[@"assetId"] = @"<BRANDING ASSET ID>";
   [client deleteBrandingAssetWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
     NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
@@ -5614,7 +5621,7 @@ class ExampleClass {
     )
 
     var request: [String:Any] = [:]
-    request["timeout"] = 120
+    request["assetId"] = "<BRANDING ASSET ID>"
     client.deleteBrandingAsset(withRequest: request, handler: { (request, response, error) in
       let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
