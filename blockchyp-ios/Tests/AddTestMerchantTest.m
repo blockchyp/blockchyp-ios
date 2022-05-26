@@ -50,6 +50,9 @@
     XCTAssertNotNil(response);
     // response assertions
     XCTAssertTrue([response objectForKey:@"success"]);
+    XCTAssertEqualObjects(@"Test Merchant", (NSString *)[response objectForKey:@"dbaName"]);
+    XCTAssertEqualObjects(@"Test Merchant", (NSString *)[response objectForKey:@"companyName"]);
+    XCTAssertTrue([response objectForKey:@"visa"]);
 
     [expectation fulfill];
   }];

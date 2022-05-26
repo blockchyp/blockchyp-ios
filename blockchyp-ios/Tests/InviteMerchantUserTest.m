@@ -42,6 +42,9 @@
   XCTestExpectation *expectation = [self expectationWithDescription:@"InviteMerchantUser Test"];
 
       NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
+        request[@"email"] = @"doublea@blockchypteam.m8r.co";
+        request[@"firstName"] = @"Aaron";
+        request[@"lastName"] = @"Anderson";
 
   [client inviteMerchantUserWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
     [self logJSON:response];
