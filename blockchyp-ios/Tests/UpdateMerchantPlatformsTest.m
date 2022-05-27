@@ -11,6 +11,11 @@
 @interface UpdateMerchantPlatformsTest : BlockChypTest
 
 
+  @property NSString *lastTransactionId;
+  @property NSString *lastTransactionRef;
+  @property NSString *lastToken;
+  @property NSString *lastCustomerId;
+
 
 @end
 
@@ -24,6 +29,26 @@
   client.testGatewayHost = config.testGatewayHost;
 
   [self testDelayWith:client testName:@"UpdateMerchantPlatformsTest"];
+
+
+  XCTestExpectation *expectation = [self expectationWithDescription:@"UpdateMerchantPlatforms Test Setup"];
+
+  NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
+      request[@"dbaName"] = @"Test Merchant";
+      request[@"companyName"] = @"Test Merchant";
+
+  [client addTestMerchantWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+
+    XCTAssertNil(error);
+    self.lastTransactionId = [response objectForKey:@"transactionId"];
+    self.lastTransactionRef = [response objectForKey:@"transactionRef"];
+    self.lastToken = [response objectForKey:@"lastToken"];
+    self.lastCustomerId = [response objectForKey:@"lastCustomerId"];
+
+    [expectation fulfill];
+  }];
+
+  [self waitForExpectationsWithTimeout:60 handler:nil];
 
 
 }
@@ -42,6 +67,8 @@
   XCTestExpectation *expectation = [self expectationWithDescription:@"UpdateMerchantPlatforms Test"];
 
       NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
+            request[@"platformCode"] = @"SIM";
+        request[@"notes"] = @"platform simulator";
 
   [client updateMerchantPlatformsWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
     [self logJSON:response];
