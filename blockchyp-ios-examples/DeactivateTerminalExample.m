@@ -11,8 +11,7 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"terminalId"] = [self getUUID];
-  request[@"timeout"] = @120;
+  request[@"terminalId"] = @"<TERMINAL ID>";
   [client deactivateTerminalWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
     NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {

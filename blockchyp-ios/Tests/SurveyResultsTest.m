@@ -65,7 +65,7 @@
   XCTestExpectation *expectation = [self expectationWithDescription:@"SurveyResults Test"];
 
       NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-
+    
   [client surveyResultsWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
     [self logJSON:response];
     XCTAssertNotNil(response);

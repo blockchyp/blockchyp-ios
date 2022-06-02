@@ -30,5 +30,6 @@ int main (int argc, const char * argv[])
 }
 - (NSDictionary *) newSlide1 {
   NSMutableDictionary *val = [[NSMutableDictionary alloc] init];
+  val[@"mediaId"] = @"<MEDIA ID>";
   return val;
 }

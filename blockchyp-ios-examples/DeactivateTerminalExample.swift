@@ -10,8 +10,7 @@ class ExampleClass {
     )
 
     var request: [String:Any] = [:]
-    request["terminalId"] = [self getUUID]
-    request["timeout"] = 120
+    request["terminalId"] = "<TERMINAL ID>"
     client.deactivateTerminal(withRequest: request, handler: { (request, response, error) in
       let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {

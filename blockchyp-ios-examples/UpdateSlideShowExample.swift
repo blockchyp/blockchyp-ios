@@ -27,5 +27,6 @@ class ExampleClass {
   }
   func newSlide1() -> [String:Any] {
     var val: [String:Any] = [:]
+  val[@"mediaId"] = @"<MEDIA ID>";
     return val;
   }
