@@ -10,9 +10,17 @@ class ExampleClass {
     )
 
     var request: [String:Any] = [:]
-    request["customer"] = newCustomer()
-    client.updateCustomer(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+    var customer: [String:Any] = [:]
+    customer["id"] = "ID of the customer to update"
+    customer["customerRef"] = "Customer reference string"
+    customer["firstName"] = "FirstName"
+    customer["lastName"] = "LastName"
+    customer["companyName"] = "Company Name"
+    customer["emailAddress"] = "support@blockchyp.com"
+    customer["smsNumber"] = "(123) 123-1231"
+    request["customer"] = customer
+      client.updateCustomer(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -20,14 +28,3 @@ class ExampleClass {
     })
   }
 
-  func newCustomer() -> [String:Any] {
-    var val: [String:Any] = [:]
-  val[@"id"] = @"ID of the customer to update";
-  val[@"customerRef"] = @"Customer reference string";
-  val[@"firstName"] = @"FirstName";
-  val[@"lastName"] = @"LastName";
-  val[@"companyName"] = @"Company Name";
-  val[@"emailAddress"] = @"support@blockchyp.com";
-  val[@"smsNumber"] = @"(123) 123-1231";
-    return val
-  }

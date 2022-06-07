@@ -13,8 +13,8 @@ class ExampleClass {
     request["test"] = true
     request["terminalName"] = "Test Terminal"
     request["cardType"] = [NSNumber numberWithInt:CARD_TYPE_EBT]
-    client.balance(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.balance(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }

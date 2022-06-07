@@ -13,8 +13,8 @@ class ExampleClass {
     request["test"] = true
     request["terminalName"] = "Test Terminal"
     request["promptType"] = PROMPT_TYPE_EMAIL
-    client.textPrompt(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.textPrompt(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }

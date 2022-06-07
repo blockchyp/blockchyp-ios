@@ -12,8 +12,8 @@ class ExampleClass {
     var request: [String:Any] = [:]
     request["terminalName"] = "Test Terminal"
     request["transactionRef"] = "*"
-    client.deleteQueuedTransaction(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.deleteQueuedTransaction(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }

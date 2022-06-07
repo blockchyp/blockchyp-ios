@@ -11,8 +11,8 @@ class ExampleClass {
 
     var request: [String:Any] = [:]
     request["batchId"] = "BATCHID"
-    client.batchDetails(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.batchDetails(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }

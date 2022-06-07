@@ -11,9 +11,17 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  [request setObject:[self newCustomer] forKey:@"customer"];
-  [client updateCustomerWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  var customer: [String:Any] = [:]
+  customer["id"] = "ID of the customer to update"
+  customer["customerRef"] = "Customer reference string"
+  customer["firstName"] = "FirstName"
+  customer["lastName"] = "LastName"
+  customer["companyName"] = "Company Name"
+  customer["emailAddress"] = "support@blockchyp.com"
+  customer["smsNumber"] = "(123) 123-1231"
+  request["customer"] = customer
+    [client updateCustomerWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -21,16 +29,4 @@ int main (int argc, const char * argv[])
   }];
   [pool drain];
   return 0;
-}
-
-- (NSDictionary *) newCustomer {
-  NSMutableDictionary *val = [[NSMutableDictionary alloc] init];
-  val[@"id"] = @"ID of the customer to update";
-  val[@"customerRef"] = @"Customer reference string";
-  val[@"firstName"] = @"FirstName";
-  val[@"lastName"] = @"LastName";
-  val[@"companyName"] = @"Company Name";
-  val[@"emailAddress"] = @"support@blockchyp.com";
-  val[@"smsNumber"] = @"(123) 123-1231";
-  return val;
 }

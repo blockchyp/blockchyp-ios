@@ -11,8 +11,8 @@ class ExampleClass {
 
     var request: [String:Any] = [:]
     request["transactionRef"] = "<LAST TRANSACTION REF>"
-    client.reverse(withRequest: request, handler: { (request, response, error) in
-      let approved = response["approved"] as? Bool
+      client.reverse(withRequest: request, handler: { (request, response, error) in
+        let approved = response["approved"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("approved")
       }

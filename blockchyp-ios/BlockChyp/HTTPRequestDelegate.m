@@ -32,6 +32,14 @@ BlockChypClient *client;
     
 }
 
+-(NSString *)resolveDashboardURLFor:(NSString *)path {
+    
+    NSString *url = [[NSString alloc] initWithString:client.dashboardHost];
+    
+    return [url stringByAppendingString:path];
+    
+}
+
 -(NSString *)resolveTerminalURLFor:(NSDictionary *)route path:(NSString *)path {
     
     NSString *url = [[NSString alloc] init];
@@ -164,8 +172,6 @@ BlockChypClient *client;
 }
 
 -(void)updateCacheWith:(NSDictionary *)route {
-    
-
     
     NSString *terminalName = [route objectForKey:@"terminalName"];
     NSString *routeKey = [NSString stringWithFormat:@"%@%@", client.apiKey, terminalName];
@@ -308,14 +314,6 @@ BlockChypClient *client;
     
     self.handler = handler;
     
-    NSError *error;
-    NSData *jsonBody = [NSJSONSerialization dataWithJSONObject:request options:0 error:&error];
-       
-    if (error != nil) {
-        self.handler(request, [[NSDictionary alloc] init], error);
-        return;
-    }
-    
     BOOL test = (BOOL)[request objectForKey:@"test"];
     
     NSURL *url = [NSURL URLWithString:[self resolveGatewayURLFor:path test:test]];
@@ -327,9 +325,119 @@ BlockChypClient *client;
     [urlRequest addValue:[headers valueForKey:@"Nonce"] forHTTPHeaderField:@"Nonce"];
     [urlRequest addValue:[headers valueForKey:@"Timestamp"] forHTTPHeaderField:@"Timestamp"];
     [urlRequest addValue:[headers valueForKey:@"Authorization"] forHTTPHeaderField:@"Authorization"];
-    [urlRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [urlRequest setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-    [urlRequest setHTTPBody:jsonBody];
+    
+    if (method != @"GET") {
+        NSError *error;
+        NSData *jsonBody = [NSJSONSerialization dataWithJSONObject:request options:0 error:&error];
+           
+        if (error != nil) {
+            self.handler(request, [[NSDictionary alloc] init], error);
+            return;
+        }
+        [urlRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        [urlRequest setHTTPBody:jsonBody];
+        
+    }
+    
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURLSessionDataTask *downloadTask = [session
+    dataTaskWithRequest:urlRequest completionHandler:^(NSData *data, NSURLResponse *urlResponse, NSError *error) {
+        
+        NSDictionary *response = [[NSDictionary alloc] init];
+        
+        if (error == nil) {
+            NSString *json = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            response = [EncodingUtils parseJSON:json];;
+        }
+    
+        self.handler(request, response, error);
+    }];
+    
+    [downloadTask resume];
+    
+    
+}
+
+-(void)routeDashboardRequestWith:(NSDictionary *)request path:(NSString *)path method:(NSString *)method handler:(BlockChypCompletionHandler)handler {
+    
+    self.handler = handler;
+    
+    NSURL *url = [NSURL URLWithString:[self resolveDashboardURLFor:path]];
+    
+    NSDictionary *headers = [self generateGatewayHeaders];
+    
+    NSMutableURLRequest *urlRequest = [[NSMutableURLRequest alloc] initWithURL:url];
+    urlRequest.HTTPMethod = method;
+    [urlRequest addValue:[headers valueForKey:@"Nonce"] forHTTPHeaderField:@"Nonce"];
+    [urlRequest addValue:[headers valueForKey:@"Timestamp"] forHTTPHeaderField:@"Timestamp"];
+    [urlRequest addValue:[headers valueForKey:@"Authorization"] forHTTPHeaderField:@"Authorization"];
+    
+    [urlRequest setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    
+    if (method != @"GET") {
+        NSError *error;
+        NSData *jsonBody = [NSJSONSerialization dataWithJSONObject:request options:0 error:&error];
+           
+        if (error != nil) {
+            self.handler(request, [[NSDictionary alloc] init], error);
+            return;
+        }
+        [urlRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        [urlRequest setHTTPBody:jsonBody];
+        
+    }
+    
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURLSessionDataTask *downloadTask = [session
+    dataTaskWithRequest:urlRequest completionHandler:^(NSData *data, NSURLResponse *urlResponse, NSError *error) {
+        
+        NSDictionary *response = [[NSDictionary alloc] init];
+        
+        if (error == nil) {
+            NSString *json = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            response = [EncodingUtils parseJSON:json];;
+        }
+    
+        self.handler(request, response, error);
+    }];
+    
+    [downloadTask resume];
+    
+    
+}
+
+-(void)routeUploadRequestWith:(NSDictionary *)request path:(NSString *)path content:(NSData *)content handler:(BlockChypCompletionHandler)handler  {
+    
+    self.handler = handler;
+    
+    NSURL *url = [NSURL URLWithString:[self resolveDashboardURLFor:path]];
+    
+    NSDictionary *headers = [self generateGatewayHeaders];
+    
+    NSMutableURLRequest *urlRequest = [[NSMutableURLRequest alloc] initWithURL:url];
+    urlRequest.HTTPMethod = @"POST";
+    [urlRequest addValue:[headers valueForKey:@"Nonce"] forHTTPHeaderField:@"Nonce"];
+    [urlRequest addValue:[headers valueForKey:@"Timestamp"] forHTTPHeaderField:@"Timestamp"];
+    [urlRequest addValue:[headers valueForKey:@"Authorization"] forHTTPHeaderField:@"Authorization"];
+    [urlRequest setValue:@"application/octet-stream" forHTTPHeaderField:@"Content-Type"];
+    [urlRequest setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    NSString *fileName = [request objectForKey:@"fileName"];
+    if (fileName != NULL) {
+        [urlRequest setValue:fileName forHTTPHeaderField:@"X-Upload-File-Name"];
+    }
+    NSString *uploadId = [request objectForKey:@"uploadId"];
+    if (uploadId != NULL) {
+        [urlRequest setValue:uploadId forHTTPHeaderField:@"X-Upload-ID"];
+    }
+    NSNumber *fileSize = [request objectForKey:@"fileSize"];
+    if (fileSize != NULL) {
+        [urlRequest setValue:[fileSize stringValue] forHTTPHeaderField:@"X-File-Size"];
+        [urlRequest setValue:[fileSize stringValue] forHTTPHeaderField:@"Content-Length"];
+    }
+    
+    
+    [urlRequest setHTTPBody:content];
     
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionDataTask *downloadTask = [session

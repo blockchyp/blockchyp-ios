@@ -15,8 +15,8 @@ class ExampleClass {
     request["prompt"] = "Would you like to become a member?"
     request["yesCaption"] = "Yes"
     request["noCaption"] = "No"
-    client.booleanPrompt(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.booleanPrompt(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }

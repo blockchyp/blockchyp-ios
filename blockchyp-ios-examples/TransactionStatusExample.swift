@@ -11,8 +11,8 @@ class ExampleClass {
 
     var request: [String:Any] = [:]
     request["transactionId"] = "ID of transaction to retrieve"
-    client.transactionStatus(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.transactionStatus(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }

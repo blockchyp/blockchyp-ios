@@ -10,8 +10,8 @@ class ExampleClass {
     )
 
     var request: [String:Any] = [:]
-    client.terminalBranding(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.terminalBranding(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }

@@ -14,8 +14,8 @@ class ExampleClass {
     request["questionText"] = "Would you shop here again?"
     request["questionType"] = "yes_no"
     request["enabled"] = true
-    client.updateSurveyQuestion(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.updateSurveyQuestion(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }

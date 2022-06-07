@@ -13,8 +13,8 @@ class ExampleClass {
     request["terminalName"] = "Test Terminal"
     request["sigFormat"] = SIGNATURE_FORMAT_PNG
     request["sigWidth"] = 200
-    client.captureSignature(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.captureSignature(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }

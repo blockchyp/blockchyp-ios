@@ -11,25 +11,19 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"name"] = @"Test Slide Show";
-  request[@"delay"] = @5;
-  [client updateSlideShowWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  request["name"] = "Test Slide Show"
+  request["delay"] = 5
+  var slides = [Any]();
+  var slides1: [String:Any] = [:]
+  slides1["mediaId"] = "<MEDIA ID>"
+  slides.append(slides1)
+  request["slides"] = slides
+    [client updateSlideShowWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
   }];
   [pool drain];
   return 0;
-}
-
-- (NSArray *) newSlides {
-  NSMutableArray *val = [[NSMutableArray alloc] init];
-  [val addObject: [self newSlide1]];
-  return val;
-}
-- (NSDictionary *) newSlide1 {
-  NSMutableDictionary *val = [[NSMutableDictionary alloc] init];
-  val[@"mediaId"] = @"<MEDIA ID>";
-  return val;
 }

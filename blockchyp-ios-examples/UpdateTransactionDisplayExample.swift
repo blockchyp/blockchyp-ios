@@ -12,44 +12,30 @@ class ExampleClass {
     var request: [String:Any] = [:]
     request["test"] = true
     request["terminalName"] = "Test Terminal"
-    request["transaction"] = newTransactionDisplayTransaction()
-    client.updateTransactionDisplay(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+    var transaction: [String:Any] = [:]
+    transaction["subtotal"] = "60.00"
+    transaction["tax"] = "5.00"
+    transaction["total"] = "65.00"
+    var items = [Any]();
+    var items1: [String:Any] = [:]
+    items1["description"] = "Leki Trekking Poles"
+    items1["price"] = "35.00"
+    items1["quantity"] = 2
+    items1["extended"] = "70.00"
+    var discounts = [Any]();
+    var discounts1: [String:Any] = [:]
+    discounts1["description"] = "memberDiscount"
+    discounts1["amount"] = "10.00"
+    discounts.append(discounts1)
+    items1["discounts"] = discounts
+    items.append(items1)
+    transaction["items"] = items
+    request["transaction"] = transaction
+      client.updateTransactionDisplay(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
     })
   }
 
-  func newTransactionDisplayTransaction() -> [String:Any] {
-    var val: [String:Any] = [:]
-  val[@"subtotal"] = @"60.00";
-  val[@"tax"] = @"5.00";
-  val[@"total"] = @"65.00";
-  val[@"items"] = [self newTransactionDisplayItems];
-    return val
-  }
-  func newTransactionDisplayItems()  -> [[String:Any]] {
-    var val = [[String:Any]]()
-    val.append(newTransactionDisplayItem2())
-    return val
-  }
-  func newTransactionDisplayItem2() -> [String:Any] {
-    var val: [String:Any] = [:]
-  val[@"description"] = @"Leki Trekking Poles";
-  val[@"price"] = @"35.00";
-  val[@"extended"] = @"70.00";
-  val[@"discounts"] = [self newTransactionDisplayDiscounts];
-    return val;
-  }
-  func newTransactionDisplayDiscounts()  -> [[String:Any]] {
-    var val = [[String:Any]]()
-    val.append(newTransactionDisplayDiscount2())
-    return val
-  }
-  func newTransactionDisplayDiscount2() -> [String:Any] {
-    var val: [String:Any] = [:]
-  val[@"description"] = @"memberDiscount";
-  val[@"amount"] = @"10.00";
-    return val;
-  }

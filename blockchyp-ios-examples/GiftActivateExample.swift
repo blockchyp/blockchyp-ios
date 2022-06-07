@@ -13,8 +13,8 @@ class ExampleClass {
     request["test"] = true
     request["terminalName"] = "Test Terminal"
     request["amount"] = "50.00"
-    client.giftActivate(withRequest: request, handler: { (request, response, error) in
-      let approved = response["approved"] as? Bool
+      client.giftActivate(withRequest: request, handler: { (request, response, error) in
+        let approved = response["approved"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("approved")
       }

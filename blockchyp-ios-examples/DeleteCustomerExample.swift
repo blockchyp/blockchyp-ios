@@ -11,8 +11,8 @@ class ExampleClass {
 
     var request: [String:Any] = [:]
     request["customerId"] = "ID of the customer to delete"
-    client.deleteCustomer(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.deleteCustomer(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }

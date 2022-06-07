@@ -13,8 +13,8 @@ class ExampleClass {
     request["test"] = true
     request["terminalName"] = "Test Terminal"
     request["message"] = "Thank you for your business."
-    client.message(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.message(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }

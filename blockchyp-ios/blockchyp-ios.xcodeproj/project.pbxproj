@@ -8,6 +8,46 @@
 
 /* Begin PBXBuildFile section */
 		9392A67DDBF3F4988B16A395 /* Pods_blockchyp_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E7B10F02689E8A57E1109F2 /* Pods_blockchyp_ios.framework */; };
+		B100EC77284AB0C100C89CBB /* SlideShowsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B100EC4E284AB0BF00C89CBB /* SlideShowsTest.m */; };
+		B100EC78284AB0C100C89CBB /* DeleteSurveyQuestionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B100EC4F284AB0BF00C89CBB /* DeleteSurveyQuestionTest.m */; };
+		B100EC79284AB0C100C89CBB /* SurveyQuestionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B100EC50284AB0BF00C89CBB /* SurveyQuestionsTest.m */; };
+		B100EC7A284AB0C100C89CBB /* EmptySlideShowTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B100EC51284AB0BF00C89CBB /* EmptySlideShowTest.m */; };
+		B100EC7B284AB0C100C89CBB /* GetMerchantsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B100EC52284AB0BF00C89CBB /* GetMerchantsTest.m */; };
+		B100EC7D284AB0C100C89CBB /* DeactivateTerminalTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B100EC54284AB0BF00C89CBB /* DeactivateTerminalTest.m */; };
+		B100EC7E284AB0C100C89CBB /* UpdateSlideShowTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B100EC55284AB0BF00C89CBB /* UpdateSlideShowTest.m */; };
+		B100EC7F284AB0C100C89CBB /* MediaAssetTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B100EC56284AB0BF00C89CBB /* MediaAssetTest.m */; };
+		B100EC80284AB0C100C89CBB /* UpdateMerchantPlatformsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B100EC57284AB0BF00C89CBB /* UpdateMerchantPlatformsTest.m */; };
+		B100EC81284AB0C100C89CBB /* ListQueuedTransactionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B100EC58284AB0BF00C89CBB /* ListQueuedTransactionsTest.m */; };
+		B100EC82284AB0C100C89CBB /* EmptyBrandingAssetTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B100EC59284AB0BF00C89CBB /* EmptyBrandingAssetTest.m */; };
+		B100EC83284AB0C100C89CBB /* TCDeleteTemplateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B100EC5A284AB0BF00C89CBB /* TCDeleteTemplateTest.m */; };
+		B100EC84284AB0C100C89CBB /* MediaUploadTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B100EC5B284AB0BF00C89CBB /* MediaUploadTest.m */; };
+		B100EC85284AB0C100C89CBB /* SimpleLocateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B100EC5C284AB0BF00C89CBB /* SimpleLocateTest.m */; };
+		B100EC86284AB0C100C89CBB /* TCTemplateUpdateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B100EC5D284AB0BF00C89CBB /* TCTemplateUpdateTest.m */; };
+		B100EC87284AB0C100C89CBB /* UpdateMerchantTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B100EC5E284AB0BF00C89CBB /* UpdateMerchantTest.m */; };
+		B100EC88284AB0C100C89CBB /* InviteMerchantUserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B100EC5F284AB0BF00C89CBB /* InviteMerchantUserTest.m */; };
+		B100EC89284AB0C100C89CBB /* TCTemplatesTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B100EC60284AB0BF00C89CBB /* TCTemplatesTest.m */; };
+		B100EC8A284AB0C100C89CBB /* DeleteBrandingAssetTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B100EC61284AB0C000C89CBB /* DeleteBrandingAssetTest.m */; };
+		B100EC8B284AB0C100C89CBB /* MerchantPlatformsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B100EC62284AB0C000C89CBB /* MerchantPlatformsTest.m */; };
+		B100EC8C284AB0C100C89CBB /* DeleteSlideShowTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B100EC63284AB0C000C89CBB /* DeleteSlideShowTest.m */; };
+		B100EC8D284AB0C100C89CBB /* DeleteQueuedTransactionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B100EC64284AB0C000C89CBB /* DeleteQueuedTransactionTest.m */; };
+		B100EC8E284AB0C100C89CBB /* ListTerminalsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B100EC65284AB0C000C89CBB /* ListTerminalsTest.m */; };
+		B100EC8F284AB0C100C89CBB /* ActivateTerminalTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B100EC66284AB0C000C89CBB /* ActivateTerminalTest.m */; };
+		B100EC90284AB0C100C89CBB /* SurveyQuestionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B100EC67284AB0C000C89CBB /* SurveyQuestionTest.m */; };
+		B100EC91284AB0C100C89CBB /* TCEntryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B100EC68284AB0C000C89CBB /* TCEntryTest.m */; };
+		B100EC92284AB0C100C89CBB /* AddTestMerchantTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B100EC69284AB0C000C89CBB /* AddTestMerchantTest.m */; };
+		B100EC93284AB0C100C89CBB /* TerminalQueuedTransactionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B100EC6A284AB0C000C89CBB /* TerminalQueuedTransactionTest.m */; };
+		B100EC94284AB0C100C89CBB /* UpdateBrandingAssetTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B100EC6B284AB0C000C89CBB /* UpdateBrandingAssetTest.m */; };
+		B100EC95284AB0C100C89CBB /* DeleteMediaAssetTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B100EC6C284AB0C000C89CBB /* DeleteMediaAssetTest.m */; };
+		B100EC96284AB0C100C89CBB /* MerchantUsersTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B100EC6D284AB0C000C89CBB /* MerchantUsersTest.m */; };
+		B100EC97284AB0C100C89CBB /* TCTemplateTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B100EC6E284AB0C000C89CBB /* TCTemplateTest.m */; };
+		B100EC98284AB0C100C89CBB /* UpdateSurveyQuestionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B100EC6F284AB0C000C89CBB /* UpdateSurveyQuestionTest.m */; };
+		B100EC99284AB0C100C89CBB /* SlideShowTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B100EC70284AB0C000C89CBB /* SlideShowTest.m */; };
+		B100EC9A284AB0C100C89CBB /* MediaTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B100EC71284AB0C000C89CBB /* MediaTest.m */; };
+		B100EC9B284AB0C100C89CBB /* DeleteTestMerchantTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B100EC72284AB0C000C89CBB /* DeleteTestMerchantTest.m */; };
+		B100EC9C284AB0C100C89CBB /* SurveyResultsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B100EC73284AB0C100C89CBB /* SurveyResultsTest.m */; };
+		B100EC9D284AB0C100C89CBB /* UploadStatusTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B100EC74284AB0C100C89CBB /* UploadStatusTest.m */; };
+		B100EC9E284AB0C100C89CBB /* TerminalBrandingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B100EC75284AB0C100C89CBB /* TerminalBrandingTest.m */; };
+		B100EC9F284AB0C100C89CBB /* TCLogTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B100EC76284AB0C100C89CBB /* TCLogTest.m */; };
 		B12FC23A23A746E700EAB159 /* HeartbeatTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B12FC23923A746E700EAB159 /* HeartbeatTest.m */; };
 		B12FC23C23A746E700EAB159 /* libblockchyp-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B1081AFF23A7459800F82D94 /* libblockchyp-ios.a */; };
 		B12FC24423A7477000EAB159 /* BlockChyp.m in Sources */ = {isa = PBXBuildFile; fileRef = B12FC24323A7477000EAB159 /* BlockChyp.m */; };
@@ -44,6 +84,7 @@
 		B15D17C123BDC7E9003FA0E5 /* TerminalEBTBalanceTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B15D17A823BDC7E9003FA0E5 /* TerminalEBTBalanceTest.m */; };
 		B1A8E85E23A9FE63009003D9 /* NSData+FastHex.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A8E85D23A9FE63009003D9 /* NSData+FastHex.m */; };
 		B1A8E85F23A9FEC9009003D9 /* NSData+FastHex.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A8E85D23A9FE63009003D9 /* NSData+FastHex.m */; };
+		B1B847A4284EAA83005D0F72 /* aviato.png in Resources */ = {isa = PBXBuildFile; fileRef = B1B847A3284EAA83005D0F72 /* aviato.png */; };
 		B1D7D8512710CC3700DA2211 /* DeleteTokenTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D7D83F2710CC3600DA2211 /* DeleteTokenTest.m */; };
 		B1D7D8522710CC3700DA2211 /* BatchHistoryTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D7D8402710CC3600DA2211 /* BatchHistoryTest.m */; };
 		B1D7D8532710CC3700DA2211 /* UnlinkTokenTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D7D8412710CC3600DA2211 /* UnlinkTokenTest.m */; };
@@ -91,6 +132,46 @@
 		29EA062F00F1CAFDF673D2CE /* Pods-blockchyp-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-blockchyp-ios.debug.xcconfig"; path = "Target Support Files/Pods-blockchyp-ios/Pods-blockchyp-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		3E7B10F02689E8A57E1109F2 /* Pods_blockchyp_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_blockchyp_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		83CBC3B5BBA6E11850DF048D /* Pods-blockchyp-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-blockchyp-ios.release.xcconfig"; path = "Target Support Files/Pods-blockchyp-ios/Pods-blockchyp-ios.release.xcconfig"; sourceTree = "<group>"; };
+		B100EC4E284AB0BF00C89CBB /* SlideShowsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideShowsTest.m; sourceTree = "<group>"; };
+		B100EC4F284AB0BF00C89CBB /* DeleteSurveyQuestionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeleteSurveyQuestionTest.m; sourceTree = "<group>"; };
+		B100EC50284AB0BF00C89CBB /* SurveyQuestionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SurveyQuestionsTest.m; sourceTree = "<group>"; };
+		B100EC51284AB0BF00C89CBB /* EmptySlideShowTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmptySlideShowTest.m; sourceTree = "<group>"; };
+		B100EC52284AB0BF00C89CBB /* GetMerchantsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetMerchantsTest.m; sourceTree = "<group>"; };
+		B100EC54284AB0BF00C89CBB /* DeactivateTerminalTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeactivateTerminalTest.m; sourceTree = "<group>"; };
+		B100EC55284AB0BF00C89CBB /* UpdateSlideShowTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateSlideShowTest.m; sourceTree = "<group>"; };
+		B100EC56284AB0BF00C89CBB /* MediaAssetTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaAssetTest.m; sourceTree = "<group>"; };
+		B100EC57284AB0BF00C89CBB /* UpdateMerchantPlatformsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateMerchantPlatformsTest.m; sourceTree = "<group>"; };
+		B100EC58284AB0BF00C89CBB /* ListQueuedTransactionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListQueuedTransactionsTest.m; sourceTree = "<group>"; };
+		B100EC59284AB0BF00C89CBB /* EmptyBrandingAssetTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmptyBrandingAssetTest.m; sourceTree = "<group>"; };
+		B100EC5A284AB0BF00C89CBB /* TCDeleteTemplateTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCDeleteTemplateTest.m; sourceTree = "<group>"; };
+		B100EC5B284AB0BF00C89CBB /* MediaUploadTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaUploadTest.m; sourceTree = "<group>"; };
+		B100EC5C284AB0BF00C89CBB /* SimpleLocateTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleLocateTest.m; sourceTree = "<group>"; };
+		B100EC5D284AB0BF00C89CBB /* TCTemplateUpdateTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCTemplateUpdateTest.m; sourceTree = "<group>"; };
+		B100EC5E284AB0BF00C89CBB /* UpdateMerchantTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateMerchantTest.m; sourceTree = "<group>"; };
+		B100EC5F284AB0BF00C89CBB /* InviteMerchantUserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteMerchantUserTest.m; sourceTree = "<group>"; };
+		B100EC60284AB0BF00C89CBB /* TCTemplatesTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCTemplatesTest.m; sourceTree = "<group>"; };
+		B100EC61284AB0C000C89CBB /* DeleteBrandingAssetTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeleteBrandingAssetTest.m; sourceTree = "<group>"; };
+		B100EC62284AB0C000C89CBB /* MerchantPlatformsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MerchantPlatformsTest.m; sourceTree = "<group>"; };
+		B100EC63284AB0C000C89CBB /* DeleteSlideShowTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeleteSlideShowTest.m; sourceTree = "<group>"; };
+		B100EC64284AB0C000C89CBB /* DeleteQueuedTransactionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeleteQueuedTransactionTest.m; sourceTree = "<group>"; };
+		B100EC65284AB0C000C89CBB /* ListTerminalsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListTerminalsTest.m; sourceTree = "<group>"; };
+		B100EC66284AB0C000C89CBB /* ActivateTerminalTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivateTerminalTest.m; sourceTree = "<group>"; };
+		B100EC67284AB0C000C89CBB /* SurveyQuestionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SurveyQuestionTest.m; sourceTree = "<group>"; };
+		B100EC68284AB0C000C89CBB /* TCEntryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCEntryTest.m; sourceTree = "<group>"; };
+		B100EC69284AB0C000C89CBB /* AddTestMerchantTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTestMerchantTest.m; sourceTree = "<group>"; };
+		B100EC6A284AB0C000C89CBB /* TerminalQueuedTransactionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TerminalQueuedTransactionTest.m; sourceTree = "<group>"; };
+		B100EC6B284AB0C000C89CBB /* UpdateBrandingAssetTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateBrandingAssetTest.m; sourceTree = "<group>"; };
+		B100EC6C284AB0C000C89CBB /* DeleteMediaAssetTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeleteMediaAssetTest.m; sourceTree = "<group>"; };
+		B100EC6D284AB0C000C89CBB /* MerchantUsersTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MerchantUsersTest.m; sourceTree = "<group>"; };
+		B100EC6E284AB0C000C89CBB /* TCTemplateTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCTemplateTest.m; sourceTree = "<group>"; };
+		B100EC6F284AB0C000C89CBB /* UpdateSurveyQuestionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateSurveyQuestionTest.m; sourceTree = "<group>"; };
+		B100EC70284AB0C000C89CBB /* SlideShowTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideShowTest.m; sourceTree = "<group>"; };
+		B100EC71284AB0C000C89CBB /* MediaTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaTest.m; sourceTree = "<group>"; };
+		B100EC72284AB0C000C89CBB /* DeleteTestMerchantTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeleteTestMerchantTest.m; sourceTree = "<group>"; };
+		B100EC73284AB0C100C89CBB /* SurveyResultsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SurveyResultsTest.m; sourceTree = "<group>"; };
+		B100EC74284AB0C100C89CBB /* UploadStatusTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadStatusTest.m; sourceTree = "<group>"; };
+		B100EC75284AB0C100C89CBB /* TerminalBrandingTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TerminalBrandingTest.m; sourceTree = "<group>"; };
+		B100EC76284AB0C100C89CBB /* TCLogTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCLogTest.m; sourceTree = "<group>"; };
 		B1081AFF23A7459800F82D94 /* libblockchyp-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libblockchyp-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B12FC23723A746E700EAB159 /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B12FC23923A746E700EAB159 /* HeartbeatTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeartbeatTest.m; sourceTree = "<group>"; };
@@ -133,6 +214,7 @@
 		B15D17A723BDC7E9003FA0E5 /* SimpleMessageTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleMessageTest.m; sourceTree = "<group>"; };
 		B15D17A823BDC7E9003FA0E5 /* TerminalEBTBalanceTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TerminalEBTBalanceTest.m; sourceTree = "<group>"; };
 		B1A8E85D23A9FE63009003D9 /* NSData+FastHex.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSData+FastHex.m"; sourceTree = "<group>"; };
+		B1B847A3284EAA83005D0F72 /* aviato.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aviato.png; sourceTree = "<group>"; };
 		B1D7D83F2710CC3600DA2211 /* DeleteTokenTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeleteTokenTest.m; sourceTree = "<group>"; };
 		B1D7D8402710CC3600DA2211 /* BatchHistoryTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BatchHistoryTest.m; sourceTree = "<group>"; };
 		B1D7D8412710CC3600DA2211 /* UnlinkTokenTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnlinkTokenTest.m; sourceTree = "<group>"; };
@@ -231,6 +313,47 @@
 		B12FC23823A746E700EAB159 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				B1B847A3284EAA83005D0F72 /* aviato.png */,
+				B100EC66284AB0C000C89CBB /* ActivateTerminalTest.m */,
+				B100EC69284AB0C000C89CBB /* AddTestMerchantTest.m */,
+				B100EC54284AB0BF00C89CBB /* DeactivateTerminalTest.m */,
+				B100EC61284AB0C000C89CBB /* DeleteBrandingAssetTest.m */,
+				B100EC6C284AB0C000C89CBB /* DeleteMediaAssetTest.m */,
+				B100EC64284AB0C000C89CBB /* DeleteQueuedTransactionTest.m */,
+				B100EC63284AB0C000C89CBB /* DeleteSlideShowTest.m */,
+				B100EC4F284AB0BF00C89CBB /* DeleteSurveyQuestionTest.m */,
+				B100EC72284AB0C000C89CBB /* DeleteTestMerchantTest.m */,
+				B100EC59284AB0BF00C89CBB /* EmptyBrandingAssetTest.m */,
+				B100EC51284AB0BF00C89CBB /* EmptySlideShowTest.m */,
+				B100EC52284AB0BF00C89CBB /* GetMerchantsTest.m */,
+				B100EC5F284AB0BF00C89CBB /* InviteMerchantUserTest.m */,
+				B100EC58284AB0BF00C89CBB /* ListQueuedTransactionsTest.m */,
+				B100EC65284AB0C000C89CBB /* ListTerminalsTest.m */,
+				B100EC56284AB0BF00C89CBB /* MediaAssetTest.m */,
+				B100EC71284AB0C000C89CBB /* MediaTest.m */,
+				B100EC5B284AB0BF00C89CBB /* MediaUploadTest.m */,
+				B100EC62284AB0C000C89CBB /* MerchantPlatformsTest.m */,
+				B100EC6D284AB0C000C89CBB /* MerchantUsersTest.m */,
+				B100EC5C284AB0BF00C89CBB /* SimpleLocateTest.m */,
+				B100EC4E284AB0BF00C89CBB /* SlideShowsTest.m */,
+				B100EC70284AB0C000C89CBB /* SlideShowTest.m */,
+				B100EC50284AB0BF00C89CBB /* SurveyQuestionsTest.m */,
+				B100EC67284AB0C000C89CBB /* SurveyQuestionTest.m */,
+				B100EC73284AB0C100C89CBB /* SurveyResultsTest.m */,
+				B100EC5A284AB0BF00C89CBB /* TCDeleteTemplateTest.m */,
+				B100EC68284AB0C000C89CBB /* TCEntryTest.m */,
+				B100EC76284AB0C100C89CBB /* TCLogTest.m */,
+				B100EC60284AB0BF00C89CBB /* TCTemplatesTest.m */,
+				B100EC6E284AB0C000C89CBB /* TCTemplateTest.m */,
+				B100EC5D284AB0BF00C89CBB /* TCTemplateUpdateTest.m */,
+				B100EC75284AB0C100C89CBB /* TerminalBrandingTest.m */,
+				B100EC6A284AB0C000C89CBB /* TerminalQueuedTransactionTest.m */,
+				B100EC6B284AB0C000C89CBB /* UpdateBrandingAssetTest.m */,
+				B100EC57284AB0BF00C89CBB /* UpdateMerchantPlatformsTest.m */,
+				B100EC5E284AB0BF00C89CBB /* UpdateMerchantTest.m */,
+				B100EC55284AB0BF00C89CBB /* UpdateSlideShowTest.m */,
+				B100EC6F284AB0C000C89CBB /* UpdateSurveyQuestionTest.m */,
+				B100EC74284AB0C100C89CBB /* UploadStatusTest.m */,
 				B1D7D8402710CC3600DA2211 /* BatchHistoryTest.m */,
 				B1D7D84D2710CC3600DA2211 /* CancelPaymentLinkTest.m */,
 				B1D7D84E2710CC3600DA2211 /* CaptureSignatureTest.m */,
@@ -367,6 +490,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B12FC24E23A74F8300EAB159 /* .gitignore in Resources */,
+				B1B847A4284EAA83005D0F72 /* aviato.png in Resources */,
 				B12FC24C23A74F6800EAB159 /* sdk-itest-config.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -413,53 +537,93 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B100EC8B284AB0C100C89CBB /* MerchantPlatformsTest.m in Sources */,
 				B1D7D8512710CC3700DA2211 /* DeleteTokenTest.m in Sources */,
 				B15D17AB23BDC7E9003FA0E5 /* NewTransactionDisplayTest.m in Sources */,
 				B1D7D85F2710CC3700DA2211 /* CancelPaymentLinkTest.m in Sources */,
+				B100EC95284AB0C100C89CBB /* DeleteMediaAssetTest.m in Sources */,
 				B15D17B723BDC7E9003FA0E5 /* SimpleVoidTest.m in Sources */,
+				B100EC9D284AB0C100C89CBB /* UploadStatusTest.m in Sources */,
 				B1A8E85F23A9FEC9009003D9 /* NSData+FastHex.m in Sources */,
 				B15D17C123BDC7E9003FA0E5 /* TerminalEBTBalanceTest.m in Sources */,
+				B100EC78284AB0C100C89CBB /* DeleteSurveyQuestionTest.m in Sources */,
+				B100EC83284AB0C100C89CBB /* TCDeleteTemplateTest.m in Sources */,
 				B12FC23A23A746E700EAB159 /* HeartbeatTest.m in Sources */,
 				B15D17BC23BDC7E9003FA0E5 /* SimpleGiftActivateTest.m in Sources */,
+				B100EC7D284AB0C100C89CBB /* DeactivateTerminalTest.m in Sources */,
 				B15D17B923BDC7E9003FA0E5 /* SimplePingTest.m in Sources */,
 				B1D7D8582710CC3700DA2211 /* SearchCustomerTest.m in Sources */,
+				B100EC80284AB0C100C89CBB /* UpdateMerchantPlatformsTest.m in Sources */,
+				B100EC84284AB0C100C89CBB /* MediaUploadTest.m in Sources */,
+				B100EC85284AB0C100C89CBB /* SimpleLocateTest.m in Sources */,
 				B15D17B223BDC7E9003FA0E5 /* PANPreauthTest.m in Sources */,
 				B15D17BE23BDC7E9003FA0E5 /* TerminalEnrollTest.m in Sources */,
 				B15D17AA23BDC7E9003FA0E5 /* TextPromptTest.m in Sources */,
 				B15D17B323BDC7E9003FA0E5 /* TerminalGiftCardBalanceTest.m in Sources */,
+				B100EC81284AB0C100C89CBB /* ListQueuedTransactionsTest.m in Sources */,
+				B100EC92284AB0C100C89CBB /* AddTestMerchantTest.m in Sources */,
 				B12FC24A23A74B9D00EAB159 /* TestConfiguration.m in Sources */,
 				B1D7D85B2710CC3700DA2211 /* DeleteCustomerTest.m in Sources */,
+				B100EC79284AB0C100C89CBB /* SurveyQuestionsTest.m in Sources */,
+				B100EC87284AB0C100C89CBB /* UpdateMerchantTest.m in Sources */,
 				B15D17C023BDC7E9003FA0E5 /* SimpleMessageTest.m in Sources */,
+				B100EC98284AB0C100C89CBB /* UpdateSurveyQuestionTest.m in Sources */,
 				B15D17BD23BDC7E9003FA0E5 /* SimpleCaptureTest.m in Sources */,
 				B1D7D8552710CC3700DA2211 /* MerchantProfileTest.m in Sources */,
 				B1D7D85E2710CC3700DA2211 /* PartialRefundTest.m in Sources */,
 				B1D7D8602710CC3700DA2211 /* CaptureSignatureTest.m in Sources */,
+				B100EC82284AB0C100C89CBB /* EmptyBrandingAssetTest.m in Sources */,
 				B15D17AD23BDC7E9003FA0E5 /* TerminalManualEBTChargeTest.m in Sources */,
+				B100EC97284AB0C100C89CBB /* TCTemplateTest.m in Sources */,
+				B100EC8D284AB0C100C89CBB /* DeleteQueuedTransactionTest.m in Sources */,
+				B100EC7B284AB0C100C89CBB /* GetMerchantsTest.m in Sources */,
 				B1D7D85D2710CC3700DA2211 /* TerminalStatusTest.m in Sources */,
+				B100EC8A284AB0C100C89CBB /* DeleteBrandingAssetTest.m in Sources */,
+				B100EC7A284AB0C100C89CBB /* EmptySlideShowTest.m in Sources */,
 				B1D7D8542710CC3700DA2211 /* TerminalTimeoutTest.m in Sources */,
+				B100EC9F284AB0C100C89CBB /* TCLogTest.m in Sources */,
+				B100EC9B284AB0C100C89CBB /* DeleteTestMerchantTest.m in Sources */,
 				B15D17BF23BDC7E9003FA0E5 /* BooleanPromptTest.m in Sources */,
 				B12FC25123A7525800EAB159 /* EncodingUtils.m in Sources */,
+				B100EC86284AB0C100C89CBB /* TCTemplateUpdateTest.m in Sources */,
+				B100EC7E284AB0C100C89CBB /* UpdateSlideShowTest.m in Sources */,
+				B100EC8F284AB0C100C89CBB /* ActivateTerminalTest.m in Sources */,
 				B15D17B623BDC7E9003FA0E5 /* TerminalClearTest.m in Sources */,
 				B1D7D8592710CC3700DA2211 /* SendPaymentLinkTest.m in Sources */,
 				B15D17B123BDC7E9003FA0E5 /* TerminalKeyedChargeTest.m in Sources */,
+				B100EC90284AB0C100C89CBB /* SurveyQuestionTest.m in Sources */,
 				B15D17A923BDC7E9003FA0E5 /* TermsAndConditionsTest.m in Sources */,
+				B100EC96284AB0C100C89CBB /* MerchantUsersTest.m in Sources */,
 				B1D7D8622710CC3700DA2211 /* GetCustomerTest.m in Sources */,
 				B15D17AC23BDC7E9003FA0E5 /* SimpleReversalTest.m in Sources */,
 				B1D7D85C2710CC3700DA2211 /* TokenMetadataTest.m in Sources */,
 				B15D17BB23BDC7E9003FA0E5 /* SimpleRefundTest.m in Sources */,
+				B100EC88284AB0C100C89CBB /* InviteMerchantUserTest.m in Sources */,
+				B100EC99284AB0C100C89CBB /* SlideShowTest.m in Sources */,
 				B15D17B023BDC7E9003FA0E5 /* TerminalChargeTest.m in Sources */,
 				B1D7D85A2710CC3700DA2211 /* GatewayTimeoutTest.m in Sources */,
 				B1D7D8562710CC3700DA2211 /* TransactionHistoryTest.m in Sources */,
 				B15D17B823BDC7E9003FA0E5 /* PANChargeTest.m in Sources */,
+				B100EC94284AB0C100C89CBB /* UpdateBrandingAssetTest.m in Sources */,
 				B1D7D8572710CC3700DA2211 /* UpdateCustomerTest.m in Sources */,
 				B12FC25423A75BFF00EAB159 /* BlockChypClient.m in Sources */,
 				B12FC24723A7481800EAB159 /* BlockChypTest.m in Sources */,
+				B100EC8C284AB0C100C89CBB /* DeleteSlideShowTest.m in Sources */,
+				B100EC9E284AB0C100C89CBB /* TerminalBrandingTest.m in Sources */,
 				B15D17AE23BDC7E9003FA0E5 /* TerminalEBTChargeTest.m in Sources */,
+				B100EC89284AB0C100C89CBB /* TCTemplatesTest.m in Sources */,
+				B100EC91284AB0C100C89CBB /* TCEntryTest.m in Sources */,
+				B100EC77284AB0C100C89CBB /* SlideShowsTest.m in Sources */,
+				B100EC9A284AB0C100C89CBB /* MediaTest.m in Sources */,
 				B1D7D8612710CC3700DA2211 /* LinkTokenTest.m in Sources */,
 				B15D17B523BDC7E9003FA0E5 /* PANEnrollTest.m in Sources */,
 				B15D17BA23BDC7E9003FA0E5 /* TerminalPreauthTest.m in Sources */,
 				B1D7D8532710CC3700DA2211 /* UnlinkTokenTest.m in Sources */,
 				B15D17AF23BDC7E9003FA0E5 /* UpdateTransactionDisplayTest.m in Sources */,
+				B100EC9C284AB0C100C89CBB /* SurveyResultsTest.m in Sources */,
+				B100EC8E284AB0C100C89CBB /* ListTerminalsTest.m in Sources */,
+				B100EC7F284AB0C100C89CBB /* MediaAssetTest.m in Sources */,
+				B100EC93284AB0C100C89CBB /* TerminalQueuedTransactionTest.m in Sources */,
 				B1D7D8522710CC3700DA2211 /* BatchHistoryTest.m in Sources */,
 				B15D17B423BDC7E9003FA0E5 /* SimpleBatchCloseTest.m in Sources */,
 			);
@@ -508,6 +672,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMPRESS_PNG_FILES = NO;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -531,6 +696,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRIP_PNG_TEXT = NO;
 			};
 			name = Debug;
 		};
@@ -566,6 +732,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMPRESS_PNG_FILES = NO;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -582,6 +749,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				STRIP_PNG_TEXT = NO;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -614,6 +782,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				COMPRESS_PNG_FILES = NO;
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -622,6 +791,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = blockchyp.Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_PNG_TEXT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -630,6 +800,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				COMPRESS_PNG_FILES = NO;
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -638,6 +809,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = blockchyp.Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_PNG_TEXT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

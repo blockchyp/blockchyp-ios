@@ -45,6 +45,7 @@ typedef void(^BlockChypGetCompletionHandler)(NSDictionary *response, NSError * _
 @property NSString *bearerToken;
 @property NSString *signingKey;
 @property NSString *gatewayHost;
+@property NSString *dashboardHost;
 @property NSString *testGatewayHost;
 @property BOOL https;
 @property int routeCacheTTL;
@@ -61,6 +62,9 @@ typedef void(^BlockChypGetCompletionHandler)(NSDictionary *response, NSError * _
 
 -(void)routeGatewayRequestWith:(NSDictionary *)request path:(NSString *)path method:(NSString *)method handler:(BlockChypCompletionHandler)handler;
 
+-(void)routeDashboardRequestWith:(NSDictionary *)request path:(NSString *)path method:(NSString *)method handler:(BlockChypCompletionHandler)handler;
+
+-(void)routeUploadRequestWith:(NSDictionary *)request path:(NSString *)path content:(NSData *)content handler:(BlockChypCompletionHandler)handler ;
 
 @end
 

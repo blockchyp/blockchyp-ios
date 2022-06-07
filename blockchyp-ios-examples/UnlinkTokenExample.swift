@@ -12,8 +12,8 @@ class ExampleClass {
     var request: [String:Any] = [:]
     request["token"] = "Token to unlink"
     request["customerId"] = "Customer to unlink"
-    client.unlinkToken(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.unlinkToken(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }

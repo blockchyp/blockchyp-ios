@@ -13,11 +13,29 @@ class ExampleClass {
     request["amount"] = "199.99"
     request["description"] = "Widget"
     request["subject"] = "Widget invoice"
-    request["transaction"] = newTransactionDisplayTransaction()
+    var transaction: [String:Any] = [:]
+    transaction["subtotal"] = "195.00"
+    transaction["tax"] = "4.99"
+    transaction["total"] = "199.99"
+    var items = [Any]();
+    var items1: [String:Any] = [:]
+    items1["description"] = "Widget"
+    items1["price"] = "195.00"
+    items1["quantity"] = 1
+    items.append(items1)
+    transaction["items"] = items
+    request["transaction"] = transaction
     request["autoSend"] = true
-    request["customer"] = newCustomer()
-    client.sendPaymentLink(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+    var customer: [String:Any] = [:]
+    customer["customerRef"] = "Customer reference string"
+    customer["firstName"] = "FirstName"
+    customer["lastName"] = "LastName"
+    customer["companyName"] = "Company Name"
+    customer["emailAddress"] = "support@blockchyp.com"
+    customer["smsNumber"] = "(123) 123-1231"
+    request["customer"] = customer
+      client.sendPaymentLink(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -25,32 +43,3 @@ class ExampleClass {
     })
   }
 
-  func newTransactionDisplayTransaction() -> [String:Any] {
-    var val: [String:Any] = [:]
-  val[@"subtotal"] = @"195.00";
-  val[@"tax"] = @"4.99";
-  val[@"total"] = @"199.99";
-  val[@"items"] = [self newTransactionDisplayItems];
-    return val
-  }
-  func newTransactionDisplayItems()  -> [[String:Any]] {
-    var val = [[String:Any]]()
-    val.append(newTransactionDisplayItem2())
-    return val
-  }
-  func newTransactionDisplayItem2() -> [String:Any] {
-    var val: [String:Any] = [:]
-  val[@"description"] = @"Widget";
-  val[@"price"] = @"195.00";
-    return val;
-  }
-  func newCustomer() -> [String:Any] {
-    var val: [String:Any] = [:]
-  val[@"customerRef"] = @"Customer reference string";
-  val[@"firstName"] = @"FirstName";
-  val[@"lastName"] = @"LastName";
-  val[@"companyName"] = @"Company Name";
-  val[@"emailAddress"] = @"support@blockchyp.com";
-  val[@"smsNumber"] = @"(123) 123-1231";
-    return val
-  }

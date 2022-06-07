@@ -11,8 +11,8 @@ class ExampleClass {
 
     var request: [String:Any] = [:]
     request["terminalName"] = "Test Terminal"
-    client.terminalStatus(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.terminalStatus(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }

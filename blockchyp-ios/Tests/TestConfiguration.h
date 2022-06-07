@@ -17,8 +17,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property NSString *signingKey;
 @property NSString *gatewayHost;
 @property NSString *testGatewayHost;
+@property NSString *dashboardHost;
 @property NSString *defaultTerminalName;
 @property NSString *defaultTerminalAddress;
+@property NSDictionary *profiles;
 
 
 @end

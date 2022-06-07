@@ -18,8 +18,8 @@ class ExampleClass {
     request["sigFormat"] = SIGNATURE_FORMAT_PNG
     request["sigWidth"] = 200
     request["sigRequired"] = true
-    client.termsAndConditions(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.termsAndConditions(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }

@@ -12,8 +12,8 @@ class ExampleClass {
     var request: [String:Any] = [:]
     request["dbaName"] = "DBA name."
     request["companyName"] = "test merchant customer name."
-    client.addTestMerchant(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.addTestMerchant(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }

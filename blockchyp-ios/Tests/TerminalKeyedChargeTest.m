@@ -1,10 +1,8 @@
+// Copyright 2019-2022 BlockChyp, Inc. All rights reserved. Use of this code
+// is governed by a license that can be found in the LICENSE file.
 //
-//  Tests.m
-//  Tests
-//
-//  Created by Jeff Payne on 12/15/19.
-//  Copyright © 2019 Jeff Payne. All rights reserved.
-//
+// This file was generated automatically by the BlockChyp SDK Generator.
+// Changes to this file will be lost every time the code is regenerated.
 
 #import "BlockChypTest.h"
 
@@ -22,8 +20,8 @@
   BlockChyp *client = [[BlockChyp alloc] initWithApiKey:config.apiKey bearerToken:config.bearerToken signingKey:config.signingKey];
   client.gatewayHost = config.gatewayHost;
   client.testGatewayHost = config.testGatewayHost;
+  client.dashboardHost = config.dashboardHost;
 
-  [self testDelayWith:client testName:@"TerminalKeyedChargeTest"];
 
 
 }
@@ -38,22 +36,25 @@
   BlockChyp *client = [[BlockChyp alloc] initWithApiKey:config.apiKey bearerToken:config.bearerToken signingKey:config.signingKey];
   client.gatewayHost = config.gatewayHost;
   client.testGatewayHost = config.testGatewayHost;
+  client.dashboardHost = config.dashboardHost;
 
+  
   XCTestExpectation *expectation = [self expectationWithDescription:@"TerminalKeyedCharge Test"];
 
-      NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-        request[@"terminalName"] = @"Test Terminal";
-        request[@"amount"] = @"11.11";
-        request[@"manualEntry"] = @YES;
-        request[@"test"] = @YES;
+  NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
+  request[@"terminalName"] = @"Test Terminal";
+  request[@"amount"] = @"11.11";
+  request[@"manualEntry"] = @YES;
+  request[@"test"] = @YES;
 
   [client chargeWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+
     [self logJSON:response];
     XCTAssertNotNil(response);
     // response assertions
-    XCTAssertTrue([response objectForKey:@"success"]);
-    XCTAssertTrue([response objectForKey:@"approved"]);
-    XCTAssertTrue([response objectForKey:@"test"]);
+    XCTAssertTrue([[response objectForKey:@"success"]boolValue]);
+    XCTAssertTrue([[response objectForKey:@"approved"]boolValue]);
+    XCTAssertTrue([[response objectForKey:@"test"]boolValue]);
     XCTAssertEqual(6, [((NSString *)[response objectForKey:@"authCode"]) length]);
     XCTAssertNotNil([response objectForKey:@"transactionId"]);
     XCTAssertTrue([((NSString *)[response objectForKey:@"transactionId"]) length] > 0);
@@ -69,14 +70,17 @@
     XCTAssertNotNil([response objectForKey:@"entryMethod"]);
     XCTAssertTrue([((NSString *)[response objectForKey:@"entryMethod"]) length] > 0);
     XCTAssertEqualObjects(@"11.11", (NSString *)[response objectForKey:@"authorizedAmount"]);
-
+  
     [expectation fulfill];
   }];
 
-  [self waitForExpectationsWithTimeout:30 handler:nil];
+  @try {
+      [self waitForExpectationsWithTimeout:60 handler:nil];
+  }
+  @catch (NSException *exception) {
+    NSLog(@"Exception:%@",exception);
+  }
 
 }
-
-
 
 @end

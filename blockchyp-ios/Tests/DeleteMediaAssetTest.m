@@ -1,10 +1,8 @@
+// Copyright 2019-2022 BlockChyp, Inc. All rights reserved. Use of this code
+// is governed by a license that can be found in the LICENSE file.
 //
-//  Tests.m
-//  Tests
-//
-//  Created by Jeff Payne on 12/15/19.
-//  Copyright © 2019 Jeff Payne. All rights reserved.
-//
+// This file was generated automatically by the BlockChyp SDK Generator.
+// Changes to this file will be lost every time the code is regenerated.
 
 #import "BlockChypTest.h"
 
@@ -15,6 +13,8 @@
   @property NSString *lastTransactionRef;
   @property NSString *lastToken;
   @property NSString *lastCustomerId;
+  @property NSDictionary *setupRequest;
+  @property NSDictionary *setupResponse;
 
 
 @end
@@ -27,30 +27,40 @@
   BlockChyp *client = [[BlockChyp alloc] initWithApiKey:config.apiKey bearerToken:config.bearerToken signingKey:config.signingKey];
   client.gatewayHost = config.gatewayHost;
   client.testGatewayHost = config.testGatewayHost;
+  client.dashboardHost = config.dashboardHost;
 
-  [self testDelayWith:client testName:@"DeleteMediaAssetTest"];
 
 
   XCTestExpectation *expectation = [self expectationWithDescription:@"DeleteMediaAsset Test Setup"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-      request[@"fileName"] = @"aviato.png";
-      request[@"fileSize"] = 18843;
-      request[@"uploadId"] = [self getUUID];
+  request[@"fileName"] = @"aviato.png";
+  request[@"fileSize"] = @18843;
+  request[@"uploadId"] = [self getUUID];
+  self.setupRequest = request;
 
-  [client uploadMediaWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-
-    XCTAssertNil(error);
+    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+  NSString *path = [bundle pathForResource:@"aviato" ofType:@"png"];
+  NSData *content = [NSData dataWithContentsOfFile:path];
+  [client uploadMediaWithRequest:request content:content handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      XCTAssertNil(error);
+    self.setupResponse = response;
     self.lastTransactionId = [response objectForKey:@"transactionId"];
     self.lastTransactionRef = [response objectForKey:@"transactionRef"];
-    self.lastToken = [response objectForKey:@"lastToken"];
-    self.lastCustomerId = [response objectForKey:@"lastCustomerId"];
-
+    self.lastToken = [response objectForKey:@"token"];
+    NSDictionary *customer = (NSDictionary*)[response objectForKey:@"customer"];
+    if ( (customer != NULL) && (customer != [NSNull null])) {
+        self.lastCustomerId = [customer objectForKey:@"id"];
+    }
     [expectation fulfill];
   }];
 
-  [self waitForExpectationsWithTimeout:60 handler:nil];
-
+  @try {
+    [self waitForExpectationsWithTimeout:60 handler:nil];
+  }
+  @catch (NSException *exception) {
+    NSLog(@"Exception:%@",exception);
+  }
 
 }
 
@@ -64,24 +74,31 @@
   BlockChyp *client = [[BlockChyp alloc] initWithApiKey:config.apiKey bearerToken:config.bearerToken signingKey:config.signingKey];
   client.gatewayHost = config.gatewayHost;
   client.testGatewayHost = config.testGatewayHost;
+  client.dashboardHost = config.dashboardHost;
 
+  
   XCTestExpectation *expectation = [self expectationWithDescription:@"DeleteMediaAsset Test"];
 
-      NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-    
+  NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
+  request[@"mediaId"] = [self.setupResponse objectForKey:@"id"];
+
   [client deleteMediaAssetWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+
     [self logJSON:response];
     XCTAssertNotNil(response);
     // response assertions
-    XCTAssertTrue([response objectForKey:@"success"]);
-
+    XCTAssertTrue([[response objectForKey:@"success"]boolValue]);
+  
     [expectation fulfill];
   }];
 
-  [self waitForExpectationsWithTimeout:30 handler:nil];
+  @try {
+      [self waitForExpectationsWithTimeout:60 handler:nil];
+  }
+  @catch (NSException *exception) {
+    NSLog(@"Exception:%@",exception);
+  }
 
 }
-
-
 
 @end

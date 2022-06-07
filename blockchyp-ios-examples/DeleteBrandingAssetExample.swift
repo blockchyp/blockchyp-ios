@@ -11,8 +11,8 @@ class ExampleClass {
 
     var request: [String:Any] = [:]
     request["assetId"] = "<BRANDING ASSET ID>"
-    client.deleteBrandingAsset(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.deleteBrandingAsset(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }

@@ -1,10 +1,8 @@
+// Copyright 2019-2022 BlockChyp, Inc. All rights reserved. Use of this code
+// is governed by a license that can be found in the LICENSE file.
 //
-//  Tests.m
-//  Tests
-//
-//  Created by Jeff Payne on 12/15/19.
-//  Copyright © 2019 Jeff Payne. All rights reserved.
-//
+// This file was generated automatically by the BlockChyp SDK Generator.
+// Changes to this file will be lost every time the code is regenerated.
 
 #import "BlockChypTest.h"
 
@@ -15,6 +13,8 @@
   @property NSString *lastTransactionRef;
   @property NSString *lastToken;
   @property NSString *lastCustomerId;
+  @property NSDictionary *setupRequest;
+  @property NSDictionary *setupResponse;
 
 
 @end
@@ -27,27 +27,34 @@
   BlockChyp *client = [[BlockChyp alloc] initWithApiKey:config.apiKey bearerToken:config.bearerToken signingKey:config.signingKey];
   client.gatewayHost = config.gatewayHost;
   client.testGatewayHost = config.testGatewayHost;
+  client.dashboardHost = config.dashboardHost;
 
-  [self testDelayWith:client testName:@"TCEntryTest"];
 
 
   XCTestExpectation *expectation = [self expectationWithDescription:@"TCEntry Test Setup"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
+  self.setupRequest = request;
 
-  [client tcLogWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-
-    XCTAssertNil(error);
+    [client tcLogWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      XCTAssertNil(error);
+    self.setupResponse = response;
     self.lastTransactionId = [response objectForKey:@"transactionId"];
     self.lastTransactionRef = [response objectForKey:@"transactionRef"];
-    self.lastToken = [response objectForKey:@"lastToken"];
-    self.lastCustomerId = [response objectForKey:@"lastCustomerId"];
-
+    self.lastToken = [response objectForKey:@"token"];
+    NSDictionary *customer = (NSDictionary*)[response objectForKey:@"customer"];
+    if ( (customer != NULL) && (customer != [NSNull null])) {
+        self.lastCustomerId = [customer objectForKey:@"id"];
+    }
     [expectation fulfill];
   }];
 
-  [self waitForExpectationsWithTimeout:60 handler:nil];
-
+  @try {
+    [self waitForExpectationsWithTimeout:60 handler:nil];
+  }
+  @catch (NSException *exception) {
+    NSLog(@"Exception:%@",exception);
+  }
 
 }
 
@@ -61,16 +68,20 @@
   BlockChyp *client = [[BlockChyp alloc] initWithApiKey:config.apiKey bearerToken:config.bearerToken signingKey:config.signingKey];
   client.gatewayHost = config.gatewayHost;
   client.testGatewayHost = config.testGatewayHost;
+  client.dashboardHost = config.dashboardHost;
 
+  
   XCTestExpectation *expectation = [self expectationWithDescription:@"TCEntry Test"];
 
-      NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-    
+  NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
+  request[@"logEntryId"] = [(NSDictionary *)[(NSArray *)[self.setupResponse objectForKey:@"results"] firstObject] objectForKey:@"id"];
+
   [client tcEntryWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+
     [self logJSON:response];
     XCTAssertNotNil(response);
     // response assertions
-    XCTAssertTrue([response objectForKey:@"success"]);
+    XCTAssertTrue([[response objectForKey:@"success"]boolValue]);
     XCTAssertNotNil([response objectForKey:@"id"]);
     XCTAssertTrue([((NSString *)[response objectForKey:@"id"]) length] > 0);
     XCTAssertNotNil([response objectForKey:@"terminalId"]);
@@ -83,17 +94,20 @@
     XCTAssertTrue([((NSString *)[response objectForKey:@"name"]) length] > 0);
     XCTAssertNotNil([response objectForKey:@"content"]);
     XCTAssertTrue([((NSString *)[response objectForKey:@"content"]) length] > 0);
-    XCTAssertTrue([response objectForKey:@"hasSignature"]);
+    XCTAssertTrue([[response objectForKey:@"hasSignature"]boolValue]);
     XCTAssertNotNil([response objectForKey:@"signature"]);
     XCTAssertTrue([((NSString *)[response objectForKey:@"signature"]) length] > 0);
-
+  
     [expectation fulfill];
   }];
 
-  [self waitForExpectationsWithTimeout:30 handler:nil];
+  @try {
+      [self waitForExpectationsWithTimeout:60 handler:nil];
+  }
+  @catch (NSException *exception) {
+    NSLog(@"Exception:%@",exception);
+  }
 
 }
-
-
 
 @end

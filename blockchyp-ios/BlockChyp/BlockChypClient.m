@@ -21,6 +21,7 @@
         self.terminalTimeout = 120;
         self.gatewayHost = @"https://api.blockchyp.com";
         self.testGatewayHost = @"https://test.blockchyp.com";
+        self.dashboardHost = @"https://dashboard.blockchyp.com";
         self.routeCache = [[NSMutableDictionary alloc] init];
     }
     return self;
@@ -56,6 +57,14 @@
         url = [url stringByAppendingString:self.gatewayHost];
     }
     
+    return [url stringByAppendingString:path];
+    
+}
+
+-(NSString *)resolveDashbordURLFor:(NSString *)path {
+    
+    NSString *url = [[NSString alloc] init];
+    url = [url stringByAppendingString:self.dashboardHost];
     return [url stringByAppendingString:path];
     
 }
@@ -135,6 +144,22 @@
     HTTPRequestDelegate *delegate = [[HTTPRequestDelegate alloc] initWithClient:self];
        
     [delegate routeGatewayRequestWith:request path:path method:method handler: handler];
+    
+}
+
+-(void)routeDashboardRequestWith:(NSDictionary *)request path:(NSString *)path method:(NSString *)method handler:(BlockChypCompletionHandler)handler {
+    
+    HTTPRequestDelegate *delegate = [[HTTPRequestDelegate alloc] initWithClient:self];
+       
+    [delegate routeDashboardRequestWith:request path:path method:method handler: handler];
+    
+}
+
+-(void)routeUploadRequestWith:(NSDictionary *)request path:(NSString *)path content:(NSData *)content handler:(BlockChypCompletionHandler)handler {
+    
+    HTTPRequestDelegate *delegate = [[HTTPRequestDelegate alloc] initWithClient:self];
+       
+    [delegate routeUploadRequestWith:request path:path content:content handler: handler ];
     
 }
 

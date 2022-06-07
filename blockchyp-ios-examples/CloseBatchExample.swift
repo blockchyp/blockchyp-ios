@@ -11,8 +11,8 @@ class ExampleClass {
 
     var request: [String:Any] = [:]
     request["test"] = true
-    client.closeBatch(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.closeBatch(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }

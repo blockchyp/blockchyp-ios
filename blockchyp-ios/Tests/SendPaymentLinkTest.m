@@ -1,10 +1,8 @@
+// Copyright 2019-2022 BlockChyp, Inc. All rights reserved. Use of this code
+// is governed by a license that can be found in the LICENSE file.
 //
-//  Tests.m
-//  Tests
-//
-//  Created by Jeff Payne on 12/15/19.
-//  Copyright © 2019 Jeff Payne. All rights reserved.
-//
+// This file was generated automatically by the BlockChyp SDK Generator.
+// Changes to this file will be lost every time the code is regenerated.
 
 #import "BlockChypTest.h"
 
@@ -22,8 +20,8 @@
   BlockChyp *client = [[BlockChyp alloc] initWithApiKey:config.apiKey bearerToken:config.bearerToken signingKey:config.signingKey];
   client.gatewayHost = config.gatewayHost;
   client.testGatewayHost = config.testGatewayHost;
+  client.dashboardHost = config.dashboardHost;
 
-  [self testDelayWith:client testName:@"SendPaymentLinkTest"];
 
 
 }
@@ -38,61 +36,56 @@
   BlockChyp *client = [[BlockChyp alloc] initWithApiKey:config.apiKey bearerToken:config.bearerToken signingKey:config.signingKey];
   client.gatewayHost = config.gatewayHost;
   client.testGatewayHost = config.testGatewayHost;
+  client.dashboardHost = config.dashboardHost;
 
+  
   XCTestExpectation *expectation = [self expectationWithDescription:@"SendPaymentLink Test"];
 
-      NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-        request[@"amount"] = @"199.99";
-        request[@"description"] = @"Widget";
-        request[@"subject"] = @"Widget invoice";
-        [request setObject:[self newTransactionDisplayTransaction] forKey:@"transaction"];
-        request[@"autoSend"] = @YES;
-        [request setObject:[self newCustomer] forKey:@"customer"];
+  NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
+  request[@"amount"] = @"199.99";
+  request[@"description"] = @"Widget";
+  request[@"subject"] = @"Widget invoice";
+  NSMutableDictionary *transaction = [[NSMutableDictionary alloc] init];
+  transaction[@"subtotal"] = @"195.00";
+  transaction[@"tax"] = @"4.99";
+  transaction[@"total"] = @"199.99";
+  NSMutableArray *items = [[NSMutableArray alloc] init];
+  NSMutableDictionary *items1 = [[NSMutableDictionary alloc] init];
+  items1[@"description"] = @"Widget";
+  items1[@"price"] = @"195.00";
+  items1[@"quantity"] = @1;
+  [items addObject:items1];
+  transaction[@"items"] = items;
+  request[@"transaction"] = transaction;
+  request[@"autoSend"] = @YES;
+  NSMutableDictionary *customer = [[NSMutableDictionary alloc] init];
+  customer[@"customerRef"] = @"Customer reference string";
+  customer[@"firstName"] = @"FirstName";
+  customer[@"lastName"] = @"LastName";
+  customer[@"companyName"] = @"Company Name";
+  customer[@"emailAddress"] = @"support@blockchyp.com";
+  customer[@"smsNumber"] = @"(123) 123-1231";
+  request[@"customer"] = customer;
 
   [client sendPaymentLinkWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+
     [self logJSON:response];
     XCTAssertNotNil(response);
     // response assertions
-    XCTAssertTrue([response objectForKey:@"success"]);
+    XCTAssertTrue([[response objectForKey:@"success"]boolValue]);
     XCTAssertNotNil([response objectForKey:@"url"]);
     XCTAssertTrue([((NSString *)[response objectForKey:@"url"]) length] > 0);
-
+  
     [expectation fulfill];
   }];
 
-  [self waitForExpectationsWithTimeout:30 handler:nil];
+  @try {
+      [self waitForExpectationsWithTimeout:60 handler:nil];
+  }
+  @catch (NSException *exception) {
+    NSLog(@"Exception:%@",exception);
+  }
 
 }
-
-- (NSDictionary *) newTransactionDisplayTransaction {
-  NSMutableDictionary *val = [[NSMutableDictionary alloc] init];
-  val[@"subtotal"] = @"195.00";
-  val[@"tax"] = @"4.99";
-  val[@"total"] = @"199.99";
-  val[@"items"] = [self newTransactionDisplayItems];
-  return val;
-}
-- (NSArray *) newTransactionDisplayItems {
-  NSMutableArray *val = [[NSMutableArray alloc] init];
-  [val addObject: [self newTransactionDisplayItem2]];
-  return val;
-}
-- (NSDictionary *) newTransactionDisplayItem2 {
-  NSMutableDictionary *val = [[NSMutableDictionary alloc] init];
-  val[@"description"] = @"Widget";
-  val[@"price"] = @"195.00";
-  return val;
-}
-- (NSDictionary *) newCustomer {
-  NSMutableDictionary *val = [[NSMutableDictionary alloc] init];
-  val[@"customerRef"] = @"Customer reference string";
-  val[@"firstName"] = @"FirstName";
-  val[@"lastName"] = @"LastName";
-  val[@"companyName"] = @"Company Name";
-  val[@"emailAddress"] = @"support@blockchyp.com";
-  val[@"smsNumber"] = @"(123) 123-1231";
-  return val;
-}
-
 
 @end

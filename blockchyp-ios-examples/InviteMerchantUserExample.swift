@@ -11,8 +11,8 @@ class ExampleClass {
 
     var request: [String:Any] = [:]
     request["email"] = "Email address for the invite"
-    client.inviteMerchantUser(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.inviteMerchantUser(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }

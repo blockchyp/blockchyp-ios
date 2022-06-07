@@ -11,8 +11,8 @@ class ExampleClass {
 
     var request: [String:Any] = [:]
     request["linkCode"] = "Payment link code to cancel"
-    client.cancelPaymentLink(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.cancelPaymentLink(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }

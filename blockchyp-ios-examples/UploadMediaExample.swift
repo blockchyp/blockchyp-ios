@@ -13,8 +13,9 @@ class ExampleClass {
     request["fileName"] = "aviato.png"
     request["fileSize"] = 18843
     request["uploadId"] = "<RANDOM ID>"
-    client.uploadMedia(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+    var content = Data(contentsOfFile: "aviato.png")
+    client.uploadMedia(withRequest: request, content: content, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }

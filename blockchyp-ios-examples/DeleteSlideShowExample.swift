@@ -11,8 +11,8 @@ class ExampleClass {
 
     var request: [String:Any] = [:]
     request["slideShowId"] = "<SLIDE SHOW ID>"
-    client.deleteSlideShow(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.deleteSlideShow(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }

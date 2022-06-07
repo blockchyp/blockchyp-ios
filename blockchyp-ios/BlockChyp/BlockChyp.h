@@ -1,10 +1,8 @@
+// Copyright 2019-2022 BlockChyp, Inc. All rights reserved. Use of this code
+// is governed by a license that can be found in the LICENSE file.
 //
-//  BlockChyp.h
-//  blockchyp-ios
-//
-//  Created by Jeff Payne on 12/15/19.
-//  Copyright © 2019 Jeff Payne. All rights reserved.
-//
+// This file was generated automatically by the BlockChyp SDK Generator.
+// Changes to this file will be lost every time the code is regenerated.
 
 #import <Foundation/Foundation.h>
 #import "BlockChypClient.h"
@@ -145,6 +143,116 @@ NS_ASSUME_NONNULL_BEGIN
 
 // Deletes a payment token.
 -(void)deleteTokenWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
+
+
+// Adds a test merchant account.
+-(void)getMerchantsWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
+// Adds or updates a merchant account. Can be used to create or update test
+// merchants. Only gateway only partners may create new live merchants.
+-(void)updateMerchantWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
+// List all active users and pending invites for a merchant account.
+-(void)merchantUsersWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
+// Invites a user to join a merchant account.
+-(void)inviteMerchantUserWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
+// Adds a test merchant account.
+-(void)addTestMerchantWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
+// Deletes a test merchant account. Supports partner scoped API credentials
+// only. Live merchant accounts cannot be deleted.
+-(void)deleteTestMerchantWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
+// List all merchant platforms configured for a gateway merchant.
+-(void)merchantPlatformsWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
+// List all merchant platforms configured for a gateway merchant.
+-(void)updateMerchantPlatformsWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
+// Deletes a boarding platform configuration.
+-(void)deleteMerchantPlatformsWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
+// Returns all terminals associated with the merchant account.
+-(void)terminalsWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
+// Deactivates a terminal.
+-(void)deactivateTerminalWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
+// Activates a terminal.
+-(void)activateTerminalWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
+// Returns a list of terms and conditions templates associated with a merchant
+// account.
+-(void)tcTemplatesWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
+// Returns a single terms and conditions template.
+-(void)tcTemplateWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
+// Updates or creates a terms and conditions template.
+-(void)tcUpdateTemplateWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
+// Deletes a single terms and conditions template.
+-(void)tcDeleteTemplateWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
+// Returns up to 250 entries from the Terms and Conditions log.
+-(void)tcLogWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
+// Returns a single detailed Terms and Conditions entry.
+-(void)tcEntryWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
+// Returns all survey questions for a given merchant.
+-(void)surveyQuestionsWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
+// Returns a single survey question with response data.
+-(void)surveyQuestionWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
+// Updates or creates a survey question.
+-(void)updateSurveyQuestionWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
+// Deletes a survey question.
+-(void)deleteSurveyQuestionWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
+// Returns results for a single survey question.
+-(void)surveyResultsWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
+// Returns the media library for a given partner, merchant, or organization.
+-(void)mediaWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
+// Uploads a media asset to the media library.
+-(void)uploadMediaWithRequest:(NSDictionary *)request content:(NSData*)content handler:(BlockChypCompletionHandler)handler;
+
+// Retrieves the current status of a file upload.
+-(void)uploadStatusWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
+// Returns the media details for a single media asset.
+-(void)mediaAssetWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
+// Deletes a media asset.
+-(void)deleteMediaAssetWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
+// Returns a collection of slide shows.
+-(void)slideShowsWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
+// Returns a single slide show with slides.
+-(void)slideShowWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
+// Updates or creates a slide show.
+-(void)updateSlideShowWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
+// Deletes a single slide show.
+-(void)deleteSlideShowWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
+// Returns the terminal branding stack for a given set of API credentials.
+-(void)terminalBrandingWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
+// Updates a branding asset.
+-(void)updateBrandingAssetWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
+// Deletes a branding asset.
+-(void)deleteBrandingAssetWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
 
 
 @end

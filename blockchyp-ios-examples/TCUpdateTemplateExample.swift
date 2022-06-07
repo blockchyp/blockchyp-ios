@@ -14,8 +14,8 @@ class ExampleClass {
     request["name"] = "HIPPA Disclosure"
     request["content"] = "Lorem ipsum dolor sit amet."
     request["timeout"] = 120
-    client.tcUpdateTemplate(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.tcUpdateTemplate(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }

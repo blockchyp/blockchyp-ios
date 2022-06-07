@@ -12,8 +12,8 @@ class ExampleClass {
     var request: [String:Any] = [:]
     request["test"] = true
     request["terminalName"] = "Test Terminal"
-    client.enroll(withRequest: request, handler: { (request, response, error) in
-      let approved = response["approved"] as? Bool
+      client.enroll(withRequest: request, handler: { (request, response, error) in
+        let approved = response["approved"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("approved")
       }

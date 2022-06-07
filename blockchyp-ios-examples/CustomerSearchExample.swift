@@ -11,8 +11,8 @@ class ExampleClass {
 
     var request: [String:Any] = [:]
     request["query"] = "(123) 123-1234"
-    client.customerSearch(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.customerSearch(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }

@@ -183,11 +183,11 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"test"] = @YES;
-  request[@"terminalName"] = @"Test Terminal";
-  request[@"amount"] = @"55.00";
-  [client chargeWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"approved"];
+  request["test"] = true
+  request["terminalName"] = "Test Terminal"
+  request["amount"] = "55.00"
+    [client chargeWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"approved"];
     if (success.boolValue) {
       NSLog(@"approved");
     }
@@ -197,7 +197,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -219,8 +218,8 @@ class ExampleClass {
     request["test"] = true
     request["terminalName"] = "Test Terminal"
     request["amount"] = "55.00"
-    client.charge(withRequest: request, handler: { (request, response, error) in
-      let approved = response["approved"] as? Bool
+      client.charge(withRequest: request, handler: { (request, response, error) in
+        let approved = response["approved"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("approved")
       }
@@ -292,11 +291,11 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"test"] = @YES;
-  request[@"terminalName"] = @"Test Terminal";
-  request[@"amount"] = @"27.00";
-  [client preauthWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"approved"];
+  request["test"] = true
+  request["terminalName"] = "Test Terminal"
+  request["amount"] = "27.00"
+    [client preauthWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"approved"];
     if (success.boolValue) {
       NSLog(@"approved");
     }
@@ -306,7 +305,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -328,8 +326,8 @@ class ExampleClass {
     request["test"] = true
     request["terminalName"] = "Test Terminal"
     request["amount"] = "27.00"
-    client.preauth(withRequest: request, handler: { (request, response, error) in
-      let approved = response["approved"] as? Bool
+      client.preauth(withRequest: request, handler: { (request, response, error) in
+        let approved = response["approved"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("approved")
       }
@@ -373,10 +371,10 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"test"] = @YES;
-  request[@"transactionId"] = @"<PREAUTH TRANSACTION ID>";
-  [client captureWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"approved"];
+  request["test"] = true
+  request["transactionId"] = "<PREAUTH TRANSACTION ID>"
+    [client captureWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"approved"];
     if (success.boolValue) {
       NSLog(@"approved");
     }
@@ -384,7 +382,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -405,8 +402,8 @@ class ExampleClass {
     var request: [String:Any] = [:]
     request["test"] = true
     request["transactionId"] = "<PREAUTH TRANSACTION ID>"
-    client.capture(withRequest: request, handler: { (request, response, error) in
-      let approved = response["approved"] as? Bool
+      client.capture(withRequest: request, handler: { (request, response, error) in
+        let approved = response["approved"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("approved")
       }
@@ -490,10 +487,10 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"transactionId"] = @"<PREVIOUS TRANSACTION ID>";
-  request[@"amount"] = @"5.00";
-  [client refundWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"approved"];
+  request["transactionId"] = "<PREVIOUS TRANSACTION ID>"
+  request["amount"] = "5.00"
+    [client refundWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"approved"];
     if (success.boolValue) {
       NSLog(@"approved");
     }
@@ -501,7 +498,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -522,8 +518,8 @@ class ExampleClass {
     var request: [String:Any] = [:]
     request["transactionId"] = "<PREVIOUS TRANSACTION ID>"
     request["amount"] = "5.00"
-    client.refund(withRequest: request, handler: { (request, response, error) in
-      let approved = response["approved"] as? Bool
+      client.refund(withRequest: request, handler: { (request, response, error) in
+        let approved = response["approved"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("approved")
       }
@@ -568,10 +564,10 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"test"] = @YES;
-  request[@"transactionId"] = @"<PREVIOUS TRANSACTION ID>";
-  [client voidWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"approved"];
+  request["test"] = true
+  request["transactionId"] = "<PREVIOUS TRANSACTION ID>"
+    [client voidWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"approved"];
     if (success.boolValue) {
       NSLog(@"approved");
     }
@@ -579,7 +575,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -600,8 +595,8 @@ class ExampleClass {
     var request: [String:Any] = [:]
     request["test"] = true
     request["transactionId"] = "<PREVIOUS TRANSACTION ID>"
-    client.void(withRequest: request, handler: { (request, response, error) in
-      let approved = response["approved"] as? Bool
+      client.void(withRequest: request, handler: { (request, response, error) in
+        let approved = response["approved"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("approved")
       }
@@ -657,9 +652,9 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"transactionRef"] = @"<LAST TRANSACTION REF>";
-  [client reverseWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"approved"];
+  request["transactionRef"] = "<LAST TRANSACTION REF>"
+    [client reverseWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"approved"];
     if (success.boolValue) {
       NSLog(@"approved");
     }
@@ -667,7 +662,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -687,8 +681,8 @@ class ExampleClass {
 
     var request: [String:Any] = [:]
     request["transactionRef"] = "<LAST TRANSACTION REF>"
-    client.reverse(withRequest: request, handler: { (request, response, error) in
-      let approved = response["approved"] as? Bool
+      client.reverse(withRequest: request, handler: { (request, response, error) in
+        let approved = response["approved"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("approved")
       }
@@ -772,11 +766,11 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"test"] = @YES;
-  request[@"terminalName"] = @"Test Terminal";
-  request[@"amount"] = @"50.00";
-  [client giftActivateWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"approved"];
+  request["test"] = true
+  request["terminalName"] = "Test Terminal"
+  request["amount"] = "50.00"
+    [client giftActivateWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"approved"];
     if (success.boolValue) {
       NSLog(@"approved");
     }
@@ -787,7 +781,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -809,8 +802,8 @@ class ExampleClass {
     request["test"] = true
     request["terminalName"] = "Test Terminal"
     request["amount"] = "50.00"
-    client.giftActivate(withRequest: request, handler: { (request, response, error) in
-      let approved = response["approved"] as? Bool
+      client.giftActivate(withRequest: request, handler: { (request, response, error) in
+        let approved = response["approved"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("approved")
       }
@@ -873,11 +866,11 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"test"] = @YES;
-  request[@"terminalName"] = @"Test Terminal";
-  request[@"cardType"] = [NSNumber numberWithInt:CARD_TYPE_EBT];
-  [client balanceWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  request["test"] = true
+  request["terminalName"] = "Test Terminal"
+  request["cardType"] = [NSNumber numberWithInt:CARD_TYPE_EBT]
+    [client balanceWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -885,7 +878,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -907,8 +899,8 @@ class ExampleClass {
     request["test"] = true
     request["terminalName"] = "Test Terminal"
     request["cardType"] = [NSNumber numberWithInt:CARD_TYPE_EBT]
-    client.balance(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.balance(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -949,9 +941,9 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"test"] = @YES;
-  [client closeBatchWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  request["test"] = true
+    [client closeBatchWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -959,7 +951,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -979,8 +970,8 @@ class ExampleClass {
 
     var request: [String:Any] = [:]
     request["test"] = true
-    client.closeBatch(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.closeBatch(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -1108,14 +1099,32 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"amount"] = @"199.99";
-  request[@"description"] = @"Widget";
-  request[@"subject"] = @"Widget invoice";
-  [request setObject:[self newTransactionDisplayTransaction] forKey:@"transaction"];
-  request[@"autoSend"] = @YES;
-  [request setObject:[self newCustomer] forKey:@"customer"];
-  [client sendPaymentLinkWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  request["amount"] = "199.99"
+  request["description"] = "Widget"
+  request["subject"] = "Widget invoice"
+  var transaction: [String:Any] = [:]
+  transaction["subtotal"] = "195.00"
+  transaction["tax"] = "4.99"
+  transaction["total"] = "199.99"
+  var items = [Any]();
+  var items1: [String:Any] = [:]
+  items1["description"] = "Widget"
+  items1["price"] = "195.00"
+  items1["quantity"] = 1
+  items.append(items1)
+  transaction["items"] = items
+  request["transaction"] = transaction
+  request["autoSend"] = true
+  var customer: [String:Any] = [:]
+  customer["customerRef"] = "Customer reference string"
+  customer["firstName"] = "FirstName"
+  customer["lastName"] = "LastName"
+  customer["companyName"] = "Company Name"
+  customer["emailAddress"] = "support@blockchyp.com"
+  customer["smsNumber"] = "(123) 123-1231"
+  request["customer"] = customer
+    [client sendPaymentLinkWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -1123,36 +1132,6 @@ int main (int argc, const char * argv[])
   }];
   [pool drain];
   return 0;
-}
-
-- (NSDictionary *) newTransactionDisplayTransaction {
-  NSMutableDictionary *val = [[NSMutableDictionary alloc] init];
-  val[@"subtotal"] = @"195.00";
-  val[@"tax"] = @"4.99";
-  val[@"total"] = @"199.99";
-  val[@"items"] = [self newTransactionDisplayItems];
-  return val;
-}
-- (NSArray *) newTransactionDisplayItems {
-  NSMutableArray *val = [[NSMutableArray alloc] init];
-  [val addObject: [self newTransactionDisplayItem2]];
-  return val;
-}
-- (NSDictionary *) newTransactionDisplayItem2 {
-  NSMutableDictionary *val = [[NSMutableDictionary alloc] init];
-  val[@"description"] = @"Widget";
-  val[@"price"] = @"195.00";
-  return val;
-}
-- (NSDictionary *) newCustomer {
-  NSMutableDictionary *val = [[NSMutableDictionary alloc] init];
-  val[@"customerRef"] = @"Customer reference string";
-  val[@"firstName"] = @"FirstName";
-  val[@"lastName"] = @"LastName";
-  val[@"companyName"] = @"Company Name";
-  val[@"emailAddress"] = @"support@blockchyp.com";
-  val[@"smsNumber"] = @"(123) 123-1231";
-  return val;
 }
 
 ```
@@ -1175,11 +1154,29 @@ class ExampleClass {
     request["amount"] = "199.99"
     request["description"] = "Widget"
     request["subject"] = "Widget invoice"
-    request["transaction"] = newTransactionDisplayTransaction()
+    var transaction: [String:Any] = [:]
+    transaction["subtotal"] = "195.00"
+    transaction["tax"] = "4.99"
+    transaction["total"] = "199.99"
+    var items = [Any]();
+    var items1: [String:Any] = [:]
+    items1["description"] = "Widget"
+    items1["price"] = "195.00"
+    items1["quantity"] = 1
+    items.append(items1)
+    transaction["items"] = items
+    request["transaction"] = transaction
     request["autoSend"] = true
-    request["customer"] = newCustomer()
-    client.sendPaymentLink(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+    var customer: [String:Any] = [:]
+    customer["customerRef"] = "Customer reference string"
+    customer["firstName"] = "FirstName"
+    customer["lastName"] = "LastName"
+    customer["companyName"] = "Company Name"
+    customer["emailAddress"] = "support@blockchyp.com"
+    customer["smsNumber"] = "(123) 123-1231"
+    request["customer"] = customer
+      client.sendPaymentLink(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -1187,35 +1184,6 @@ class ExampleClass {
     })
   }
 
-  func newTransactionDisplayTransaction() -> [String:Any] {
-    var val: [String:Any] = [:]
-  val[@"subtotal"] = @"195.00";
-  val[@"tax"] = @"4.99";
-  val[@"total"] = @"199.99";
-  val[@"items"] = [self newTransactionDisplayItems];
-    return val
-  }
-  func newTransactionDisplayItems()  -> [[String:Any]] {
-    var val = [[String:Any]]()
-    val.append(newTransactionDisplayItem2())
-    return val
-  }
-  func newTransactionDisplayItem2() -> [String:Any] {
-    var val: [String:Any] = [:]
-  val[@"description"] = @"Widget";
-  val[@"price"] = @"195.00";
-    return val;
-  }
-  func newCustomer() -> [String:Any] {
-    var val: [String:Any] = [:]
-  val[@"customerRef"] = @"Customer reference string";
-  val[@"firstName"] = @"FirstName";
-  val[@"lastName"] = @"LastName";
-  val[@"companyName"] = @"Company Name";
-  val[@"emailAddress"] = @"support@blockchyp.com";
-  val[@"smsNumber"] = @"(123) 123-1231";
-    return val
-  }
 
 ```
 
@@ -1245,9 +1213,9 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"linkCode"] = @"Payment link code to cancel";
-  [client cancelPaymentLinkWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  request["linkCode"] = "Payment link code to cancel"
+    [client cancelPaymentLinkWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -1255,7 +1223,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -1275,8 +1242,8 @@ class ExampleClass {
 
     var request: [String:Any] = [:]
     request["linkCode"] = "Payment link code to cancel"
-    client.cancelPaymentLink(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.cancelPaymentLink(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -1317,9 +1284,9 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"transactionId"] = @"ID of transaction to retrieve";
-  [client transactionStatusWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  request["transactionId"] = "ID of transaction to retrieve"
+    [client transactionStatusWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -1329,7 +1296,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -1349,8 +1315,8 @@ class ExampleClass {
 
     var request: [String:Any] = [:]
     request["transactionId"] = "ID of transaction to retrieve"
-    client.transactionStatus(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.transactionStatus(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -1392,11 +1358,11 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"amount"] = @"100.00";
-  request[@"cashDiscount"] = @YES;
-  request[@"surcharge"] = @YES;
-  [client cashDiscountWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  request["amount"] = "100.00"
+  request["cashDiscount"] = true
+  request["surcharge"] = true
+    [client cashDiscountWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -1405,7 +1371,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -1427,8 +1392,8 @@ class ExampleClass {
     request["amount"] = "100.00"
     request["cashDiscount"] = true
     request["surcharge"] = true
-    client.cashDiscount(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.cashDiscount(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -1485,10 +1450,10 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"maxResults"] = @250;
-  request[@"startIndex"] = @1;
-  [client batchHistoryWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  request["maxResults"] = 250
+  request["startIndex"] = 1
+    [client batchHistoryWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -1496,7 +1461,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -1517,8 +1481,8 @@ class ExampleClass {
     var request: [String:Any] = [:]
     request["maxResults"] = 250
     request["startIndex"] = 1
-    client.batchHistory(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.batchHistory(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -1560,9 +1524,9 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"batchId"] = @"BATCHID";
-  [client batchDetailsWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  request["batchId"] = "BATCHID"
+    [client batchDetailsWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -1571,7 +1535,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -1591,8 +1554,8 @@ class ExampleClass {
 
     var request: [String:Any] = [:]
     request["batchId"] = "BATCHID"
-    client.batchDetails(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.batchDetails(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -1674,9 +1637,9 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"maxResults"] = @10;
-  [client transactionHistoryWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  request["maxResults"] = 10
+    [client transactionHistoryWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -1684,7 +1647,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -1704,8 +1666,8 @@ class ExampleClass {
 
     var request: [String:Any] = [:]
     request["maxResults"] = 10
-    client.transactionHistory(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.transactionHistory(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -1743,9 +1705,9 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"terminalName"] = @"Test Terminal";
-  [client listQueuedTransactionsWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  request["terminalName"] = "Test Terminal"
+    [client listQueuedTransactionsWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -1753,7 +1715,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -1773,8 +1734,8 @@ class ExampleClass {
 
     var request: [String:Any] = [:]
     request["terminalName"] = "Test Terminal"
-    client.listQueuedTransactions(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.listQueuedTransactions(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -1812,10 +1773,10 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"terminalName"] = @"Test Terminal";
-  request[@"transactionRef"] = @"*";
-  [client deleteQueuedTransactionWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  request["terminalName"] = "Test Terminal"
+  request["transactionRef"] = "*"
+    [client deleteQueuedTransactionWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -1823,7 +1784,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -1844,8 +1804,8 @@ class ExampleClass {
     var request: [String:Any] = [:]
     request["terminalName"] = "Test Terminal"
     request["transactionRef"] = "*"
-    client.deleteQueuedTransaction(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.deleteQueuedTransaction(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -1898,9 +1858,9 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"terminalName"] = @"Test Terminal";
-  [client pingWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  request["terminalName"] = "Test Terminal"
+    [client pingWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -1908,7 +1868,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -1928,8 +1887,8 @@ class ExampleClass {
 
     var request: [String:Any] = [:]
     request["terminalName"] = "Test Terminal"
-    client.ping(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.ping(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -1969,9 +1928,9 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"terminalName"] = @"Test Terminal";
-  [client locateWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  request["terminalName"] = "Test Terminal"
+    [client locateWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -1979,7 +1938,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -1999,8 +1957,8 @@ class ExampleClass {
 
     var request: [String:Any] = [:]
     request["terminalName"] = "Test Terminal"
-    client.locate(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.locate(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -2038,10 +1996,10 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"test"] = @YES;
-  request[@"terminalName"] = @"Test Terminal";
-  [client clearWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  request["test"] = true
+  request["terminalName"] = "Test Terminal"
+    [client clearWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -2049,7 +2007,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -2070,8 +2027,8 @@ class ExampleClass {
     var request: [String:Any] = [:]
     request["test"] = true
     request["terminalName"] = "Test Terminal"
-    client.clear(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.clear(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -2116,9 +2073,9 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"terminalName"] = @"Test Terminal";
-  [client terminalStatusWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  request["terminalName"] = "Test Terminal"
+    [client terminalStatusWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -2128,7 +2085,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -2148,8 +2104,8 @@ class ExampleClass {
 
     var request: [String:Any] = [:]
     request["terminalName"] = "Test Terminal"
-    client.terminalStatus(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.terminalStatus(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -2204,11 +2160,11 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"terminalName"] = @"Test Terminal";
-  request[@"sigFormat"] = SIGNATURE_FORMAT_PNG;
-  request[@"sigWidth"] = @200;
-  [client captureSignatureWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  request["terminalName"] = "Test Terminal"
+  request["sigFormat"] = SIGNATURE_FORMAT_PNG
+  request["sigWidth"] = 200
+    [client captureSignatureWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -2216,7 +2172,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -2238,8 +2193,8 @@ class ExampleClass {
     request["terminalName"] = "Test Terminal"
     request["sigFormat"] = SIGNATURE_FORMAT_PNG
     request["sigWidth"] = 200
-    client.captureSignature(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.captureSignature(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -2293,50 +2248,35 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"test"] = @YES;
-  request[@"terminalName"] = @"Test Terminal";
-  [request setObject:[self newTransactionDisplayTransaction] forKey:@"transaction"];
-  [client newTransactionDisplayWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  request["test"] = true
+  request["terminalName"] = "Test Terminal"
+  var transaction: [String:Any] = [:]
+  transaction["subtotal"] = "60.00"
+  transaction["tax"] = "5.00"
+  transaction["total"] = "65.00"
+  var items = [Any]();
+  var items1: [String:Any] = [:]
+  items1["description"] = "Leki Trekking Poles"
+  items1["price"] = "35.00"
+  items1["quantity"] = 2
+  items1["extended"] = "70.00"
+  var discounts = [Any]();
+  var discounts1: [String:Any] = [:]
+  discounts1["description"] = "memberDiscount"
+  discounts1["amount"] = "10.00"
+  discounts.append(discounts1)
+  items1["discounts"] = discounts
+  items.append(items1)
+  transaction["items"] = items
+  request["transaction"] = transaction
+    [client newTransactionDisplayWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
   }];
   [pool drain];
   return 0;
-}
-
-- (NSDictionary *) newTransactionDisplayTransaction {
-  NSMutableDictionary *val = [[NSMutableDictionary alloc] init];
-  val[@"subtotal"] = @"60.00";
-  val[@"tax"] = @"5.00";
-  val[@"total"] = @"65.00";
-  val[@"items"] = [self newTransactionDisplayItems];
-  return val;
-}
-- (NSArray *) newTransactionDisplayItems {
-  NSMutableArray *val = [[NSMutableArray alloc] init];
-  [val addObject: [self newTransactionDisplayItem2]];
-  return val;
-}
-- (NSDictionary *) newTransactionDisplayItem2 {
-  NSMutableDictionary *val = [[NSMutableDictionary alloc] init];
-  val[@"description"] = @"Leki Trekking Poles";
-  val[@"price"] = @"35.00";
-  val[@"extended"] = @"70.00";
-  val[@"discounts"] = [self newTransactionDisplayDiscounts];
-  return val;
-}
-- (NSArray *) newTransactionDisplayDiscounts {
-  NSMutableArray *val = [[NSMutableArray alloc] init];
-  [val addObject: [self newTransactionDisplayDiscount2]];
-  return val;
-}
-- (NSDictionary *) newTransactionDisplayDiscount2 {
-  NSMutableDictionary *val = [[NSMutableDictionary alloc] init];
-  val[@"description"] = @"memberDiscount";
-  val[@"amount"] = @"10.00";
-  return val;
 }
 
 ```
@@ -2358,47 +2298,33 @@ class ExampleClass {
     var request: [String:Any] = [:]
     request["test"] = true
     request["terminalName"] = "Test Terminal"
-    request["transaction"] = newTransactionDisplayTransaction()
-    client.newTransactionDisplay(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+    var transaction: [String:Any] = [:]
+    transaction["subtotal"] = "60.00"
+    transaction["tax"] = "5.00"
+    transaction["total"] = "65.00"
+    var items = [Any]();
+    var items1: [String:Any] = [:]
+    items1["description"] = "Leki Trekking Poles"
+    items1["price"] = "35.00"
+    items1["quantity"] = 2
+    items1["extended"] = "70.00"
+    var discounts = [Any]();
+    var discounts1: [String:Any] = [:]
+    discounts1["description"] = "memberDiscount"
+    discounts1["amount"] = "10.00"
+    discounts.append(discounts1)
+    items1["discounts"] = discounts
+    items.append(items1)
+    transaction["items"] = items
+    request["transaction"] = transaction
+      client.newTransactionDisplay(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
     })
   }
 
-  func newTransactionDisplayTransaction() -> [String:Any] {
-    var val: [String:Any] = [:]
-  val[@"subtotal"] = @"60.00";
-  val[@"tax"] = @"5.00";
-  val[@"total"] = @"65.00";
-  val[@"items"] = [self newTransactionDisplayItems];
-    return val
-  }
-  func newTransactionDisplayItems()  -> [[String:Any]] {
-    var val = [[String:Any]]()
-    val.append(newTransactionDisplayItem2())
-    return val
-  }
-  func newTransactionDisplayItem2() -> [String:Any] {
-    var val: [String:Any] = [:]
-  val[@"description"] = @"Leki Trekking Poles";
-  val[@"price"] = @"35.00";
-  val[@"extended"] = @"70.00";
-  val[@"discounts"] = [self newTransactionDisplayDiscounts];
-    return val;
-  }
-  func newTransactionDisplayDiscounts()  -> [[String:Any]] {
-    var val = [[String:Any]]()
-    val.append(newTransactionDisplayDiscount2())
-    return val
-  }
-  func newTransactionDisplayDiscount2() -> [String:Any] {
-    var val: [String:Any] = [:]
-  val[@"description"] = @"memberDiscount";
-  val[@"amount"] = @"10.00";
-    return val;
-  }
 
 ```
 
@@ -2454,50 +2380,35 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"test"] = @YES;
-  request[@"terminalName"] = @"Test Terminal";
-  [request setObject:[self newTransactionDisplayTransaction] forKey:@"transaction"];
-  [client updateTransactionDisplayWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  request["test"] = true
+  request["terminalName"] = "Test Terminal"
+  var transaction: [String:Any] = [:]
+  transaction["subtotal"] = "60.00"
+  transaction["tax"] = "5.00"
+  transaction["total"] = "65.00"
+  var items = [Any]();
+  var items1: [String:Any] = [:]
+  items1["description"] = "Leki Trekking Poles"
+  items1["price"] = "35.00"
+  items1["quantity"] = 2
+  items1["extended"] = "70.00"
+  var discounts = [Any]();
+  var discounts1: [String:Any] = [:]
+  discounts1["description"] = "memberDiscount"
+  discounts1["amount"] = "10.00"
+  discounts.append(discounts1)
+  items1["discounts"] = discounts
+  items.append(items1)
+  transaction["items"] = items
+  request["transaction"] = transaction
+    [client updateTransactionDisplayWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
   }];
   [pool drain];
   return 0;
-}
-
-- (NSDictionary *) newTransactionDisplayTransaction {
-  NSMutableDictionary *val = [[NSMutableDictionary alloc] init];
-  val[@"subtotal"] = @"60.00";
-  val[@"tax"] = @"5.00";
-  val[@"total"] = @"65.00";
-  val[@"items"] = [self newTransactionDisplayItems];
-  return val;
-}
-- (NSArray *) newTransactionDisplayItems {
-  NSMutableArray *val = [[NSMutableArray alloc] init];
-  [val addObject: [self newTransactionDisplayItem2]];
-  return val;
-}
-- (NSDictionary *) newTransactionDisplayItem2 {
-  NSMutableDictionary *val = [[NSMutableDictionary alloc] init];
-  val[@"description"] = @"Leki Trekking Poles";
-  val[@"price"] = @"35.00";
-  val[@"extended"] = @"70.00";
-  val[@"discounts"] = [self newTransactionDisplayDiscounts];
-  return val;
-}
-- (NSArray *) newTransactionDisplayDiscounts {
-  NSMutableArray *val = [[NSMutableArray alloc] init];
-  [val addObject: [self newTransactionDisplayDiscount2]];
-  return val;
-}
-- (NSDictionary *) newTransactionDisplayDiscount2 {
-  NSMutableDictionary *val = [[NSMutableDictionary alloc] init];
-  val[@"description"] = @"memberDiscount";
-  val[@"amount"] = @"10.00";
-  return val;
 }
 
 ```
@@ -2519,47 +2430,33 @@ class ExampleClass {
     var request: [String:Any] = [:]
     request["test"] = true
     request["terminalName"] = "Test Terminal"
-    request["transaction"] = newTransactionDisplayTransaction()
-    client.updateTransactionDisplay(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+    var transaction: [String:Any] = [:]
+    transaction["subtotal"] = "60.00"
+    transaction["tax"] = "5.00"
+    transaction["total"] = "65.00"
+    var items = [Any]();
+    var items1: [String:Any] = [:]
+    items1["description"] = "Leki Trekking Poles"
+    items1["price"] = "35.00"
+    items1["quantity"] = 2
+    items1["extended"] = "70.00"
+    var discounts = [Any]();
+    var discounts1: [String:Any] = [:]
+    discounts1["description"] = "memberDiscount"
+    discounts1["amount"] = "10.00"
+    discounts.append(discounts1)
+    items1["discounts"] = discounts
+    items.append(items1)
+    transaction["items"] = items
+    request["transaction"] = transaction
+      client.updateTransactionDisplay(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
     })
   }
 
-  func newTransactionDisplayTransaction() -> [String:Any] {
-    var val: [String:Any] = [:]
-  val[@"subtotal"] = @"60.00";
-  val[@"tax"] = @"5.00";
-  val[@"total"] = @"65.00";
-  val[@"items"] = [self newTransactionDisplayItems];
-    return val
-  }
-  func newTransactionDisplayItems()  -> [[String:Any]] {
-    var val = [[String:Any]]()
-    val.append(newTransactionDisplayItem2())
-    return val
-  }
-  func newTransactionDisplayItem2() -> [String:Any] {
-    var val: [String:Any] = [:]
-  val[@"description"] = @"Leki Trekking Poles";
-  val[@"price"] = @"35.00";
-  val[@"extended"] = @"70.00";
-  val[@"discounts"] = [self newTransactionDisplayDiscounts];
-    return val;
-  }
-  func newTransactionDisplayDiscounts()  -> [[String:Any]] {
-    var val = [[String:Any]]()
-    val.append(newTransactionDisplayDiscount2())
-    return val
-  }
-  func newTransactionDisplayDiscount2() -> [String:Any] {
-    var val: [String:Any] = [:]
-  val[@"description"] = @"memberDiscount";
-  val[@"amount"] = @"10.00";
-    return val;
-  }
 
 ```
 
@@ -2591,11 +2488,11 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"test"] = @YES;
-  request[@"terminalName"] = @"Test Terminal";
-  request[@"message"] = @"Thank you for your business.";
-  [client messageWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  request["test"] = true
+  request["terminalName"] = "Test Terminal"
+  request["message"] = "Thank you for your business."
+    [client messageWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -2603,7 +2500,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -2625,8 +2521,8 @@ class ExampleClass {
     request["test"] = true
     request["terminalName"] = "Test Terminal"
     request["message"] = "Thank you for your business."
-    client.message(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.message(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -2673,13 +2569,13 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"test"] = @YES;
-  request[@"terminalName"] = @"Test Terminal";
-  request[@"prompt"] = @"Would you like to become a member?";
-  request[@"yesCaption"] = @"Yes";
-  request[@"noCaption"] = @"No";
-  [client booleanPromptWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  request["test"] = true
+  request["terminalName"] = "Test Terminal"
+  request["prompt"] = "Would you like to become a member?"
+  request["yesCaption"] = "Yes"
+  request["noCaption"] = "No"
+    [client booleanPromptWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -2688,7 +2584,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -2712,8 +2607,8 @@ class ExampleClass {
     request["prompt"] = "Would you like to become a member?"
     request["yesCaption"] = "Yes"
     request["noCaption"] = "No"
-    client.booleanPrompt(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.booleanPrompt(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -2770,11 +2665,11 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"test"] = @YES;
-  request[@"terminalName"] = @"Test Terminal";
-  request[@"promptType"] = PROMPT_TYPE_EMAIL;
-  [client textPromptWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  request["test"] = true
+  request["terminalName"] = "Test Terminal"
+  request["promptType"] = PROMPT_TYPE_EMAIL
+    [client textPromptWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -2783,7 +2678,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -2805,8 +2699,8 @@ class ExampleClass {
     request["test"] = true
     request["terminalName"] = "Test Terminal"
     request["promptType"] = PROMPT_TYPE_EMAIL
-    client.textPrompt(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.textPrompt(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -2846,9 +2740,9 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"timeout"] = @120;
-  [client terminalsWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  request["timeout"] = 120
+    [client terminalsWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -2856,7 +2750,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -2876,8 +2769,8 @@ class ExampleClass {
 
     var request: [String:Any] = [:]
     request["timeout"] = 120
-    client.terminals(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.terminals(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -2916,9 +2809,9 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"terminalId"] = @"<TERMINAL ID>";
-  [client deactivateTerminalWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  request["terminalId"] = "<TERMINAL ID>"
+    [client deactivateTerminalWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -2926,7 +2819,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -2946,8 +2838,8 @@ class ExampleClass {
 
     var request: [String:Any] = [:]
     request["terminalId"] = "<TERMINAL ID>"
-    client.deactivateTerminal(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.deactivateTerminal(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -2993,10 +2885,10 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"terminalName"] = @"Test Terminal";
-  request[@"timeout"] = @120;
-  [client activateTerminalWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  request["terminalName"] = "Test Terminal"
+  request["timeout"] = 120
+    [client activateTerminalWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -3004,7 +2896,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -3025,8 +2916,8 @@ class ExampleClass {
     var request: [String:Any] = [:]
     request["terminalName"] = "Test Terminal"
     request["timeout"] = 120
-    client.activateTerminal(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.activateTerminal(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -3120,16 +3011,16 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"test"] = @YES;
-  request[@"terminalName"] = @"Test Terminal";
-  request[@"tcAlias"] = @"hippa";
-  request[@"tcName"] = @"HIPPA Disclosure";
-  request[@"tcContent"] = @"Full contract text";
-  request[@"sigFormat"] = SIGNATURE_FORMAT_PNG;
-  request[@"sigWidth"] = @200;
-  request[@"sigRequired"] = @YES;
-  [client termsAndConditionsWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  request["test"] = true
+  request["terminalName"] = "Test Terminal"
+  request["tcAlias"] = "hippa"
+  request["tcName"] = "HIPPA Disclosure"
+  request["tcContent"] = "Full contract text"
+  request["sigFormat"] = SIGNATURE_FORMAT_PNG
+  request["sigWidth"] = 200
+  request["sigRequired"] = true
+    [client termsAndConditionsWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -3139,7 +3030,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -3166,8 +3056,8 @@ class ExampleClass {
     request["sigFormat"] = SIGNATURE_FORMAT_PNG
     request["sigWidth"] = 200
     request["sigRequired"] = true
-    client.termsAndConditions(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.termsAndConditions(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -3205,9 +3095,9 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"timeout"] = @120;
-  [client tcTemplatesWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  request["timeout"] = 120
+    [client tcTemplatesWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -3215,7 +3105,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -3235,8 +3124,8 @@ class ExampleClass {
 
     var request: [String:Any] = [:]
     request["timeout"] = 120
-    client.tcTemplates(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.tcTemplates(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -3272,9 +3161,9 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"timeout"] = @120;
-  [client tcTemplateWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  request["timeout"] = 120
+    [client tcTemplateWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -3282,7 +3171,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -3302,8 +3190,8 @@ class ExampleClass {
 
     var request: [String:Any] = [:]
     request["timeout"] = 120
-    client.tcTemplate(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.tcTemplate(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -3347,12 +3235,12 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"alias"] = @"HIPPA";
-  request[@"name"] = @"HIPPA Disclosure";
-  request[@"content"] = @"Lorem ipsum dolor sit amet.";
-  request[@"timeout"] = @120;
-  [client tcUpdateTemplateWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  request["alias"] = "HIPPA"
+  request["name"] = "HIPPA Disclosure"
+  request["content"] = "Lorem ipsum dolor sit amet."
+  request["timeout"] = 120
+    [client tcUpdateTemplateWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -3360,7 +3248,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -3383,8 +3270,8 @@ class ExampleClass {
     request["name"] = "HIPPA Disclosure"
     request["content"] = "Lorem ipsum dolor sit amet."
     request["timeout"] = 120
-    client.tcUpdateTemplate(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.tcUpdateTemplate(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -3424,9 +3311,9 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"timeout"] = @120;
-  [client tcDeleteTemplateWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  request["timeout"] = 120
+    [client tcDeleteTemplateWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -3434,7 +3321,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -3454,8 +3340,8 @@ class ExampleClass {
 
     var request: [String:Any] = [:]
     request["timeout"] = 120
-    client.tcDeleteTemplate(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.tcDeleteTemplate(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -3501,9 +3387,9 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"timeout"] = @120;
-  [client tcLogWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  request["timeout"] = 120
+    [client tcLogWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -3511,7 +3397,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -3531,8 +3416,8 @@ class ExampleClass {
 
     var request: [String:Any] = [:]
     request["timeout"] = 120
-    client.tcLog(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.tcLog(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -3571,9 +3456,9 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"timeout"] = @120;
-  [client tcEntryWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  request["timeout"] = 120
+    [client tcEntryWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -3581,7 +3466,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -3601,8 +3485,8 @@ class ExampleClass {
 
     var request: [String:Any] = [:]
     request["timeout"] = 120
-    client.tcEntry(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.tcEntry(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -3663,10 +3547,10 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"test"] = @YES;
-  request[@"terminalName"] = @"Test Terminal";
-  [client enrollWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"approved"];
+  request["test"] = true
+  request["terminalName"] = "Test Terminal"
+    [client enrollWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"approved"];
     if (success.boolValue) {
       NSLog(@"approved");
     }
@@ -3675,7 +3559,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -3696,8 +3579,8 @@ class ExampleClass {
     var request: [String:Any] = [:]
     request["test"] = true
     request["terminalName"] = "Test Terminal"
-    client.enroll(withRequest: request, handler: { (request, response, error) in
-      let approved = response["approved"] as? Bool
+      client.enroll(withRequest: request, handler: { (request, response, error) in
+        let approved = response["approved"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("approved")
       }
@@ -3740,9 +3623,9 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"token"] = @"Token to retrieve";
-  [client tokenMetadataWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  request["token"] = "Token to retrieve"
+    [client tokenMetadataWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -3750,7 +3633,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -3770,8 +3652,8 @@ class ExampleClass {
 
     var request: [String:Any] = [:]
     request["token"] = "Token to retrieve"
-    client.tokenMetadata(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.tokenMetadata(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -3808,10 +3690,10 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"token"] = @"Token to link";
-  request[@"customerId"] = @"Customer to link";
-  [client linkTokenWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  request["token"] = "Token to link"
+  request["customerId"] = "Customer to link"
+    [client linkTokenWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -3819,7 +3701,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -3840,8 +3721,8 @@ class ExampleClass {
     var request: [String:Any] = [:]
     request["token"] = "Token to link"
     request["customerId"] = "Customer to link"
-    client.linkToken(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.linkToken(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -3880,10 +3761,10 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"token"] = @"Token to unlink";
-  request[@"customerId"] = @"Customer to unlink";
-  [client unlinkTokenWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  request["token"] = "Token to unlink"
+  request["customerId"] = "Customer to unlink"
+    [client unlinkTokenWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -3891,7 +3772,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -3912,8 +3792,8 @@ class ExampleClass {
     var request: [String:Any] = [:]
     request["token"] = "Token to unlink"
     request["customerId"] = "Customer to unlink"
-    client.unlinkToken(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.unlinkToken(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -3950,9 +3830,9 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"token"] = @"Token to delete";
-  [client deleteTokenWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  request["token"] = "Token to delete"
+    [client deleteTokenWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -3960,7 +3840,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -3980,8 +3859,8 @@ class ExampleClass {
 
     var request: [String:Any] = [:]
     request["token"] = "Token to delete"
-    client.deleteToken(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.deleteToken(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -4053,9 +3932,17 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  [request setObject:[self newCustomer] forKey:@"customer"];
-  [client updateCustomerWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  var customer: [String:Any] = [:]
+  customer["id"] = "ID of the customer to update"
+  customer["customerRef"] = "Customer reference string"
+  customer["firstName"] = "FirstName"
+  customer["lastName"] = "LastName"
+  customer["companyName"] = "Company Name"
+  customer["emailAddress"] = "support@blockchyp.com"
+  customer["smsNumber"] = "(123) 123-1231"
+  request["customer"] = customer
+    [client updateCustomerWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -4063,18 +3950,6 @@ int main (int argc, const char * argv[])
   }];
   [pool drain];
   return 0;
-}
-
-- (NSDictionary *) newCustomer {
-  NSMutableDictionary *val = [[NSMutableDictionary alloc] init];
-  val[@"id"] = @"ID of the customer to update";
-  val[@"customerRef"] = @"Customer reference string";
-  val[@"firstName"] = @"FirstName";
-  val[@"lastName"] = @"LastName";
-  val[@"companyName"] = @"Company Name";
-  val[@"emailAddress"] = @"support@blockchyp.com";
-  val[@"smsNumber"] = @"(123) 123-1231";
-  return val;
 }
 
 ```
@@ -4094,9 +3969,17 @@ class ExampleClass {
     )
 
     var request: [String:Any] = [:]
-    request["customer"] = newCustomer()
-    client.updateCustomer(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+    var customer: [String:Any] = [:]
+    customer["id"] = "ID of the customer to update"
+    customer["customerRef"] = "Customer reference string"
+    customer["firstName"] = "FirstName"
+    customer["lastName"] = "LastName"
+    customer["companyName"] = "Company Name"
+    customer["emailAddress"] = "support@blockchyp.com"
+    customer["smsNumber"] = "(123) 123-1231"
+    request["customer"] = customer
+      client.updateCustomer(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -4104,17 +3987,6 @@ class ExampleClass {
     })
   }
 
-  func newCustomer() -> [String:Any] {
-    var val: [String:Any] = [:]
-  val[@"id"] = @"ID of the customer to update";
-  val[@"customerRef"] = @"Customer reference string";
-  val[@"firstName"] = @"FirstName";
-  val[@"lastName"] = @"LastName";
-  val[@"companyName"] = @"Company Name";
-  val[@"emailAddress"] = @"support@blockchyp.com";
-  val[@"smsNumber"] = @"(123) 123-1231";
-    return val
-  }
 
 ```
 
@@ -4147,9 +4019,9 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"customerId"] = @"ID of the customer to retrieve";
-  [client customerWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  request["customerId"] = "ID of the customer to retrieve"
+    [client customerWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -4158,7 +4030,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -4178,8 +4049,8 @@ class ExampleClass {
 
     var request: [String:Any] = [:]
     request["customerId"] = "ID of the customer to retrieve"
-    client.customer(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.customer(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -4219,9 +4090,9 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"query"] = @"(123) 123-1234";
-  [client customerSearchWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  request["query"] = "(123) 123-1234"
+    [client customerSearchWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -4230,7 +4101,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -4250,8 +4120,8 @@ class ExampleClass {
 
     var request: [String:Any] = [:]
     request["query"] = "(123) 123-1234"
-    client.customerSearch(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.customerSearch(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -4288,9 +4158,9 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"customerId"] = @"ID of the customer to delete";
-  [client deleteCustomerWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  request["customerId"] = "ID of the customer to delete"
+    [client deleteCustomerWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -4298,7 +4168,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -4318,8 +4187,8 @@ class ExampleClass {
 
     var request: [String:Any] = [:]
     request["customerId"] = "ID of the customer to delete"
-    client.deleteCustomer(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.deleteCustomer(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -4371,8 +4240,8 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  [client surveyQuestionsWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+    [client surveyQuestionsWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -4380,7 +4249,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -4399,8 +4267,8 @@ class ExampleClass {
     )
 
     var request: [String:Any] = [:]
-    client.surveyQuestions(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.surveyQuestions(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -4436,9 +4304,9 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"questionId"] = @"XXXXXXXX";
-  [client surveyQuestionWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  request["questionId"] = "XXXXXXXX"
+    [client surveyQuestionWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -4446,7 +4314,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -4466,8 +4333,8 @@ class ExampleClass {
 
     var request: [String:Any] = [:]
     request["questionId"] = "XXXXXXXX"
-    client.surveyQuestion(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.surveyQuestion(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -4512,12 +4379,12 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"ordinal"] = @1;
-  request[@"questionText"] = @"Would you shop here again?";
-  request[@"questionType"] = @"yes_no";
-  request[@"enabled"] = @YES;
-  [client updateSurveyQuestionWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  request["ordinal"] = 1
+  request["questionText"] = "Would you shop here again?"
+  request["questionType"] = "yes_no"
+  request["enabled"] = true
+    [client updateSurveyQuestionWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -4525,7 +4392,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -4548,8 +4414,8 @@ class ExampleClass {
     request["questionText"] = "Would you shop here again?"
     request["questionType"] = "yes_no"
     request["enabled"] = true
-    client.updateSurveyQuestion(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.updateSurveyQuestion(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -4585,9 +4451,9 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"questionId"] = @"XXXXXXXX";
-  [client deleteSurveyQuestionWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  request["questionId"] = "XXXXXXXX"
+    [client deleteSurveyQuestionWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -4595,7 +4461,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -4615,8 +4480,8 @@ class ExampleClass {
 
     var request: [String:Any] = [:]
     request["questionId"] = "XXXXXXXX"
-    client.deleteSurveyQuestion(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.deleteSurveyQuestion(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -4664,9 +4529,9 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"questionId"] = @"<SURVEY QUESTION ID>";
-  [client surveyResultsWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  request["questionId"] = "<SURVEY QUESTION ID>"
+    [client surveyResultsWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -4674,7 +4539,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -4694,8 +4558,8 @@ class ExampleClass {
 
     var request: [String:Any] = [:]
     request["questionId"] = "<SURVEY QUESTION ID>"
-    client.surveyResults(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.surveyResults(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -4771,9 +4635,9 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"timeout"] = @120;
-  [client mediaWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  request["timeout"] = 120
+    [client mediaWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -4781,7 +4645,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -4801,8 +4664,8 @@ class ExampleClass {
 
     var request: [String:Any] = [:]
     request["timeout"] = 120
-    client.media(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.media(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -4869,11 +4732,12 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"fileName"] = @"aviato.png";
-  request[@"fileSize"] = 18843;
-  request[@"uploadId"] = @"<RANDOM ID>";
-  [client uploadMediaWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  request["fileName"] = "aviato.png"
+  request["fileSize"] = 18843
+  request["uploadId"] = "<RANDOM ID>"
+  NSData *content = [NSData dataWithContentsOfFile:@"aviato.png"];
+  [client uploadMediaWithRequest:request content:content handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -4881,7 +4745,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -4903,8 +4766,9 @@ class ExampleClass {
     request["fileName"] = "aviato.png"
     request["fileSize"] = 18843
     request["uploadId"] = "<RANDOM ID>"
-    client.uploadMedia(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+    var content = Data(contentsOfFile: "aviato.png")
+    client.uploadMedia(withRequest: request, content: content, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -4947,9 +4811,9 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"timeout"] = @120;
-  [client uploadStatusWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  request["timeout"] = 120
+    [client uploadStatusWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -4957,7 +4821,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -4977,8 +4840,8 @@ class ExampleClass {
 
     var request: [String:Any] = [:]
     request["timeout"] = 120
-    client.uploadStatus(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.uploadStatus(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -5016,9 +4879,9 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"mediaId"] = @"<MEDIA ASSET ID>";
-  [client mediaAssetWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  request["mediaId"] = "<MEDIA ASSET ID>"
+    [client mediaAssetWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -5026,7 +4889,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -5046,8 +4908,8 @@ class ExampleClass {
 
     var request: [String:Any] = [:]
     request["mediaId"] = "<MEDIA ASSET ID>"
-    client.mediaAsset(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.mediaAsset(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -5084,9 +4946,9 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"timeout"] = @120;
-  [client deleteMediaAssetWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  request["timeout"] = 120
+    [client deleteMediaAssetWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -5094,7 +4956,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -5114,8 +4975,8 @@ class ExampleClass {
 
     var request: [String:Any] = [:]
     request["timeout"] = 120
-    client.deleteMediaAsset(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.deleteMediaAsset(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -5153,8 +5014,8 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  [client slideShowsWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+    [client slideShowsWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -5162,7 +5023,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -5181,8 +5041,8 @@ class ExampleClass {
     )
 
     var request: [String:Any] = [:]
-    client.slideShows(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.slideShows(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -5221,9 +5081,9 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"slideShowId"] = @"<SLIDE SHOW ID>";
-  [client slideShowWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  request["slideShowId"] = "<SLIDE SHOW ID>"
+    [client slideShowWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -5231,7 +5091,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -5251,8 +5110,8 @@ class ExampleClass {
 
     var request: [String:Any] = [:]
     request["slideShowId"] = "<SLIDE SHOW ID>"
-    client.slideShow(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.slideShow(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -5295,27 +5154,21 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"name"] = @"Test Slide Show";
-  request[@"delay"] = @5;
-  [client updateSlideShowWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  request["name"] = "Test Slide Show"
+  request["delay"] = 5
+  var slides = [Any]();
+  var slides1: [String:Any] = [:]
+  slides1["mediaId"] = "<MEDIA ID>"
+  slides.append(slides1)
+  request["slides"] = slides
+    [client updateSlideShowWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
   }];
   [pool drain];
   return 0;
-}
-
-- (NSArray *) newSlides {
-  NSMutableArray *val = [[NSMutableArray alloc] init];
-  [val addObject: [self newSlide1]];
-  return val;
-}
-- (NSDictionary *) newSlide1 {
-  NSMutableDictionary *val = [[NSMutableDictionary alloc] init];
-  val[@"mediaId"] = @"<MEDIA ID>";
-  return val;
 }
 
 ```
@@ -5337,24 +5190,19 @@ class ExampleClass {
     var request: [String:Any] = [:]
     request["name"] = "Test Slide Show"
     request["delay"] = 5
-    client.updateSlideShow(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+    var slides = [Any]();
+    var slides1: [String:Any] = [:]
+    slides1["mediaId"] = "<MEDIA ID>"
+    slides.append(slides1)
+    request["slides"] = slides
+      client.updateSlideShow(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
     })
   }
 
-  func newSlides()  -> [[String:Any]] {
-    var val = [[String:Any]]()
-    val.append(newSlide1())
-    return val
-  }
-  func newSlide1() -> [String:Any] {
-    var val: [String:Any] = [:]
-  val[@"mediaId"] = @"<MEDIA ID>";
-    return val;
-  }
 
 ```
 
@@ -5384,9 +5232,9 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"slideShowId"] = @"<SLIDE SHOW ID>";
-  [client deleteSlideShowWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  request["slideShowId"] = "<SLIDE SHOW ID>"
+    [client deleteSlideShowWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -5394,7 +5242,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -5414,8 +5261,8 @@ class ExampleClass {
 
     var request: [String:Any] = [:]
     request["slideShowId"] = "<SLIDE SHOW ID>"
-    client.deleteSlideShow(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.deleteSlideShow(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -5460,8 +5307,8 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  [client terminalBrandingWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+    [client terminalBrandingWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -5469,7 +5316,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -5488,8 +5334,8 @@ class ExampleClass {
     )
 
     var request: [String:Any] = [:]
-    client.terminalBranding(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.terminalBranding(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -5588,9 +5434,9 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"timeout"] = @120;
-  [client updateBrandingAssetWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  request["timeout"] = 120
+    [client updateBrandingAssetWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -5598,7 +5444,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -5618,8 +5463,8 @@ class ExampleClass {
 
     var request: [String:Any] = [:]
     request["timeout"] = 120
-    client.updateBrandingAsset(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.updateBrandingAsset(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -5658,9 +5503,9 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"assetId"] = @"<BRANDING ASSET ID>";
-  [client deleteBrandingAssetWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  request["assetId"] = "<BRANDING ASSET ID>"
+    [client deleteBrandingAssetWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -5668,7 +5513,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -5688,8 +5532,8 @@ class ExampleClass {
 
     var request: [String:Any] = [:]
     request["assetId"] = "<BRANDING ASSET ID>"
-    client.deleteBrandingAsset(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.deleteBrandingAsset(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -5802,8 +5646,8 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  [client merchantProfileWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+    [client merchantProfileWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -5811,7 +5655,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -5830,8 +5673,8 @@ class ExampleClass {
     )
 
     var request: [String:Any] = [:]
-    client.merchantProfile(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.merchantProfile(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -5873,9 +5716,9 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"test"] = @YES;
-  [client getMerchantsWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  request["test"] = true
+    [client getMerchantsWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -5883,7 +5726,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -5903,8 +5745,8 @@ class ExampleClass {
 
     var request: [String:Any] = [:]
     request["test"] = true
-    client.getMerchants(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.getMerchants(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -6003,9 +5845,9 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"test"] = @YES;
-  [client updateMerchantWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  request["test"] = true
+    [client updateMerchantWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -6013,7 +5855,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -6033,8 +5874,8 @@ class ExampleClass {
 
     var request: [String:Any] = [:]
     request["test"] = true
-    client.updateMerchant(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.updateMerchant(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -6070,9 +5911,9 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"merchantId"] = @"XXXXXXXXXXXXX";
-  [client merchantUsersWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  request["merchantId"] = "XXXXXXXXXXXXX"
+    [client merchantUsersWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -6080,7 +5921,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -6100,8 +5940,8 @@ class ExampleClass {
 
     var request: [String:Any] = [:]
     request["merchantId"] = "XXXXXXXXXXXXX"
-    client.merchantUsers(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.merchantUsers(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -6144,9 +5984,9 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"email"] = @"Email address for the invite";
-  [client inviteMerchantUserWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  request["email"] = "Email address for the invite"
+    [client inviteMerchantUserWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -6154,7 +5994,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -6174,8 +6013,8 @@ class ExampleClass {
 
     var request: [String:Any] = [:]
     request["email"] = "Email address for the invite"
-    client.inviteMerchantUser(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.inviteMerchantUser(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -6214,10 +6053,10 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"dbaName"] = @"DBA name.";
-  request[@"companyName"] = @"test merchant customer name.";
-  [client addTestMerchantWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  request["dbaName"] = "DBA name."
+  request["companyName"] = "test merchant customer name."
+    [client addTestMerchantWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -6225,7 +6064,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -6246,8 +6084,8 @@ class ExampleClass {
     var request: [String:Any] = [:]
     request["dbaName"] = "DBA name."
     request["companyName"] = "test merchant customer name."
-    client.addTestMerchant(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.addTestMerchant(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
@@ -6283,9 +6121,9 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"merchantId"] = @"ID for the test merchant being deleted.";
-  [client deleteTestMerchantWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-    NSNumber *success = [response objectForKey:@"success"];
+  request["merchantId"] = "ID for the test merchant being deleted."
+    [client deleteTestMerchantWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
       NSLog(@"Success");
     }
@@ -6293,7 +6131,6 @@ int main (int argc, const char * argv[])
   [pool drain];
   return 0;
 }
-
 
 ```
 
@@ -6313,8 +6150,8 @@ class ExampleClass {
 
     var request: [String:Any] = [:]
     request["merchantId"] = "ID for the test merchant being deleted."
-    client.deleteTestMerchant(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.deleteTestMerchant(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }

@@ -12,21 +12,16 @@ class ExampleClass {
     var request: [String:Any] = [:]
     request["name"] = "Test Slide Show"
     request["delay"] = 5
-    client.updateSlideShow(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+    var slides = [Any]();
+    var slides1: [String:Any] = [:]
+    slides1["mediaId"] = "<MEDIA ID>"
+    slides.append(slides1)
+    request["slides"] = slides
+      client.updateSlideShow(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }
     })
   }
 
-  func newSlides()  -> [[String:Any]] {
-    var val = [[String:Any]]()
-    val.append(newSlide1())
-    return val
-  }
-  func newSlide1() -> [String:Any] {
-    var val: [String:Any] = [:]
-  val[@"mediaId"] = @"<MEDIA ID>";
-    return val;
-  }

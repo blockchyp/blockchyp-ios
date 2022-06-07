@@ -11,8 +11,8 @@ class ExampleClass {
 
     var request: [String:Any] = [:]
     request["merchantId"] = "XXXXXXXXXXXXX"
-    client.merchantUsers(withRequest: request, handler: { (request, response, error) in
-      let approved = response["success"] as? Bool
+      client.merchantUsers(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
       }

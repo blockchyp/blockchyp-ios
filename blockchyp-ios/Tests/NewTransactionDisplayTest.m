@@ -1,10 +1,8 @@
+// Copyright 2019-2022 BlockChyp, Inc. All rights reserved. Use of this code
+// is governed by a license that can be found in the LICENSE file.
 //
-//  Tests.m
-//  Tests
-//
-//  Created by Jeff Payne on 12/15/19.
-//  Copyright © 2019 Jeff Payne. All rights reserved.
-//
+// This file was generated automatically by the BlockChyp SDK Generator.
+// Changes to this file will be lost every time the code is regenerated.
 
 #import "BlockChypTest.h"
 
@@ -22,8 +20,8 @@
   BlockChyp *client = [[BlockChyp alloc] initWithApiKey:config.apiKey bearerToken:config.bearerToken signingKey:config.signingKey];
   client.gatewayHost = config.gatewayHost;
   client.testGatewayHost = config.testGatewayHost;
+  client.dashboardHost = config.dashboardHost;
 
-  [self testDelayWith:client testName:@"NewTransactionDisplayTest"];
 
 
 }
@@ -38,59 +36,51 @@
   BlockChyp *client = [[BlockChyp alloc] initWithApiKey:config.apiKey bearerToken:config.bearerToken signingKey:config.signingKey];
   client.gatewayHost = config.gatewayHost;
   client.testGatewayHost = config.testGatewayHost;
+  client.dashboardHost = config.dashboardHost;
 
+  
   XCTestExpectation *expectation = [self expectationWithDescription:@"NewTransactionDisplay Test"];
 
-      NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-        request[@"test"] = @YES;
-        request[@"terminalName"] = @"Test Terminal";
-        [request setObject:[self newTransactionDisplayTransaction] forKey:@"transaction"];
+  NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
+  request[@"test"] = @YES;
+  request[@"terminalName"] = @"Test Terminal";
+  NSMutableDictionary *transaction = [[NSMutableDictionary alloc] init];
+  transaction[@"subtotal"] = @"35.00";
+  transaction[@"tax"] = @"5.00";
+  transaction[@"total"] = @"70.00";
+  NSMutableArray *items = [[NSMutableArray alloc] init];
+  NSMutableDictionary *items1 = [[NSMutableDictionary alloc] init];
+  items1[@"description"] = @"Leki Trekking Poles";
+  items1[@"price"] = @"35.00";
+  items1[@"quantity"] = @2;
+  items1[@"extended"] = @"70.00";
+  NSMutableArray *discounts = [[NSMutableArray alloc] init];
+  NSMutableDictionary *discounts1 = [[NSMutableDictionary alloc] init];
+  discounts1[@"description"] = @"memberDiscount";
+  discounts1[@"amount"] = @"10.00";
+  [discounts addObject:discounts1];
+  items1[@"discounts"] = discounts;
+  [items addObject:items1];
+  transaction[@"items"] = items;
+  request[@"transaction"] = transaction;
 
   [client newTransactionDisplayWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+
     [self logJSON:response];
     XCTAssertNotNil(response);
     // response assertions
-    XCTAssertTrue([response objectForKey:@"success"]);
-
+    XCTAssertTrue([[response objectForKey:@"success"]boolValue]);
+  
     [expectation fulfill];
   }];
 
-  [self waitForExpectationsWithTimeout:30 handler:nil];
+  @try {
+      [self waitForExpectationsWithTimeout:60 handler:nil];
+  }
+  @catch (NSException *exception) {
+    NSLog(@"Exception:%@",exception);
+  }
 
 }
-
-- (NSDictionary *) newTransactionDisplayTransaction {
-  NSMutableDictionary *val = [[NSMutableDictionary alloc] init];
-  val[@"subtotal"] = @"35.00";
-  val[@"tax"] = @"5.00";
-  val[@"total"] = @"70.00";
-  val[@"items"] = [self newTransactionDisplayItems];
-  return val;
-}
-- (NSArray *) newTransactionDisplayItems {
-  NSMutableArray *val = [[NSMutableArray alloc] init];
-  [val addObject: [self newTransactionDisplayItem2]];
-  return val;
-}
-- (NSDictionary *) newTransactionDisplayItem2 {
-  NSMutableDictionary *val = [[NSMutableDictionary alloc] init];
-  val[@"description"] = @"Leki Trekking Poles";
-  val[@"price"] = @"35.00";
-  val[@"extended"] = @"70.00";
-  val[@"discounts"] = [self newTransactionDisplayDiscounts];
-  return val;
-}
-- (NSArray *) newTransactionDisplayDiscounts {
-  NSMutableArray *val = [[NSMutableArray alloc] init];
-  [val addObject: [self newTransactionDisplayDiscount2]];
-  return val;
-}
-- (NSDictionary *) newTransactionDisplayDiscount2 {
-  NSMutableDictionary *val = [[NSMutableDictionary alloc] init];
-  val[@"description"] = @"memberDiscount";
-  val[@"amount"] = @"10.00";
-  return val;
-}
-
 
 @end

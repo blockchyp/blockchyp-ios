@@ -1,8 +1,8 @@
+// Copyright 2019-2022 BlockChyp, Inc. All rights reserved. Use of this code
+// is governed by a license that can be found in the LICENSE file.
 //
-//  BlockChyp.m
-//
-//  Created by Jeff Payne on 12/15/19.
-//
+// This file was generated automatically by the BlockChyp SDK Generator.
+// Changes to this file will be lost every time the code is regenerated.
 
 #import "BlockChyp.h"
 
@@ -300,6 +300,291 @@
   [self routeGatewayRequestWith:request path:[@"/api/token/" stringByAppendingString:[request objectForKey:@"token"]] method:@"DELETE" handler:handler];
 
 }
+
+
+
+// Adds a test merchant account.
+-(void)getMerchantsWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeDashboardRequestWith:request path:@"/api/get-merchants" method:@"POST" handler:handler];
+
+}
+
+
+// Adds or updates a merchant account. Can be used to create or update test
+// merchants. Only gateway only partners may create new live merchants.
+-(void)updateMerchantWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeDashboardRequestWith:request path:@"/api/update-merchant" method:@"POST" handler:handler];
+
+}
+
+
+// List all active users and pending invites for a merchant account.
+-(void)merchantUsersWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeDashboardRequestWith:request path:@"/api/merchant-users" method:@"POST" handler:handler];
+
+}
+
+
+// Invites a user to join a merchant account.
+-(void)inviteMerchantUserWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeDashboardRequestWith:request path:@"/api/invite-merchant-user" method:@"POST" handler:handler];
+
+}
+
+
+// Adds a test merchant account.
+-(void)addTestMerchantWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeDashboardRequestWith:request path:@"/api/add-test-merchant" method:@"POST" handler:handler];
+
+}
+
+
+// Deletes a test merchant account. Supports partner scoped API credentials
+// only. Live merchant accounts cannot be deleted.
+-(void)deleteTestMerchantWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeDashboardRequestWith:request path:[@"/api/test-merchant/" stringByAppendingString:[request objectForKey:@"merchantId"]] method:@"DELETE" handler:handler];
+
+}
+
+
+// List all merchant platforms configured for a gateway merchant.
+-(void)merchantPlatformsWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeDashboardRequestWith:request path:[@"/api/plugin-configs/" stringByAppendingString:[request objectForKey:@"merchantId"]] method:@"GET" handler:handler];
+
+}
+
+
+// List all merchant platforms configured for a gateway merchant.
+-(void)updateMerchantPlatformsWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeDashboardRequestWith:request path:@"/api/plugin-configs" method:@"POST" handler:handler];
+
+}
+
+
+// Deletes a boarding platform configuration.
+-(void)deleteMerchantPlatformsWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeDashboardRequestWith:request path:[@"/api/plugin-config/" stringByAppendingString:[request objectForKey:@"platformId"]] method:@"DELETE" handler:handler];
+
+}
+
+
+// Returns all terminals associated with the merchant account.
+-(void)terminalsWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeDashboardRequestWith:request path:@"/api/terminals" method:@"GET" handler:handler];
+
+}
+
+
+// Deactivates a terminal.
+-(void)deactivateTerminalWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeDashboardRequestWith:request path:[@"/api/terminal/" stringByAppendingString:[request objectForKey:@"terminalId"]] method:@"DELETE" handler:handler];
+
+}
+
+
+// Activates a terminal.
+-(void)activateTerminalWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeDashboardRequestWith:request path:@"/api/terminal-activate" method:@"POST" handler:handler];
+
+}
+
+
+// Returns a list of terms and conditions templates associated with a merchant
+// account.
+-(void)tcTemplatesWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeDashboardRequestWith:request path:@"/api/tc-templates" method:@"GET" handler:handler];
+
+}
+
+
+// Returns a single terms and conditions template.
+-(void)tcTemplateWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeDashboardRequestWith:request path:[@"/api/tc-templates/" stringByAppendingString:[request objectForKey:@"templateId"]] method:@"GET" handler:handler];
+
+}
+
+
+// Updates or creates a terms and conditions template.
+-(void)tcUpdateTemplateWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeDashboardRequestWith:request path:@"/api/tc-templates" method:@"POST" handler:handler];
+
+}
+
+
+// Deletes a single terms and conditions template.
+-(void)tcDeleteTemplateWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeDashboardRequestWith:request path:[@"/api/tc-templates/" stringByAppendingString:[request objectForKey:@"templateId"]] method:@"DELETE" handler:handler];
+
+}
+
+
+// Returns up to 250 entries from the Terms and Conditions log.
+-(void)tcLogWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeDashboardRequestWith:request path:@"/api/tc-log" method:@"POST" handler:handler];
+
+}
+
+
+// Returns a single detailed Terms and Conditions entry.
+-(void)tcEntryWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeDashboardRequestWith:request path:[@"/api/tc-entry/" stringByAppendingString:[request objectForKey:@"logEntryId"]] method:@"GET" handler:handler];
+
+}
+
+
+// Returns all survey questions for a given merchant.
+-(void)surveyQuestionsWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeDashboardRequestWith:request path:@"/api/survey-questions" method:@"GET" handler:handler];
+
+}
+
+
+// Returns a single survey question with response data.
+-(void)surveyQuestionWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeDashboardRequestWith:request path:[@"/api/survey-questions/" stringByAppendingString:[request objectForKey:@"questionId"]] method:@"GET" handler:handler];
+
+}
+
+
+// Updates or creates a survey question.
+-(void)updateSurveyQuestionWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeDashboardRequestWith:request path:@"/api/survey-questions" method:@"POST" handler:handler];
+
+}
+
+
+// Deletes a survey question.
+-(void)deleteSurveyQuestionWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeDashboardRequestWith:request path:[@"/api/survey-questions/" stringByAppendingString:[request objectForKey:@"questionId"]] method:@"DELETE" handler:handler];
+
+}
+
+
+// Returns results for a single survey question.
+-(void)surveyResultsWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeDashboardRequestWith:request path:@"/api/survey-results" method:@"POST" handler:handler];
+
+}
+
+
+// Returns the media library for a given partner, merchant, or organization.
+-(void)mediaWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeDashboardRequestWith:request path:@"/api/media" method:@"GET" handler:handler];
+
+}
+
+
+// Uploads a media asset to the media library.
+-(void)uploadMediaWithRequest:(NSDictionary *)request content:(NSData *)content handler:(BlockChypCompletionHandler)handler  {
+
+  [self routeUploadRequestWith:request path:@"/api/upload-media" content:content handler:handler];
+
+}
+
+
+// Retrieves the current status of a file upload.
+-(void)uploadStatusWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeDashboardRequestWith:request path:[@"/api/media-upload/" stringByAppendingString:[request objectForKey:@"uploadId"]] method:@"GET" handler:handler];
+
+}
+
+
+// Returns the media details for a single media asset.
+-(void)mediaAssetWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeDashboardRequestWith:request path:[@"/api/media/" stringByAppendingString:[request objectForKey:@"mediaId"]] method:@"GET" handler:handler];
+
+}
+
+
+// Deletes a media asset.
+-(void)deleteMediaAssetWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeDashboardRequestWith:request path:[@"/api/media/" stringByAppendingString:[request objectForKey:@"mediaId"]] method:@"DELETE" handler:handler];
+
+}
+
+
+// Returns a collection of slide shows.
+-(void)slideShowsWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeDashboardRequestWith:request path:@"/api/slide-shows" method:@"GET" handler:handler];
+
+}
+
+
+// Returns a single slide show with slides.
+-(void)slideShowWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeDashboardRequestWith:request path:[@"/api/slide-shows/" stringByAppendingString:[request objectForKey:@"slideShowId"]] method:@"GET" handler:handler];
+
+}
+
+
+// Updates or creates a slide show.
+-(void)updateSlideShowWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeDashboardRequestWith:request path:@"/api/slide-shows" method:@"POST" handler:handler];
+
+}
+
+
+// Deletes a single slide show.
+-(void)deleteSlideShowWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeDashboardRequestWith:request path:[@"/api/slide-shows/" stringByAppendingString:[request objectForKey:@"slideShowId"]] method:@"DELETE" handler:handler];
+
+}
+
+
+// Returns the terminal branding stack for a given set of API credentials.
+-(void)terminalBrandingWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeDashboardRequestWith:request path:@"/api/terminal-branding" method:@"GET" handler:handler];
+
+}
+
+
+// Updates a branding asset.
+-(void)updateBrandingAssetWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeDashboardRequestWith:request path:@"/api/terminal-branding" method:@"POST" handler:handler];
+
+}
+
+
+// Deletes a branding asset.
+-(void)deleteBrandingAssetWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeDashboardRequestWith:request path:[@"/api/terminal-branding/" stringByAppendingString:[request objectForKey:@"assetId"]] method:@"DELETE" handler:handler];
+
+}
+
 
 
 @end
