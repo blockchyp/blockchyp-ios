@@ -12,6 +12,7 @@ static const int CARD_TYPE_CREDIT = 0;
 static const int CARD_TYPE_DEBIT = 1;
 static const int CARD_TYPE_EBT = 2;
 static const int CARD_TYPE_BLOCKCHAIN_GIFT = 3;
+static const int CARD_TYPE_HEALTHCARE = 4;
 
 
 static const NSString * SIGNATURE_FORMAT_NONE = @"";
@@ -32,6 +33,12 @@ static const NSString * CVM_TYPE_OFFLINE_PIN = @"Offline PIN";
 static const NSString * CVM_TYPE_ONLINE_PIN = @"Online PIN";
 static const NSString * CVM_TYPE_CDCVM = @"CDCVM";
 static const NSString * CVM_TYPE_NO_CVM = @"No CVM";
+
+static const NSString * HEALTHCARE_TYPE_HEALTHCARE = @"healthcare";
+static const NSString * HEALTHCARE_TYPE_PRESCRIPTION = @"prescription";
+static const NSString * HEALTHCARE_TYPE_VISION = @"vision";
+static const NSString * HEALTHCARE_TYPE_CLINIC = @"clinic";
+static const NSString * HEALTHCARE_TYPE_DENTAL = @"dental";
 
 NS_ASSUME_NONNULL_BEGIN
 
