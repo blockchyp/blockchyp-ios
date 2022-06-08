@@ -12,7 +12,8 @@ int main (int argc, const char * argv[])
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
   request["test"] = true
-  request["transactionId"] = "<PREAUTH TRANSACTION ID>"
+  request["transactionId"] = "<ORIGINAL TRANSACTION ID>"
+  request["amount"] = "32.00"
     [client captureWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
       NSNumber *success = [response objectForKey:@"approved"];
     if (success.boolValue) {

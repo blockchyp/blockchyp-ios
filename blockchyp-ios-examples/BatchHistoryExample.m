@@ -12,7 +12,7 @@ int main (int argc, const char * argv[])
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
   request["maxResults"] = 250
-  request["startIndex"] = 1
+  request["startIndex"] = 0
     [client batchHistoryWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
       NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {

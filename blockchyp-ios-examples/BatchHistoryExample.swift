@@ -11,7 +11,7 @@ class ExampleClass {
 
     var request: [String:Any] = [:]
     request["maxResults"] = 250
-    request["startIndex"] = 1
+    request["startIndex"] = 0
       client.batchHistory(withRequest: request, handler: { (request, response, error) in
         let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {

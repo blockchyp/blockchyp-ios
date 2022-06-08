@@ -10,7 +10,16 @@ class ExampleClass {
     )
 
     var request: [String:Any] = [:]
+    request["merchantId"] = "<MERCHANT ID>"
     request["test"] = true
+    request["dbaName"] = "Test Merchant"
+    request["companyName"] = "Test Merchant"
+    var billingaddress: [String:Any] = [:]
+    billingaddress["address1"] = "1060 West Addison"
+    billingaddress["city"] = "Chicago"
+    billingaddress["stateOrProvince"] = "IL"
+    billingaddress["postalCode"] = "60613"
+    request["billingAddress"] = billingaddress
       client.updateMerchant(withRequest: request, handler: { (request, response, error) in
         let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {

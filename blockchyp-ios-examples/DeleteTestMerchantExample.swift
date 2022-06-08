@@ -10,7 +10,7 @@ class ExampleClass {
     )
 
     var request: [String:Any] = [:]
-    request["merchantId"] = "ID for the test merchant being deleted."
+    request["merchantId"] = "<MERCHANT ID>"
       client.deleteTestMerchant(withRequest: request, handler: { (request, response, error) in
         let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {

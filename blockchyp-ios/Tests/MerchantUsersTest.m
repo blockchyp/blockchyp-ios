@@ -42,7 +42,6 @@
   XCTestExpectation *expectation = [self expectationWithDescription:@"MerchantUsers Test"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"timeout"] = @120;
 
   [client merchantUsersWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
 

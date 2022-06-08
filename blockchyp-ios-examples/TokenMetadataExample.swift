@@ -10,7 +10,7 @@ class ExampleClass {
     )
 
     var request: [String:Any] = [:]
-    request["token"] = "Token to retrieve"
+    request["token"] = "<TOKEN>"
       client.tokenMetadata(withRequest: request, handler: { (request, response, error) in
         let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {

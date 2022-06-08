@@ -14,7 +14,6 @@ int main (int argc, const char * argv[])
   request["alias"] = "HIPPA"
   request["name"] = "HIPPA Disclosure"
   request["content"] = "Lorem ipsum dolor sit amet."
-  request["timeout"] = 120
     [client tcUpdateTemplateWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
       NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {

@@ -10,8 +10,8 @@ class ExampleClass {
     )
 
     var request: [String:Any] = [:]
-    request["token"] = "Token to unlink"
-    request["customerId"] = "Customer to unlink"
+    request["token"] = "<TOKEN>"
+    request["customerId"] = "<CUSTOMER ID>"
       client.unlinkToken(withRequest: request, handler: { (request, response, error) in
         let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {

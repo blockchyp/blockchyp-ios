@@ -11,8 +11,8 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request["token"] = "Token to link"
-  request["customerId"] = "Customer to link"
+  request["token"] = "<TOKEN>"
+  request["customerId"] = "<CUSTOMER ID>"
     [client linkTokenWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
       NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {

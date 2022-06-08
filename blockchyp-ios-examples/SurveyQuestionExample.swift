@@ -10,7 +10,7 @@ class ExampleClass {
     )
 
     var request: [String:Any] = [:]
-    request["questionId"] = "XXXXXXXX"
+    request["questionId"] = "<QUESTION ID>"
       client.surveyQuestion(withRequest: request, handler: { (request, response, error) in
         let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {

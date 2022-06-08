@@ -10,7 +10,7 @@ class ExampleClass {
     )
 
     var request: [String:Any] = [:]
-    request["merchantId"] = "XXXXXXXXXXXXX"
+    request["merchantId"] = "<MERCHANT ID>"
       client.merchantUsers(withRequest: request, handler: { (request, response, error) in
         let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {

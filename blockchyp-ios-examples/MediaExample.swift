@@ -10,7 +10,6 @@ class ExampleClass {
     )
 
     var request: [String:Any] = [:]
-    request["timeout"] = 120
       client.media(withRequest: request, handler: { (request, response, error) in
         let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {

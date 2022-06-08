@@ -10,6 +10,7 @@ class ExampleClass {
     )
 
     var request: [String:Any] = [:]
+    request["transactionRef"] = "<TX REF>"
     request["amount"] = "199.99"
     request["description"] = "Widget"
     request["subject"] = "Widget invoice"

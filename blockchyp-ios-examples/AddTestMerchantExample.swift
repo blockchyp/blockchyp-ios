@@ -10,8 +10,8 @@ class ExampleClass {
     )
 
     var request: [String:Any] = [:]
-    request["dbaName"] = "DBA name."
-    request["companyName"] = "test merchant customer name."
+    request["dbaName"] = "DBA Name"
+    request["companyName"] = "Corporate Entity Name"
       client.addTestMerchant(withRequest: request, handler: { (request, response, error) in
         let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {

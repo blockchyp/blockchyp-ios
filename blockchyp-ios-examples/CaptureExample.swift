@@ -11,7 +11,8 @@ class ExampleClass {
 
     var request: [String:Any] = [:]
     request["test"] = true
-    request["transactionId"] = "<PREAUTH TRANSACTION ID>"
+    request["transactionId"] = "<ORIGINAL TRANSACTION ID>"
+    request["amount"] = "32.00"
       client.capture(withRequest: request, handler: { (request, response, error) in
         let approved = response["approved"] as? Bool
       if (approved.unsafelyUnwrapped) {

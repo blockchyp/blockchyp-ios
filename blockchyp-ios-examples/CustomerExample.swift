@@ -10,7 +10,7 @@ class ExampleClass {
     )
 
     var request: [String:Any] = [:]
-    request["customerId"] = "ID of the customer to retrieve"
+    request["customerId"] = "<CUSTOMER ID>"
       client.customer(withRequest: request, handler: { (request, response, error) in
         let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {

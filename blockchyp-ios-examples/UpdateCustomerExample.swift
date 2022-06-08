@@ -11,7 +11,7 @@ class ExampleClass {
 
     var request: [String:Any] = [:]
     var customer: [String:Any] = [:]
-    customer["id"] = "ID of the customer to update"
+    customer["id"] = "<CUSTOMER ID>"
     customer["customerRef"] = "Customer reference string"
     customer["firstName"] = "FirstName"
     customer["lastName"] = "LastName"

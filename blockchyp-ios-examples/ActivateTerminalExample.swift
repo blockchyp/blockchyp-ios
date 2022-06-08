@@ -11,7 +11,7 @@ class ExampleClass {
 
     var request: [String:Any] = [:]
     request["terminalName"] = "Test Terminal"
-    request["timeout"] = 120
+    request["activationCode"] = "<ACTIVATION CODE>"
       client.activateTerminal(withRequest: request, handler: { (request, response, error) in
         let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
