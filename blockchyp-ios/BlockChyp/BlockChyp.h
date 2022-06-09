@@ -70,6 +70,9 @@ NS_ASSUME_NONNULL_BEGIN
 // Deletes a queued transaction from the terminal.
 -(void)deleteQueuedTransactionWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
 
+// Reboot a payment terminal.
+-(void)rebootWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
 
 
 // Returns routing and location data for a payment terminal.

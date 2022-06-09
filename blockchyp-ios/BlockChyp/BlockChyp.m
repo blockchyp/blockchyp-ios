@@ -143,6 +143,13 @@
 
 }
 
+// Reboot a payment terminal.
+-(void)rebootWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler; {
+
+  [self routeTerminalRequestWith:request terminalPath:@"/api/reboot" gatewayPath:@"/api/terminal-reboot" method:@"POST" handler:handler];
+
+}
+
 
 
 // Returns routing and location data for a payment terminal.
