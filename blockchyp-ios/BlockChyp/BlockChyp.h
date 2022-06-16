@@ -153,7 +153,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)getMerchantsWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
 
 // Adds or updates a merchant account. Can be used to create or update test
-// merchants. Only gateway only partners may create new live merchants.
+// merchants. Only gateway partners may create new live merchants.
 -(void)updateMerchantWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
 
 // List all active users and pending invites for a merchant account.
