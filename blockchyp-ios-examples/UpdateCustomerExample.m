@@ -17,7 +17,7 @@ int main (int argc, const char * argv[])
   customer["firstName"] = "FirstName"
   customer["lastName"] = "LastName"
   customer["companyName"] = "Company Name"
-  customer["emailAddress"] = "support@blockchyp.com"
+  customer["emailAddress"] = "notifications@blockchypteam.m8r.co"
   customer["smsNumber"] = "(123) 123-1231"
   request["customer"] = customer
     [client updateCustomerWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {

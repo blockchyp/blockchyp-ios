@@ -55,7 +55,7 @@
     customer[@"firstName"] = @"FirstName";
     customer[@"lastName"] = @"LastName";
     customer[@"companyName"] = @"Company Name";
-    customer[@"emailAddress"] = @"support@blockchyp.com";
+    customer[@"emailAddress"] = @"notifications@blockchypteam.m8r.co";
     customer[@"smsNumber"] = @"(123) 123-1231";
   request[@"customer"] = customer;
   self.setupRequest = request;
