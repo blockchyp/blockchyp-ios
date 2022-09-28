@@ -7,10 +7,12 @@ VERSION := $(or $(TAG:v%=%),$(LASTTAG:v%=%))-$(or $(BUILD_NUMBER), 1)$(if $(TAG)
 
 # Executables
 SED = sed
-SED_SUBST = $(SED) -i
+SED_SUBST = $(SED)
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Darwin)
-	SED_SUBST += "''"
+	SED_SUBST += -i ''
+else
+	SED_SUBST += -i
 endif
 
 # Default target
