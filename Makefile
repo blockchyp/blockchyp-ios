@@ -7,6 +7,11 @@ VERSION := $(or $(TAG:v%=%),$(LASTTAG:v%=%))-$(or $(BUILD_NUMBER), 1)$(if $(TAG)
 
 # Executables
 SED = sed
+SED_SUBST = $(SED) -i
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S),Darwin)
+	SED_SUBST += "''"
+endif
 
 # Default target
 .PHONY: all
@@ -31,8 +36,8 @@ integration:
 # Performs any tasks necessary before a release build
 .PHONY: stage
 stage:
-	$(SED) -i'' 's/spec.version.*= ".*"/spec.version                     = "$(VERSION)"/' blockchyp-ios/BlockChyp.podspec
-	$(SED) -i'' "s/pod 'BlockChyp', '~> .*'/pod 'BlockChyp', '~> $(VERSION)'/" README.md
+	$(SED_SUBST) 's/spec.version.*= ".*"/spec.version                     = "$(VERSION)"/' blockchyp-ios/BlockChyp.podspec
+	$(SED_SUBST) "s/pod 'BlockChyp', '~> .*'/pod 'BlockChyp', '~> $(VERSION)'/" README.md
 
 
 # Publish packages
