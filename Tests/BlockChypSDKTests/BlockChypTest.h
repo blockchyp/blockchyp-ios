@@ -8,7 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "TestConfiguration.h"
-#import "../BlockChyp/BlockChyp.h"
+#import "../../../Sources/BlockChypSDK/include/BlockChyp.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
