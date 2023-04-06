@@ -1,0 +1,7 @@
+{
+ "gatewayHost": "https://api.blockchyp.com",
+ "testGatewayHost": "https://test.blockchyp.com",
+ "apiKey": "VOMDXTNISUNWQXO4VZ4HBA33FE",
+ "bearerToken": "HZOUHJ5QMSCOQUT73UT3AAF5A4",
+ "signingKey": "1f24c8d24dcdddc4d02d683c75bdf1930f7ab3613b451d7cc19b45f517496f36"
+}

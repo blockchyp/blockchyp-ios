@@ -7,7 +7,7 @@
 //
 
 #import "BlockChypTest.h"
-#import "../BlockChyp/EncodingUtils.h"
+#import "../../../Sources/BlockChypSDK/include/EncodingUtils.h"
 
 @implementation BlockChypTest
 
@@ -15,10 +15,16 @@
 -(TestConfiguration*)loadConfiguration {
     
     TestConfiguration *config = [[TestConfiguration alloc]init];
-    
     NSBundle *bundle = [NSBundle bundleForClass:[self class]];
-    NSString *path = [bundle pathForResource:@"sdk-itest-config" ofType:@"json"];
+    NSString *path = [SWIFTPM_MODULE_BUNDLE pathForResource:@"sdk-itest-config" ofType:@"json"];
     NSData *content = [NSData dataWithContentsOfFile:path];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    if ([fileManager fileExistsAtPath:path]){
+        printf("hello");
+    } else {
+        printf("oh no");
+    }
     
     NSString *json = [[NSString alloc] initWithData:content encoding:NSUTF8StringEncoding];
     

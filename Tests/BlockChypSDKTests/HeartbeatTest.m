@@ -7,7 +7,7 @@
 //
 
 #import "BlockChypTest.h"
-#import "../BlockChyp/BlockChyp.h"
+#import "../../../Sources/BlockChypSDK/include/BlockChyp.h"
 
 @interface HeartbeatTest : BlockChypTest
 
