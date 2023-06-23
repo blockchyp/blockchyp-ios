@@ -1,6 +1,6 @@
 # BlockChyp iOS SDK
 
-[![Build Status](https://circleci.com/gh/blockchyp/blockchyp-ios/tree/master.svg?style=shield)](https://circleci.com/gh/blockchyp/blockchyp-ios/tree/master)
+[![Build Status](https://github.com/blockchyp/blockchyp-ios/actions/workflows/main.yml/badge.svg)](https://github.com/blockchyp/blockchyp-ios/actions/workflows/main.yml)
 [![CocoaPods](https://img.shields.io/cocoapods/v/BlockChyp)](https://cocoapods.org/pods/BlockChyp)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/blockchyp/blockchyp-ios/blob/master/LICENSE)
 
