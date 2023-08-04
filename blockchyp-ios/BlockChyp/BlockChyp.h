@@ -105,6 +105,9 @@ NS_ASSUME_NONNULL_BEGIN
 // Cancels a payment link.
 -(void)cancelPaymentLinkWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
 
+// Retrieves the status of a payment link.
+-(void)paymentLinkStatusWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
 // Retrieves the current status of a transaction.
 -(void)transactionStatusWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
 

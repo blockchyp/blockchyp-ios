@@ -210,6 +210,13 @@
 
 }
 
+// Retrieves the status of a payment link.
+-(void)paymentLinkStatusWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeGatewayRequestWith:request path:@"/api/payment-link-status" method:@"POST" handler:handler];
+
+}
+
 // Retrieves the current status of a transaction.
 -(void)transactionStatusWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
 
