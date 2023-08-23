@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name                        = "BlockChyp"
-  spec.version                     = "1.16.1"
+  spec.version                     = "2.16.1"
   spec.summary                     = "BlockChyp SDK for iOS Developers."
   spec.description                 = <<-DESC
     This is the SDK for iOS. Like all BlockChyp SDKs, it provides a full
