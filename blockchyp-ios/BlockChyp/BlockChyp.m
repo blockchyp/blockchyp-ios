@@ -203,10 +203,24 @@
 
 }
 
+// Resends payment link.
+-(void)resendPaymentLinkWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeGatewayRequestWith:request path:@"/api/resend-payment-link" method:@"POST" handler:handler];
+
+}
+
 // Cancels a payment link.
 -(void)cancelPaymentLinkWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
 
   [self routeGatewayRequestWith:request path:@"/api/cancel-payment-link" method:@"POST" handler:handler];
+
+}
+
+// Retrieves the status of a payment link.
+-(void)paymentLinkStatusWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeGatewayRequestWith:request path:@"/api/payment-link-status" method:@"POST" handler:handler];
 
 }
 
