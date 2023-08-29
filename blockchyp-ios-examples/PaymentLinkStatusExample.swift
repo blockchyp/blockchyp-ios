@@ -10,7 +10,7 @@ class ExampleClass {
     )
 
     var request: [String:Any] = [:]
-    request["linkCode"] = [self.setupResponse objectForKey:@"linkCode"]
+    request["linkCode"] = "<PAYMENT LINK CODE>"
       client.paymentLinkStatus(withRequest: request, handler: { (request, response, error) in
         let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
