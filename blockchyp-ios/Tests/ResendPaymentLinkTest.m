@@ -34,10 +34,33 @@
   XCTestExpectation *expectation = [self expectationWithDescription:@"ResendPaymentLink Test Setup"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"linkCode"] = [self.setupResponse objectForKey:@"linkCode"];
+  request[@"amount"] = @"199.99";
+  request[@"description"] = @"Widget";
+  request[@"subject"] = @"Widget invoice";
+  NSMutableDictionary *transaction = [[NSMutableDictionary alloc] init];
+    transaction[@"subtotal"] = @"195.00";
+    transaction[@"tax"] = @"4.99";
+    transaction[@"total"] = @"199.99";
+    NSMutableArray *items = [[NSMutableArray alloc] init];
+    NSMutableDictionary *items1 = [[NSMutableDictionary alloc] init];
+    items1[@"description"] = @"Widget";
+    items1[@"price"] = @"195.00";
+    items1[@"quantity"] = @1;
+    [items addObject:items1];
+  transaction[@"items"] = items;
+  request[@"transaction"] = transaction;
+  request[@"autoSend"] = @YES;
+  NSMutableDictionary *customer = [[NSMutableDictionary alloc] init];
+    customer[@"customerRef"] = @"Customer reference string";
+    customer[@"firstName"] = @"FirstName";
+    customer[@"lastName"] = @"LastName";
+    customer[@"companyName"] = @"Company Name";
+    customer[@"emailAddress"] = @"notifications@blockchypteam.m8r.co";
+    customer[@"smsNumber"] = @"(123) 123-1231";
+  request[@"customer"] = customer;
   self.setupRequest = request;
 
-    [client resendPaymentLinkWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+    [client sendPaymentLinkWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
       XCTAssertNil(error);
     self.setupResponse = response;
     self.lastTransactionId = [response objectForKey:@"transactionId"];
