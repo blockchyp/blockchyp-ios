@@ -14,7 +14,7 @@ The preferred method of installing BlockChyp is via cocoapods. Add the following
 dependency to your Podfile and type `pod install`.
 
 ```
-  pod 'BlockChyp', '~> 2.16.2'
+  pod 'BlockChyp', '~> 2.16.4'
 ```
 
 Note: If you're using Swift, you'll need to make sure dynamic frameworks are turned
@@ -1408,7 +1408,7 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request["linkCode"] = [self.setupResponse objectForKey:@"linkCode"]
+  request["linkCode"] = "<PAYMENT LINK CODE>"
     [client paymentLinkStatusWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
       NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
@@ -1436,7 +1436,7 @@ class ExampleClass {
     )
 
     var request: [String:Any] = [:]
-    request["linkCode"] = [self.setupResponse objectForKey:@"linkCode"]
+    request["linkCode"] = "<PAYMENT LINK CODE>"
       client.paymentLinkStatus(withRequest: request, handler: { (request, response, error) in
         let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {

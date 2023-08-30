@@ -98,7 +98,7 @@
   XCTestExpectation *expectation = [self expectationWithDescription:@"PaymentLinkStatus Test"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"transactionRef"] = self.lastTransactionRef;
+  request[@"linkCode"] = [self.setupResponse objectForKey:@"linkCode"];
 
   [client paymentLinkStatusWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
 
