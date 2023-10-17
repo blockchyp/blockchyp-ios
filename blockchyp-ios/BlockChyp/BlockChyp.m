@@ -280,6 +280,13 @@
 
 }
 
+// Returns pricing policy for a merchant.
+-(void)pricingPolicyWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeGatewayRequestWith:request path:@"/api/read-pricing-policy" method:@"POST" handler:handler];
+
+}
+
 // Returns profile information for a merchant.
 -(void)merchantProfileWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
 
