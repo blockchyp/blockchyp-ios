@@ -281,6 +281,13 @@
 }
 
 // Returns pricing policy for a merchant.
+-(void)partnerStatementsWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeGatewayRequestWith:request path:@"/api/partner-statement-list" method:@"POST" handler:handler];
+
+}
+
+// Returns pricing policy for a merchant.
 -(void)pricingPolicyWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
 
   [self routeGatewayRequestWith:request path:@"/api/read-pricing-policy" method:@"POST" handler:handler];

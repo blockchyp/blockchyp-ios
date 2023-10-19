@@ -136,6 +136,9 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)transactionHistoryWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
 
 // Returns pricing policy for a merchant.
+-(void)partnerStatementsWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
+// Returns pricing policy for a merchant.
 -(void)pricingPolicyWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
 
 // Returns profile information for a merchant.

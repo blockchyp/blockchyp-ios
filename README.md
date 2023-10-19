@@ -6021,75 +6021,6 @@ the standard underwriting process via offer codes and invitations.
 
 
 
-#### Retrieve Pricing Policy
-
-
-
-* **API Credential Types:** Partner
-* **Required Role:** Read Pricing API
-
-The API returns the current pricing policy for a merchant.  This API is valid for partner scoped API credentials
-and `merchantId` is a required parameter.  By default this API returns the currently in-force pricing policy for a merchant,
-but other inactive policies can be returned by providing the `id` parameter.
-
-
-
-##### From Objective-C:
-
-```objective-c
-#import <Foundation/Foundation.h>
-#import <BlockChyp/BlockChyp.h>
-
-int main (int argc, const char * argv[])
-{
-  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-
-  BlockChyp *client = [[BlockChyp alloc]
-    initWithApiKey:@"SPBXTSDAQVFFX5MGQMUMIRINVI"
-    bearerToken:@"7BXBTBUPSL3BP7I6Z2CFU6H3WQ"
-    signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
-
-  NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-    [client pricingPolicyWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-      NSNumber *success = [response objectForKey:@"success"];
-    if (success.boolValue) {
-      NSLog(@"Success");
-    }
-  }];
-  [pool drain];
-  return 0;
-}
-
-```
-
-##### From Swift:
-
-```swift
-import BlockChyp
-
-class ExampleClass {
-
-  func example() {
-    let client = BlockChyp.init(
-      apiKey: "ZN5WQGX5PN6BE2MF75CEAWRETM",
-      bearerToken: "SVVHJCYVFWJR2QKYKFWMZQVZL4",
-      signingKey: "7c1b9e4d1308e7bbe76a1920ddd9449ce50af2629f6bb70ed3c110365935970b"
-    )
-
-    var request: [String:Any] = [:]
-      client.pricingPolicy(withRequest: request, handler: { (request, response, error) in
-        let approved = response["success"] as? Bool
-      if (approved.unsafelyUnwrapped) {
-        NSLog("Success")
-      }
-    })
-  }
-
-
-```
-
-
-
 #### Merchant Profile
 
 
@@ -6722,6 +6653,153 @@ class ExampleClass {
     var request: [String:Any] = [:]
     request["merchantId"] = "<MERCHANT ID>"
       client.deleteTestMerchant(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
+      if (approved.unsafelyUnwrapped) {
+        NSLog("Success")
+      }
+    })
+  }
+
+
+```
+
+
+
+### Partner Utilities
+
+
+These partner only APIs give ISV partners advanced reporting and tools for managing their portfolio.
+
+Use of these APIs requires partner scoped API credentials
+with special roles and permissions that may require a special arrangement with BlockChyp.
+
+
+
+#### Partner Statements
+
+
+
+* **API Credential Types:** Partner
+* **Required Role:** Merchant Management
+
+The API returns a list of partner residual statements.  By default, all statements are returned with the most recent
+statements listed first.  Optional date parameters can filter statements to a specific date range.
+
+
+
+##### From Objective-C:
+
+```objective-c
+#import <Foundation/Foundation.h>
+#import <BlockChyp/BlockChyp.h>
+
+int main (int argc, const char * argv[])
+{
+  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+
+  BlockChyp *client = [[BlockChyp alloc]
+    initWithApiKey:@"SPBXTSDAQVFFX5MGQMUMIRINVI"
+    bearerToken:@"7BXBTBUPSL3BP7I6Z2CFU6H3WQ"
+    signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
+
+  NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
+    [client partnerStatementsWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
+    if (success.boolValue) {
+      NSLog(@"Success");
+    }
+  }];
+  [pool drain];
+  return 0;
+}
+
+```
+
+##### From Swift:
+
+```swift
+import BlockChyp
+
+class ExampleClass {
+
+  func example() {
+    let client = BlockChyp.init(
+      apiKey: "ZN5WQGX5PN6BE2MF75CEAWRETM",
+      bearerToken: "SVVHJCYVFWJR2QKYKFWMZQVZL4",
+      signingKey: "7c1b9e4d1308e7bbe76a1920ddd9449ce50af2629f6bb70ed3c110365935970b"
+    )
+
+    var request: [String:Any] = [:]
+      client.partnerStatements(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
+      if (approved.unsafelyUnwrapped) {
+        NSLog("Success")
+      }
+    })
+  }
+
+
+```
+
+
+
+#### Retrieve Pricing Policy
+
+
+
+* **API Credential Types:** Partner
+* **Required Role:** Read Pricing API
+
+The API returns the current pricing policy for a merchant.  This API is valid for partner scoped API credentials
+and `merchantId` is a required parameter.  By default this API returns the currently in-force pricing policy for a merchant,
+but other inactive policies can be returned by providing the `id` parameter.
+
+
+
+##### From Objective-C:
+
+```objective-c
+#import <Foundation/Foundation.h>
+#import <BlockChyp/BlockChyp.h>
+
+int main (int argc, const char * argv[])
+{
+  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+
+  BlockChyp *client = [[BlockChyp alloc]
+    initWithApiKey:@"SPBXTSDAQVFFX5MGQMUMIRINVI"
+    bearerToken:@"7BXBTBUPSL3BP7I6Z2CFU6H3WQ"
+    signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
+
+  NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
+    [client pricingPolicyWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
+    if (success.boolValue) {
+      NSLog(@"Success");
+    }
+  }];
+  [pool drain];
+  return 0;
+}
+
+```
+
+##### From Swift:
+
+```swift
+import BlockChyp
+
+class ExampleClass {
+
+  func example() {
+    let client = BlockChyp.init(
+      apiKey: "ZN5WQGX5PN6BE2MF75CEAWRETM",
+      bearerToken: "SVVHJCYVFWJR2QKYKFWMZQVZL4",
+      signingKey: "7c1b9e4d1308e7bbe76a1920ddd9449ce50af2629f6bb70ed3c110365935970b"
+    )
+
+    var request: [String:Any] = [:]
+      client.pricingPolicy(withRequest: request, handler: { (request, response, error) in
         let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
