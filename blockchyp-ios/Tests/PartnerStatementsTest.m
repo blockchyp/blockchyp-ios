@@ -44,7 +44,7 @@
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
   request[@"test"] = @YES;
 
-  [client partnerStatementsWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+  [client merchantInvoicesWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
 
     [self logJSON:response];
     XCTAssertNotNil(response);

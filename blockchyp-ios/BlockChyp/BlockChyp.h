@@ -138,6 +138,9 @@ NS_ASSUME_NONNULL_BEGIN
 // Returns a list of partner statements.
 -(void)partnerStatementsWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
 
+// Returns a list of merchant invoices.
+-(void)merchantInvoicesWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
 // Returns detail for a single partner statement.
 -(void)partnerStatementDetailWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
 
