@@ -294,6 +294,13 @@
 
 }
 
+// Returns detail for a single merchant-invoice statement.
+-(void)merchantInvoiceDetailWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeGatewayRequestWith:request path:@"/api/merchant-invoice-detail" method:@"POST" handler:handler];
+
+}
+
 // Returns detail for a single partner statement.
 -(void)partnerStatementDetailWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
 
