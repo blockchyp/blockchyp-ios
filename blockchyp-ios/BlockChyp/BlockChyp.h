@@ -150,6 +150,10 @@ NS_ASSUME_NONNULL_BEGIN
 // Returns pricing policy for a merchant.
 -(void)pricingPolicyWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
 
+// Returns low level details for how partner commissions were calculated for a
+// specific merchant statement.
+-(void)partnerCommissionBreakdownWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
 // Returns profile information for a merchant.
 -(void)merchantProfileWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
 

@@ -315,6 +315,14 @@
 
 }
 
+// Returns low level details for how partner commissions were calculated for a
+// specific merchant statement.
+-(void)partnerCommissionBreakdownWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeGatewayRequestWith:request path:@"/api/partner-commission-breakdown" method:@"POST" handler:handler];
+
+}
+
 // Returns profile information for a merchant.
 -(void)merchantProfileWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
 
