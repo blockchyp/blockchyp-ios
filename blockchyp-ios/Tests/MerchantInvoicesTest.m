@@ -6,13 +6,13 @@
 
 #import "BlockChypTest.h"
 
-@interface PartnerStatementsTest : BlockChypTest
+@interface MerchantInvoicesTest : BlockChypTest
 
 
 
 @end
 
-@implementation PartnerStatementsTest
+@implementation MerchantInvoicesTest
 
 - (void)setUp {
 
@@ -30,7 +30,7 @@
 
 }
 
-- (void)testPartnerStatements{
+- (void)testMerchantInvoices{
 
   TestConfiguration *config = [self loadConfiguration];
   BlockChyp *client = [[BlockChyp alloc] initWithApiKey:config.apiKey bearerToken:config.bearerToken signingKey:config.signingKey];
@@ -39,12 +39,12 @@
   client.dashboardHost = config.dashboardHost;
 
   
-  XCTestExpectation *expectation = [self expectationWithDescription:@"PartnerStatements Test"];
+  XCTestExpectation *expectation = [self expectationWithDescription:@"MerchantInvoices Test"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
   request[@"test"] = @YES;
 
-  [client partnerStatementsWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+  [client merchantInvoicesWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
 
     [self logJSON:response];
     XCTAssertNotNil(response);
