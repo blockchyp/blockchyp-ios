@@ -6670,8 +6670,94 @@ class ExampleClass {
 
 These partner only APIs give ISV partners advanced reporting and tools for managing their portfolio.
 
-Use of these APIs requires partner scoped API credentials
-with special roles and permissions that may require a special arrangement with BlockChyp.
+Most of the APIs below are for portfolio reporting and range from basic partner commission statements
+to individual statements with all underlying card brand data.
+
+We also provide a pricing policy API that enables partners to pull down the current pricing rules
+in force for any merchant in their portfolio.
+
+<aside class="info">
+<b>Currency Data</b>
+<p>
+All partner APIs return currency and percentage values in two formats: floating point and formatted strings.
+</p>
+<p>
+It's recommended that all developers use the formatted string as this will ensure the most precise values.
+Floating point numbers are usually not appropriate for currency or fixed point decimal numbers as
+the underlying binary encoding can lead to errors in precision.  We provide floating point values
+only as a convenience for developers want to save development time and can live with approximated
+values in their use case.
+</p>
+</aside>
+
+
+
+#### Retrieve Pricing Policy
+
+
+
+* **API Credential Types:** Partner
+* **Required Role:** Partner API Access
+
+The API returns the current pricing policy for a merchant.  This API is valid for partner scoped API credentials
+and `merchantId` is a required parameter.  By default this API returns the currently in-force pricing policy for a merchant,
+but other inactive policies can be returned by providing the `id` parameter.
+
+
+
+##### From Objective-C:
+
+```objective-c
+#import <Foundation/Foundation.h>
+#import <BlockChyp/BlockChyp.h>
+
+int main (int argc, const char * argv[])
+{
+  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+
+  BlockChyp *client = [[BlockChyp alloc]
+    initWithApiKey:@"SPBXTSDAQVFFX5MGQMUMIRINVI"
+    bearerToken:@"7BXBTBUPSL3BP7I6Z2CFU6H3WQ"
+    signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
+
+  NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
+    [client pricingPolicyWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
+    if (success.boolValue) {
+      NSLog(@"Success");
+    }
+  }];
+  [pool drain];
+  return 0;
+}
+
+```
+
+##### From Swift:
+
+```swift
+import BlockChyp
+
+class ExampleClass {
+
+  func example() {
+    let client = BlockChyp.init(
+      apiKey: "ZN5WQGX5PN6BE2MF75CEAWRETM",
+      bearerToken: "SVVHJCYVFWJR2QKYKFWMZQVZL4",
+      signingKey: "7c1b9e4d1308e7bbe76a1920ddd9449ce50af2629f6bb70ed3c110365935970b"
+    )
+
+    var request: [String:Any] = [:]
+      client.pricingPolicy(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
+      if (approved.unsafelyUnwrapped) {
+        NSLog("Success")
+      }
+    })
+  }
+
+
+```
 
 
 
@@ -6937,75 +7023,6 @@ class ExampleClass {
 
     var request: [String:Any] = [:]
       client.partnerStatementDetail(withRequest: request, handler: { (request, response, error) in
-        let approved = response["success"] as? Bool
-      if (approved.unsafelyUnwrapped) {
-        NSLog("Success")
-      }
-    })
-  }
-
-
-```
-
-
-
-#### Retrieve Pricing Policy
-
-
-
-* **API Credential Types:** Partner
-* **Required Role:** Partner API Access
-
-The API returns the current pricing policy for a merchant.  This API is valid for partner scoped API credentials
-and `merchantId` is a required parameter.  By default this API returns the currently in-force pricing policy for a merchant,
-but other inactive policies can be returned by providing the `id` parameter.
-
-
-
-##### From Objective-C:
-
-```objective-c
-#import <Foundation/Foundation.h>
-#import <BlockChyp/BlockChyp.h>
-
-int main (int argc, const char * argv[])
-{
-  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-
-  BlockChyp *client = [[BlockChyp alloc]
-    initWithApiKey:@"SPBXTSDAQVFFX5MGQMUMIRINVI"
-    bearerToken:@"7BXBTBUPSL3BP7I6Z2CFU6H3WQ"
-    signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
-
-  NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-    [client pricingPolicyWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
-      NSNumber *success = [response objectForKey:@"success"];
-    if (success.boolValue) {
-      NSLog(@"Success");
-    }
-  }];
-  [pool drain];
-  return 0;
-}
-
-```
-
-##### From Swift:
-
-```swift
-import BlockChyp
-
-class ExampleClass {
-
-  func example() {
-    let client = BlockChyp.init(
-      apiKey: "ZN5WQGX5PN6BE2MF75CEAWRETM",
-      bearerToken: "SVVHJCYVFWJR2QKYKFWMZQVZL4",
-      signingKey: "7c1b9e4d1308e7bbe76a1920ddd9449ce50af2629f6bb70ed3c110365935970b"
-    )
-
-    var request: [String:Any] = [:]
-      client.pricingPolicy(withRequest: request, handler: { (request, response, error) in
         let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
