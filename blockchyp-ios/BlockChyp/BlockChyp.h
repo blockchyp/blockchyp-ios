@@ -135,6 +135,25 @@ NS_ASSUME_NONNULL_BEGIN
 // Returns the transaction history for a merchant.
 -(void)transactionHistoryWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
 
+// Returns pricing policy for a merchant.
+-(void)pricingPolicyWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
+// Returns a list of partner statements.
+-(void)partnerStatementsWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
+// Returns detail for a single partner statement.
+-(void)partnerStatementDetailWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
+// Returns a list of merchant invoices.
+-(void)merchantInvoicesWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
+// Returns detail for a single merchant-invoice statement.
+-(void)merchantInvoiceDetailWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
+// Returns low level details for how partner commissions were calculated for a
+// specific merchant statement.
+-(void)partnerCommissionBreakdownWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
 // Returns profile information for a merchant.
 -(void)merchantProfileWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
 
