@@ -104,6 +104,8 @@
 		B1D7D8612710CC3700DA2211 /* LinkTokenTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D7D84F2710CC3600DA2211 /* LinkTokenTest.m */; };
 		B1D7D8622710CC3700DA2211 /* GetCustomerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D7D8502710CC3600DA2211 /* GetCustomerTest.m */; };
 		B1FCB51F23A9DDA200545034 /* HTTPRequestDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B1FCB51E23A9DDA200545034 /* HTTPRequestDelegate.m */; };
+		C646B5102B50A17C00AF57B1 /* EmptyCredPANChargeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C646B50F2B50A17C00AF57B1 /* EmptyCredPANChargeTest.m */; };
+		C646B5122B51C11100AF57B1 /* EmptyCredTerminalChargeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C646B5112B51C11100AF57B1 /* EmptyCredTerminalChargeTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -235,6 +237,8 @@
 		B1D7D8502710CC3600DA2211 /* GetCustomerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetCustomerTest.m; sourceTree = "<group>"; };
 		B1FCB51D23A9DDA200545034 /* HTTPRequestDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTTPRequestDelegate.h; sourceTree = "<group>"; };
 		B1FCB51E23A9DDA200545034 /* HTTPRequestDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HTTPRequestDelegate.m; sourceTree = "<group>"; };
+		C646B50F2B50A17C00AF57B1 /* EmptyCredPANChargeTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmptyCredPANChargeTest.m; sourceTree = "<group>"; };
+		C646B5112B51C11100AF57B1 /* EmptyCredTerminalChargeTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmptyCredTerminalChargeTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -375,6 +379,7 @@
 				B15D17A623BDC7E9003FA0E5 /* BooleanPromptTest.m */,
 				B15D179223BDC7E8003FA0E5 /* NewTransactionDisplayTest.m */,
 				B15D179F23BDC7E9003FA0E5 /* PANChargeTest.m */,
+				C646B50F2B50A17C00AF57B1 /* EmptyCredPANChargeTest.m */,
 				B15D179C23BDC7E8003FA0E5 /* PANEnrollTest.m */,
 				B15D179923BDC7E8003FA0E5 /* PANPreauthTest.m */,
 				B15D179B23BDC7E8003FA0E5 /* SimpleBatchCloseTest.m */,
@@ -405,6 +410,7 @@
 				B12FC24923A74B9D00EAB159 /* TestConfiguration.m */,
 				B12FC24B23A74F6800EAB159 /* sdk-itest-config.json */,
 				B12FC24D23A74F8300EAB159 /* .gitignore */,
+				C646B5112B51C11100AF57B1 /* EmptyCredTerminalChargeTest.m */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -559,6 +565,7 @@
 				B15D17B223BDC7E9003FA0E5 /* PANPreauthTest.m in Sources */,
 				B15D17BE23BDC7E9003FA0E5 /* TerminalEnrollTest.m in Sources */,
 				B15D17AA23BDC7E9003FA0E5 /* TextPromptTest.m in Sources */,
+				C646B5122B51C11100AF57B1 /* EmptyCredTerminalChargeTest.m in Sources */,
 				B15D17B323BDC7E9003FA0E5 /* TerminalGiftCardBalanceTest.m in Sources */,
 				B100EC81284AB0C100C89CBB /* ListQueuedTransactionsTest.m in Sources */,
 				B100EC92284AB0C100C89CBB /* AddTestMerchantTest.m in Sources */,
@@ -590,6 +597,7 @@
 				B100EC8F284AB0C100C89CBB /* ActivateTerminalTest.m in Sources */,
 				B15D17B623BDC7E9003FA0E5 /* TerminalClearTest.m in Sources */,
 				B1D7D8592710CC3700DA2211 /* SendPaymentLinkTest.m in Sources */,
+				C646B5102B50A17C00AF57B1 /* EmptyCredPANChargeTest.m in Sources */,
 				B15D17B123BDC7E9003FA0E5 /* TerminalKeyedChargeTest.m in Sources */,
 				B100EC90284AB0C100C89CBB /* SurveyQuestionTest.m in Sources */,
 				B15D17A923BDC7E9003FA0E5 /* TermsAndConditionsTest.m in Sources */,
@@ -783,6 +791,7 @@
 		B12FC24023A746E700EAB159 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMPRESS_PNG_FILES = NO;
 				INFOPLIST_FILE = Tests/Info.plist;
@@ -801,6 +810,7 @@
 		B12FC24123A746E700EAB159 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMPRESS_PNG_FILES = NO;
 				INFOPLIST_FILE = Tests/Info.plist;
