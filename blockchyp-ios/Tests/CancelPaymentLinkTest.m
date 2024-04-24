@@ -98,6 +98,7 @@
   XCTestExpectation *expectation = [self expectationWithDescription:@"CancelPaymentLink Test"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
+  request[@"test"] = @YES;
   request[@"linkCode"] = [self.setupResponse objectForKey:@"linkCode"];
 
   [client cancelPaymentLinkWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {

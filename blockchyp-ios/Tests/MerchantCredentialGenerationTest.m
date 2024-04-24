@@ -9,6 +9,13 @@
 @interface MerchantCredentialGenerationTest : BlockChypTest
 
 
+  @property NSString *lastTransactionId;
+  @property NSString *lastTransactionRef;
+  @property NSString *lastToken;
+  @property NSString *lastCustomerId;
+  @property NSDictionary *setupRequest;
+  @property NSDictionary *setupResponse;
+
 
 @end
 
@@ -22,7 +29,38 @@
   client.testGatewayHost = config.testGatewayHost;
   client.dashboardHost = config.dashboardHost;
 
+  NSDictionary *profile = [config.profiles objectForKey:@"partner"];
+  client.apiKey = (NSString*) [profile objectForKey:@"apiKey"];
+  client.bearerToken = (NSString*) [profile objectForKey:@"bearerToken"];
+  client.signingKey = (NSString*) [profile objectForKey:@"signingKey"];
 
+
+  XCTestExpectation *expectation = [self expectationWithDescription:@"MerchantCredentialGeneration Test Setup"];
+
+  NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
+  request[@"dbaName"] = @"Test Merchant";
+  request[@"companyName"] = @"Test Merchant";
+  self.setupRequest = request;
+
+    [client addTestMerchantWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      XCTAssertNil(error);
+    self.setupResponse = response;
+    self.lastTransactionId = [response objectForKey:@"transactionId"];
+    self.lastTransactionRef = [response objectForKey:@"transactionRef"];
+    self.lastToken = [response objectForKey:@"token"];
+    NSDictionary *customer = (NSDictionary*)[response objectForKey:@"customer"];
+    if ( (customer != NULL) && (customer != [NSNull null])) {
+        self.lastCustomerId = [customer objectForKey:@"id"];
+    }
+    [expectation fulfill];
+  }];
+
+  @try {
+    [self waitForExpectationsWithTimeout:60 handler:nil];
+  }
+  @catch (NSException *exception) {
+    NSLog(@"Exception:%@",exception);
+  }
 
 }
 
@@ -38,12 +76,16 @@
   client.testGatewayHost = config.testGatewayHost;
   client.dashboardHost = config.dashboardHost;
 
+    NSDictionary *profile = [config.profiles objectForKey:@"partner"];
+  client.apiKey = (NSString*) [profile objectForKey:@"apiKey"];
+  client.bearerToken = (NSString*) [profile objectForKey:@"bearerToken"];
+  client.signingKey = (NSString*) [profile objectForKey:@"signingKey"];
   
   XCTestExpectation *expectation = [self expectationWithDescription:@"MerchantCredentialGeneration Test"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
   request[@"test"] = @YES;
-  request[@"merchantId"] = @"<MERCHANT ID>";
+  request[@"merchantId"] = [self.setupResponse objectForKey:@"merchantId"];
 
   [client merchantCredentialGenerationWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
 
