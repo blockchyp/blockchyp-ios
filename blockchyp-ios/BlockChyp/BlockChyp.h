@@ -174,6 +174,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 
+// Generates and returns api credentials for a given merchant.
+-(void)merchantCredentialGenerationWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
 // Adds a test merchant account.
 -(void)getMerchantsWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
 

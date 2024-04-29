@@ -14,7 +14,7 @@ The preferred method of installing BlockChyp is via cocoapods. Add the following
 dependency to your Podfile and type `pod install`.
 
 ```
-  pod 'BlockChyp', '~> 2.17.3'
+  pod 'BlockChyp', '~> 2.18.5'
 ```
 
 Note: If you're using Swift, you'll need to make sure dynamic frameworks are turned
@@ -7113,6 +7113,81 @@ class ExampleClass {
 
     var request: [String:Any] = [:]
       client.partnerCommissionBreakdown(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
+      if (approved.unsafelyUnwrapped) {
+        NSLog("Success")
+      }
+    })
+  }
+
+
+```
+
+
+
+#### Merchant Credential Generation
+
+
+
+* **API Credential Types:** Partner
+* **Required Role:** Partner API Access
+
+This API allows partners to generate API credentials for a merchant.
+
+The `merchantId` is required and must be the id of a valid merchant.
+
+Credentials are not delete protected by default. Pass in `deleteProtected` to enable delete protection.
+
+The optional `notes` field will populate the notes in the credentials.
+
+By default no roles will be assigned unless valid, comma-delimited, role codes are passed in the `roles` field.
+
+
+
+##### From Objective-C:
+
+```objective-c
+#import <Foundation/Foundation.h>
+#import <BlockChyp/BlockChyp.h>
+
+int main (int argc, const char * argv[])
+{
+  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+
+  BlockChyp *client = [[BlockChyp alloc]
+    initWithApiKey:@"SPBXTSDAQVFFX5MGQMUMIRINVI"
+    bearerToken:@"7BXBTBUPSL3BP7I6Z2CFU6H3WQ"
+    signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
+
+  NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
+    [client merchantCredentialGenerationWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
+    if (success.boolValue) {
+      NSLog(@"Success");
+    }
+  }];
+  [pool drain];
+  return 0;
+}
+
+```
+
+##### From Swift:
+
+```swift
+import BlockChyp
+
+class ExampleClass {
+
+  func example() {
+    let client = BlockChyp.init(
+      apiKey: "ZN5WQGX5PN6BE2MF75CEAWRETM",
+      bearerToken: "SVVHJCYVFWJR2QKYKFWMZQVZL4",
+      signingKey: "7c1b9e4d1308e7bbe76a1920ddd9449ce50af2629f6bb70ed3c110365935970b"
+    )
+
+    var request: [String:Any] = [:]
+      client.merchantCredentialGeneration(withRequest: request, handler: { (request, response, error) in
         let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")

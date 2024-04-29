@@ -6,13 +6,13 @@
 
 #import "BlockChypTest.h"
 
-@interface PartnerStatementsTest : BlockChypTest
+@interface EmptyCredTerminalChargeTest : BlockChypTest
 
 
 
 @end
 
-@implementation PartnerStatementsTest
+@implementation EmptyCredTerminalChargeTest
 
 - (void)setUp {
 
@@ -22,10 +22,6 @@
   client.testGatewayHost = config.testGatewayHost;
   client.dashboardHost = config.dashboardHost;
 
-  NSDictionary *profile = [config.profiles objectForKey:@"partner"];
-  client.apiKey = (NSString*) [profile objectForKey:@"apiKey"];
-  client.bearerToken = (NSString*) [profile objectForKey:@"bearerToken"];
-  client.signingKey = (NSString*) [profile objectForKey:@"signingKey"];
 
 
 }
@@ -34,31 +30,32 @@
 
 }
 
-- (void)testPartnerStatements{
+- (void)testEmptyCredTerminalCharge{
 
   TestConfiguration *config = [self loadConfiguration];
-  BlockChyp *client = [[BlockChyp alloc] initWithApiKey:config.apiKey bearerToken:config.bearerToken signingKey:config.signingKey];
+  BlockChyp *client = [[BlockChyp alloc] initWithApiKey:@"" bearerToken:@"" signingKey:@""];
   client.gatewayHost = config.gatewayHost;
   client.testGatewayHost = config.testGatewayHost;
   client.dashboardHost = config.dashboardHost;
 
-    NSDictionary *profile = [config.profiles objectForKey:@"partner"];
-  client.apiKey = (NSString*) [profile objectForKey:@"apiKey"];
-  client.bearerToken = (NSString*) [profile objectForKey:@"bearerToken"];
-  client.signingKey = (NSString*) [profile objectForKey:@"signingKey"];
   
-  XCTestExpectation *expectation = [self expectationWithDescription:@"PartnerStatements Test"];
+  XCTestExpectation *expectation = [self expectationWithDescription:@"TerminalCharge Test"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
+  request[@"terminalName"] = @"Test Terminal";
+  request[@"amount"] = @"25.15";
   request[@"test"] = @YES;
 
-  [client partnerStatementsWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+  [client chargeWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
 
-    [self logJSON:response];
-    XCTAssertNotNil(response);
-    // response assertions
-    XCTAssertTrue([[response objectForKey:@"success"]boolValue]);
-  
+      [self logJSON:response];
+      XCTAssertNotNil(response);
+      // response assertions
+      XCTAssertFalse([[response objectForKey:@"success"]boolValue]);
+      XCTAssertFalse([[response objectForKey:@"approved"]boolValue]);
+      XCTAssertEqualObjects(@"Access Denied", (NSString *)[response objectForKey:@"responseDescription"]);
+//      XCTAssertEqualObjects(@"unknown terminal", error.localizedDescription);
+    
     [expectation fulfill];
   }];
 

@@ -37,8 +37,9 @@
   request[@"pan"] = @"4111111111111111";
   request[@"expMonth"] = @"12";
   request[@"expYear"] = @"2025";
-  request[@"amount"] = @"25.55";
+  request[@"amount"] = @"42.45";
   request[@"test"] = @YES;
+  request[@"bypassDupeFilter"] = @YES;
   self.setupRequest = request;
 
     [client preauthWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {

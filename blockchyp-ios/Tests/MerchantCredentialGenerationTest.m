@@ -6,13 +6,20 @@
 
 #import "BlockChypTest.h"
 
-@interface PartnerCommissionBreakdownTest : BlockChypTest
+@interface MerchantCredentialGenerationTest : BlockChypTest
 
+
+  @property NSString *lastTransactionId;
+  @property NSString *lastTransactionRef;
+  @property NSString *lastToken;
+  @property NSString *lastCustomerId;
+  @property NSDictionary *setupRequest;
+  @property NSDictionary *setupResponse;
 
 
 @end
 
-@implementation PartnerCommissionBreakdownTest
+@implementation MerchantCredentialGenerationTest
 
 - (void)setUp {
 
@@ -28,13 +35,40 @@
   client.signingKey = (NSString*) [profile objectForKey:@"signingKey"];
 
 
+  XCTestExpectation *expectation = [self expectationWithDescription:@"MerchantCredentialGeneration Test Setup"];
+
+  NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
+  request[@"dbaName"] = @"Test Merchant";
+  request[@"companyName"] = @"Test Merchant";
+  self.setupRequest = request;
+
+    [client addTestMerchantWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      XCTAssertNil(error);
+    self.setupResponse = response;
+    self.lastTransactionId = [response objectForKey:@"transactionId"];
+    self.lastTransactionRef = [response objectForKey:@"transactionRef"];
+    self.lastToken = [response objectForKey:@"token"];
+    NSDictionary *customer = (NSDictionary*)[response objectForKey:@"customer"];
+    if ( (customer != NULL) && (customer != [NSNull null])) {
+        self.lastCustomerId = [customer objectForKey:@"id"];
+    }
+    [expectation fulfill];
+  }];
+
+  @try {
+    [self waitForExpectationsWithTimeout:60 handler:nil];
+  }
+  @catch (NSException *exception) {
+    NSLog(@"Exception:%@",exception);
+  }
+
 }
 
 - (void)tearDown {
 
 }
 
-- (void)testPartnerCommissionBreakdown{
+- (void)testMerchantCredentialGeneration{
 
   TestConfiguration *config = [self loadConfiguration];
   BlockChyp *client = [[BlockChyp alloc] initWithApiKey:config.apiKey bearerToken:config.bearerToken signingKey:config.signingKey];
@@ -47,12 +81,13 @@
   client.bearerToken = (NSString*) [profile objectForKey:@"bearerToken"];
   client.signingKey = (NSString*) [profile objectForKey:@"signingKey"];
   
-  XCTestExpectation *expectation = [self expectationWithDescription:@"PartnerCommissionBreakdown Test"];
+  XCTestExpectation *expectation = [self expectationWithDescription:@"MerchantCredentialGeneration Test"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
   request[@"test"] = @YES;
+  request[@"merchantId"] = [self.setupResponse objectForKey:@"merchantId"];
 
-  [client partnerCommissionBreakdownWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+  [client merchantCredentialGenerationWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
 
     [self logJSON:response];
     XCTAssertNotNil(response);

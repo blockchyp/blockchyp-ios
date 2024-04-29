@@ -6,13 +6,13 @@
 
 #import "BlockChypTest.h"
 
-@interface PartnerCommissionBreakdownTest : BlockChypTest
+@interface Test : BlockChypTest
 
 
 
 @end
 
-@implementation PartnerCommissionBreakdownTest
+@implementation Test
 
 - (void)setUp {
 
@@ -22,10 +22,6 @@
   client.testGatewayHost = config.testGatewayHost;
   client.dashboardHost = config.dashboardHost;
 
-  NSDictionary *profile = [config.profiles objectForKey:@"partner"];
-  client.apiKey = (NSString*) [profile objectForKey:@"apiKey"];
-  client.bearerToken = (NSString*) [profile objectForKey:@"bearerToken"];
-  client.signingKey = (NSString*) [profile objectForKey:@"signingKey"];
 
 
 }
@@ -34,7 +30,7 @@
 
 }
 
-- (void)testPartnerCommissionBreakdown{
+- (void)test{
 
   TestConfiguration *config = [self loadConfiguration];
   BlockChyp *client = [[BlockChyp alloc] initWithApiKey:config.apiKey bearerToken:config.bearerToken signingKey:config.signingKey];
@@ -42,22 +38,16 @@
   client.testGatewayHost = config.testGatewayHost;
   client.dashboardHost = config.dashboardHost;
 
-    NSDictionary *profile = [config.profiles objectForKey:@"partner"];
-  client.apiKey = (NSString*) [profile objectForKey:@"apiKey"];
-  client.bearerToken = (NSString*) [profile objectForKey:@"bearerToken"];
-  client.signingKey = (NSString*) [profile objectForKey:@"signingKey"];
   
-  XCTestExpectation *expectation = [self expectationWithDescription:@"PartnerCommissionBreakdown Test"];
+  XCTestExpectation *expectation = [self expectationWithDescription:@" Test"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
-  request[@"test"] = @YES;
 
-  [client partnerCommissionBreakdownWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+  [client merchantCredentialGenerationWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
 
     [self logJSON:response];
     XCTAssertNotNil(response);
     // response assertions
-    XCTAssertTrue([[response objectForKey:@"success"]boolValue]);
   
     [expectation fulfill];
   }];

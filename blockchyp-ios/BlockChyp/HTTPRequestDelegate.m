@@ -127,7 +127,7 @@ BlockChypClient *client;
             NSString *json = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
             response = [EncodingUtils parseJSON:json];;
         }
-    
+        
         self.getHandler(response, error);
     }];
     
@@ -150,12 +150,17 @@ BlockChypClient *client;
     [self gatewayGetWithPath:url test:false handler:^(NSDictionary * response, NSError * error) {
         
         if (error != nil) {
-            self.handler(request, [[NSDictionary alloc] init], error);
+            self.handler(request, response, error);
             return;
         }
         
         if (response == nil) {
             self.handler(request, [[NSDictionary alloc] init], nil);
+            return;
+        }
+        
+        if (response[@"success"] != nil && ![response[@"success"] boolValue]) {
+            self.handler(request, response, error);
             return;
         }
         
