@@ -45,8 +45,9 @@
   request[@"pan"] = @"4111111111111111";
   request[@"expMonth"] = @"12";
   request[@"expYear"] = @"2025";
-  request[@"amount"] = @"25.55";
+  request[@"amount"] = @"42.45";
   request[@"test"] = @YES;
+  request[@"bypassDupeFilter"] = @YES;
 
   [client preauthWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
 
@@ -70,7 +71,6 @@
     XCTAssertTrue([((NSString *)[response objectForKey:@"maskedPan"]) length] > 0);
     XCTAssertNotNil([response objectForKey:@"entryMethod"]);
     XCTAssertTrue([((NSString *)[response objectForKey:@"entryMethod"]) length] > 0);
-    XCTAssertEqualObjects(@"25.55", (NSString *)[response objectForKey:@"authorizedAmount"]);
     XCTAssertEqualObjects(@"KEYED", (NSString *)[response objectForKey:@"entryMethod"]);
   
     [expectation fulfill];

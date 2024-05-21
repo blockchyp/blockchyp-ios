@@ -154,9 +154,6 @@ NS_ASSUME_NONNULL_BEGIN
 // specific merchant statement.
 -(void)partnerCommissionBreakdownWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
 
-// Generates and returns api credentials for a given merchant.
--(void)merchantCredentialGenerationWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
-
 // Returns profile information for a merchant.
 -(void)merchantProfileWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
 
@@ -176,6 +173,9 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)deleteTokenWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
 
 
+
+// Generates and returns api credentials for a given merchant.
+-(void)merchantCredentialGenerationWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
 
 // Adds a test merchant account.
 -(void)getMerchantsWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;

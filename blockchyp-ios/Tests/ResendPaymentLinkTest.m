@@ -98,6 +98,7 @@
   XCTestExpectation *expectation = [self expectationWithDescription:@"ResendPaymentLink Test"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
+  request[@"test"] = @YES;
   request[@"linkCode"] = [self.setupResponse objectForKey:@"linkCode"];
 
   [client resendPaymentLinkWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {

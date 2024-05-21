@@ -323,13 +323,6 @@
 
 }
 
-// Generates and returns api credentials for a given merchant.
--(void)merchantCredentialGenerationWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
-
-  [self routeGatewayRequestWith:request path:@"/api/creds/generateMerchant" method:@"POST" handler:handler];
-
-}
-
 // Returns profile information for a merchant.
 -(void)merchantProfileWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
 
@@ -372,6 +365,14 @@
 
 }
 
+
+
+// Generates and returns api credentials for a given merchant.
+-(void)merchantCredentialGenerationWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeDashboardRequestWith:request path:@"/api/generate-merchant-creds" method:@"POST" handler:handler];
+
+}
 
 
 // Adds a test merchant account.

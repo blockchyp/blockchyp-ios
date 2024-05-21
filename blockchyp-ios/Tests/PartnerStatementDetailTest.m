@@ -22,6 +22,10 @@
   client.testGatewayHost = config.testGatewayHost;
   client.dashboardHost = config.dashboardHost;
 
+  NSDictionary *profile = [config.profiles objectForKey:@"partner"];
+  client.apiKey = (NSString*) [profile objectForKey:@"apiKey"];
+  client.bearerToken = (NSString*) [profile objectForKey:@"bearerToken"];
+  client.signingKey = (NSString*) [profile objectForKey:@"signingKey"];
 
 
 }
@@ -38,6 +42,10 @@
   client.testGatewayHost = config.testGatewayHost;
   client.dashboardHost = config.dashboardHost;
 
+    NSDictionary *profile = [config.profiles objectForKey:@"partner"];
+  client.apiKey = (NSString*) [profile objectForKey:@"apiKey"];
+  client.bearerToken = (NSString*) [profile objectForKey:@"bearerToken"];
+  client.signingKey = (NSString*) [profile objectForKey:@"signingKey"];
   
   XCTestExpectation *expectation = [self expectationWithDescription:@"PartnerStatementDetail Test"];
 
