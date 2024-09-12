@@ -10,7 +10,11 @@ class ExampleClass {
     )
 
     var request: [String:Any] = [:]
-      client.updateMerchantPlatforms(withRequest: request, handler: { (request, response, error) in
+    var profile: [String:Any] = [:]
+    profile["dbaName"] = "DBA Name"
+    profile["companyName"] = "Corporate Entity Name"
+    request["profile"] = profile
+      client.addGatewayMerchant(withRequest: request, handler: { (request, response, error) in
         let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")
