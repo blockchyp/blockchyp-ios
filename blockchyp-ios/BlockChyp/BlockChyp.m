@@ -408,6 +408,14 @@
 }
 
 
+// Adds a live gateway merchant account.
+-(void)addGatewayMerchantWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeDashboardRequestWith:request path:@"/api/add-gateway-merchant" method:@"POST" handler:handler];
+
+}
+
+
 // Adds a test merchant account.
 -(void)addTestMerchantWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
 

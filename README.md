@@ -14,7 +14,7 @@ The preferred method of installing BlockChyp is via cocoapods. Add the following
 dependency to your Podfile and type `pod install`.
 
 ```
-  pod 'BlockChyp', '~> 2.18.8'
+  pod 'BlockChyp', '~> 2.19.0'
 ```
 
 Note: If you're using Swift, you'll need to make sure dynamic frameworks are turned
@@ -6510,6 +6510,85 @@ class ExampleClass {
     var request: [String:Any] = [:]
     request["email"] = "Email address for the invite"
       client.inviteMerchantUser(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
+      if (approved.unsafelyUnwrapped) {
+        NSLog("Success")
+      }
+    })
+  }
+
+
+```
+
+
+
+#### Add Gateway Merchant
+
+
+
+* **API Credential Types:** Partner
+* **Required Role:** Gateway Boarding
+
+This is a partner level API that can be used to manually board gateway merchants.  Use this API in conjunction
+with Platform Configuration to instantly board gateway merchants.  Note that most partners don't have 
+permission to do this and are unlikely to get it.
+
+Settings can be changed by using the Update Merchant API.
+
+
+
+##### From Objective-C:
+
+```objective-c
+#import <Foundation/Foundation.h>
+#import <BlockChyp/BlockChyp.h>
+
+int main (int argc, const char * argv[])
+{
+  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+
+  BlockChyp *client = [[BlockChyp alloc]
+    initWithApiKey:@"SPBXTSDAQVFFX5MGQMUMIRINVI"
+    bearerToken:@"7BXBTBUPSL3BP7I6Z2CFU6H3WQ"
+    signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
+
+  NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
+  var profile: [String:Any] = [:]
+  profile["dbaName"] = "DBA Name"
+  profile["companyName"] = "Corporate Entity Name"
+  request["profile"] = profile
+    [client addGatewayMerchantWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
+    if (success.boolValue) {
+      NSLog(@"Success");
+    }
+  }];
+  [pool drain];
+  return 0;
+}
+
+```
+
+##### From Swift:
+
+```swift
+import BlockChyp
+
+class ExampleClass {
+
+  func example() {
+    let client = BlockChyp.init(
+      apiKey: "ZN5WQGX5PN6BE2MF75CEAWRETM",
+      bearerToken: "SVVHJCYVFWJR2QKYKFWMZQVZL4",
+      signingKey: "7c1b9e4d1308e7bbe76a1920ddd9449ce50af2629f6bb70ed3c110365935970b"
+    )
+
+    var request: [String:Any] = [:]
+    var profile: [String:Any] = [:]
+    profile["dbaName"] = "DBA Name"
+    profile["companyName"] = "Corporate Entity Name"
+    request["profile"] = profile
+      client.addGatewayMerchant(withRequest: request, handler: { (request, response, error) in
         let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")

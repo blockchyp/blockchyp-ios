@@ -190,6 +190,9 @@ NS_ASSUME_NONNULL_BEGIN
 // Invites a user to join a merchant account.
 -(void)inviteMerchantUserWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
 
+// Adds a live gateway merchant account.
+-(void)addGatewayMerchantWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
 // Adds a test merchant account.
 -(void)addTestMerchantWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
 
