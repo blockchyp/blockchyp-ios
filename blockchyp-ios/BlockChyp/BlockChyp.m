@@ -375,6 +375,14 @@
 }
 
 
+// Submits and application to add a new merchant account.
+-(void)submitApplicationWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeDashboardRequestWith:request path:@"/api/submit-application" method:@"POST" handler:handler];
+
+}
+
+
 // Adds a test merchant account.
 -(void)getMerchantsWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
 
