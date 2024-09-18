@@ -29,6 +29,9 @@ NS_ASSUME_NONNULL_BEGIN
 // Adds a new payment method to the token vault.
 -(void)enrollWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
 
+// Retrieves card metadata.
+-(void)cardMetadataWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
 // Activates or recharges a gift card.
 -(void)giftActivateWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
 

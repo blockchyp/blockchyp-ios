@@ -50,6 +50,13 @@
 
 }
 
+// Retrieves card metadata.
+-(void)cardMetadataWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler; {
+
+  [self routeTerminalRequestWith:request terminalPath:@"/api/card-metadata" gatewayPath:@"/api/card-metadata" method:@"POST" handler:handler];
+
+}
+
 // Activates or recharges a gift card.
 -(void)giftActivateWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler; {
 
