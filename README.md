@@ -14,7 +14,7 @@ The preferred method of installing BlockChyp is via cocoapods. Add the following
 dependency to your Podfile and type `pod install`.
 
 ```
-  pod 'BlockChyp', '~> 2.19.0'
+  pod 'BlockChyp', '~> 2.20.1'
 ```
 
 Note: If you're using Swift, you'll need to make sure dynamic frameworks are turned
@@ -621,6 +621,96 @@ class ExampleClass {
         let approved = response["approved"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("approved")
+      }
+    })
+  }
+
+
+```
+
+
+
+#### Card Metadata
+
+
+
+* **API Credential Types:** Merchant
+* **Required Role:** Payment API Access
+
+This API allows you to retrieve card metadata.
+
+Card metadata requests can use a payment terminal to retrieve metadata or
+use a previously enrolled payment token.
+
+**Terminal Transactions**
+
+For terminal transactions, make sure you pass in the terminal name using the `terminalName` property.
+
+**Token Transactions**
+
+If you have a payment token, omit the `terminalName` property and pass in the token with the `token`
+property instead.
+
+**Card Numbers and Mag Stripes**
+
+You can also pass in PANs and Mag Stripes, but you probably shouldn't, as this will
+put you in PCI scope and the most common vector for POS breaches is keylogging.
+If you use terminals for manual card entry, you'll bypass any keyloggers that
+might be maliciously running on the point-of-sale system.
+
+
+
+##### From Objective-C:
+
+```objective-c
+#import <Foundation/Foundation.h>
+#import <BlockChyp/BlockChyp.h>
+
+int main (int argc, const char * argv[])
+{
+  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+
+  BlockChyp *client = [[BlockChyp alloc]
+    initWithApiKey:@"SPBXTSDAQVFFX5MGQMUMIRINVI"
+    bearerToken:@"7BXBTBUPSL3BP7I6Z2CFU6H3WQ"
+    signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
+
+  NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
+  request["test"] = true
+  request["terminalName"] = "Test Terminal"
+    [client cardMetadataWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
+    if (success.boolValue) {
+      NSLog(@"success");
+    }
+  }];
+  [pool drain];
+  return 0;
+}
+
+```
+
+##### From Swift:
+
+```swift
+import BlockChyp
+
+class ExampleClass {
+
+  func example() {
+    let client = BlockChyp.init(
+      apiKey: "ZN5WQGX5PN6BE2MF75CEAWRETM",
+      bearerToken: "SVVHJCYVFWJR2QKYKFWMZQVZL4",
+      signingKey: "7c1b9e4d1308e7bbe76a1920ddd9449ce50af2629f6bb70ed3c110365935970b"
+    )
+
+    var request: [String:Any] = [:]
+    request["test"] = true
+    request["terminalName"] = "Test Terminal"
+      client.cardMetadata(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
+      if (approved.unsafelyUnwrapped) {
+        NSLog("success")
       }
     })
   }
@@ -7239,6 +7329,7 @@ int main (int argc, const char * argv[])
     signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
+  request["merchantId"] = "<MERCHANT ID>"
     [client merchantCredentialGenerationWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
       NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
@@ -7266,7 +7357,88 @@ class ExampleClass {
     )
 
     var request: [String:Any] = [:]
+    request["merchantId"] = "<MERCHANT ID>"
       client.merchantCredentialGeneration(withRequest: request, handler: { (request, response, error) in
+        let approved = response["success"] as? Bool
+      if (approved.unsafelyUnwrapped) {
+        NSLog("Success")
+      }
+    })
+  }
+
+
+```
+
+
+
+#### Submit Application
+
+
+
+* **API Credential Types:** Partner
+* **Required Role:** INVITE MERCHANT
+
+This is a partner level API that can be used to submit applications to add new merchant accounts. The application requires a significant amount of detailed information about the merchant and their business. Rather than providing an exhaustive list of required fields, we recommend submitting as much information as possible in your initial request. 
+
+If any required fields are missing or if there are any validation errors, the API will return specific error messages indicating which fields need to be addressed. Simply review these validation errors, fill in the missing information or correct any errors, and resubmit the application.
+
+Key areas of information include:
+- Business details (name, type, tax information)
+- Contact information
+- Address information (physical and mailing)
+- Owner details
+- Bank account information
+- Transaction volume estimates
+- Operational settings (timezone, batch close time, etc.)
+
+**Note:** Some fields may be conditionally required based on the values of other fields. The validation process will guide you through ensuring all necessary information is provided.
+
+
+
+##### From Objective-C:
+
+```objective-c
+#import <Foundation/Foundation.h>
+#import <BlockChyp/BlockChyp.h>
+
+int main (int argc, const char * argv[])
+{
+  NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+
+  BlockChyp *client = [[BlockChyp alloc]
+    initWithApiKey:@"SPBXTSDAQVFFX5MGQMUMIRINVI"
+    bearerToken:@"7BXBTBUPSL3BP7I6Z2CFU6H3WQ"
+    signingKey:@"bcae3708938cb8004ab1278e6c0fcd68f9d815e1c3c86228d028242b147af58e"];
+
+  NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
+    [client submitApplicationWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
+      NSNumber *success = [response objectForKey:@"success"];
+    if (success.boolValue) {
+      NSLog(@"Success");
+    }
+  }];
+  [pool drain];
+  return 0;
+}
+
+```
+
+##### From Swift:
+
+```swift
+import BlockChyp
+
+class ExampleClass {
+
+  func example() {
+    let client = BlockChyp.init(
+      apiKey: "ZN5WQGX5PN6BE2MF75CEAWRETM",
+      bearerToken: "SVVHJCYVFWJR2QKYKFWMZQVZL4",
+      signingKey: "7c1b9e4d1308e7bbe76a1920ddd9449ce50af2629f6bb70ed3c110365935970b"
+    )
+
+    var request: [String:Any] = [:]
+      client.submitApplication(withRequest: request, handler: { (request, response, error) in
         let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")

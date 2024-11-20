@@ -29,6 +29,9 @@ NS_ASSUME_NONNULL_BEGIN
 // Adds a new payment method to the token vault.
 -(void)enrollWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
 
+// Retrieves card metadata.
+-(void)cardMetadataWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
 // Activates or recharges a gift card.
 -(void)giftActivateWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
 
@@ -176,6 +179,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 // Generates and returns api credentials for a given merchant.
 -(void)merchantCredentialGenerationWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
+// Submits and application to add a new merchant account.
+-(void)submitApplicationWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
 
 // Adds a test merchant account.
 -(void)getMerchantsWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;

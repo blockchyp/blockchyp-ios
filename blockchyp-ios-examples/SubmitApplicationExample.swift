@@ -10,8 +10,7 @@ class ExampleClass {
     )
 
     var request: [String:Any] = [:]
-    request["merchantId"] = "<MERCHANT ID>"
-      client.merchantCredentialGeneration(withRequest: request, handler: { (request, response, error) in
+      client.submitApplication(withRequest: request, handler: { (request, response, error) in
         let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
         NSLog("Success")

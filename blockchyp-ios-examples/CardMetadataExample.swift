@@ -10,11 +10,12 @@ class ExampleClass {
     )
 
     var request: [String:Any] = [:]
-    request["merchantId"] = "<MERCHANT ID>"
-      client.merchantCredentialGeneration(withRequest: request, handler: { (request, response, error) in
+    request["test"] = true
+    request["terminalName"] = "Test Terminal"
+      client.cardMetadata(withRequest: request, handler: { (request, response, error) in
         let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
-        NSLog("Success")
+        NSLog("success")
       }
     })
   }

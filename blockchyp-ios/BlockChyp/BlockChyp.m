@@ -50,6 +50,13 @@
 
 }
 
+// Retrieves card metadata.
+-(void)cardMetadataWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler; {
+
+  [self routeTerminalRequestWith:request terminalPath:@"/api/card-metadata" gatewayPath:@"/api/card-metadata" method:@"POST" handler:handler];
+
+}
+
 // Activates or recharges a gift card.
 -(void)giftActivateWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler; {
 
@@ -371,6 +378,14 @@
 -(void)merchantCredentialGenerationWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
 
   [self routeDashboardRequestWith:request path:@"/api/generate-merchant-creds" method:@"POST" handler:handler];
+
+}
+
+
+// Submits and application to add a new merchant account.
+-(void)submitApplicationWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeDashboardRequestWith:request path:@"/api/submit-application" method:@"POST" handler:handler];
 
 }
 
