@@ -15,7 +15,7 @@ Pod::Spec.new do |spec|
   spec.frameworks                  = "Foundation"
   spec.requires_arc                = true
   spec.platform                    = :ios
-  spec.ios.deployment_target       = "8.0"
+  spec.ios.deployment_target       = "12.0"
   spec.source_files                = "blockchyp-ios/BlockChyp/*.{h,m}"
   spec.public_header_files         = "blockchyp-ios/BlockChyp/*.h"
   spec.xcconfig = {
