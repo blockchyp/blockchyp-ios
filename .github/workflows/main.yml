@@ -34,7 +34,7 @@ jobs:
           channel: '#gitactivity'
         if: always()
   publish:
-    runs-on: macos-12
+    runs-on: macos-latest
     if: ${{ always() && contains(join(needs.*.result, ','), 'success') && startsWith(github.ref_name, 'v') }}
     needs: [ test ]
     steps:

@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name                        = "BlockChyp"
-  spec.version                     = "2.21.0"
+  spec.version                     = "2.24.2"
   spec.summary                     = "BlockChyp SDK for iOS Developers."
   spec.description                 = <<-DESC
     This is the SDK for iOS. Like all BlockChyp SDKs, it provides a full
@@ -15,7 +15,7 @@ Pod::Spec.new do |spec|
   spec.frameworks                  = "Foundation"
   spec.requires_arc                = true
   spec.platform                    = :ios
-  spec.ios.deployment_target       = "8.0"
+  spec.ios.deployment_target       = "12.0"
   spec.source_files                = "blockchyp-ios/BlockChyp/*.{h,m}"
   spec.public_header_files         = "blockchyp-ios/BlockChyp/*.h"
   spec.xcconfig = {
