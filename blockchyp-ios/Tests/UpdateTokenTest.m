@@ -82,8 +82,8 @@
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
   request[@"token"] = self.lastToken;
-  request[@"expMonth"] = 12;
-  request[@"expYear"] = 2040;
+  request[@"expiryMonth"] = @"12";
+  request[@"expiryYear"] = @"2040";
 
   [client updateTokenWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
 

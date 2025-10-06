@@ -11,8 +11,8 @@ class ExampleClass {
 
     var request: [String:Any] = [:]
     request["token"] = "<TOKEN>"
-    request["expMonth"] = 12
-    request["expYear"] = 2040
+    request["expiryMonth"] = "12"
+    request["expiryYear"] = "2040"
       client.updateToken(withRequest: request, handler: { (request, response, error) in
         let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
