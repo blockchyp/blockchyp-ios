@@ -365,6 +365,13 @@
 
 }
 
+// Updates a payment token.
+-(void)updateTokenWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeGatewayRequestWith:request path:[@"/api/token/" stringByAppendingString:[request objectForKey:@"token"]] method:@"POST" handler:handler];
+
+}
+
 // Deletes a payment token.
 -(void)deleteTokenWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
 
