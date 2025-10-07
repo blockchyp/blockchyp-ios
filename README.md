@@ -14,7 +14,7 @@ The preferred method of installing BlockChyp is via cocoapods. Add the following
 dependency to your Podfile and type `pod install`.
 
 ```
-  pod 'BlockChyp', '~> 2.24.7'
+  pod 'BlockChyp', '~> 2.24.8'
 ```
 
 Note: If you're using Swift, you'll need to make sure dynamic frameworks are turned
@@ -4302,8 +4302,8 @@ int main (int argc, const char * argv[])
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
   request["token"] = "<TOKEN>"
-  request["expMonth"] = 12
-  request["expYear"] = 2040
+  request["expiryMonth"] = "12"
+  request["expiryYear"] = "2040"
     [client updateTokenWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
       NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
@@ -4332,8 +4332,8 @@ class ExampleClass {
 
     var request: [String:Any] = [:]
     request["token"] = "<TOKEN>"
-    request["expMonth"] = 12
-    request["expYear"] = 2040
+    request["expiryMonth"] = "12"
+    request["expiryYear"] = "2040"
       client.updateToken(withRequest: request, handler: { (request, response, error) in
         let approved = response["success"] as? Bool
       if (approved.unsafelyUnwrapped) {
