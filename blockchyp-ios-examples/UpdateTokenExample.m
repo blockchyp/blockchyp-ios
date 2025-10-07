@@ -12,8 +12,8 @@ int main (int argc, const char * argv[])
 
   NSMutableDictionary *request = [[NSMutableDictionary alloc] init];
   request["token"] = "<TOKEN>"
-  request["expMonth"] = 12
-  request["expYear"] = 2040
+  request["expiryMonth"] = "12"
+  request["expiryYear"] = "2040"
     [client updateTokenWithRequest:request handler:^(NSDictionary *request, NSDictionary *response, NSError *error) {
       NSNumber *success = [response objectForKey:@"success"];
     if (success.boolValue) {
