@@ -166,6 +166,13 @@
 
 }
 
+// Calculates surcharge information for a payment request.
+-(void)surchargeReviewWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeGatewayRequestWith:request path:@"/api/surcharge-review" method:@"POST" handler:handler];
+
+}
+
 // Captures a preauthorization.
 -(void)captureWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
 

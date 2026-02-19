@@ -81,6 +81,9 @@ NS_ASSUME_NONNULL_BEGIN
 // Returns routing and location data for a payment terminal.
 -(void)locateWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
 
+// Calculates surcharge information for a payment request.
+-(void)surchargeReviewWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
 // Captures a preauthorization.
 -(void)captureWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
 
