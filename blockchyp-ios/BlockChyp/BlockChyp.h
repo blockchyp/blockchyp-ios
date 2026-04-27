@@ -84,6 +84,9 @@ NS_ASSUME_NONNULL_BEGIN
 // Calculates surcharge information for a payment request.
 -(void)surchargeReviewWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
 
+// Generates a short-lived API key scoped to terminal and payment operations.
+-(void)transientKeyWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
+
 // Captures a preauthorization.
 -(void)captureWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler;
 

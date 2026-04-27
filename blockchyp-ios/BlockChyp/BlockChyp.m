@@ -173,6 +173,13 @@
 
 }
 
+// Generates a short-lived API key scoped to terminal and payment operations.
+-(void)transientKeyWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
+
+  [self routeGatewayRequestWith:request path:@"/api/transient-credentials" method:@"POST" handler:handler];
+
+}
+
 // Captures a preauthorization.
 -(void)captureWithRequest:(NSDictionary *)request handler:(BlockChypCompletionHandler)handler {
 
