@@ -14,7 +14,7 @@ The preferred method of installing BlockChyp is via cocoapods. Add the following
 dependency to your Podfile and type `pod install`.
 
 ```
-  pod 'BlockChyp', '~> 2.30.17'
+  pod 'BlockChyp', '~> 2.30.18'
 ```
 
 Note: If you're using Swift, you'll need to make sure dynamic frameworks are turned
